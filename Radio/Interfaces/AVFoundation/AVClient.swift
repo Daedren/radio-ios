@@ -1,5 +1,4 @@
 import Foundation
-import UIKit
 import Combine
 import AVFoundation
 
@@ -20,13 +19,11 @@ public class AVClient: NSObject {
         try? AVAudioSession.sharedInstance().setCategory(.playback, options: .mixWithOthers)
         try? AVAudioSession.sharedInstance().setActive(true)
         self.manager.play()
-        UIApplication.shared.beginReceivingRemoteControlEvents()
     }
     
     public func pause() {
         try? AVAudioSession.sharedInstance().setActive(false)
         self.manager.pause()
-        UIApplication.shared.endReceivingRemoteControlEvents()
     }
     
     public func enqueue(url: URL) -> Bool {
@@ -63,7 +60,6 @@ public class AVClient: NSObject {
     
 }
 
-//class PushCasd: NSObject, AVPlayerItemMetadataOutputPushDelegate {
 extension AVClient: AVPlayerItemMetadataOutputPushDelegate {
     public func metadataOutput(_ output: AVPlayerItemMetadataOutput, didOutputTimedMetadataGroups groups: [AVTimedMetadataGroup], from track: AVPlayerItemTrack?) {
         print("output: \(output)")
