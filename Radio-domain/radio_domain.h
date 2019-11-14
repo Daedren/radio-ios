@@ -1,10 +1,3 @@
-//
-//  Radio_Domain.h
-//  Radio-Domain
-//
-//  Created by Ricardo Moreira on 10/11/2019.
-//  Copyright © 2019 RKM. All rights reserved.
-//
 
 #import <Foundation/Foundation.h>
 

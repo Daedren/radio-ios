@@ -1,10 +1,3 @@
-//
-//  Interactor.swift
-//  Radio-Domain
-//
-
-
-//
 
 import Foundation
 

@@ -1,13 +1,6 @@
-//
-//  radioTests.swift
-//  radioTests
-//
-
-
-//
 
 import XCTest
-@testable import radio
+@testable import Radio
 
 class radioTests: XCTestCase {
 

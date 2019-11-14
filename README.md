@@ -1,12 +1,12 @@
 # R/a/dio iOS app
 
 ## To-do
-- [ ] AVFoundation
+- [x] AVFoundation
     - [x] Play, Pause
     - [x] Retrieve ICY metadata
-- [ ] MediaPlayer
-    - [ ] Handle remote commands (MPRemoteCommandEvent)
-    - [ ] Update command center metadata
+- [x] MediaPlayer
+    - [x] Handle remote commands (MPRemoteCommandEvent)
+    - [x] Update command center metadata
 - [ ] iOS / iPadOS Front-end
     - [ ] Radio
         - [ ] DJ and current track
