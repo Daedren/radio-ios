@@ -1,10 +1,3 @@
-//
-//  GatewayError.swift
-//  Radio-Domain
-//
-
-
-//
 
 import Foundation
 

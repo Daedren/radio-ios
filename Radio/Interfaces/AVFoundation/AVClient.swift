@@ -7,23 +7,35 @@ public class AVClient: NSObject {
     var manager: AVQueuePlayer
     var songName = PassthroughSubject<String,Never>()
     
+    var timeObserverToken: Any?
+    var playbackInfo = PassthroughSubject<AVPlaybackInfo,Never>()
+    
     public override init() {
         self.manager = AVQueuePlayer()
         super.init()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(itemFailedToPlayToEndTime(_:)), name: .AVPlayerItemFailedToPlayToEndTime, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(itemNewErrorLogEntry(_:)), name: .AVPlayerItemNewErrorLogEntry, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(itemPlaybackStalled(_:)), name: .AVPlayerItemPlaybackStalled, object: nil)
     }
     
     public func play() {
-        try? AVAudioSession.sharedInstance().setCategory(.playback, options: .mixWithOthers)
-        try? AVAudioSession.sharedInstance().setActive(true)
         self.manager.play()
+        let timeScale = CMTimeScale(NSEC_PER_SEC)
+        let time = CMTime(seconds: 5.0, preferredTimescale: timeScale)
+        self.timeObserverToken = self.manager.addPeriodicTimeObserver(
+            forInterval: time,
+            queue: DispatchQueue.global(qos: .background),
+            using: updatePlaybackInfo(with:))
+        
     }
     
     public func pause() {
-        try? AVAudioSession.sharedInstance().setActive(false)
         self.manager.pause()
+        if let token = self.timeObserverToken {
+            self.manager.removeTimeObserver(token)
+            self.timeObserverToken = nil
+        }
     }
     
     public func enqueue(url: URL) -> Bool {
@@ -42,6 +54,10 @@ public class AVClient: NSObject {
         return songName.eraseToAnyPublisher()
     }
     
+    public func getPlaybackInfo() -> AnyPublisher<AVPlaybackInfo,Never> {
+        return self.playbackInfo.eraseToAnyPublisher()
+    }
+    
     private func createMetadataOutput() -> AVPlayerItemMetadataOutput{
         let metadataOutput = AVPlayerItemMetadataOutput()
         metadataOutput.setDelegate(self, queue: DispatchQueue.global(qos: .default))
@@ -56,6 +72,14 @@ public class AVClient: NSObject {
     }
     @objc func itemNewErrorLogEntry(_ notification: Notification) {
         print("\(notification.debugDescription)")
+    }
+    
+    private func updatePlaybackInfo(with time: CMTime) {
+//        print("Updating time at \(time)")
+        self.playbackInfo.send(
+            AVPlaybackInfo(rate: 1.0,
+                           position: Float(time.seconds))
+        )
     }
     
 }

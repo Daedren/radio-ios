@@ -1,10 +1,3 @@
-//
-//  Radio_Domain.h
-//  Radio-Domain
-//
-//  Created by  Daedren  on10/11/2019.
-//  Copyright © 2019  raikAll rights reserved.
-//
 
 #import <Foundation/Foundation.h>
 

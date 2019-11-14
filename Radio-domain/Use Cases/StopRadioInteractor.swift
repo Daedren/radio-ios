@@ -1,10 +1,3 @@
-//
-//  StopRadioInteractor.swift
-//  Radio-Domain
-//
-
-
-//
 
 import Foundation
 import Combine

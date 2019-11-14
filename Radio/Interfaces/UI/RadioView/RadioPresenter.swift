@@ -11,6 +11,7 @@ class RadioPresenter: ObservableObject {
     private var disposeBag = Set<AnyCancellable>()
     
     @Published var songName: String = ""
+    @Published var playText: String = "Play"
     
     init(play: PlayRadioInteractor, pause: StopRadioInteractor, songName: GetSongNameInteractor) {
         self.playInteractor = play
@@ -21,10 +22,12 @@ class RadioPresenter: ObservableObject {
     func togglePlay() {
         if isPlaying {
             print("Pausing")
+            self.playText = "Stop"
             self.pauseInteractor.execute()
         }
         else {
             print("Playing")
+            self.playText = "Play"
             self.playInteractor.execute()
         }
         self.isPlaying = !isPlaying
