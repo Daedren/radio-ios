@@ -66,7 +66,7 @@ extension RemoteControl {
     // Set playback info. Implementations of `handleNowPlayablePlaybackChange(playing:rate:position:duration:)`
     // will typically invoke this method.
     
-    func setNowPlayingPlaybackInfo(_ metadata: NowPlayableDynamicMetadata) {
+    func setNowPlayingPlaybackInfo(_ metadata: RemoteControlDynamicMetadata) {
         
         let nowPlayingInfoCenter = MPNowPlayingInfoCenter.default()
         var nowPlayingInfo = nowPlayingInfoCenter.nowPlayingInfo ?? [String: Any]()
