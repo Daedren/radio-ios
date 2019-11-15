@@ -1,0 +1,93 @@
+{
+    "main": {
+        "np": "Golden City Factory - 夜だから眠れない",
+        "listeners": 104,
+        "bitrate": 0,
+        "isafkstream": true,
+        "isstreamdesk": false,
+        "current": 1573777634,
+        "start_time": 1573777606,
+        "end_time": 1573777955,
+        "lastset": "2019-11-15 00:27:08",
+        "trackid": 7918,
+        "thread": "none",
+        "requesting": true,
+        "djname": "",
+        "dj": {
+            "id": 18,
+            "djname": "Hanyuu-sama",
+            "djtext": "",
+            "djimage": "18-x.png",
+            "djcolor": "51 155 185",
+            "visible": true,
+            "priority": 8,
+            "css": "hanyuu.css",
+            "theme_id": 2,
+            "role": "dj"
+        },
+        "queue": [
+            {
+                "meta": "Doubutsu Biscuits * PPP - Welcome to Japari Park",
+                "time": "<time class=\"timeago\" datetime=\"2019-11-15T00:32:34+0000\">00:32:34</time>",
+                "type": 1,
+                "timestamp": 1573777954
+            },
+            {
+                "meta": "Ken Ashcorp - Theme of the G",
+                "time": "<time class=\"timeago\" datetime=\"2019-11-15T00:35:58+0000\">00:35:58</time>",
+                "type": 0,
+                "timestamp": 1573778158
+            },
+            {
+                "meta": "Matsutouya Yumi - Hikoukigumo",
+                "time": "<time class=\"timeago\" datetime=\"2019-11-15T00:37:47+0000\">00:37:47</time>",
+                "type": 1,
+                "timestamp": 1573778267
+            },
+            {
+                "meta": "Yuu Takahashi - Genjitsu to Iu na no Kaibutsu to Tatakau Monotachi",
+                "time": "<time class=\"timeago\" datetime=\"2019-11-15T00:41:13+0000\">00:41:13</time>",
+                "type": 1,
+                "timestamp": 1573778473
+            },
+            {
+                "meta": "Tanaka Rie - Katakoto no Koi (Duet)",
+                "time": "<time class=\"timeago\" datetime=\"2019-11-15T00:45:29+0000\">00:45:29</time>",
+                "type": 0,
+                "timestamp": 1573778729
+            }
+        ],
+        "lp": [
+            {
+                "meta": "Kurosaki Maon - Setsuna no Kajitsu",
+                "time": "<time class=\"timeago\" datetime=\"2019-11-15T00:26:45+0000\">00:26:45</time>",
+                "type": 0,
+                "timestamp": 1573777605
+            },
+            {
+                "meta": "Wada Hiroki - Mystic Eyes",
+                "time": "<time class=\"timeago\" datetime=\"2019-11-15T00:22:32+0000\">00:22:32</time>",
+                "type": 0,
+                "timestamp": 1573777352
+            },
+            {
+                "meta": "ClariS - Tik Tak",
+                "time": "<time class=\"timeago\" datetime=\"2019-11-15T00:18:13+0000\">00:18:13</time>",
+                "type": 0,
+                "timestamp": 1573777093
+            },
+            {
+                "meta": "ClariS - reunion",
+                "time": "<time class=\"timeago\" datetime=\"2019-11-15T00:14:00+0000\">00:14:00</time>",
+                "type": 0,
+                "timestamp": 1573776840
+            },
+            {
+                "meta": "Yoshimi Iwasaki - Che Che Che",
+                "time": "<time class=\"timeago\" datetime=\"2019-11-15T00:09:06+0000\">00:09:06</time>",
+                "type": 0,
+                "timestamp": 1573776546
+            }
+        ]
+    }
+}
