@@ -104,8 +104,8 @@ extension AVGatewayImp {
         return metadata
     }
     
-    private func createDynamicMetadata(from avMetadata: AVPlaybackInfo) -> NowPlayableDynamicMetadata {
-        let metadata = NowPlayableDynamicMetadata(rate: avMetadata.rate,
+    private func createDynamicMetadata(from avMetadata: AVPlaybackInfo) -> RemoteControlDynamicMetadata {
+        let metadata = RemoteControlDynamicMetadata(rate: avMetadata.rate,
                                                   position: avMetadata.position,
                                                   currentLanguageOptions: [],
                                                   availableLanguageOptionGroups: [])

@@ -17,7 +17,7 @@ struct RemoteControlStaticMetadata {
     
 }
 
-struct NowPlayableDynamicMetadata {
+struct RemoteControlDynamicMetadata {
     
     let rate: Float                     // MPNowPlayingInfoPropertyPlaybackRate
     let position: Float                 // MPNowPlayingInfoPropertyElapsedPlaybackTime

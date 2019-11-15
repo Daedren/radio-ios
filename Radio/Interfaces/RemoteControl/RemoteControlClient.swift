@@ -25,7 +25,7 @@ class RemoteControlClient: RemoteControl {
         self.setNowPlayingMetadata(metadata)
     }
     
-    func setPlayback(metadata: NowPlayableDynamicMetadata) {
+    func setPlayback(metadata: RemoteControlDynamicMetadata) {
         self.setNowPlayingPlaybackInfo(metadata)
     }
     
