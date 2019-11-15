@@ -5,8 +5,9 @@
     - [x] Play, Pause
     - [x] Retrieve ICY metadata
 - [x] MediaPlayer
-    - [x] Handle remote commands (MPRemoteCommandEvent)
+    - [x] Handle remote commands
     - [x] Update command center metadata
+- [ ] Integrate API
 - [ ] iOS / iPadOS Front-end
     - [ ] Radio
         - [ ] DJ and current track
@@ -14,7 +15,7 @@
         - [ ] Seek bar and duration
     - [ ] News
     - [ ] Request
-- [ ] CarPlay support (MPPlayableContentManager)    
+- [ ] CarPlay support
 - [ ] tvOS Front-end
 - [ ] Set up CI & CD
 
