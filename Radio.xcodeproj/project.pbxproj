@@ -24,7 +24,6 @@
 		096E0B9A237A089600024572 /* RemoteControlCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E0B99237A089600024572 /* RemoteControlCommand.swift */; };
 		096E0B9C237A08A500024572 /* RemoteControlMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E0B9B237A08A500024572 /* RemoteControlMetadata.swift */; };
 		096E0B9E237A08B500024572 /* RemoteControlError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E0B9D237A08B500024572 /* RemoteControlError.swift */; };
-		096E0BA3237A09C800024572 /* RemoteControlClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E0BA2237A09C800024572 /* RemoteControlClient.swift */; };
 		097C1EA42378716F00A7A5AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097C1EA32378716F00A7A5AD /* AppDelegate.swift */; };
 		097C1EA62378716F00A7A5AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097C1EA52378716F00A7A5AD /* SceneDelegate.swift */; };
 		097C1EA82378716F00A7A5AD /* MainTabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097C1EA72378716F00A7A5AD /* MainTabsView.swift */; };
@@ -41,6 +40,7 @@
 		0990B7AD2378F56000C213B7 /* GetSongNameInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0990B7AC2378F56000C213B7 /* GetSongNameInteractor.swift */; };
 		0990B7AF2378F8E100C213B7 /* AVClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0990B7AE2378F8E100C213B7 /* AVClient.swift */; };
 		09BD7809237E206D008950CD /* AppleLicense in Resources */ = {isa = PBXBuildFile; fileRef = 09BD7808237E206D008950CD /* AppleLicense */; };
+		09BD780C237E2527008950CD /* RemoteControlClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD780B237E2527008950CD /* RemoteControlClient.swift */; };
 		09FDBE74237E03C3001E34DE /* AVPlaybackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FDBE73237E03C3001E34DE /* AVPlaybackInfo.swift */; };
 /* End PBXBuildFile section */
 
@@ -107,7 +107,6 @@
 		096E0B99237A089600024572 /* RemoteControlCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlCommand.swift; sourceTree = "<group>"; };
 		096E0B9B237A08A500024572 /* RemoteControlMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlMetadata.swift; sourceTree = "<group>"; };
 		096E0B9D237A08B500024572 /* RemoteControlError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlError.swift; sourceTree = "<group>"; };
-		096E0BA2237A09C800024572 /* RemoteControlClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlClient.swift; sourceTree = "<group>"; };
 		097C1EA02378716F00A7A5AD /* Radio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Radio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		097C1EA32378716F00A7A5AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		097C1EA52378716F00A7A5AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +128,7 @@
 		0990B7AC2378F56000C213B7 /* GetSongNameInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSongNameInteractor.swift; sourceTree = "<group>"; };
 		0990B7AE2378F8E100C213B7 /* AVClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVClient.swift; sourceTree = "<group>"; };
 		09BD7808237E206D008950CD /* AppleLicense */ = {isa = PBXFileReference; lastKnownFileType = text; path = AppleLicense; sourceTree = "<group>"; };
+		09BD780B237E2527008950CD /* RemoteControlClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlClient.swift; sourceTree = "<group>"; };
 		09FDBE73237E03C3001E34DE /* AVPlaybackInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlaybackInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -258,7 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				096E0B9F237A08F800024572 /* Utilities */,
-				096E0BA2237A09C800024572 /* RemoteControlClient.swift */,
+				09BD780B237E2527008950CD /* RemoteControlClient.swift */,
 			);
 			path = RemoteControl;
 			sourceTree = "<group>";
@@ -557,8 +557,8 @@
 				097C1EA82378716F00A7A5AD /* MainTabsView.swift in Sources */,
 				0941B50C2378830400994F67 /* Configurator.swift in Sources */,
 				096E0B9A237A089600024572 /* RemoteControlCommand.swift in Sources */,
-				096E0BA3237A09C800024572 /* RemoteControlClient.swift in Sources */,
 				096E0B9E237A08B500024572 /* RemoteControlError.swift in Sources */,
+				09BD780C237E2527008950CD /* RemoteControlClient.swift in Sources */,
 				096E0B98237A07F300024572 /* RemoteControl.swift in Sources */,
 				0941B5062378800C00994F67 /* RadioPresenter.swift in Sources */,
 				0941B512237883E800994F67 /* RadioConfigurator.swift in Sources */,
