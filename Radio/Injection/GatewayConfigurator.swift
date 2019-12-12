@@ -8,5 +8,11 @@ class GatewayConfigurator: Assembly {
         container.register(AVGateway.self) { _ in
             return AVGatewayImp()
         }
+        container.register(RadioGateway.self) { _ in
+            return RadioGatewayImp(
+                network: container.resolve(NetworkDispatcher.self)!,
+                radioMapper: container.resolve(RadioMapper.self)!
+            )
+        }
     }
 }
