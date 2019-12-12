@@ -88,7 +88,7 @@ extension AVClient: AVPlayerItemMetadataOutputPushDelegate {
     public func metadataOutput(_ output: AVPlayerItemMetadataOutput, didOutputTimedMetadataGroups groups: [AVTimedMetadataGroup], from track: AVPlayerItemTrack?) {
         print("output: \(output)")
         print("groups: \(groups)")
-        print("track: \(track)")
+        print("track: \(String(describing: track))")
         
         if let group = groups.first, let item = group.items.first, let stringName = item.value as? String {
             self.songName.send(stringName)

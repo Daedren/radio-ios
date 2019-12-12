@@ -2,7 +2,11 @@ import Foundation
 import Radio_Domain
 import Combine
 
-public class GetSongNameInteractor: Interactor {
+public protocol GetSongNameUseCase {
+    func execute() -> AnyPublisher<String,Never>
+}
+
+public class GetSongNameInteractor: GetSongNameUseCase {
     var avGateway: AVGateway
     
     public init(avGateway: AVGateway) {

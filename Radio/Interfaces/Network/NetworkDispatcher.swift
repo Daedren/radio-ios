@@ -14,7 +14,7 @@ public struct AnyEncodable: Encodable {
 }
 
 public enum APIError: Error {
-    case httpError(code: Int, message: String)
+    case httpError(code: Int)
     case requestTimedOut
     case noInternet
     case invalidCertificate

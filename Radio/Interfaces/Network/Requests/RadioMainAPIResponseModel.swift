@@ -1,6 +1,6 @@
 import Foundation
 
-struct RadioMainAPIResponseModel: Decodable {
+public struct RadioMainAPIResponseModel: Decodable {
     let main: RadioMainAPIResponseBody
     
     enum CodingKeys: String, CodingKey {

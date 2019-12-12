@@ -2,7 +2,11 @@
 import Foundation
 import Combine
 
-public class PlayRadioInteractor: Interactor {
+public protocol PlayRadioUseCase {
+    func execute()
+}
+
+public class PlayRadioInteractor: PlayRadioUseCase {
     var avGateway: AVGateway
     var radioUrl: URL = URL(string: "https://r-a-d.io/assets/main.mp3.m3u")!
 //    var radioUrl: URL = URL(string: "https://r-a-d.io/main.mp3")!

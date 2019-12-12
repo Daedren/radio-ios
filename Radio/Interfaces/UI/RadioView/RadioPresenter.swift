@@ -3,9 +3,9 @@ import Combine
 import Radio_Domain
 
 class RadioPresenter: ObservableObject {
-    var playInteractor: PlayRadioInteractor
-    var pauseInteractor: StopRadioInteractor
-    var songNameInteractor: GetSongNameInteractor
+    var playInteractor: PlayRadioUseCase
+    var pauseInteractor: StopRadioUseCase
+    var songNameInteractor: GetSongNameUseCase
     
     var isPlaying = false
     private var disposeBag = Set<AnyCancellable>()
@@ -13,7 +13,7 @@ class RadioPresenter: ObservableObject {
     @Published var songName: String = ""
     @Published var playText: String = "Play"
     
-    init(play: PlayRadioInteractor, pause: StopRadioInteractor, songName: GetSongNameInteractor) {
+    init(play: PlayRadioUseCase, pause: StopRadioUseCase, songName: GetSongNameUseCase) {
         self.playInteractor = play
         self.pauseInteractor = pause
         self.songNameInteractor = songName

@@ -1,8 +1,11 @@
-
 import Foundation
 import Combine
 
-public class StopRadioInteractor: Interactor {
+public protocol StopRadioUseCase {
+    func execute()
+}
+
+public class StopRadioInteractor: StopRadioUseCase {
     var avGateway: AVGateway
     
     public init(avGateway: AVGateway) {

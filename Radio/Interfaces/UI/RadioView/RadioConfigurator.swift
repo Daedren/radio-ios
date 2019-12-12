@@ -17,10 +17,9 @@ class RadioConfigurator: Configurator {
             container.register(RadioPresenter.self) { _ in
 
                 let presenter = RadioPresenter(
-//                    router: container.resolve(WelcomeWireframe.self, argument: viewController)!,
-                    play: self.assembler.resolver.resolve(PlayRadioInteractor.self)!,
-                    pause: self.assembler.resolver.resolve(StopRadioInteractor.self)!,
-                    songName: self.assembler.resolver.resolve(GetSongNameInteractor.self)!
+                    play: self.assembler.resolver.resolve(PlayRadioUseCase.self)!,
+                    pause: self.assembler.resolver.resolve(StopRadioUseCase.self)!,
+                    songName: self.assembler.resolver.resolve(GetSongNameUseCase.self)!
                 )
                 return presenter
             }
