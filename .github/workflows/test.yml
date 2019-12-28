@@ -6,7 +6,7 @@ jobs:
     runs-on: macOS-latest
     strategy:
         matrix:
-          destination: ['generic/platform=iOS Simulator']
+          destination: ['platform=iOS Simulator,OS=latest,name=iPad Pro (9.7-inch)']
     steps:
       - name: Checkout
         uses: actions/checkout@master
