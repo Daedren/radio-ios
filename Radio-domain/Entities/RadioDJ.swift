@@ -1,15 +1,15 @@
 import Foundation
 
-class RadioDJ {
-    var id: Int
-    var name: String
-    var text: String
-    var image: URL
-    var color: Color
-    var visible: Bool
-    var priority: Int
+public class RadioDJ {
+    public var id: Int
+    public var name: String
+    public var text: String
+    public var image: URL
+    public var color: Color
+    public var visible: Bool
+    public var priority: Int
     
-    init(
+    public init(
         id: Int,
         name: String,
         text: String,
@@ -28,12 +28,12 @@ class RadioDJ {
     }
 }
 
-class Color {
+public class Color {
     var red: Int
     var green: Int
     var blue: Int
     
-    init(
+    public init(
     red: Int,
     green: Int,
     blue: Int

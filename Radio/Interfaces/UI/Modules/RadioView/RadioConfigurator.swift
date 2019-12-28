@@ -1,0 +1,37 @@
+import Foundation
+import Swinject
+import Radio_Domain
+import SwiftUI
+
+class RadioConfigurator: Configurator {
+    
+    func configureFake() -> RadioView<RadioPresenterPreviewer> {
+        RadioView(presenter: RadioPresenterPreviewer())
+    }
+
+    func configure() -> RadioView<RadioPresenterImp> {
+        let view = RadioView<RadioPresenterImp>(
+            presenter: self.inject().resolve(RadioPresenterImp.self)!
+        )
+        return view
+    }
+
+    private func inject() -> Container {
+        return Container { container in
+            
+            container.register(RadioPresenterImp.self) { _ in
+
+                let presenter = RadioPresenterImp(
+                    play: self.assembler.resolver.resolve(PlayRadioUseCase.self)!,
+                    pause: self.assembler.resolver.resolve(StopRadioUseCase.self)!,
+                    songName: self.assembler.resolver.resolve(GetSongNameUseCase.self)!,
+                    queue: self.assembler.resolver.resolve(GetSongQueueInteractor.self)!,
+                    lastPlayed: self.assembler.resolver.resolve(GetLastPlayedInteractor.self)!,
+                    dj: self.assembler.resolver.resolve(GetDJInteractor.self)!
+                )
+                return presenter
+            }
+
+        }
+    }
+}

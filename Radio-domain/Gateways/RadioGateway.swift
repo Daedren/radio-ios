@@ -1,7 +1,7 @@
 import Foundation
 import Combine
 
-protocol RadioGateway {
+public protocol RadioGateway {
     func getCurrentTrack() -> AnyPublisher<Track,RadioError>
     func getCurrentStatus() -> AnyPublisher<RadioStatus,RadioError>
     func getSongQueue() -> AnyPublisher<[Track],RadioError>
@@ -9,6 +9,6 @@ protocol RadioGateway {
     func getCurrentDJ() -> AnyPublisher<RadioDJ,RadioError>
 }
 
-enum RadioError: Error {
+public enum RadioError: Error {
     case apiContentMismatch
 }
