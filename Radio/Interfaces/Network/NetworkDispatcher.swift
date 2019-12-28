@@ -5,6 +5,12 @@ public protocol NetworkDispatcher {
     func execute<T: APIRequest>(request: T) -> AnyPublisher<T.Response,APIError>
 }
 
+public protocol NetworkClient {
+    func performRequest(request: URLRequest) -> Future<(URLResponse?, Data?), APIError>
+    func uploadFile(file: URL, url: URLRequest) -> Future<(URLResponse?, Data?), APIError>
+}
+
+
 public struct AnyEncodable: Encodable {
     let value: Encodable
 
@@ -20,7 +26,9 @@ public enum APIError: Error {
     case invalidCertificate
     case jsonParsingError
     case mockNotFound
-    case cannotMapToEntity
     case unsuccessfulResponse
     case otherError
+    
+    case cannotDecodeResponse
+    case technicalError
 }

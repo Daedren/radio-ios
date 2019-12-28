@@ -1,4 +1,5 @@
 import Foundation
+import Radio_Domain
 
 public class RadioDetailedModel {
     var status: RadioStatus

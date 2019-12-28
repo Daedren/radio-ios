@@ -20,5 +20,21 @@ class InteractorConfigurator: Assembly {
                 avGateway: container.resolve(AVGateway.self)!
             )
         }
+        
+        container.register(GetSongQueueInteractor.self) { _ in
+            return GetSongQueueInteractor(
+                radio: container.resolve(RadioGateway.self)!
+            )
+        }
+        container.register(GetLastPlayedInteractor.self) { _ in
+            return GetLastPlayedInteractor(
+                radio: container.resolve(RadioGateway.self)!
+            )
+        }
+        container.register(GetDJInteractor.self) { _ in
+            return GetDJInteractor(
+                radio: container.resolve(RadioGateway.self)!
+            )
+        }
     }
 }

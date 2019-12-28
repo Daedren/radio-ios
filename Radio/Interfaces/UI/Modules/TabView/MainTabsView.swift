@@ -1,13 +1,13 @@
 import SwiftUI
 
-struct MainTabsView: View {
+struct MainTabsView<T: View>: View {
     @State private var selection = 0
     
-    let radioTab: RadioView
+    var tabOne: T
  
     var body: some View {
         TabView(selection: $selection){
-            radioTab
+            tabOne
                 .tabItem {
                     VStack {
                         Image("second")
@@ -30,6 +30,6 @@ struct MainTabsView: View {
 
 struct TabView_Previews: PreviewProvider {
     static var previews: some View {
-        MainTabsView(radioTab: RadioConfigurator().configure())
+        MainTabsView(tabOne: RadioConfigurator().configure())
     }
 }

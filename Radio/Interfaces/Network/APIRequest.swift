@@ -18,7 +18,7 @@ extension APIRequest {
      public var queryItems: [URLQueryItem]? { return nil }
      public var headers: [String: String]? { return nil }
      public var fileToUpload: URL? { return nil }
-     public var customSchemeAndAuthority: String? { return "asd" }
+     public var customSchemeAndAuthority: String? { return nil }
 }
 
 public enum HTTPMethod: String {

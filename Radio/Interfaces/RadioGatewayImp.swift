@@ -23,23 +23,23 @@ public class RadioGatewayImp: RadioGateway {
         self.fetchFromAPI()
     }
     
-    func getCurrentTrack() -> AnyPublisher<Track, RadioError> {
+    public func getCurrentTrack() -> AnyPublisher<Track, RadioError> {
         return currentTrack.eraseToAnyPublisher()
     }
     
-    func getCurrentStatus() -> AnyPublisher<RadioStatus, RadioError> {
+    public func getCurrentStatus() -> AnyPublisher<RadioStatus, RadioError> {
         return status.eraseToAnyPublisher()
     }
     
-    func getSongQueue() -> AnyPublisher<[Track], RadioError> {
+    public func getSongQueue() -> AnyPublisher<[Track], RadioError> {
         return queue.eraseToAnyPublisher()
     }
     
-    func getLastPlayed() -> AnyPublisher<[Track], RadioError> {
+    public func getLastPlayed() -> AnyPublisher<[Track], RadioError> {
         return lastPlayed.eraseToAnyPublisher()
     }
     
-    func getCurrentDJ() -> AnyPublisher<RadioDJ, RadioError> {
+    public func getCurrentDJ() -> AnyPublisher<RadioDJ, RadioError> {
         return currentDJ.eraseToAnyPublisher()
     }
     
@@ -48,15 +48,19 @@ public class RadioGatewayImp: RadioGateway {
 
 extension RadioGatewayImp {
     private func fetchFromAPI() {
-        Timer.publish(every: 60.0, on: .current, in: .default)
+        Timer.publish(every: 20.0, on: .current, in: .default)
             .autoconnect()
             .flatMap{ [unowned self] _ in
                 return self.network
                     .execute(request: RadioMainAPI())
-                    .catch{ _ in return Empty<RadioMainAPIResponseModel,Never>()}
+                    .catch{ err in
+                        return Empty<RadioMainAPIResponseModel,Never>()
+                }
+                
         }
         .tryMap(self.mapper.map(from:))
-        .sink(receiveCompletion: { _ in
+        .sink(receiveCompletion: { evt in
+            print(evt)
             
         },
               receiveValue: { [unowned self] model in
