@@ -65,6 +65,7 @@ class RadioPresenterImp: RadioPresenter {
         self.startLastPlayedListener()
         self.startDJListener()
         self.startStatusListener()
+        self.getSongName()
     }
     
     func togglePlay() {
@@ -82,7 +83,6 @@ class RadioPresenterImp: RadioPresenter {
     }
     
     func tappedButton() {
-        getSongName()
         togglePlay()
     }
     

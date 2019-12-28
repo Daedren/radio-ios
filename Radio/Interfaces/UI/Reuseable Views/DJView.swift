@@ -15,7 +15,6 @@ struct DJView: View {
                     .frame(width: geometry.size.width,
                            alignment: .center)
                     .clipShape(Circle())
-//                    .overlay(Circle())
             }
                 Text(self.dj.name)
         }
