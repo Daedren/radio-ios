@@ -48,8 +48,14 @@ public class RadioGatewayImp: RadioGateway {
 
 extension RadioGatewayImp {
     private func fetchFromAPI() {
-        Timer.publish(every: 20.0, on: .current, in: .default)
+        let timer = Timer.publish(every: 20.0, on: .current, in: .common)
             .autoconnect()
+            .eraseToAnyPublisher()
+        
+        let now = Just(Date())
+            
+        now
+            .merge(with: timer)
             .flatMap{ [unowned self] _ in
                 return self.network
                     .execute(request: RadioMainAPI())
