@@ -2,4 +2,4 @@ language: objective-c
 osx_image: xcode11.2
 xcode_project: Radio.xcodeproj # path to your xcodeproj folder
 xcode_scheme: radio
-xcode_destination: generic/platform=iOS Simulator
+xcode_destination: platform=iOS Simulator,OS=latest,name=iPad Pro (9.7-inch)
