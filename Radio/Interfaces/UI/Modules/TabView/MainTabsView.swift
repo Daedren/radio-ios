@@ -11,7 +11,7 @@ struct MainTabsView<T: View>: View {
                 .tabItem {
                     VStack {
                         Image("second")
-                        Text("tabs.radio")
+                        Text("R/a/dio")
                     }
                 }
                 .tag(0)
@@ -20,7 +20,7 @@ struct MainTabsView<T: View>: View {
                 .tabItem {
                     VStack {
                         Image("second")
-                        Text("tabs.news")
+                        Text("News")
                     }
                 }
                 .tag(1)

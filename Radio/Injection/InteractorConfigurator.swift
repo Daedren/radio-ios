@@ -36,5 +36,10 @@ class InteractorConfigurator: Assembly {
                 radio: container.resolve(RadioGateway.self)!
             )
         }
+        container.register(GetCurrentStatusInteractor.self) { _ in
+            return GetCurrentStatusInteractor(
+                radio: container.resolve(RadioGateway.self)!
+            )
+        }
     }
 }

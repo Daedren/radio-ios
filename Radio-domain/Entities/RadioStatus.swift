@@ -1,10 +1,10 @@
 import Foundation
 
 public struct RadioStatus {
-    var listeners: Int
-    var bitrate: Int
-    var currentTime: Date
-    var acceptingRequests: Bool
+    public var listeners: Int
+    public var bitrate: Int
+    public var currentTime: Date
+    public var acceptingRequests: Bool
     
     public init(
         listeners: Int,

@@ -8,6 +8,7 @@ protocol RadioPresenter: ObservableObject {
     var queue: [TrackViewModel] { get }
     var lastPlayed: [TrackViewModel] { get }
     var dj: DJViewModel? { get }
+    var listeners: Int? { get }
     
     func tappedButton()
 }
@@ -18,6 +19,7 @@ class RadioPresenterPreviewer: RadioPresenter {
     @Published var queue: [TrackViewModel] = [TrackViewModel.stub()]
     @Published var lastPlayed: [TrackViewModel] = [TrackViewModel.stub()]
     @Published var dj: DJViewModel? = DJViewModel.stub()
+    @Published var listeners: Int? = 420
     
     func tappedButton() {
         print("Tapped")
@@ -31,6 +33,7 @@ class RadioPresenterImp: RadioPresenter {
     var songQueueInteractor: GetSongQueueInteractor
     var lastPlayedInteractor: GetLastPlayedInteractor
     var djInteractor: GetDJInteractor
+    var statusInteractor: GetCurrentStatusInteractor
     
     var isPlaying = false
     private var disposeBag = Set<AnyCancellable>()
@@ -40,13 +43,15 @@ class RadioPresenterImp: RadioPresenter {
     @Published var queue: [TrackViewModel] = []
     @Published var lastPlayed: [TrackViewModel] = []
     @Published var dj: DJViewModel?
+    @Published var listeners: Int?
     
     init(play: PlayRadioUseCase,
          pause: StopRadioUseCase,
          songName: GetSongNameUseCase,
          queue: GetSongQueueInteractor,
          lastPlayed: GetLastPlayedInteractor,
-         dj: GetDJInteractor
+         dj: GetDJInteractor,
+         status: GetCurrentStatusInteractor
     ) {
         self.playInteractor = play
         self.pauseInteractor = pause
@@ -54,10 +59,12 @@ class RadioPresenterImp: RadioPresenter {
         self.songQueueInteractor = queue
         self.lastPlayedInteractor = lastPlayed
         self.djInteractor = dj
+        self.statusInteractor = status
         
         self.startSongQueueListener()
         self.startLastPlayedListener()
         self.startDJListener()
+        self.startStatusListener()
     }
     
     func togglePlay() {
@@ -134,6 +141,19 @@ class RadioPresenterImp: RadioPresenter {
             
         }, receiveValue: { [weak self] value in
             self?.dj = value
+        })
+            .store(in: &disposeBag)
+        
+    }
+    
+    private func startStatusListener() {
+        self.statusInteractor
+            .execute()
+        .receive(on: DispatchQueue.main)
+        .sink(receiveCompletion: { _ in
+            
+        }, receiveValue: { [weak self] value in
+            self?.listeners = value.listeners
         })
             .store(in: &disposeBag)
         

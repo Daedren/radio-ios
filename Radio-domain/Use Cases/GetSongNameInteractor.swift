@@ -13,6 +13,7 @@ public class GetSongNameInteractor: GetSongNameUseCase {
     }
     
     public func execute() -> AnyPublisher<String, Never>{
+        //TODO: This should use the API's info in case a song isn't playing.
         self.avGateway.getSongName()
     }
 }
