@@ -26,6 +26,7 @@
 		093E6A6C23B79D5900578C99 /* DJView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093E6A6B23B79D5900578C99 /* DJView.swift */; };
 		093E6A6E23B79E0000578C99 /* DJViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093E6A6D23B79E0000578C99 /* DJViewModel.swift */; };
 		093E6A7123B7A1ED00578C99 /* GetDJInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093E6A6F23B7A1C200578C99 /* GetDJInteractor.swift */; };
+		093E6A7423B7AEDB00578C99 /* GetCurrentStatusInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093E6A7223B7AED600578C99 /* GetCurrentStatusInteractor.swift */; };
 		0941B4EE237873E400994F67 /* PlayRadioInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941B4ED237873E400994F67 /* PlayRadioInteractor.swift */; };
 		0941B4F12378744200994F67 /* AVGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941B4F02378744200994F67 /* AVGateway.swift */; };
 		0941B4F32378746D00994F67 /* StopRadioInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941B4F22378746D00994F67 /* StopRadioInteractor.swift */; };
@@ -133,6 +134,7 @@
 		093E6A6B23B79D5900578C99 /* DJView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJView.swift; sourceTree = "<group>"; };
 		093E6A6D23B79E0000578C99 /* DJViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJViewModel.swift; sourceTree = "<group>"; };
 		093E6A6F23B7A1C200578C99 /* GetDJInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDJInteractor.swift; sourceTree = "<group>"; };
+		093E6A7223B7AED600578C99 /* GetCurrentStatusInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCurrentStatusInteractor.swift; sourceTree = "<group>"; };
 		0941B4ED237873E400994F67 /* PlayRadioInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRadioInteractor.swift; sourceTree = "<group>"; };
 		0941B4F02378744200994F67 /* AVGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVGateway.swift; sourceTree = "<group>"; };
 		0941B4F22378746D00994F67 /* StopRadioInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopRadioInteractor.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 				0922E2B323A2EB4600EB00C8 /* GetSongQueueInteractor.swift */,
 				093E6A6523B7839D00578C99 /* GetLastPlayedInteractor.swift */,
 				093E6A6F23B7A1C200578C99 /* GetDJInteractor.swift */,
+				093E6A7223B7AED600578C99 /* GetCurrentStatusInteractor.swift */,
 			);
 			path = "Use Cases";
 			sourceTree = "<group>";
@@ -830,6 +833,7 @@
 				093E6A7123B7A1ED00578C99 /* GetDJInteractor.swift in Sources */,
 				0922E2BA23A2EC3400EB00C8 /* RadioStatus.swift in Sources */,
 				0922E2B923A2EC3000EB00C8 /* RadioDJ.swift in Sources */,
+				093E6A7423B7AEDB00578C99 /* GetCurrentStatusInteractor.swift in Sources */,
 				0922E2B823A2EC2900EB00C8 /* Track.swift in Sources */,
 				0941B4F52378768900994F67 /* GatewayError.swift in Sources */,
 				0922E2B723A2EC2100EB00C8 /* RadioGateway.swift in Sources */,

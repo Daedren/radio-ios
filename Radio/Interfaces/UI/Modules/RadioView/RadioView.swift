@@ -13,16 +13,17 @@ struct RadioView<P: RadioPresenter>: View {
                 Text(presenter.playText)
             }
             Text(presenter.songName)
+            presenter.listeners.map{ Text("Listeners: \($0)") }
             HStack {
                 List{
-                    Section(header: Text("tabs.queue"), content: {
+                    Section(header: Text("Queue"), content: {
                         ForEach(presenter.queue){
                             TrackView(track: $0)
                         }
                     })
                 }
                 List{
-                    Section(header: Text("tabs.lastPlayed"), content: {
+                    Section(header: Text("Last Played"), content: {
                         ForEach(presenter.lastPlayed){
                             TrackView(track: $0)
                         }

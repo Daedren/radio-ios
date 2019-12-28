@@ -1,5 +1,6 @@
-"tabs.radio" = "R/a/dio";
-"tabs.submit" = "Submit";
-"tabs.news" = "News";
-"tabs.lastPlayed" = "Last Played";
-"tabs.queue" = "Queue";
+"R/a/dio" = "R/a/dio";
+"Submit" = "Submit";
+"News" = "News";
+"Last Played" = "Last Played";
+"Queue" = "Queue";
+"Listeners: %lld" = "Listeners: %lld";
