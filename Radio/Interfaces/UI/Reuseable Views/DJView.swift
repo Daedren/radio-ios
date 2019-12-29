@@ -8,15 +8,13 @@ struct DJView: View {
     
     var body: some View {
         VStack {
-            GeometryReader { geometry in
-                KFImage(self.dj.image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: geometry.size.width,
-                           alignment: .center)
-                    .clipShape(Circle())
-            }
-                Text(self.dj.name)
+            KFImage(self.dj.image)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 150.0,
+                       alignment: .center)
+                .clipShape(Circle())
+            Text(self.dj.name)
         }
     }
 }

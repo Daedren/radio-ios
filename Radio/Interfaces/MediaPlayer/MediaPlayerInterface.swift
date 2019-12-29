@@ -75,13 +75,13 @@ class MediaPlayerInterface {
         
         self.songNameInteractor.execute()
             .sink(receiveValue: { [weak self] newName in
-                if let metadata = self?.createStaticMetadata(with: newName, image: self?.currentDJ) {
+                if let metadata = self?.createStaticMetadata(title: newName.title, artist: newName.artist, image: self?.currentDJ) {
                     self?.remoteControl.setStatic(metadata: metadata)
                 }
             }).store(in: &nowPlayingDisposeBag)
     }
     
-    private func createStaticMetadata(with songName: String, image: URL?) -> RemoteControlStaticMetadata {
+    private func createStaticMetadata(title: String, artist: String, image: URL?) -> RemoteControlStaticMetadata {
         let fallbackImage = URL(string: "https://r-a-d.io/assets/logo_image_small.png")!
         let djImage = image ?? fallbackImage
         
@@ -89,8 +89,8 @@ class MediaPlayerInterface {
             assetURL: djImage,
             mediaType: .audio,
             isLiveStream: true,
-            title: songName,
-            artist: "R/a/dio",
+            title: title,
+            artist: artist,
             artwork: nil,
             albumArtist: nil,
             albumTitle: nil)
