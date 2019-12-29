@@ -1,11 +1,11 @@
 import Foundation
 import Combine
 
-public protocol GetSongNameUseCase {
-    func execute() -> AnyPublisher<TrackTitleArtist,Never>
+public protocol GetCurrentTrackUseCase {
+    func execute() -> AnyPublisher<Track,Never>
 }
 
-public class GetSongNameInteractor: GetSongNameUseCase {
+public class GetCurrentTrackInteractor: GetCurrentTrackUseCase {
     var avGateway: AVGateway
     var radioGateway: RadioGateway
     
@@ -14,7 +14,7 @@ public class GetSongNameInteractor: GetSongNameUseCase {
         self.radioGateway = radioGateway
     }
     
-    public func execute() -> AnyPublisher<TrackTitleArtist, Never>{
+    public func execute() -> AnyPublisher<Track, Never>{
         let apiName = self.radioGateway
             .getCurrentTrack()
             .map{ return TrackTitleArtist(title: $0.info.title, artist: $0.info.artist) }
@@ -23,11 +23,28 @@ public class GetSongNameInteractor: GetSongNameUseCase {
             })
             .eraseToAnyPublisher()
         
-        return self.avGateway.getSongName()
+        let icyName = self.avGateway.getSongName()
             .map(mapToArtistAndTitle(model:))
             .compactMap{ $0 }
-            .merge(with: apiName)
             .eraseToAnyPublisher()
+        
+        let mergedObs = apiName.merge(with: icyName)
+            .eraseToAnyPublisher()
+        
+        let track = self.radioGateway.getCurrentTrack()
+            .catch({err in
+                return Empty<Track,Never>()
+            })
+            .combineLatest(mergedObs, mergeTrackAndName(track:name:))
+            .eraseToAnyPublisher()
+
+        return track
+    }
+    
+    private func mergeTrackAndName(track: Track, name: TrackTitleArtist) -> Track {
+        var newTrack = track
+        newTrack.info = name
+        return newTrack
     }
     
     

@@ -24,7 +24,7 @@ class RadioConfigurator: Configurator {
                 let presenter = RadioPresenterImp(
                     play: self.assembler.resolver.resolve(PlayRadioUseCase.self)!,
                     pause: self.assembler.resolver.resolve(StopRadioUseCase.self)!,
-                    songName: self.assembler.resolver.resolve(GetSongNameUseCase.self)!,
+                    songName: self.assembler.resolver.resolve(GetCurrentTrackUseCase.self)!,
                     queue: self.assembler.resolver.resolve(GetSongQueueInteractor.self)!,
                     lastPlayed: self.assembler.resolver.resolve(GetLastPlayedInteractor.self)!,
                     dj: self.assembler.resolver.resolve(GetDJInteractor.self)!,
