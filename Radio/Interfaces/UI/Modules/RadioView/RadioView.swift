@@ -13,6 +13,7 @@ struct RadioView<P: RadioPresenter>: View {
                 Text(presenter.playText)
             }
             Text(presenter.songName)
+            presenter.currentTrack.map{SeekBarView(track: $0)}
             presenter.listeners.map{ Text("Listeners: \($0)") }
             VStack {
                 List{

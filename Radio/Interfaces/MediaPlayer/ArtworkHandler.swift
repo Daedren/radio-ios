@@ -38,27 +38,20 @@ class ArtworkHandler {
     
     func prepareArtworkFromDJ(url: URL) {
         self.artworkDisposeBag = Set<AnyCancellable>()
-        getImageFromURL(url)
-            .sink(receiveCompletion: { _ in
-                
-            }, receiveValue: { [unowned self] newImage in
-                self.artworkImage = newImage
-                self.artwork = MPMediaItemArtwork.init(boundsSize: newImage.size, requestHandler: self.getImageFromSize(size:))
-            }).store(in: &artworkDisposeBag)
+        self.getImageFromURL(url)
     }
     
-    func getImageFromURL(_ url: URL) -> Future<UIImage,Error> {
-        return Future<UIImage,Error>.init{ event in
-            KingfisherManager.shared.retrieveImage(with: ImageResource(downloadURL: url), completionHandler: { result in
-                switch result {
-                case .failure(let error):
-                    print(error)
-                    event(.failure(error))
-                case .success(let imageResult):
-                    event(.success(imageResult.image))
-                }
-            })
-        }
+    func getImageFromURL(_ url: URL) {
+        KingfisherManager.shared.retrieveImage(with: ImageResource(downloadURL: url), completionHandler: { [unowned self] result in
+            switch result {
+            case .success(let image):
+                self.artworkImage = image.image
+                self.artwork = MPMediaItemArtwork.init(boundsSize: image.image.size, requestHandler: self.getImageFromSize(size:))
+            case .failure(let error):
+                print(error)
+            }
+        })
+            
     }
-
+    
 }

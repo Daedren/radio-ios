@@ -12,7 +12,7 @@ class MediaPlayerConfigurator: Configurator {
         let player = MediaPlayerInterface(remoteControl: self.inject().resolve(RemoteControlClient.self)!,
                                           play: self.assembler.resolver.resolve(PlayRadioUseCase.self)!,
                                           pause: self.assembler.resolver.resolve(StopRadioUseCase.self)!,
-                                          songName: self.assembler.resolver.resolve(GetSongNameUseCase.self)!,
+                                          songName: self.assembler.resolver.resolve(GetCurrentTrackUseCase.self)!,
                                           dj: self.assembler.resolver.resolve(GetDJInteractor.self)!,
                                           status: self.assembler.resolver.resolve(GetCurrentStatusInteractor.self)!,
                                           playback: self.assembler.resolver.resolve(GetPlaybackInfoInteractor.self)!)

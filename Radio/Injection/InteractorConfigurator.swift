@@ -15,8 +15,8 @@ class InteractorConfigurator: Assembly {
                 avGateway: container.resolve(AVGateway.self)!
             )
         }
-        container.register(GetSongNameUseCase.self) { _ in
-            return GetSongNameInteractor(
+        container.register(GetCurrentTrackUseCase.self) { _ in
+            return GetCurrentTrackInteractor(
                 avGateway: container.resolve(AVGateway.self)!,
                 radioGateway: container.resolve(RadioGateway.self)!
             )

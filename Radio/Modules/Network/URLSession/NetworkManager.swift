@@ -18,14 +18,12 @@ public class RadioNetworkManager: NetworkDispatcher {
         return self.sendRequestUpstream(apiRequest: request, request: urlRequest)
             .flatMap { [unowned self] (arg) -> Future<T.Response, APIError> in
                 let (response, data) = arg
-                return Future<T.Response, APIError> { event in
-                    do {
-                        let r: T.Response = try self.getResponse(from: response, data: data, in: request)
-                        return event(.success(r))
-                    }
-                    catch {
-                        return event(.failure(APIError.cannotDecodeResponse))
-                    }
+                do {
+                    let r: T.Response = try self.getResponse(from: response, data: data, in: request)
+                    return Future<T.Response,APIError>.init{ event in event(.success(r)) }
+                }
+                catch {
+                    return Future<T.Response,APIError>.init{ event in event(.failure(.cannotDecodeResponse)) }
                 }
         }
             .eraseToAnyPublisher()

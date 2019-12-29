@@ -64,6 +64,7 @@ struct RadioMapperImp: RadioMapper {
                                artist: artistAndTitle.artist,
                                startTime: Date(timeIntervalSince1970: TimeInterval(main.startTime)),
                                endTime: Date(timeIntervalSince1970: TimeInterval(main.endTime)),
+                               currentTime: Date(timeIntervalSince1970: TimeInterval(main.current)),
                                requested: false)
             return entity
         }
@@ -106,11 +107,11 @@ struct RadioMapperImp: RadioMapper {
         return nil
     }
     
-    private func mapToArtistAndTitle(model: String) -> TrackTitleArtist? {
+    func mapToArtistAndTitle(model: String) -> TrackTitleArtist? {
         let separator = " - "
         guard let range = model
             .range(of: separator)
-            else { return nil }
+            else { return TrackTitleArtist(title: model, artist: "") }
         
         let finalString = [model.prefix(upTo: range.lowerBound), model.suffix(from: range.upperBound)]
         

@@ -7,6 +7,7 @@ protocol RadioPresenter: ObservableObject {
     var playText: String { get }
     var queue: [TrackViewModel] { get }
     var lastPlayed: [TrackViewModel] { get }
+    var currentTrack: CurrentTrackViewModel? { get }
     var dj: DJViewModel? { get }
     var listeners: Int? { get }
     
@@ -18,6 +19,7 @@ class RadioPresenterPreviewer: RadioPresenter {
     @Published var playText: String = "Play"
     @Published var queue: [TrackViewModel] = [TrackViewModel.stub()]
     @Published var lastPlayed: [TrackViewModel] = [TrackViewModel.stub()]
+    @Published var currentTrack: CurrentTrackViewModel? = CurrentTrackViewModel.stubCurrent()
     @Published var dj: DJViewModel? = DJViewModel.stub()
     @Published var listeners: Int? = 420
     
@@ -29,7 +31,7 @@ class RadioPresenterPreviewer: RadioPresenter {
 class RadioPresenterImp: RadioPresenter {
     var playInteractor: PlayRadioUseCase
     var pauseInteractor: StopRadioUseCase
-    var songNameInteractor: GetSongNameUseCase
+    var songNameInteractor: GetCurrentTrackUseCase
     var songQueueInteractor: GetSongQueueInteractor
     var lastPlayedInteractor: GetLastPlayedInteractor
     var djInteractor: GetDJInteractor
@@ -42,13 +44,14 @@ class RadioPresenterImp: RadioPresenter {
     @Published var playText: String = "Play"
     @Published var queue: [TrackViewModel] = []
     @Published var lastPlayed: [TrackViewModel] = []
+    @Published var currentTrack: CurrentTrackViewModel?
     @Published var dj: DJViewModel?
     @Published var listeners: Int?
     
     init(
         play: PlayRadioUseCase,
          pause: StopRadioUseCase,
-         songName: GetSongNameUseCase,
+         songName: GetCurrentTrackUseCase,
          queue: GetSongQueueInteractor,
          lastPlayed: GetLastPlayedInteractor,
          dj: GetDJInteractor,
@@ -90,11 +93,23 @@ class RadioPresenterImp: RadioPresenter {
     func getSongName() {
         self.songNameInteractor
             .execute()
+            .removeDuplicates(by: { lhs, rhs in return lhs.startTime == rhs.startTime })
             .receive(on: DispatchQueue.main)
             .sink(receiveValue:{ [weak self] value in
-                self?.songName = "\(value.artist) - \(value.title)"
+                self?.songName = "\(value.info.artist) - \(value.info.title)"
+                self?.currentTrack = CurrentTrackViewModel(base: value)
             })
             .store(in: &disposeBag)
+        
+        Timer.publish(every: 1.0, on: .current, in: .common)
+        .autoconnect()
+        .sink(receiveValue: { [weak self] newDate in
+            if var track = self?.currentTrack?.trackBackup {
+                track.currentTime = newDate
+                self?.currentTrack? = CurrentTrackViewModel(base: track)
+            }
+        })
+        .store(in: &disposeBag)
     }
     
     private func startSongQueueListener() {

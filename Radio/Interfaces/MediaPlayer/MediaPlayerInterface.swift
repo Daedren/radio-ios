@@ -11,7 +11,7 @@ class MediaPlayerInterface {
     
     var playInteractor: PlayRadioUseCase
     var pauseInteractor: StopRadioUseCase
-    var songNameInteractor: GetSongNameUseCase
+    var songNameInteractor: GetCurrentTrackUseCase
     var statusInteractor: GetCurrentStatusInteractor
     var djInteractor: GetDJInteractor
     var playbackInteractor: GetPlaybackInfoInteractor
@@ -22,7 +22,7 @@ class MediaPlayerInterface {
     init(remoteControl: RemoteControlClient,
          play: PlayRadioUseCase,
          pause: StopRadioUseCase,
-         songName: GetSongNameUseCase,
+         songName: GetCurrentTrackUseCase,
          dj: GetDJInteractor,
          status: GetCurrentStatusInteractor,
          playback: GetPlaybackInfoInteractor
@@ -78,7 +78,7 @@ class MediaPlayerInterface {
         
         self.songNameInteractor.execute()
             .sink(receiveValue: { [weak self] newName in
-                if let metadata = self?.createStaticMetadata(title: newName.title, artist: newName.artist, image: self?.currentDJ) {
+                if let metadata = self?.createStaticMetadata(title: newName.info.title, artist: newName.info.artist, image: self?.currentDJ) {
                     self?.remoteControl.setStatic(metadata: metadata)
                 }
             }).store(in: &nowPlayingDisposeBag)

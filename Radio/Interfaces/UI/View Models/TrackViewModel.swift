@@ -1,7 +1,7 @@
 import Foundation
 import Radio_Domain
 
-struct TrackViewModel: Identifiable {
+class TrackViewModel: Identifiable {
     var id: String = UUID().uuidString
     
     public var title: String
@@ -26,7 +26,7 @@ struct TrackViewModel: Identifiable {
     }
     
     public static func stub() -> TrackViewModel {
-        let track = Track(title: "title", artist: "artist", startTime: Date.init(timeIntervalSinceNow: 30.0), endTime: nil, requested: false)
+        let track = Track(title: "title", artist: "artist", startTime: Date.init(timeIntervalSinceNow: 30.0), endTime: Date.init(timeIntervalSinceNow: 30.0), requested: false)
         return TrackViewModel(base: track)
     }
 }
