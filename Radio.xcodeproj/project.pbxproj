@@ -72,6 +72,7 @@
 		09BD781B237E2D9B008950CD /* RadioMainAPIResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD781A237E2D9B008950CD /* RadioMainAPIResponseModel.swift */; };
 		09BD781D237E2DBB008950CD /* RadioMainAPIFake.json in Resources */ = {isa = PBXBuildFile; fileRef = 09BD781C237E2DBB008950CD /* RadioMainAPIFake.json */; };
 		09BD7824237E30FB008950CD /* RadioMainAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD7823237E30FB008950CD /* RadioMainAPITests.swift */; };
+		09F8A10E23B83E5500D95643 /* ArtworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F8A10D23B83E5500D95643 /* ArtworkHandler.swift */; };
 		09F8EB5B23B818D700FE6E25 /* MediaPlayerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F8EB5A23B818D700FE6E25 /* MediaPlayerInterface.swift */; };
 		09F8EB5E23B81F8500FE6E25 /* GetPlaybackInfoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F8EB5C23B81F2800FE6E25 /* GetPlaybackInfoInteractor.swift */; };
 		09F8EB5F23B81FC500FE6E25 /* PlaybackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FDBE73237E03C3001E34DE /* PlaybackInfo.swift */; };
@@ -193,6 +194,7 @@
 		09BD781A237E2D9B008950CD /* RadioMainAPIResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioMainAPIResponseModel.swift; sourceTree = "<group>"; };
 		09BD781C237E2DBB008950CD /* RadioMainAPIFake.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RadioMainAPIFake.json; sourceTree = "<group>"; };
 		09BD7823237E30FB008950CD /* RadioMainAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioMainAPITests.swift; sourceTree = "<group>"; };
+		09F8A10D23B83E5500D95643 /* ArtworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkHandler.swift; sourceTree = "<group>"; };
 		09F8EB5A23B818D700FE6E25 /* MediaPlayerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayerInterface.swift; sourceTree = "<group>"; };
 		09F8EB5C23B81F2800FE6E25 /* GetPlaybackInfoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaybackInfoInteractor.swift; sourceTree = "<group>"; };
 		09F8EB6023B8244F00FE6E25 /* MediaPlayerConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayerConfigurator.swift; sourceTree = "<group>"; };
@@ -614,6 +616,7 @@
 			children = (
 				09F8EB5A23B818D700FE6E25 /* MediaPlayerInterface.swift */,
 				09F8EB6023B8244F00FE6E25 /* MediaPlayerConfigurator.swift */,
+				09F8A10D23B83E5500D95643 /* ArtworkHandler.swift */,
 			);
 			path = MediaPlayer;
 			sourceTree = "<group>";
@@ -811,6 +814,7 @@
 				0922E2C523A2FB5A00EB00C8 /* DateExtensions.swift in Sources */,
 				0906958923A304BE00CF0398 /* URLSessionClient.swift in Sources */,
 				0941B5102378834F00994F67 /* InteractorConfigurator.swift in Sources */,
+				09F8A10E23B83E5500D95643 /* ArtworkHandler.swift in Sources */,
 				0941B4FB2378779400994F67 /* AVGatewayImp.swift in Sources */,
 				0941B50E2378834700994F67 /* GatewayConfigurator.swift in Sources */,
 				0922E2C223A2FA2A00EB00C8 /* TrackViewModel.swift in Sources */,

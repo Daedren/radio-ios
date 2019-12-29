@@ -8,7 +8,7 @@ public protocol GetSongNameUseCase {
 public class GetSongNameInteractor: GetSongNameUseCase {
     var avGateway: AVGateway
     var radioGateway: RadioGateway
-
+    
     public init(avGateway: AVGateway, radioGateway: RadioGateway) {
         self.avGateway = avGateway
         self.radioGateway = radioGateway
@@ -24,20 +24,23 @@ public class GetSongNameInteractor: GetSongNameUseCase {
             .eraseToAnyPublisher()
         
         return self.avGateway.getSongName()
-        .map(mapToArtistAndTitle(model:))
-        .compactMap{ $0 }
-        .merge(with: apiName)
-        .eraseToAnyPublisher()
+            .map(mapToArtistAndTitle(model:))
+            .compactMap{ $0 }
+            .merge(with: apiName)
+            .eraseToAnyPublisher()
     }
     
     
     private func mapToArtistAndTitle(model: String) -> TrackTitleArtist? {
-        let splitString = model
-            .split(separator: "-", maxSplits: 1)
-            .map{ $0.trimmingCharacters(in: .whitespacesAndNewlines)}
+        let separator = " - "
+        guard let range = model
+            .range(of: separator)
+            else { return nil }
         
-        if splitString.count == 2 {
-            return TrackTitleArtist(title: splitString[1], artist: splitString[0])
+        let finalString = [model.prefix(upTo: range.lowerBound), model.suffix(from: range.upperBound)]
+        
+        if finalString.count == 2 {
+            return TrackTitleArtist(title: String(finalString[1]), artist: String(finalString[0]))
         }
         return nil
     }

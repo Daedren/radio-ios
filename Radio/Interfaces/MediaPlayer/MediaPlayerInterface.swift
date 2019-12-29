@@ -1,6 +1,7 @@
 import Foundation
 import Combine
 import Radio_Domain
+import MediaPlayer
 
 class MediaPlayerInterface {
     var remoteControl: RemoteControlClient
@@ -14,9 +15,10 @@ class MediaPlayerInterface {
     var statusInteractor: GetCurrentStatusInteractor
     var djInteractor: GetDJInteractor
     var playbackInteractor: GetPlaybackInfoInteractor
-
-    var currentDJ: URL?
     
+    var currentDJ: URL?
+    var artworkHandler = ArtworkHandler()
+
     init(remoteControl: RemoteControlClient,
          play: PlayRadioUseCase,
          pause: StopRadioUseCase,
@@ -53,12 +55,12 @@ class MediaPlayerInterface {
                     break
                 }
             }).store(in: &classDisposeBag)
-         
+        
     }
     
     private func setReactiveHandlers() {
         self.nowPlayingDisposeBag = Set<AnyCancellable>()
-
+        
         self.playbackInteractor.execute()
             .sink(receiveValue: { [weak self] metadata in
                 if let playback = self?.createDynamicMetadata(from: metadata) {
@@ -71,6 +73,7 @@ class MediaPlayerInterface {
                 
             },receiveValue: { [weak self] newDJ in
                 self?.currentDJ = newDJ.image
+                self?.artworkHandler.prepareArtworkFromDJ(url: newDJ.image)
             }).store(in: &nowPlayingDisposeBag)
         
         self.songNameInteractor.execute()
@@ -91,7 +94,7 @@ class MediaPlayerInterface {
             isLiveStream: true,
             title: title,
             artist: artist,
-            artwork: nil,
+            artwork: self.artworkHandler.artwork,
             albumArtist: nil,
             albumTitle: nil)
         return metadata
@@ -99,11 +102,10 @@ class MediaPlayerInterface {
     
     private func createDynamicMetadata(from avMetadata: PlaybackInfo) -> RemoteControlDynamicMetadata {
         let metadata = RemoteControlDynamicMetadata(rate: avMetadata.rate,
-                                                  position: avMetadata.position,
-                                                  currentLanguageOptions: [],
-                                                  availableLanguageOptionGroups: [])
+                                                    position: avMetadata.position,
+                                                    currentLanguageOptions: [],
+                                                    availableLanguageOptionGroups: [])
         return metadata
     }
 
-    
 }

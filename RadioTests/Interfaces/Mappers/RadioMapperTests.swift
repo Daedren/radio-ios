@@ -34,4 +34,12 @@ class RadioMapperTests: XCTestCase {
         XCTAssertEqual(result?.artist, "秣本 瑳羅")
         XCTAssertEqual(result?.title, "Esoterica - esoteria -")
     }
+    
+    func testArtistTitle_TwoDashesTogether_Success() {
+        let value = "See-Saw - Obsession"
+        let result = mapper.mapToArtistAndTitle(model: value)
+        
+        XCTAssertEqual(result?.artist, "See-Saw")
+        XCTAssertEqual(result?.title, "Obsession")
+    }
 }
