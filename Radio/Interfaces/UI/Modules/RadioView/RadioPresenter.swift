@@ -92,7 +92,7 @@ class RadioPresenterImp: RadioPresenter {
             .execute()
             .receive(on: DispatchQueue.main)
             .sink(receiveValue:{ [weak self] value in
-                self?.songName = value
+                self?.songName = "\(value.artist) - \(value.title)"
             })
             .store(in: &disposeBag)
     }

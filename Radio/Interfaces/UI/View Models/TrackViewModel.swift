@@ -11,8 +11,8 @@ struct TrackViewModel: Identifiable {
     public var requested: Bool
     
     public init(base: Track) {
-        self.title = base.title
-        self.artist = base.artist
+        self.title = base.info.title
+        self.artist = base.info.artist
         self.requested = base.requested
         
         self.startsIn = base.startTime?.offsetFrom(date: Date()) ?? ""
