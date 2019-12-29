@@ -106,13 +106,16 @@ struct RadioMapperImp: RadioMapper {
         return nil
     }
     
-    func mapToArtistAndTitle(model: String) -> (artist: String,title: String)? {
-        let splitString = model
-            .split(separator: "-", maxSplits: 1)
-            .map{ $0.trimmingCharacters(in: .whitespacesAndNewlines)}
+    private func mapToArtistAndTitle(model: String) -> TrackTitleArtist? {
+        let separator = " - "
+        guard let range = model
+            .range(of: separator)
+            else { return nil }
         
-        if splitString.count == 2 {
-            return (artist: splitString[0], title: splitString[1])
+        let finalString = [model.prefix(upTo: range.lowerBound), model.suffix(from: range.upperBound)]
+        
+        if finalString.count == 2 {
+            return TrackTitleArtist(title: String(finalString[1]), artist: String(finalString[0]))
         }
         return nil
     }
