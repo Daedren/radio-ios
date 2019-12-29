@@ -72,7 +72,10 @@
 		09BD781B237E2D9B008950CD /* RadioMainAPIResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD781A237E2D9B008950CD /* RadioMainAPIResponseModel.swift */; };
 		09BD781D237E2DBB008950CD /* RadioMainAPIFake.json in Resources */ = {isa = PBXBuildFile; fileRef = 09BD781C237E2DBB008950CD /* RadioMainAPIFake.json */; };
 		09BD7824237E30FB008950CD /* RadioMainAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD7823237E30FB008950CD /* RadioMainAPITests.swift */; };
-		09FDBE74237E03C3001E34DE /* AVPlaybackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FDBE73237E03C3001E34DE /* AVPlaybackInfo.swift */; };
+		09F8EB5B23B818D700FE6E25 /* MediaPlayerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F8EB5A23B818D700FE6E25 /* MediaPlayerInterface.swift */; };
+		09F8EB5E23B81F8500FE6E25 /* GetPlaybackInfoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F8EB5C23B81F2800FE6E25 /* GetPlaybackInfoInteractor.swift */; };
+		09F8EB5F23B81FC500FE6E25 /* PlaybackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FDBE73237E03C3001E34DE /* PlaybackInfo.swift */; };
+		09F8EB6123B8244F00FE6E25 /* MediaPlayerConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F8EB6023B8244F00FE6E25 /* MediaPlayerConfigurator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,7 +193,10 @@
 		09BD781A237E2D9B008950CD /* RadioMainAPIResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioMainAPIResponseModel.swift; sourceTree = "<group>"; };
 		09BD781C237E2DBB008950CD /* RadioMainAPIFake.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RadioMainAPIFake.json; sourceTree = "<group>"; };
 		09BD7823237E30FB008950CD /* RadioMainAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioMainAPITests.swift; sourceTree = "<group>"; };
-		09FDBE73237E03C3001E34DE /* AVPlaybackInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlaybackInfo.swift; sourceTree = "<group>"; };
+		09F8EB5A23B818D700FE6E25 /* MediaPlayerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayerInterface.swift; sourceTree = "<group>"; };
+		09F8EB5C23B81F2800FE6E25 /* GetPlaybackInfoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaybackInfoInteractor.swift; sourceTree = "<group>"; };
+		09F8EB6023B8244F00FE6E25 /* MediaPlayerConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayerConfigurator.swift; sourceTree = "<group>"; };
+		09FDBE73237E03C3001E34DE /* PlaybackInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +288,7 @@
 				093E6A6523B7839D00578C99 /* GetLastPlayedInteractor.swift */,
 				093E6A6F23B7A1C200578C99 /* GetDJInteractor.swift */,
 				093E6A7223B7AED600578C99 /* GetCurrentStatusInteractor.swift */,
+				09F8EB5C23B81F2800FE6E25 /* GetPlaybackInfoInteractor.swift */,
 			);
 			path = "Use Cases";
 			sourceTree = "<group>";
@@ -298,13 +305,8 @@
 		0941B4F62378772400994F67 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
-				099FFB7623947AD2005E1AD6 /* Mappers */,
-				09BD780D237E2BD2008950CD /* Network */,
-				096E0B96237A07EC00024572 /* RemoteControl */,
-				0941B4F92378778B00994F67 /* AVFoundation */,
+				09F8EB5923B8189D00FE6E25 /* MediaPlayer */,
 				0941B4F72378773600994F67 /* UI */,
-				0956081E237F5413008206A1 /* RadioGatewayImp.swift */,
-				0941B4FA2378779400994F67 /* AVGatewayImp.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -431,6 +433,7 @@
 				0922E2C323A2FB5100EB00C8 /* Utilities */,
 				0941B50A2378827500994F67 /* Injection */,
 				0941B4F62378772400994F67 /* Interfaces */,
+				09F8EB5823B8188900FE6E25 /* Modules */,
 				097C1EA32378716F00A7A5AD /* AppDelegate.swift */,
 				097C1EAB2378717000A7A5AD /* Preview Content */,
 			);
@@ -491,6 +494,7 @@
 			isa = PBXGroup;
 			children = (
 				099FFB72239468E6005E1AD6 /* RadioDetailedModel.swift */,
+				09FDBE73237E03C3001E34DE /* PlaybackInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -506,7 +510,6 @@
 		09BD780A237E20FB008950CD /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				09FDBE73237E03C3001E34DE /* AVPlaybackInfo.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -583,6 +586,36 @@
 				09BD7823237E30FB008950CD /* RadioMainAPITests.swift */,
 			);
 			path = FakeNetwork;
+			sourceTree = "<group>";
+		};
+		09F8EB5723B8186000FE6E25 /* Gateway Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				0956081E237F5413008206A1 /* RadioGatewayImp.swift */,
+				0941B4FA2378779400994F67 /* AVGatewayImp.swift */,
+			);
+			path = "Gateway Implementations";
+			sourceTree = "<group>";
+		};
+		09F8EB5823B8188900FE6E25 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				09F8EB5723B8186000FE6E25 /* Gateway Implementations */,
+				099FFB7623947AD2005E1AD6 /* Mappers */,
+				09BD780D237E2BD2008950CD /* Network */,
+				096E0B96237A07EC00024572 /* RemoteControl */,
+				0941B4F92378778B00994F67 /* AVFoundation */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		09F8EB5923B8189D00FE6E25 /* MediaPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				09F8EB5A23B818D700FE6E25 /* MediaPlayerInterface.swift */,
+				09F8EB6023B8244F00FE6E25 /* MediaPlayerConfigurator.swift */,
+			);
+			path = MediaPlayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -774,6 +807,7 @@
 				093E6A6C23B79D5900578C99 /* DJView.swift in Sources */,
 				099FFB7523947A2C005E1AD6 /* MapperConfigurator.swift in Sources */,
 				09BD7811237E2C01008950CD /* NetworkDispatcher.swift in Sources */,
+				09F8EB6123B8244F00FE6E25 /* MediaPlayerConfigurator.swift in Sources */,
 				0922E2C523A2FB5A00EB00C8 /* DateExtensions.swift in Sources */,
 				0906958923A304BE00CF0398 /* URLSessionClient.swift in Sources */,
 				0941B5102378834F00994F67 /* InteractorConfigurator.swift in Sources */,
@@ -800,9 +834,9 @@
 				0906958723A300E800CF0398 /* ResponseHandler.swift in Sources */,
 				093E6A6E23B79E0000578C99 /* DJViewModel.swift in Sources */,
 				0941B4FF23787D4A00994F67 /* RadioView.swift in Sources */,
+				09F8EB5B23B818D700FE6E25 /* MediaPlayerInterface.swift in Sources */,
 				0906958623A300E800CF0398 /* RequestHandler.swift in Sources */,
 				096E0B9C237A08A500024572 /* RemoteControlMetadata.swift in Sources */,
-				09FDBE74237E03C3001E34DE /* AVPlaybackInfo.swift in Sources */,
 				09BD7813237E2C5A008950CD /* APIRequest.swift in Sources */,
 				0990B7AF2378F8E100C213B7 /* AVClient.swift in Sources */,
 				09BD7819237E2D77008950CD /* RadioMainAPI.swift in Sources */,
@@ -824,6 +858,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09F8EB5F23B81FC500FE6E25 /* PlaybackInfo.swift in Sources */,
 				0922E2B523A2EC0E00EB00C8 /* GetSongQueueInteractor.swift in Sources */,
 				0941B4F32378746D00994F67 /* StopRadioInteractor.swift in Sources */,
 				093E6A6723B783BC00578C99 /* GetLastPlayedInteractor.swift in Sources */,
@@ -833,6 +868,7 @@
 				093E6A7123B7A1ED00578C99 /* GetDJInteractor.swift in Sources */,
 				0922E2BA23A2EC3400EB00C8 /* RadioStatus.swift in Sources */,
 				0922E2B923A2EC3000EB00C8 /* RadioDJ.swift in Sources */,
+				09F8EB5E23B81F8500FE6E25 /* GetPlaybackInfoInteractor.swift in Sources */,
 				093E6A7423B7AEDB00578C99 /* GetCurrentStatusInteractor.swift in Sources */,
 				0922E2B823A2EC2900EB00C8 /* Track.swift in Sources */,
 				0941B4F52378768900994F67 /* GatewayError.swift in Sources */,
@@ -1015,7 +1051,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_ASSET_PATHS = "Radio/Interfaces/Network/FakeNetwork radio/Preview\\ Content";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 5CPHJKX2SV;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Radio/Resources/Info.plist;
@@ -1037,7 +1073,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_ASSET_PATHS = "Radio/Interfaces/Network/FakeNetwork radio/Preview\\ Content";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 5CPHJKX2SV;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Radio/Resources/Info.plist;

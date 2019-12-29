@@ -7,6 +7,7 @@ public protocol AVGateway {
     func pause()
     func enqueue(url: URL) -> Bool
     func getSongName() -> AnyPublisher<String, Never>
+    func getPlaybackInfo() -> AnyPublisher<PlaybackInfo, Never>
 }
 
 public class AVGatewayError: GatewayError {

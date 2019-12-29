@@ -45,7 +45,8 @@ class RadioPresenterImp: RadioPresenter {
     @Published var dj: DJViewModel?
     @Published var listeners: Int?
     
-    init(play: PlayRadioUseCase,
+    init(
+        play: PlayRadioUseCase,
          pause: StopRadioUseCase,
          songName: GetSongNameUseCase,
          queue: GetSongQueueInteractor,
