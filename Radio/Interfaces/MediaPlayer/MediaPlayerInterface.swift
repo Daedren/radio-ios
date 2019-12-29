@@ -77,6 +77,7 @@ class MediaPlayerInterface {
             }).store(in: &nowPlayingDisposeBag)
         
         self.songNameInteractor.execute()
+            .removeDuplicates(by: { lhs, rhs in return lhs.info.title == rhs.info.title })
             .sink(receiveValue: { [weak self] newName in
                 if let metadata = self?.createStaticMetadata(title: newName.info.title, artist: newName.info.artist, image: self?.currentDJ) {
                     self?.remoteControl.setStatic(metadata: metadata)

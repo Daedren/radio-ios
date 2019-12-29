@@ -25,7 +25,7 @@ struct ProgressBar: View {
                         .opacity(0.5)
                         .background(Color.blue)
                         .cornerRadius(self.barHeight)
-                        .animation(.default)
+                        .animation(.linear(duration: 1.0))
                 }
                 .frame(height: self.barHeight)
             }.frame(height: self.barHeight)

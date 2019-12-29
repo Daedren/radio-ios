@@ -93,10 +93,11 @@ class RadioPresenterImp: RadioPresenter {
     func getSongName() {
         self.songNameInteractor
             .execute()
-            .removeDuplicates(by: { lhs, rhs in return lhs.startTime == rhs.startTime })
+            .removeDuplicates(by: { lhs, rhs in return lhs.info.title == rhs.info.title })
             .receive(on: DispatchQueue.main)
             .sink(receiveValue:{ [weak self] value in
                 self?.songName = "\(value.info.artist) - \(value.info.title)"
+                print("Changing songname to \(self?.songName ?? "")")
                 self?.currentTrack = CurrentTrackViewModel(base: value)
             })
             .store(in: &disposeBag)
