@@ -2,14 +2,23 @@ import Foundation
 import Combine
 import AVFoundation
 
-public class AVClient: NSObject {
+public protocol AVClientContract {
+    func play()
+    func pause()
+    func enqueue(url: URL) -> Bool
+    func getSongName() -> AnyPublisher<String,Never>
+    func getPlaybackRate() -> Float
+    func getPlaybackPosition() -> AnyPublisher<Float,Never>
+}
+
+public class AVClient: NSObject, AVClientContract {
     
     var manager: AVQueuePlayer
     var songName = PassthroughSubject<String,Never>()
-    
+    var position = PassthroughSubject<Float,Never>()
+
     var timeObserverToken: Any?
-    var playbackInfo = PassthroughSubject<AVPlaybackInfo,Never>()
-    
+
     public override init() {
         self.manager = AVQueuePlayer()
         super.init()
@@ -53,11 +62,7 @@ public class AVClient: NSObject {
     public func getSongName() -> AnyPublisher<String,Never> {
         return songName.eraseToAnyPublisher()
     }
-    
-    public func getPlaybackInfo() -> AnyPublisher<AVPlaybackInfo,Never> {
-        return self.playbackInfo.eraseToAnyPublisher()
-    }
-    
+
     private func createMetadataOutput() -> AVPlayerItemMetadataOutput{
         let metadataOutput = AVPlayerItemMetadataOutput()
         metadataOutput.setDelegate(self, queue: DispatchQueue.global(qos: .default))
@@ -75,11 +80,15 @@ public class AVClient: NSObject {
     }
     
     private func updatePlaybackInfo(with time: CMTime) {
-//        print("Updating time at \(time)")
-        self.playbackInfo.send(
-            AVPlaybackInfo(rate: 1.0,
-                           position: Float(time.seconds))
-        )
+        self.position.send(Float(time.seconds))
+    }
+    
+    public func getPlaybackRate() -> Float {
+        return 1.0
+    }
+    
+    public func getPlaybackPosition() -> AnyPublisher<Float,Never> {
+        return self.position.eraseToAnyPublisher()
     }
     
 }

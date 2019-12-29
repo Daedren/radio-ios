@@ -42,5 +42,10 @@ class InteractorConfigurator: Assembly {
                 radio: container.resolve(RadioGateway.self)!
             )
         }
+        container.register(GetPlaybackInfoInteractor.self) { _ in
+            return GetPlaybackInfoInteractor(
+                avGateway: container.resolve(AVGateway.self)!
+            )
+        }
     }
 }
