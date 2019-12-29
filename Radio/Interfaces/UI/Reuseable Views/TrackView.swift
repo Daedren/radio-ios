@@ -10,6 +10,11 @@ struct TrackView: View {
             Text("\(track.artist) - \(track.title)")
             if track.startsIn != "" {
                 Text("in \(track.startsIn)")
+                    .foregroundColor(Color.gray)
+            }
+            if track.endsAt != "" {
+                Text(" \(track.endsAt) ago")
+                    .foregroundColor(Color.gray)
             }
         }
     }

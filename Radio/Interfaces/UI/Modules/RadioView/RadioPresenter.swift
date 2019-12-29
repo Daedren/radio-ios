@@ -72,12 +72,12 @@ class RadioPresenterImp: RadioPresenter {
     func togglePlay() {
         if isPlaying {
             print("Pausing")
-            self.playText = "Stop"
+            self.playText = "Play"
             self.pauseInteractor.execute()
         }
         else {
             print("Playing")
-            self.playText = "Play"
+            self.playText = "Stop"
             self.playInteractor.execute()
         }
         self.isPlaying = !isPlaying
