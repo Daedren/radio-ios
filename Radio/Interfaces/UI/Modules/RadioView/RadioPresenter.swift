@@ -17,8 +17,8 @@ protocol RadioPresenter: ObservableObject {
 class RadioPresenterPreviewer: RadioPresenter {
     @Published var songName: String = "songnamehere"
     @Published var playText: String = "Play"
-    @Published var queue: [TrackViewModel] = [TrackViewModel.stub()]
-    @Published var lastPlayed: [TrackViewModel] = [TrackViewModel.stub()]
+    @Published var queue: [TrackViewModel] = [TrackViewModel.stub(),TrackViewModel.stub(),TrackViewModel.stub(),TrackViewModel.stub(),TrackViewModel.stub()]
+    @Published var lastPlayed: [TrackViewModel] = [TrackViewModel.stub(),TrackViewModel.stub(),TrackViewModel.stub(),TrackViewModel.stub(),TrackViewModel.stub()]
     @Published var currentTrack: CurrentTrackViewModel? = CurrentTrackViewModel.stubCurrent()
     @Published var dj: DJViewModel? = DJViewModel.stub()
     @Published var listeners: Int? = 420

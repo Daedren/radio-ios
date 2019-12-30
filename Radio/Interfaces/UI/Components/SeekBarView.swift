@@ -17,7 +17,7 @@ struct SeekBarView: View {
                     .fixedSize(horizontal: false, vertical: true)
             }
         }
-        .padding(20.0)
+        .padding([.leading,.trailing], 20.0)
     }
     
 }

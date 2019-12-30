@@ -15,6 +15,7 @@ struct DJView: View {
                        alignment: .center)
                 .clipShape(Circle())
             Text(self.dj.name)
+                .font(.headline)
         }
     }
 }
