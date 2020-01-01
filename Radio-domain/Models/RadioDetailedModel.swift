@@ -4,16 +4,16 @@ import Radio_Domain
 public class RadioDetailedModel {
     var status: RadioStatus
     var dj: RadioDJ
-    var currentTrack: Track
-    var queue: [Track]
-    var lastPlayed: [Track]
+    var currentTrack: QueuedTrack
+    var queue: [QueuedTrack]
+    var lastPlayed: [QueuedTrack]
     
     init(
         status: RadioStatus,
         dj: RadioDJ,
-        currentTrack: Track,
-        queue: [Track],
-        lastPlayed: [Track]
+        currentTrack: QueuedTrack,
+        queue: [QueuedTrack],
+        lastPlayed: [QueuedTrack]
     ) {
         self.status = status
         self.dj = dj

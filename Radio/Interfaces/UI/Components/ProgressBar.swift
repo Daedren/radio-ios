@@ -17,13 +17,12 @@ struct ProgressBar: View {
             VStack(alignment: .trailing) {
                 ZStack(alignment: .leading) {
                     Rectangle()
-                        .opacity(0.1)
+                        .fill(Color(.secondarySystemBackground))
                         .cornerRadius(self.barHeight)
                     Rectangle()
+                        .fill(Color(.systemTeal))
                         .frame(minWidth: 0, idealWidth:self.getProgressBarWidth(geometry: geometry),
                                maxWidth: self.getProgressBarWidth(geometry: geometry))
-                        .opacity(0.5)
-                        .background(Color.blue)
                         .cornerRadius(self.barHeight)
                         .animation(.linear(duration: 1.0))
                 }
@@ -42,3 +41,11 @@ struct ProgressBar: View {
         return "\(intValue) %"
     }
 }
+
+struct ProgressBar_Previews: PreviewProvider {
+    static var previews: some View {
+        let track = ProgressBar(value: 0.5)
+        return track
+    }
+}
+

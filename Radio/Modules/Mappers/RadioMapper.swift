@@ -28,7 +28,9 @@ struct RadioMapperImp: RadioMapper {
         let entity = RadioStatus(listeners: main.listeners,
                                  bitrate: main.bitrate,
                                  currentTime: Date(timeIntervalSince1970: TimeInterval(main.current)),
-                                 acceptingRequests: main.requesting)
+                                 acceptingRequests: main.requesting,
+                                 thread: main.thread
+        )
         return entity
     }
     
@@ -50,28 +52,28 @@ struct RadioMapperImp: RadioMapper {
     
     func mapColor(from model: String) throws -> Color {
         let hues = model.split(separator: " ")
-               let integerHues = hues.compactMap{ Int($0) }
-               if integerHues.count == 3 {
-                   return Color(red: integerHues[0], green: integerHues[1], blue: integerHues[2])
-               }
-               throw RadioError.apiContentMismatch
+        let integerHues = hues.compactMap{ Int($0) }
+        if integerHues.count == 3 {
+            return Color(red: integerHues[0], green: integerHues[1], blue: integerHues[2])
+        }
+        throw RadioError.apiContentMismatch
     }
     
-    func mapCurrentTrack(from model: RadioMainAPIResponseModel) throws -> Track {
+    func mapCurrentTrack(from model: RadioMainAPIResponseModel) throws -> QueuedTrack {
         let main = model.main
         if let artistAndTitle = mapToArtistAndTitle(model: main.np) {
-            let entity = Track(title: artistAndTitle.title,
-                               artist: artistAndTitle.artist,
-                               startTime: Date(timeIntervalSince1970: TimeInterval(main.startTime)),
-                               endTime: Date(timeIntervalSince1970: TimeInterval(main.endTime)),
-                               currentTime: Date(timeIntervalSince1970: TimeInterval(main.current)),
-                               requested: false)
+            let entity = QueuedTrack(title: artistAndTitle.title,
+                                     artist: artistAndTitle.artist,
+                                     startTime: Date(timeIntervalSince1970: TimeInterval(main.startTime)),
+                                     endTime: Date(timeIntervalSince1970: TimeInterval(main.endTime)),
+                                     currentTime: Date(timeIntervalSince1970: TimeInterval(main.current)),
+                                     requested: false)
             return entity
         }
         throw RadioError.apiContentMismatch
     }
     
-    func mapToQueue(model: RadioMainAPIResponseModel) throws -> [Track] {
+    func mapToQueue(model: RadioMainAPIResponseModel) throws -> [QueuedTrack] {
         let queue = model.main.queue
         let mappedQueue = queue.compactMap{ self.mapTrackHelper(track: $0, timestampIsStartTime: true) }
         
@@ -83,7 +85,7 @@ struct RadioMapperImp: RadioMapper {
         }
     }
     
-    func mapToLastPlayed(model: RadioMainAPIResponseModel) throws -> [Track] {
+    func mapToLastPlayed(model: RadioMainAPIResponseModel) throws -> [QueuedTrack] {
         let queue = model.main.lp
         let mappedQueue = queue.compactMap{ self.mapTrackHelper(track: $0, timestampIsStartTime: false) }
         
@@ -91,32 +93,32 @@ struct RadioMapperImp: RadioMapper {
             return mappedQueue
         }
         else {
-           throw RadioError.apiContentMismatch
+            throw RadioError.apiContentMismatch
         }
     }
     
-    func mapTrackHelper(track: LastPlayed, timestampIsStartTime: Bool) -> Track? {
+    func mapTrackHelper(track: LastPlayed, timestampIsStartTime: Bool) -> QueuedTrack? {
         let timestamp = Date(timeIntervalSince1970: TimeInterval(track.timestamp))
         if let artistAndTitle = mapToArtistAndTitle(model: track.meta) {
-            return Track(title: artistAndTitle.title,
-                         artist: artistAndTitle.artist,
-                         startTime: timestampIsStartTime ? timestamp : nil,
-                         endTime: timestampIsStartTime ? nil: timestamp,
-                         requested: track.type == 1)
+            return QueuedTrack(title: artistAndTitle.title,
+                               artist: artistAndTitle.artist,
+                               startTime: timestampIsStartTime ? timestamp : nil,
+                               endTime: timestampIsStartTime ? nil: timestamp,
+                               requested: track.type == 1)
         }
         return nil
     }
     
-    func mapToArtistAndTitle(model: String) -> TrackTitleArtist? {
+    func mapToArtistAndTitle(model: String) -> Track? {
         let separator = " - "
         guard let range = model
             .range(of: separator)
-            else { return TrackTitleArtist(title: model, artist: "") }
+            else { return BaseTrack(title: model, artist: "") }
         
         let finalString = [model.prefix(upTo: range.lowerBound), model.suffix(from: range.upperBound)]
         
         if finalString.count == 2 {
-            return TrackTitleArtist(title: String(finalString[1]), artist: String(finalString[0]))
+            return BaseTrack(title: String(finalString[1]), artist: String(finalString[0]))
         }
         return nil
     }

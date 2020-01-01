@@ -8,10 +8,12 @@ public class RadioGatewayImp: RadioGateway {
     var network: NetworkDispatcher
     var mapper: RadioMapper
     
+    var allLastPlayed = NSMutableOrderedSet()
+    
     var status = PassthroughSubject<RadioStatus,RadioError>()
-    var currentTrack = PassthroughSubject<Track,RadioError>()
-    var queue = PassthroughSubject<[Track],RadioError>()
-    var lastPlayed = PassthroughSubject<[Track],RadioError>()
+    var currentTrack = PassthroughSubject<QueuedTrack,RadioError>()
+    var queue = PassthroughSubject<[QueuedTrack],RadioError>()
+    var lastPlayed = PassthroughSubject<[QueuedTrack],RadioError>()
     var currentDJ = PassthroughSubject<RadioDJ,RadioError>()
     
     var apiDisposeBag = Set<AnyCancellable>()
@@ -23,7 +25,7 @@ public class RadioGatewayImp: RadioGateway {
         self.fetchFromAPI()
     }
     
-    public func getCurrentTrack() -> AnyPublisher<Track, RadioError> {
+    public func getCurrentTrack() -> AnyPublisher<QueuedTrack, RadioError> {
         return currentTrack.eraseToAnyPublisher()
     }
     
@@ -31,11 +33,11 @@ public class RadioGatewayImp: RadioGateway {
         return status.eraseToAnyPublisher()
     }
     
-    public func getSongQueue() -> AnyPublisher<[Track], RadioError> {
+    public func getSongQueue() -> AnyPublisher<[QueuedTrack], RadioError> {
         return queue.eraseToAnyPublisher()
     }
     
-    public func getLastPlayed() -> AnyPublisher<[Track], RadioError> {
+    public func getLastPlayed() -> AnyPublisher<[QueuedTrack], RadioError> {
         return lastPlayed.eraseToAnyPublisher()
     }
     
@@ -79,6 +81,7 @@ extension RadioGatewayImp {
         self.currentTrack.send(result.currentTrack)
         self.status.send(result.status)
         self.queue.send(result.queue)
-        self.lastPlayed.send(result.lastPlayed)
+        self.allLastPlayed.addObjects(from: result.lastPlayed.reversed())
+        self.lastPlayed.send(Array(self.allLastPlayed.array.reversed()) as! [QueuedTrack] )
     }
 }

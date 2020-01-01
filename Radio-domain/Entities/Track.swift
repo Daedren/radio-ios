@@ -1,30 +1,19 @@
 import Foundation
 
-public struct Track {
-    public var info: TrackTitleArtist
-
-    public var startTime: Date?
-    public var endTime: Date?
-    public var currentTime: Date?
-    public var requested: Bool
-    
-    public init(
-        title: String,
-        artist: String,
-        startTime: Date?,
-        endTime: Date?,
-        currentTime: Date? = nil,
-        requested: Bool
-        ) {
-        self.info = TrackTitleArtist(title: title, artist: artist)
-        self.startTime = startTime
-        self.currentTime = currentTime
-        self.endTime = endTime
-        self.requested = requested
-    }
+public protocol Track {
+    var title: String { get set }
+    var artist: String { get set }
 }
 
-public struct TrackTitleArtist {
+public struct BaseTrack: Track, Hashable {
+    public static func == (lhs: BaseTrack, rhs: BaseTrack) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(self.title)
+    }
+
     public var title: String
     public var artist: String
     

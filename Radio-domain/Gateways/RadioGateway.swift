@@ -2,10 +2,10 @@ import Foundation
 import Combine
 
 public protocol RadioGateway {
-    func getCurrentTrack() -> AnyPublisher<Track,RadioError>
+    func getCurrentTrack() -> AnyPublisher<QueuedTrack,RadioError>
     func getCurrentStatus() -> AnyPublisher<RadioStatus,RadioError>
-    func getSongQueue() -> AnyPublisher<[Track],RadioError>
-    func getLastPlayed() -> AnyPublisher<[Track],RadioError>
+    func getSongQueue() -> AnyPublisher<[QueuedTrack],RadioError>
+    func getLastPlayed() -> AnyPublisher<[QueuedTrack],RadioError>
     func getCurrentDJ() -> AnyPublisher<RadioDJ,RadioError>
 }
 

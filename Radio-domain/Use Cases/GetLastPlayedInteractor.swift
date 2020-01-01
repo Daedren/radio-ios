@@ -3,7 +3,7 @@ import Combine
 
 public class GetLastPlayedInteractor: Interactor {
     public typealias Input = Void
-    public typealias Output = AnyPublisher<[Track],RadioError>
+    public typealias Output = AnyPublisher<[QueuedTrack],RadioError>
 
     var radio: RadioGateway?
     
@@ -11,7 +11,7 @@ public class GetLastPlayedInteractor: Interactor {
         self.radio = radio
     }
     
-    public func execute(_: () = ()) -> AnyPublisher<[Track], RadioError> {
+    public func execute(_: () = ()) -> AnyPublisher<[QueuedTrack], RadioError> {
         self.radio!.getLastPlayed()
     }
     

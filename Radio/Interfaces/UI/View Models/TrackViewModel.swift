@@ -11,12 +11,12 @@ class TrackViewModel: Identifiable {
     public var endsAt: String
     public var requested: Bool
     
-    public init(base: Track) {
-        self.title = base.info.title
-        self.artist = base.info.artist
+    public init(base: QueuedTrack) {
+        self.title = base.title
+        self.artist = base.artist
         self.requested = base.requested
         
-        self.startsIn = base.startTime?.offsetFrom(date: Date()) ?? ""
+        self.startsIn = base.startTime?.numericOffsetFrom(date: Date()) ?? ""
         if let endTime = base.endTime {
             self.endsAt = Date().offsetFrom(date: endTime)
         }
@@ -26,7 +26,7 @@ class TrackViewModel: Identifiable {
     }
     
     public static func stub() -> TrackViewModel {
-        let track = Track(title: "title", artist: "artist", startTime: Date.init(timeIntervalSinceNow: 30.0), endTime: Date.init(timeIntervalSinceNow: 30.0), requested: false)
+        let track = QueuedTrack(title: "title", artist: "artist", startTime: Date.init(timeIntervalSinceNow: 30.0), endTime: Date.init(timeIntervalSinceNow: 30.0), requested: false)
         return TrackViewModel(base: track)
     }
 }
