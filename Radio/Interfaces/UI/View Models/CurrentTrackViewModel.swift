@@ -2,7 +2,7 @@ import Foundation
 import Radio_Domain
 
 class CurrentTrackViewModel: TrackViewModel {
-    public var trackBackup: Track?
+    public var trackBackup: QueuedTrack?
     public var currentDate: Date?
     public var startDate: Date?
     public var endDate: Date?
@@ -11,7 +11,7 @@ class CurrentTrackViewModel: TrackViewModel {
     public var startTag: String?
     public var endTag: String?
 
-    override public init(base: Track) {
+    override public init(base: QueuedTrack) {
         super.init(base: base)
         self.trackBackup = base
         self.setCurrentTrackVars(current: base.currentTime,start: base.startTime,end: base.endTime)
@@ -47,7 +47,7 @@ class CurrentTrackViewModel: TrackViewModel {
     }
     
     public static func stubCurrent() -> CurrentTrackViewModel {
-        let track = Track(title: "title",
+        let track = QueuedTrack(title: "title",
                           artist: "artist",
                           startTime: Date.init(timeIntervalSince1970: 1577622501),
                           endTime: Date.init(timeIntervalSince1970: 1577622752),

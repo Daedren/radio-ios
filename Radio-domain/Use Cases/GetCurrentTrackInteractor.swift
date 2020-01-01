@@ -2,7 +2,7 @@ import Foundation
 import Combine
 
 public protocol GetCurrentTrackUseCase {
-    func execute() -> AnyPublisher<Track,Never>
+    func execute() -> AnyPublisher<QueuedTrack,Never>
 }
 
 public class GetCurrentTrackInteractor: GetCurrentTrackUseCase {
@@ -14,12 +14,12 @@ public class GetCurrentTrackInteractor: GetCurrentTrackUseCase {
         self.radioGateway = radioGateway
     }
     
-    public func execute() -> AnyPublisher<Track, Never>{
+    public func execute() -> AnyPublisher<QueuedTrack, Never>{
         let apiName = self.radioGateway
             .getCurrentTrack()
-            .map{ return TrackTitleArtist(title: $0.info.title, artist: $0.info.artist) }
+            .map{ return BaseTrack(title: $0.title, artist: $0.artist) }
             .catch({err in
-                return Empty<TrackTitleArtist,Never>()
+                return Empty<BaseTrack,Never>()
             })
             .eraseToAnyPublisher()
         
@@ -33,7 +33,7 @@ public class GetCurrentTrackInteractor: GetCurrentTrackUseCase {
         
         let track = self.radioGateway.getCurrentTrack()
             .catch({err in
-                return Empty<Track,Never>()
+                return Empty<QueuedTrack,Never>()
             })
             .combineLatest(mergedObs, mergeTrackAndName(track:name:))
             .eraseToAnyPublisher()
@@ -41,14 +41,15 @@ public class GetCurrentTrackInteractor: GetCurrentTrackUseCase {
         return track
     }
     
-    private func mergeTrackAndName(track: Track, name: TrackTitleArtist) -> Track {
+    private func mergeTrackAndName(track: QueuedTrack, name: Track) -> QueuedTrack {
         var newTrack = track
-        newTrack.info = name
+        newTrack.title = name.title
+        newTrack.artist = name.artist
         return newTrack
     }
     
     
-    private func mapToArtistAndTitle(model: String) -> TrackTitleArtist? {
+    private func mapToArtistAndTitle(model: String) -> BaseTrack? {
         let separator = " - "
         guard let range = model
             .range(of: separator)
@@ -57,7 +58,7 @@ public class GetCurrentTrackInteractor: GetCurrentTrackUseCase {
         let finalString = [model.prefix(upTo: range.lowerBound), model.suffix(from: range.upperBound)]
         
         if finalString.count == 2 {
-            return TrackTitleArtist(title: String(finalString[1]), artist: String(finalString[0]))
+            return BaseTrack(title: String(finalString[1]), artist: String(finalString[0]))
         }
         return nil
     }

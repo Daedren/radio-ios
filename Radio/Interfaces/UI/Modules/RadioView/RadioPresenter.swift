@@ -10,18 +10,22 @@ protocol RadioPresenter: ObservableObject {
     var currentTrack: CurrentTrackViewModel? { get }
     var dj: DJViewModel? { get }
     var listeners: Int? { get }
+    var thread: String { get }
+    var acceptingRequests: Bool { get }
     
     func tappedButton()
 }
 
 class RadioPresenterPreviewer: RadioPresenter {
     @Published var songName: String = "songnamehere"
-    @Published var playText: String = "Play"
+    @Published var playText: String = "play.fill"
     @Published var queue: [TrackViewModel] = [TrackViewModel.stub(),TrackViewModel.stub(),TrackViewModel.stub(),TrackViewModel.stub(),TrackViewModel.stub()]
     @Published var lastPlayed: [TrackViewModel] = [TrackViewModel.stub(),TrackViewModel.stub(),TrackViewModel.stub(),TrackViewModel.stub(),TrackViewModel.stub()]
     @Published var currentTrack: CurrentTrackViewModel? = CurrentTrackViewModel.stubCurrent()
     @Published var dj: DJViewModel? = DJViewModel.stub()
     @Published var listeners: Int? = 420
+    @Published var thread: String = ""
+    @Published var acceptingRequests: Bool = true
     
     func tappedButton() {
         print("Tapped")
@@ -41,12 +45,14 @@ class RadioPresenterImp: RadioPresenter {
     private var disposeBag = Set<AnyCancellable>()
     
     @Published var songName: String = ""
-    @Published var playText: String = "Play"
+    @Published var playText: String = "play.fill"
     @Published var queue: [TrackViewModel] = []
     @Published var lastPlayed: [TrackViewModel] = []
     @Published var currentTrack: CurrentTrackViewModel?
     @Published var dj: DJViewModel?
     @Published var listeners: Int?
+    @Published var thread: String = ""
+    @Published var acceptingRequests: Bool = true
     
     init(
         play: PlayRadioUseCase,
@@ -75,12 +81,12 @@ class RadioPresenterImp: RadioPresenter {
     func togglePlay() {
         if isPlaying {
             print("Pausing")
-            self.playText = "Play"
+            self.playText = "play.fill"
             self.pauseInteractor.execute()
         }
         else {
             print("Playing")
-            self.playText = "Stop"
+            self.playText = "stop.fill"
             self.playInteractor.execute()
         }
         self.isPlaying = !isPlaying
@@ -93,10 +99,10 @@ class RadioPresenterImp: RadioPresenter {
     func getSongName() {
         self.songNameInteractor
             .execute()
-            .removeDuplicates(by: { lhs, rhs in return lhs.info.title == rhs.info.title })
+            .removeDuplicates(by: { lhs, rhs in return lhs.title == rhs.title })
             .receive(on: DispatchQueue.main)
             .sink(receiveValue:{ [weak self] value in
-                self?.songName = "\(value.info.artist) - \(value.info.title)"
+                self?.songName = "\(value.artist) - \(value.title)"
                 print("Changing songname to \(self?.songName ?? "")")
                 self?.currentTrack = CurrentTrackViewModel(base: value)
             })
@@ -171,6 +177,8 @@ class RadioPresenterImp: RadioPresenter {
             
         }, receiveValue: { [weak self] value in
             self?.listeners = value.listeners
+            self?.thread = value.thread
+            self?.acceptingRequests = value.acceptingRequests
         })
             .store(in: &disposeBag)
         

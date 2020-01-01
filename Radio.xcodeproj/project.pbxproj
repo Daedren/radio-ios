@@ -59,6 +59,18 @@
 		097C1EDF2378719700A7A5AD /* Radio_Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 097C1ECA2378719700A7A5AD /* Radio_Domain.framework */; };
 		097C1EE02378719700A7A5AD /* Radio_Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 097C1ECA2378719700A7A5AD /* Radio_Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		097C1EEA2378720100A7A5AD /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097C1EE92378720100A7A5AD /* Interactor.swift */; };
+		098CAF9923BB872500B6B80E /* SlideOverCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CAF9823BB872500B6B80E /* SlideOverCard.swift */; };
+		098CAF9B23BB874200B6B80E /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CAF9A23BB874200B6B80E /* Handle.swift */; };
+		098CAF9D23BB8BF800B6B80E /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CAF9C23BB8BF800B6B80E /* BottomSheetView.swift */; };
+		098CAF9F23BB8FF700B6B80E /* SongList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CAF9E23BB8FF700B6B80E /* SongList.swift */; };
+		098CAFA223BBC03900B6B80E /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CAFA123BBC03900B6B80E /* SearchView.swift */; };
+		098CAFA423BBC4D300B6B80E /* SearchWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CAFA323BBC4D300B6B80E /* SearchWrapper.swift */; };
+		098CAFA623BBC78A00B6B80E /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CAFA523BBC78A00B6B80E /* SearchPresenter.swift */; };
+		098CAFAD23BBCDE000B6B80E /* SearchedTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CAFA923BBC9DE00B6B80E /* SearchedTrack.swift */; };
+		098CAFAE23BBCDE400B6B80E /* QueuedTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CAFAB23BBC9F500B6B80E /* QueuedTrack.swift */; };
+		098CAFB023BBD04400B6B80E /* SearchConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CAFAF23BBD04400B6B80E /* SearchConfigurator.swift */; };
+		098CAFB223BBD13C00B6B80E /* SearchedTrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CAFB123BBD13C00B6B80E /* SearchedTrackViewModel.swift */; };
+		098CAFB423BBD59600B6B80E /* WebViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CAFB323BBD59600B6B80E /* WebViewWrapper.swift */; };
 		0990B7AF2378F8E100C213B7 /* AVClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0990B7AE2378F8E100C213B7 /* AVClient.swift */; };
 		099FFB70239431D5005E1AD6 /* RadioMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FFB6F239431D5005E1AD6 /* RadioMapper.swift */; };
 		099FFB73239468E6005E1AD6 /* RadioDetailedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FFB72239468E6005E1AD6 /* RadioDetailedModel.swift */; };
@@ -183,6 +195,18 @@
 		097C1ED92378719700A7A5AD /* radio_domainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = radio_domainTests.swift; sourceTree = "<group>"; };
 		097C1EDB2378719700A7A5AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		097C1EE92378720100A7A5AD /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
+		098CAF9823BB872500B6B80E /* SlideOverCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOverCard.swift; sourceTree = "<group>"; };
+		098CAF9A23BB874200B6B80E /* Handle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handle.swift; sourceTree = "<group>"; };
+		098CAF9C23BB8BF800B6B80E /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
+		098CAF9E23BB8FF700B6B80E /* SongList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongList.swift; sourceTree = "<group>"; };
+		098CAFA123BBC03900B6B80E /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		098CAFA323BBC4D300B6B80E /* SearchWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWrapper.swift; sourceTree = "<group>"; };
+		098CAFA523BBC78A00B6B80E /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		098CAFA923BBC9DE00B6B80E /* SearchedTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedTrack.swift; sourceTree = "<group>"; };
+		098CAFAB23BBC9F500B6B80E /* QueuedTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueuedTrack.swift; sourceTree = "<group>"; };
+		098CAFAF23BBD04400B6B80E /* SearchConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchConfigurator.swift; sourceTree = "<group>"; };
+		098CAFB123BBD13C00B6B80E /* SearchedTrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedTrackViewModel.swift; sourceTree = "<group>"; };
+		098CAFB323BBD59600B6B80E /* WebViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewWrapper.swift; sourceTree = "<group>"; };
 		0990B7AC2378F56000C213B7 /* GetCurrentTrackInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCurrentTrackInteractor.swift; sourceTree = "<group>"; };
 		0990B7AE2378F8E100C213B7 /* AVClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVClient.swift; sourceTree = "<group>"; };
 		099FFB6F239431D5005E1AD6 /* RadioMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioMapper.swift; sourceTree = "<group>"; };
@@ -246,6 +270,7 @@
 		0922E2BC23A2F8AE00EB00C8 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				098CAFA023BBC02800B6B80E /* SearchView */,
 				0941B4FD23787CB200994F67 /* RadioView */,
 				0941B4FC23787C8800994F67 /* TabView */,
 			);
@@ -259,6 +284,11 @@
 				093E6A6B23B79D5900578C99 /* DJView.swift */,
 				09F8A11323B853FC00D95643 /* SeekBarView.swift */,
 				09F8A11523B854AE00D95643 /* ProgressBar.swift */,
+				098CAF9823BB872500B6B80E /* SlideOverCard.swift */,
+				098CAF9A23BB874200B6B80E /* Handle.swift */,
+				098CAF9C23BB8BF800B6B80E /* BottomSheetView.swift */,
+				098CAF9E23BB8FF700B6B80E /* SongList.swift */,
+				098CAFB323BBD59600B6B80E /* WebViewWrapper.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -267,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				0922E2C123A2FA2A00EB00C8 /* TrackViewModel.swift */,
+				098CAFB123BBD13C00B6B80E /* SearchedTrackViewModel.swift */,
 				093E6A6D23B79E0000578C99 /* DJViewModel.swift */,
 				09D49EE623B8E71C00BCC62D /* CurrentTrackViewModel.swift */,
 			);
@@ -501,11 +532,24 @@
 			path = Architecture;
 			sourceTree = "<group>";
 		};
+		098CAFA023BBC02800B6B80E /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				098CAFAF23BBD04400B6B80E /* SearchConfigurator.swift */,
+				098CAFA123BBC03900B6B80E /* SearchView.swift */,
+				098CAFA323BBC4D300B6B80E /* SearchWrapper.swift */,
+				098CAFA523BBC78A00B6B80E /* SearchPresenter.swift */,
+			);
+			path = SearchView;
+			sourceTree = "<group>";
+		};
 		099FFB71239468D9005E1AD6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				099FFB72239468E6005E1AD6 /* RadioDetailedModel.swift */,
 				09FDBE73237E03C3001E34DE /* PlaybackInfo.swift */,
+				098CAFA923BBC9DE00B6B80E /* SearchedTrack.swift */,
+				098CAFAB23BBC9F500B6B80E /* QueuedTrack.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -821,6 +865,7 @@
 				09BD7811237E2C01008950CD /* NetworkDispatcher.swift in Sources */,
 				09F8EB6123B8244F00FE6E25 /* MediaPlayerConfigurator.swift in Sources */,
 				0922E2C523A2FB5A00EB00C8 /* DateExtensions.swift in Sources */,
+				098CAF9923BB872500B6B80E /* SlideOverCard.swift in Sources */,
 				0906958923A304BE00CF0398 /* URLSessionClient.swift in Sources */,
 				0941B5102378834F00994F67 /* InteractorConfigurator.swift in Sources */,
 				09F8A10E23B83E5500D95643 /* ArtworkHandler.swift in Sources */,
@@ -828,6 +873,9 @@
 				0941B50E2378834700994F67 /* GatewayConfigurator.swift in Sources */,
 				0922E2C223A2FA2A00EB00C8 /* TrackViewModel.swift in Sources */,
 				097C1EA42378716F00A7A5AD /* AppDelegate.swift in Sources */,
+				098CAFB223BBD13C00B6B80E /* SearchedTrackViewModel.swift in Sources */,
+				098CAFA423BBC4D300B6B80E /* SearchWrapper.swift in Sources */,
+				098CAFA623BBC78A00B6B80E /* SearchPresenter.swift in Sources */,
 				09D49EE723B8E71C00BCC62D /* CurrentTrackViewModel.swift in Sources */,
 				09560821237F5596008206A1 /* InterfaceConfigurator.swift in Sources */,
 				099FFB70239431D5005E1AD6 /* RadioMapper.swift in Sources */,
@@ -835,6 +883,7 @@
 				0956081F237F5413008206A1 /* RadioGatewayImp.swift in Sources */,
 				097C1EA82378716F00A7A5AD /* MainTabsView.swift in Sources */,
 				0941B50C2378830400994F67 /* Configurator.swift in Sources */,
+				098CAFB023BBD04400B6B80E /* SearchConfigurator.swift in Sources */,
 				09BD781B237E2D9B008950CD /* RadioMainAPIResponseModel.swift in Sources */,
 				09F8A11423B853FC00D95643 /* SeekBarView.swift in Sources */,
 				099FFB73239468E6005E1AD6 /* RadioDetailedModel.swift in Sources */,
@@ -845,16 +894,21 @@
 				09BD780C237E2527008950CD /* RemoteControlClient.swift in Sources */,
 				096E0B98237A07F300024572 /* RemoteControl.swift in Sources */,
 				0941B5062378800C00994F67 /* RadioPresenter.swift in Sources */,
+				098CAF9F23BB8FF700B6B80E /* SongList.swift in Sources */,
 				0941B512237883E800994F67 /* RadioConfigurator.swift in Sources */,
 				0906958723A300E800CF0398 /* ResponseHandler.swift in Sources */,
 				093E6A6E23B79E0000578C99 /* DJViewModel.swift in Sources */,
 				0941B4FF23787D4A00994F67 /* RadioView.swift in Sources */,
 				09F8EB5B23B818D700FE6E25 /* MediaPlayerInterface.swift in Sources */,
+				098CAFA223BBC03900B6B80E /* SearchView.swift in Sources */,
+				098CAFB423BBD59600B6B80E /* WebViewWrapper.swift in Sources */,
 				0906958623A300E800CF0398 /* RequestHandler.swift in Sources */,
 				096E0B9C237A08A500024572 /* RemoteControlMetadata.swift in Sources */,
+				098CAF9B23BB874200B6B80E /* Handle.swift in Sources */,
 				09BD7813237E2C5A008950CD /* APIRequest.swift in Sources */,
 				0990B7AF2378F8E100C213B7 /* AVClient.swift in Sources */,
 				09BD7819237E2D77008950CD /* RadioMainAPI.swift in Sources */,
+				098CAF9D23BB8BF800B6B80E /* BottomSheetView.swift in Sources */,
 				09F8A11623B854AE00D95643 /* ProgressBar.swift in Sources */,
 				0922E2BF23A2F8DC00EB00C8 /* TrackView.swift in Sources */,
 			);
@@ -889,6 +943,8 @@
 				0922E2B823A2EC2900EB00C8 /* Track.swift in Sources */,
 				0941B4F52378768900994F67 /* GatewayError.swift in Sources */,
 				0922E2B723A2EC2100EB00C8 /* RadioGateway.swift in Sources */,
+				098CAFAD23BBCDE000B6B80E /* SearchedTrack.swift in Sources */,
+				098CAFAE23BBCDE400B6B80E /* QueuedTrack.swift in Sources */,
 				097C1EEA2378720100A7A5AD /* Interactor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
