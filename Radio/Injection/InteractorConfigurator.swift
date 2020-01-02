@@ -47,5 +47,10 @@ class InteractorConfigurator: Assembly {
                 avGateway: container.resolve(AVGateway.self)!
             )
         }
+        container.register(SearchForTermInteractor.self) { _ in
+            return SearchForTermInteractor(
+                radioGateway: container.resolve(RadioGateway.self)!
+            )
+        }
     }
 }

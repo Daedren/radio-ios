@@ -4,6 +4,7 @@ import Radio_Domain
 
 public protocol RadioMapper {
     func map(from model: RadioMainAPIResponseModel) throws -> RadioDetailedModel
+    func mapSearch(from model: SearchResponseModel) -> [SearchedTrack]
 }
 
 
@@ -29,7 +30,7 @@ struct RadioMapperImp: RadioMapper {
                                  bitrate: main.bitrate,
                                  currentTime: Date(timeIntervalSince1970: TimeInterval(main.current)),
                                  acceptingRequests: main.requesting,
-                                 thread: main.thread
+                                 thread: main.thread == "none" ? "" : main.thread
         )
         return entity
     }
@@ -121,5 +122,14 @@ struct RadioMapperImp: RadioMapper {
             return BaseTrack(title: String(finalString[1]), artist: String(finalString[0]))
         }
         return nil
+    }
+    
+    func mapSearch(from model: SearchResponseModel) -> [SearchedTrack] {
+        let tracks = model.data
+        return tracks.map { SearchedTrack(title: $0.title,
+                                          artist: $0.artist,
+                                          lastPlayed: Date(timeIntervalSince1970: TimeInterval($0.lastplayed)),
+                                          lastRequested: Date(timeIntervalSince1970: TimeInterval($0.lastrequested)),
+                                          requestable: $0.requestable)}
     }
 }
