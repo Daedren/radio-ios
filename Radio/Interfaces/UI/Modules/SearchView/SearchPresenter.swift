@@ -32,12 +32,15 @@ class SearchPresenterImp: ObservableObject {
         
         self.searchEngine
             .debounce(for: .seconds(1), scheduler: RunLoop.main)
-            .flatMap{ value in
+            .removeDuplicates()
+            .filter{ $0 != ""}
+            .flatMap{ value -> AnyPublisher<[SearchedTrack],RadioError> in
                 return searchInteractor.execute(value)
         }
         .map{ value in
             return value.map{ SearchedTrackViewModel(from: $0)}
         }
+        .receive(on: DispatchQueue.main)
         .sink(receiveCompletion: { _ in
             
         }, receiveValue: { [weak self] value in
