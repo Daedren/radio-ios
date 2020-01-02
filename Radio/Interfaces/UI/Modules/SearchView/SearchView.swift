@@ -6,10 +6,13 @@ struct SearchView: View {
     var body: some View {
         NavigationView {
             VStack() {
-                SearchWrapper(inputtedText: $presenter.searchedText)
+                SearchWrapper(inputtedText: $presenter.searchedText, placeholder: "Insert term to search")
                 List(presenter.returnedValues){
                     Text("\($0.artist) - \($0.title)")
                 }
+                .gesture(DragGesture().onChanged { _ in
+                    UIApplication.shared.windows.forEach { $0.endEditing(false) }
+                })
                 Spacer()
                     .navigationBarTitle("Search")
             }

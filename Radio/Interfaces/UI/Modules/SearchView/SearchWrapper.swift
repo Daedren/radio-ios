@@ -4,16 +4,18 @@ import SwiftUI
 
 struct SearchWrapper: UIViewRepresentable {
     typealias UIViewType = UISearchBar
-    let controller = UISearchController()
     @Binding var inputtedText: String
+    let searchBar = UISearchBar()
+    let placeholder: String?
     
     func makeCoordinator() -> Coordinator {
         return Coordinator(text: $inputtedText)
     }
     
     func makeUIView(context: UIViewRepresentableContext<SearchWrapper>) -> UISearchBar {
-        self.controller.searchBar.delegate = context.coordinator
-        return self.controller.searchBar
+        self.searchBar.delegate = context.coordinator
+        self.searchBar.placeholder = self.placeholder
+        return self.searchBar
     }
 
     func updateUIView(_ uiView: UISearchBar, context: UIViewRepresentableContext<SearchWrapper>) {
@@ -30,6 +32,23 @@ struct SearchWrapper: UIViewRepresentable {
                        textDidChange searchText: String)
         {
            text = searchText
+        }
+        
+        func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+            searchBar.setShowsCancelButton(true, animated: true)
+        }
+        
+        func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+            searchBar.setShowsCancelButton(false, animated: true)
+        }
+        
+        func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+            text = ""
+            searchBar.resignFirstResponder()
+        }
+        
+        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+            searchBar.resignFirstResponder()
         }
     }
 
