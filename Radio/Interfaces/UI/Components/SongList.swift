@@ -4,17 +4,9 @@ struct SongList: View {
     var content: [TrackViewModel]
     var title: LocalizedStringKey
     var tableColor: UIColor
-    let coloredNavAppearance = UINavigationBarAppearance()
-    
+
     
     init(content: [TrackViewModel], title: LocalizedStringKey = "", tableColor: UIColor = .tertiarySystemBackground) {
-        coloredNavAppearance.configureWithOpaqueBackground()
-        coloredNavAppearance.backgroundColor = .secondarySystemBackground
-        coloredNavAppearance.titleTextAttributes = [.foregroundColor: UIColor.label]
-        coloredNavAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.label]
-        
-        UINavigationBar.appearance().standardAppearance = coloredNavAppearance
-        UINavigationBar.appearance().scrollEdgeAppearance = coloredNavAppearance
         UITableView.appearance().tableFooterView = UIView()
         UITableView.appearance().backgroundColor = .clear
         self.title = title
@@ -23,19 +15,18 @@ struct SongList: View {
     }
     
     var body: some View {
-        //        VStack {
-        //            Text(title).font(.headline)
-        //            List{
-        //                Section(content: {
-        //                    ForEach(content){
-        //                        TrackView(track: $0)
-        //                    }
-        //                })
-        //            }
-        //        }
         VStack {
             if title != "" {
-                NavigationView {
+                VStack(spacing:0.0){
+                    HStack(spacing: 10.0){
+                        Text(title)
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                        Spacer()
+                    }
+                    .padding(.leading, 10.0)
+                    .frame(height: 100.0)
+                    .background(Color(.secondarySystemBackground))
                     List{
                         Section( content: {
                             ForEach(content){
@@ -44,9 +35,10 @@ struct SongList: View {
                         })
                             .listRowBackground(Color(tableColor))
                     }
-                    .navigationBarTitle(title, displayMode: .large)
+                    .navigationBarTitle(title, displayMode: .inline)
                     .background(Color(tableColor))
                 }
+                
             }
             else {
                 List{
@@ -66,6 +58,6 @@ struct SongList: View {
 struct SongList_Previews: PreviewProvider {
     static var previews: some View {
         SongList(content: [TrackViewModel.stub()], title: "Queue", tableColor: .gray)
-//            .environment(\.colorScheme, .dark)
+        //            .environment(\.colorScheme, .dark)
     }
 }

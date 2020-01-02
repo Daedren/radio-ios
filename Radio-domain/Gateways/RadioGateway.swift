@@ -7,6 +7,7 @@ public protocol RadioGateway {
     func getSongQueue() -> AnyPublisher<[QueuedTrack],RadioError>
     func getLastPlayed() -> AnyPublisher<[QueuedTrack],RadioError>
     func getCurrentDJ() -> AnyPublisher<RadioDJ,RadioError>
+    func searchFor(term: String) -> AnyPublisher<[SearchedTrack], RadioError>
 }
 
 public enum RadioError: Error {

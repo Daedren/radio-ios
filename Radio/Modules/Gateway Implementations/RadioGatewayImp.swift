@@ -45,6 +45,15 @@ public class RadioGatewayImp: RadioGateway {
         return currentDJ.eraseToAnyPublisher()
     }
     
+    public func searchFor(term: String) -> AnyPublisher<[SearchedTrack], RadioError> {
+        return network.execute(request: SearchRequest(term: term))
+            .tryMap(mapper.mapSearch(from:))
+            .mapError{ _ in
+                return RadioError.apiContentMismatch
+            }
+            .eraseToAnyPublisher()
+    }
+    
 }
 
 
