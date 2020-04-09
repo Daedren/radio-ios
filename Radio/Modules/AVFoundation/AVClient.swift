@@ -6,6 +6,7 @@ import Radio_cross
 public protocol AVClientContract {
     func play()
     func pause()
+    func stop()
     func enqueue(url: URL) -> Bool
     func getSongName() -> AnyPublisher<String,Never>
     func getPlaybackRate() -> Float
@@ -57,6 +58,14 @@ public class AVClient: NSObject, AVClientContract, LoggerWithContext {
     public func pause() {
         self.manager.pause()
 //        self.manager.removeAllItems()
+        if let token = self.timeObserverToken {
+            self.manager.removeTimeObserver(token)
+            self.timeObserverToken = nil
+        }
+    }
+    
+    public func stop() {
+        self.manager.removeAllItems()
         if let token = self.timeObserverToken {
             self.manager.removeTimeObserver(token)
             self.timeObserverToken = nil

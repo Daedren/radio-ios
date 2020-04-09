@@ -5,6 +5,7 @@ import Combine
 public protocol AVGateway {
     func play()
     func pause()
+    func stop()
     func isPlaying() -> Bool
     func enqueue(url: URL) -> Bool
     func getSongName() -> AnyPublisher<String, Never>

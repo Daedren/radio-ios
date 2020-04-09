@@ -76,8 +76,14 @@ class SearchPresenterImp: ObservableObject {
             self.requestInteractor?.execute(song.id)
                 .sink(receiveCompletion: { _ in
                     
-                }, receiveValue: {
-                    print("Success")
+                }, receiveValue: { result in
+                    print(song.title)
+                    if result {
+                        print("Success")
+                    }
+                    else {
+                        print("Failure")
+                    }
                 })
             .store(in: &requestDisposeBag)
         }

@@ -28,6 +28,11 @@ public class AVGatewayImp: AVGateway {
         audioClient.pause()
     }
     
+    public func stop() {
+        try? AVAudioSession.sharedInstance().setActive(false)
+        audioClient.stop()
+    }
+    
     public func enqueue(url: URL) -> Bool {
         audioClient.enqueue(url: url)
     }
