@@ -2,16 +2,18 @@ import SwiftUI
 
 struct SongList: View {
     var content: [TrackViewModel]
+    var recycling = true
     var title: LocalizedStringKey
     var tableColor: UIColor
 
     
-    init(content: [TrackViewModel], title: LocalizedStringKey = "", tableColor: UIColor = .tertiarySystemBackground) {
+    init(content: [TrackViewModel], title: LocalizedStringKey = "", tableColor: UIColor = .tertiarySystemBackground, recycling: Bool = true) {
         UITableView.appearance().tableFooterView = UIView()
         UITableView.appearance().backgroundColor = .clear
         self.title = title
         self.content = content
         self.tableColor = tableColor
+        self.recycling = recycling
     }
     
     var body: some View {
@@ -27,20 +29,23 @@ struct SongList: View {
                     .padding(.leading, 10.0)
                     .frame(height: 100.0)
                     .background(Color(.secondarySystemBackground))
-                    List{
-                        Section( content: {
-                            ForEach(content){
-                                TrackView(track: $0)
-                            }
-                        })
-                            .listRowBackground(Color(tableColor))
-                    }
+                    
+                    songList
                     .navigationBarTitle(title, displayMode: .inline)
                     .background(Color(tableColor))
                 }
                 
             }
             else {
+                songList
+            }
+            
+        }
+    }
+    
+    var songList: some View {
+        Group {
+            if recycling {
                 List{
                     Section( content: {
                         ForEach(content){
@@ -50,7 +55,14 @@ struct SongList: View {
                         .listRowBackground(Color(tableColor))
                 }
             }
-            
+            else {
+                VStack {
+                    ForEach(content) { item in
+                        TrackView(track: item)
+                        Divider()
+                    }
+                }.padding(.vertical, 30)
+            }
         }
     }
 }

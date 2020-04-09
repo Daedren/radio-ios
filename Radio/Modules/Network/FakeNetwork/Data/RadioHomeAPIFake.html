@@ -1,0 +1,1060 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="shortcut icon" href="/favicon.ico">
+
+        <title>R/a/dio</title>
+
+        <!-- Bootstrap Core CSS
+            ==================== -->
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+        <!-- Source Sans Pro -->
+        <link href="/css/fonts.css" rel="stylesheet">
+
+        <!-- FontAwesome -->
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+
+        <!-- Base CSS -->
+        <link href="/css/base.css" rel="stylesheet">
+
+
+                    <!-- DJ Theme -->
+            <link href="/css/dark.css" rel="stylesheet">
+        
+        <!-- script src="//code.jquery.com/jquery-2.0.3.min.js"></script -->
+        <!-- external refs are dumb. ed -->
+        <script src="/js/jquery-2.0.3.min.js"></script>
+
+        <script>swfpath = "/js/Jplayer.swf";</script>
+
+        <!-- IE7-8 are not supported in any way by this site.
+            They can all die in a fire. (IE10 + 11, however, live)
+            ======================================================= -->
+
+    </head>
+
+    <body>
+        <!-- Navbar
+        ======== -->
+        <div class="navbar navbar-inverse" style="border-radius: 0px">
+            <div class="container navbar-container">
+
+                <!-- Collapse Icon
+                    ======== -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand ajax-navigation" href="/"><img src="/assets/logotitle_2.png" height="22"></a>
+                </div>
+
+                <!-- Navbar Itself
+                    ======== -->
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+
+
+                                                    <li>
+                                                    <a href="/news" class="ajax-navigation">News</a>
+                        </li>
+
+
+                                                    <li>
+                                                    <a href="/irc" class="ajax-navigation">Chat</a>
+                        </li>
+
+
+                                                    <li>
+                                                    <a href="/search" class="ajax-navigation">Search</a>
+                        </li>
+
+                        <li>
+                            <a href="" data-toggle="modal" data-target="#schedule">Schedule</a>
+                        </li>
+
+                                                    <li>
+                                                    <a href="/last-played" class="ajax-navigation">Last Played</a>
+                        </li>
+
+                                                    <li>
+                                                    <a href="/queue" class="ajax-navigation">Queue</a>
+                        </li>
+
+                                                    <li>
+                                                    <a href="/faves" class="ajax-navigation">Favorites</a>
+                        </li>
+
+                                                                                                        <li>
+                                                                                                        <a href="/staff" class="ajax-navigation">Staff</a>
+                                                </li>
+
+<!--
+                                                    <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Stats <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/last-played" class="ajax-navigation drop">Last Played</a></li>
+                                <li><a href="/queue" class="ajax-navigation drop">Queue</a></li>
+                                <li><a href="/faves" class="ajax-navigation drop">Favorites </a></li>
+                            </ul>
+                        </li>
+-->
+                                                    <li>
+                                                    <a href="/submit" class="ajax-navigation">Submit</a>
+                        </li>
+
+                                            </ul>
+                    <form method="POST" action="https://r-a-d.io/search" accept-charset="UTF-8" class="ajax-search navbar-form navbar-right"><input name="_token" type="hidden" value="ZtcFLUJjNFGpeOsyhsEABEqVxLpX1cDsvL20BI1J">
+                        <div class="form-group">
+                            <input type="text" name="q" placeholder="Request" class="form-control" role="search">
+                        </div>
+                    </form>
+                </div><!--/.nav-collapse -->
+                <div id="stream"></div>
+            </div>
+
+
+        </div>
+        <noscript>
+            <div class="container">
+                <div class="alert alert-danger">
+                    Enable JavaScript or quite a lot of this site is pretty much unusable. (Note: enable HTML5 Storage)
+                </div>
+            </div>
+        </noscript>
+        
+<div class="modal fade bs-modal-lg" id="schedule">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">R/a/dio Schedule</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert-warning alert">
+                            Times are in EST. All times and days are subject to change. Any stream can be cancelled without prior notice. If you're wondering if a stream will be held, don't hesitate to ask in chat.
+                        </div>
+                    </div>
+                </div>
+                <div class="row border-between">
+                    <div class="col-md-1 h4">01/13</div>
+            <div class="col-md-2 h4 text-right">Monday</div>
+            <div class="col-md-6">
+                <p></p><p>Monday tunes starting between 8 and 9PM, Kethsar <strike>will</strike> might play some garbage no one wants to listen to.
+                <br />
+                        Let's be honest, Keth doesn't actually stream.
+                </p>
+            </div>
+                </div>
+                <div class="row border-between">
+                    <div class="col-md-offset-1 col-md-2 h4 text-right">Tuesday</div>
+                    <div class="col-md-6">
+                        <p></p><p>Anime tunes and possibly requests with Chrono, starting 8:30PM</p>
+                    </div>
+                </div>
+                <div class="row border-between">
+                    <div class="col-md-offset-1 col-md-2 h4 text-right">Wednesday</div>
+                    <div class="col-md-6">
+                        <p></p><p><strike>Master Bacon</strike> Autistic weeb plays musical memes. Usually starting around 11PM or midnight.</p>
+                    </div>
+                </div>
+                <div class="row border-between">
+                    <div class="col-md-offset-1 col-md-2 h4 text-right">Thursday</div>
+                    <div class="col-md-6">
+                        <p></p><p>Join faggot kipukun for a (probably) relaxing stream, starting at 9PM.</p>
+                    </div>
+                </div>
+                <div class="row border-between">
+                    <div class="col-md-offset-1 col-md-2 h4 text-right">Friday</div>
+                    <div class="col-md-6">
+                        <p></p><p>Friday Night Faggotry! ed usually starts off at 2 PM with open requests, if he is around. One of various DJs will take over at 8PM. Occasionally guest DJs will stream instead (apply today!).</p>
+                    </div>
+                </div>
+                <div class="row border-between">
+                    <div class="col-md-offset-1 col-md-2 h4 text-right">Saturday</div>
+                    <div class="col-md-6">
+                        <p></p><p>The not anime-related Saturday stream with that one goose faggot. Starts around 7PM or 8PM</p>
+                    </div>
+                </div>
+                <div class="row border-between">
+                    <div class="col-md-offset-1 col-md-2 h4 text-right">Sunday</div>
+                    <div class="col-md-6">
+                        <p></p><p>Weekly Wildcard Block with McDoogle between 7 and 11 PM! Tune in to see what he has in store!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+        
+        <div id="radio-container">
+            <section class="radio-content-panel current" data-uri="/">
+                
+    <!-- Main Container
+    ================ -->
+    <div class="container main">
+
+        <!-- Content (Dynamic)
+        =================== -->
+        <div class="modal fade bs-modal-lg" id="help">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">R/a/dio Help</h4>
+            </div>
+            <div class="modal-body">
+                <h3>Playing the Stream</h3>
+                <p>Simply click the <button class="btn btn-primary btn-sm">Play Stream</button> button in your browser.</p>
+                <p>A volume slider will appear, and the slider will change the volume. This is remembered between page loads.</p>
+                <p>To play the stream in your media player, you can use any of the following links:</p>
+                <ul>
+                    <li><a href="https://stream.r-a-d.io/main">Direct Stream Link</a></li>
+                    <li><a href="/assets/main.mp3.m3u">Stream .m3u Playlist</a></li>
+                    <li><a href="/assets/main.pls">Stream .pls Playlist</a></li>
+                </ul>
+
+                <h3>Requesting Songs</h3>
+                <p>Search for a song first, by entering something into the searchbox at the top (or clicking "Search" in the navbar).</p>
+                <p>Then, click on <button class="btn btn-success btn-sm">Request</button></p>
+                <p>You can only request every hour.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+        <div class="container content top-content">
+
+            <div class="row dynamic-row">
+
+                <!-- Logo 1 (Icon)
+                    ============== -->
+                <div class="col-md-3 hidden-xs hidden-sm">
+                    <div class="col-xs-12">
+                        <img src="/assets/logo_image_small.png" alt="R/a/dio">
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+
+                    <div class="row info-row" id="stream-info">
+
+                        <!-- Logo 2 (Branded)
+                            ================= -->
+                        <div class="col-md-6">
+                            <img id="volume-image" src="/assets/logotitle_2.png" alt="R/a/dio" style="width: 100% !important; margin-bottom: 15px;">
+<div class="well well-sm text-center" style="display: none; margin-bottom: 0;" id="volume-control">
+    <p style="margin-bottom: 10px;">Volume Control</p>
+    <input id="volume" type="range" min="0" max="100" step="1" value="80">
+</div>
+                        </div>
+
+                        <!-- Player Options
+                            ================ -->
+                        <div class="col-md-6">
+                            <button class="btn btn-primary btn-block disabled" id="stream-play" data-loading-text="Loading..."><i class="fa fa-spinner fa-spin"></i></button>
+<button class="btn btn-primary btn-block" id="stream-stop" data-loading-text="Loading..." style="display: none; margin-top: 0;">Stop Stream</button>
+<a class="btn btn-default" href="https://stream.r-a-d.io/main.mp3" target="_blank" style="width: 80%; margin: 5px 0;">Direct Stream Link</a>
+<a class="btn btn-default" href="#help" data-toggle="modal" data-target="#help" style="width: 18%;">?</a>
+<div class="btn-group btn-block" style="width:100%">
+    <button type="button" class="btn btn-default dropdown-toggle btn-block" data-toggle="dropdown">
+        More Options <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu" style="width: 100%">
+        <li><a href="/assets/main.mp3.m3u">Stream .m3u Playlist</a></li>
+        <li><a href="/assets/main.pls">Stream .pls Playlist</a></li>
+        <li class="divider"></li>
+                    <li><a href="/set-theme/-1">Use DJ Theme</a></li>
+                                                                <li><a href="/set-theme/1">Default Light</a></li>
+                                                                                    <li class="active"><a href="/set-theme/2">Default Dark</a></li>
+                                                                                    <li><a href="/set-theme/3">Desaturated Blue</a></li>
+                                                                                    <li><a href="/set-theme/4">Christmas</a></li>
+                                                                                    <li><a href="/set-theme/5">Halloween</a></li>
+                                                                                                        <li><a href="/set-theme/7">New Years</a></li>
+                                                            </ul>
+</div>
+                        </div>
+
+                    </div><!-- /.row#stream-info -->
+
+                    <!-- Progress Bar
+                        ================= -->
+                    <div class="row progress-row">
+
+                        <div class="col-xs-12">
+                            <h2 class="text-center" id="current-song">
+    <span id="np">
+        Juno Reactor - Guardian Angel
+    </span>
+</h2>
+                        </div>
+
+                        <div class="col-xs-12">
+                            <div class="progress " id="progress">
+    <div class="progress-bar progress-bar-danger " role="progressbar" style="width: 100%"></div>
+</div>                        </div>
+
+                        <div class="col-md-6">
+                            <p class="text-muted text-center">
+                                Listeners: <span id="listeners">125</span>
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="text-muted text-center">
+                                <span id="progress-current">00:00</span> / <span id="progress-length">00:00</span>
+                            </p>
+                        </div>
+
+
+                    </div><!-- /.row#progress -->
+
+                </div>
+
+                <!-- DJ Image + Name
+                    ================= -->
+                <div class="col-md-3">
+                    <div class="col-xs-12">
+                        <div class="thumbnail">
+    <img id="dj-image" src="/api/dj-image/18-x.png" class="hidden-sm img-rounded" style="max-height: 180px">
+    <h4 class="text-center" id="dj-name">Hanyuu-sama</h4>
+</div>
+                    </div>
+                </div>
+
+            </div><!-- /.row#player -->
+
+        </div><!-- /.container.content -->
+
+    </div><!-- /.container.main -->
+
+
+    <br>
+
+    <div class="container content middle-content">
+        <div class="row lists-row">
+            <div class="col-md-6">
+                <h3 class="text-center">Last Played</h3>
+<ul class="list-group" id="lastplayed">
+            <li class="list-group-item last-played" style="overflow-y: auto">
+            <div class="col-md-4 lp-time">
+                <time class="timeago" datetime="2020-01-16T22:01:19+0000">22:01:19</time>
+            </div>
+            <div class="col-md-8 lp-meta text-center" style="line-height: 1">
+                RoughSketch - Voice Of Truth (vocals ny aikapin)
+            </div>
+        </li>
+            <li class="list-group-item last-played" style="overflow-y: auto">
+            <div class="col-md-4 lp-time">
+                <time class="timeago" datetime="2020-01-16T21:55:39+0000">21:55:39</time>
+            </div>
+            <div class="col-md-8 lp-meta text-center" style="line-height: 1">
+                FLOW - Answer
+            </div>
+        </li>
+            <li class="list-group-item last-played" style="overflow-y: auto">
+            <div class="col-md-4 lp-time">
+                <time class="timeago" datetime="2020-01-16T21:50:58+0000">21:50:58</time>
+            </div>
+            <div class="col-md-8 lp-meta text-center" style="line-height: 1">
+                dj-Jo feat. Vulkain - Start it right away
+            </div>
+        </li>
+            <li class="list-group-item last-played" style="overflow-y: auto">
+            <div class="col-md-4 lp-time">
+                <time class="timeago" datetime="2020-01-16T21:46:54+0000">21:46:54</time>
+            </div>
+            <div class="col-md-8 lp-meta text-center" style="line-height: 1">
+                Sawano Hiroyuki - The Sixth Devil King
+            </div>
+        </li>
+            <li class="list-group-item last-played" style="overflow-y: auto">
+            <div class="col-md-4 lp-time">
+                <time class="timeago" datetime="2020-01-16T21:42:37+0000">21:42:37</time>
+            </div>
+            <div class="col-md-8 lp-meta text-center" style="line-height: 1">
+                Rasmus Faber - Genesis Of Aquarion
+            </div>
+        </li>
+    </ul>
+            </div>
+            <div class="col-md-6">
+                <h3 class="text-center">Queue</h3>
+<ul class="list-group" id="queue">
+                        <li class="list-group-item list-group-item-info queue" style="overflow-y: auto">
+                    <div class="col-md-8 text-center q-meta" style="line-height: 1">
+                Natsumi Kiyoura - Tabi no Tochuu (Live Studio Version)
+            </div>
+            <div class="col-md-4 text-right q-time">
+                <time class="timeago" datetime="2020-01-16T22:08:31+0000">22:08:31</time>
+            </div>
+        </li>
+                        <li class="list-group-item list-group-item-info queue" style="overflow-y: auto">
+                    <div class="col-md-8 text-center q-meta" style="line-height: 1">
+                Yoko Kanno - Cyber Bird
+            </div>
+            <div class="col-md-4 text-right q-time">
+                <time class="timeago" datetime="2020-01-16T22:13:42+0000">22:13:42</time>
+            </div>
+        </li>
+                        <li class="list-group-item queue" style="overflow-y: auto">
+                    <div class="col-md-8 text-center q-meta" style="line-height: 1">
+                GRANRODEO - NO PLACE LIKE A STAGE
+            </div>
+            <div class="col-md-4 text-right q-time">
+                <time class="timeago" datetime="2020-01-16T22:19:40+0000">22:19:40</time>
+            </div>
+        </li>
+                        <li class="list-group-item queue" style="overflow-y: auto">
+                    <div class="col-md-8 text-center q-meta" style="line-height: 1">
+                AVTechNO! feat. Hatsune Miku - Blue / Green IIXII
+            </div>
+            <div class="col-md-4 text-right q-time">
+                <time class="timeago" datetime="2020-01-16T22:24:28+0000">22:24:28</time>
+            </div>
+        </li>
+                        <li class="list-group-item list-group-item-info queue" style="overflow-y: auto">
+                    <div class="col-md-8 text-center q-meta" style="line-height: 1">
+                3L - MyonMyonMyonMyonMyonMyon!
+            </div>
+            <div class="col-md-4 text-right q-time">
+                <time class="timeago" datetime="2020-01-16T22:30:12+0000">22:30:12</time>
+            </div>
+        </li>
+    </ul>
+                <div class="well-lg" id="dj-mode" style="display: none">
+            <h2 class="text-center">There is currently no thread up.</h2>
+    </div>
+            </div>
+        </div>
+
+        <div class="row news-row">
+            
+            <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a href="/news/52" class="ajax-navigation">
+                        <h3 class="panel-title">YEAR END HIJACK. ON DEC 20TH <span class="text-muted pull-right">~Chrono</span></h3>
+                    </a>
+                </div>
+                <div class="panel-body">
+                    <small class="text-muted">Thu, 12 Dec 19 01:41:25 UTC</small>
+                    <p>HIJACK. is hosting an end of the year event on Friday, December 20th to commemorate the first year of the event, and it's promising to be our biggest one yet. Get your alcohol ready, grab you're waifu pillow, and be sure to tune in!</p>
+
+<p>Also check the previous news post for holiday stream information.</p>
+
+                </div>
+            </div>
+        </div>
+            <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a href="/news/51" class="ajax-navigation">
+                        <h3 class="panel-title">Holiday Streams <span class="text-muted pull-right">~Kethsar</span></h3>
+                    </a>
+                </div>
+                <div class="panel-body">
+                    <small class="text-muted">Wed, 11 Dec 19 21:03:42 UTC</small>
+                    <p>It's about that time of year again. Christmas and New Years party time soon. Check the full post for details.</p>
+
+<p>The schedule is still being fleshed out, check back every few days for potential updates.<br>
+UPDATED FOR NYE TIMES</p>
+
+                </div>
+            </div>
+        </div>
+            <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a href="/news/50" class="ajax-navigation">
+                        <h3 class="panel-title">That Anison Hijack Thing <span class="text-muted pull-right">~Kethsar</span></h3>
+                    </a>
+                </div>
+                <div class="panel-body">
+                    <small class="text-muted">Fri, 28 Jun 19 16:03:21 UTC</small>
+                    <p>Post updated for December's Hijack</p>
+
+                </div>
+            </div>
+        </div>
+    
+</div><!-- /.row -->
+    </div><!-- /.container -->
+    
+            </section>
+        </div>
+        
+        <footer>
+                        <div class="footer">
+                                <p class="text-muted text-center">
+                                        <a class="text-muted" href="https://play.google.com/store/apps/details?id=io.r_a_d.radio" target="_blank">Android</a>
+                                        |
+                                        <a class="text-muted" href="https://twitter.com/Hanyuu_status" target="_blank">Twitter</a>
+                                        |
+                                        <a class="text-muted" href="https://github.com/R-a-dio/site" target="_blank">Github</a>
+                                </p>
+                        </div>
+                </footer>
+
+
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script -->
+<script src="/js/bootstrap-3.1.0.min.js"></script>
+<script src="/js/jquery.timeago.js"></script>
+<!-- History.js -->
+<script src="/js/jquery.history.js"></script>
+<script src="/js/jquery.jplayer.min.js"></script>
+<script src="/js/konami.js"></script>
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-42658381-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+<script>
+    $(function() {
+        $.timeago.settings.autoDisposal = true;
+        $.timeago.settings.allowFuture = true;
+        $.timeago.settings.strings.minutes = "%d mins";
+        $.timeago.settings.strings.minute = "less than a min";
+        $.timeago.settings.strings.seconds = "less than a min";
+        $.timeago.settings.strings.suffixFromNow = null;
+        $.timeago.settings.strings.prefixFromNow = "in";
+        var konami = new Konami(function() {
+            $("#daypass").show();
+        });
+        
+        function supports_html5_storage() {
+            try {
+                return 'localStorage' in window && window['localStorage'] !== null;
+            } catch (e) {
+                return false;
+            }
+        }
+
+        if (supports_html5_storage()) {
+
+            if (!localStorage["volume"]) {
+                localStorage["volume"] = 80;
+            }
+            $("#volume").val(parseInt(localStorage["volume"]));
+
+        } else {
+            $("#volume").val(80);
+        }
+
+        $.fn.serializeObject = function() {
+            var o = {};
+            var a = this.serializeArray();
+            $.each(a, function() {
+                if (o[this.name] !== undefined) {
+                    if (!o[this.name].push) {
+                        o[this.name] = [o[this.name]];
+                    }
+                    o[this.name].push(this.value || '');
+                } else {
+                    o[this.name] = this.value || '';
+                }
+            });
+            return o;
+        };
+        window.player_source_set = false;
+        function handlers() {
+            $("time.timeago").timeago();
+
+            // Ajaxify
+            $('a.ajax-navigation, ul.pagination>li>a').click(function(event) {
+
+                // Continue as normal for cmd clicks etc
+                if (event.which == 2 || event.metaKey) { return true; }
+
+                event.preventDefault();
+
+                History.pushState(null, $(this).text(), $(this).attr("href"));
+                
+                return false;
+            });
+
+            $('form.ajax-search').submit(function(event) {
+
+                // Continue as normal for cmd clicks etc
+                if (event.which == 2 || event.metaKey) { return true; }
+
+                event.preventDefault();
+
+                var arr = $(this).serializeObject();
+                
+                History.pushState(null, $(this).text(), $(this).attr("action") + "/" + arr.q);
+                
+                return false;
+            });
+
+
+            if (History.getState().url.replace(History.getRootUrl(), "/") == "/") {
+                $("#stream").jPlayer({
+                    ready: function () {
+                        $("#stream-play").text("Play Stream").removeClass("disabled");
+                        $("#stream-play").click(function() {
+                            if(window.player_source_set == false) {
+                                //$('<marquee id="marquee" direction="up" scrollamount="12">').appendTo('body').css({'position':'fixed','top':0,'left':0,'width':'100%','height':'100%'});
+                                //$('#radio-container').detach().appendTo('#marquee');
+                                $("#stream").jPlayer("setMedia", {'mp3': location.protocol + '//stream.r-a-d.io/main.mp3'});
+                                window.player_source_set = true;
+                                $("#stream").jPlayer("play");
+                                $(this).hide();
+                                $("#volume-image").hide();
+                                $("#stream-stop").show();
+                                $("#volume-control").show();
+                            }
+                        });
+                        $("#stream-stop").click(function() {
+                            $("#stream").jPlayer("pause");
+                            $(this).hide();
+                            $("#stream-play").show();
+                        });
+                    },
+                    pause: function() {
+                        $("#stream").jPlayer("clearMedia");
+                        $("#volume-control").hide();
+                        $("#volume-image").show();
+                        window.player_source_set = false;
+                        $("#stream-play").click(function() {
+                            if(window.player_source_set == false) {
+                                $("#stream").jPlayer("setMedia", {'mp3': location.protocol + '//stream.r-a-d.io/main.mp3'});
+                                window.player_source_set = true;
+                                $("#stream").jPlayer("play");
+                            }
+                        });
+                    },
+                    volume: Math.pow(($("#volume").val() / 100), 2.0),
+                    supplied: "mp3",
+                    swfPath: swfpath,
+                    preload: "none"
+                });
+            }
+            
+            $("#volume").on("input change", function (event) {
+                if (supports_html5_storage()) {
+                    localStorage["volume"] = $(this).val();
+                }
+                $("#stream").jPlayer("volume", Math.pow(($(this).val() / 100), 2.0));
+            });
+
+            $("textarea.comment-input").keyup(function() {
+                var $object = $(this);
+                var id = $object.attr("data-id");
+                var value = $object.val();
+                $("#char-count-" + id).text(500 - value.length);
+            });
+
+            $(".request-button").click(function (e) {
+                e.preventDefault();
+                var id = $(this).val(),
+                    token = $(this).closest("form").find("input[name='_token']").val();
+                $.ajax({
+                    url: "/request/" + id,
+                    type: "POST",
+                    data: { _token: token },
+                    dataType: "json",
+                    success: function (data) {
+                        var result;
+
+                        if (data.error) {
+                            result = data.error;
+                        } else if (data.success) {
+                            result = data.success;
+                        } else {
+                            console.log(data);
+                        }
+
+                        $("#requests .modal-body").text(result);
+                        $("#requests").modal();
+                        
+                    }
+                });
+                return false;
+            });
+
+        }
+        handlers();
+
+        
+        /**
+         * Replaces <time>'s content so it complies with the user's time zone
+         * in /queue and /last-played
+         */
+        function replaceTimeZones($section) {
+            if ($section.attr('data-uri') == '/queue' || $section.attr('data-uri') == '/last-played') {
+                var today = new Date();
+                today.setHours(0,0,0,0);
+
+                $section.find('time').each(function(){
+                    var d = new Date(this.getAttribute('datetime'));
+                    this.firstChild.nodeValue = d < today ? d.toLocaleString('sv') : d.toLocaleTimeString('sv');
+                });
+            }
+        }
+        replaceTimeZones($('.radio-content-panel.current'));
+
+
+        $(window).on("statechange", function(event) {
+            var state = History.getState();
+            var root = History.getRootUrl();
+
+            var uri = state.url.replace(root, "/");
+
+            
+
+            // handle li.active
+            var active = uri.split("/")[1];
+
+            $(".navbar .active").removeClass("active");
+            var $active = $(".navbar a[href='/" + active + "']");
+
+            if ($active.hasClass("drop")) {
+                $active = $active.closest("li.dropdown");
+            } else {
+                $active = $active.closest("li");
+            }
+
+            $(".dropdown.open .dropdown-toggle").dropdown("toggle");
+            
+            $active.addClass("active");
+
+            var $main = $("[data-uri='/']");
+            var $irc = $("[data-uri='/irc']");
+
+            if (uri == "/") {
+
+                if (!$main.length) {
+                    $.ajax({
+                        url: "/",
+                        type: "GET",
+                        dataType: "html",
+                        success: function(data) {
+                            if (data) {
+                                var $section = $(data);
+                                var $current = $("#radio-container > .current");
+
+                                if ($current.attr("data-uri") == "/irc") {
+                                    $current.removeClass("current").hide();
+                                } else {
+                                    $current.remove();
+                                }
+
+                                $section.appendTo($("#radio-container")).addClass("current").show();
+
+                                handlers();
+
+                            }
+                        }
+                    });
+                } else {
+                    var $current = $("#radio-container > .current");
+
+                     if ($current.attr("data-uri") == "/irc") {
+                         // hide IRC
+                        $current.removeClass("current").hide();
+                    } else {
+                        // trash it
+                        $current.remove();
+                    }
+
+                    $main.addClass("current").show();
+
+                }
+            } else if (uri == "/irc") {
+                if (!$irc.length) {
+                    $.ajax({
+                        url: "/irc",
+                        type: "GET",
+                        dataType: "html",
+                        success: function(data) {
+                            if (data) {
+                                var $section = $(data);
+                                var $current = $("#radio-container > .current");
+
+                                if ($current.attr("data-uri") == "/") {
+                                    $current.removeClass("current").hide();
+                                } else {
+                                    $current.remove();
+                                }
+
+                                $section.appendTo($("#radio-container")).addClass("current").show();
+
+                                handlers();
+
+                            }
+                        }
+                    });
+                } else {
+                    var $current = $("#radio-container > .current");
+
+                    if ($current.attr("data-uri") == "/") {
+                        // hide main
+                        $main.removeClass("current").hide();
+                    } else {
+                        // trash it
+                        $current.remove();
+                    }
+
+                    $irc.addClass("current").show();
+                }
+
+            } else {
+                // we need to fetch it and append it
+
+                $.ajax({
+                    url: uri,
+                    type: "GET",
+                    dataType: "html",
+                    success: function(data) {
+                        if (data) {
+                            var $section = $(data);
+
+                            var $current = $("#radio-container > .current");
+                            if ($current.attr("data-uri") == "/" || $current.attr("data-uri") == "/irc") {
+                                $current.removeClass("current").hide();
+                            } else {
+                                $current.remove();
+                            }
+                            
+                            replaceTimeZones($section);
+
+                            $section.appendTo($("#radio-container")).addClass("current").show();
+
+                            handlers();
+
+                        }
+                    }
+                });
+            }
+
+        });
+
+        
+
+
+
+        ///////////////////////////////////////////////////////////////////////
+        // HERE BE DRAGONS
+        // MOVE TO MAIN.JS WHEN DONE
+        ///////////////////////////////////////////////////////////////////////
+
+        window.radio = {
+            counter: 0.0,
+            sync_seconds: 0,
+            update_progress: 0.0,
+            update_progress_inc: 0.0,
+            update_old_progress: 0.0,
+            current_pos: 0,
+            current_len: 0,
+            afk: "init",
+            thread: "init",
+            djimg: 0
+        };
+
+        String.prototype.format = function() {
+            var args = arguments;
+            return this.replace(/{(\d+)}/g, function(match, number) {
+                return typeof args[number] != 'undefined'
+                ? args[number]
+                : match
+                ;
+            });
+        };
+
+        function setDjImage(image) {
+            if(radio.djimg != image) {
+                $("#dj-image").attr("src", "/api/dj-image/" + image);
+                radio.djimg = image;
+            }
+        }
+
+        function setDJ(dj) {
+            $("#dj-name").text(dj.djname);
+            setDjImage(dj.djimage);
+        }
+
+        function nowPlaying(np) {
+            $("#np").text(np);
+        }
+
+        function setListeners(listeners) {
+            $("#listeners").text(listeners);
+        }
+
+        function updateLastPlayed(lp) {
+            var $lp = $("#lastplayed .last-played");
+            var count = 0;
+            $lp.each(function() {
+                var lastplayed = lp[count];
+                $(this).find(".lp-time").html(lastplayed.time);
+                $(this).find(".lp-meta").text(lastplayed.meta);
+                count++;
+            });
+        }
+
+        function updateQueue(q) {
+            var $q = $("#queue .queue");
+            var count = 0;
+            $q.each(function() {
+                var queue = q[count];
+                $(this).find(".q-time").html(queue.time);
+                $(this).find(".q-meta").text(queue.meta);
+
+                if (queue.type > 0) {
+                    $(this).addClass("list-group-item-info");
+                } else {
+                    $(this).removeClass("list-group-item-info");
+                }
+
+                count++;
+            });
+        }
+
+        function updateThread(isafk, thread) {
+            radio.afk = isafk;
+            // Swap the queue and the thread box if needed.
+            if (radio.afk && $("#dj-mode").is(":visible")) {
+                $("#queue").show();
+                $("#dj-mode").hide();
+            } else if (!(radio.afk || $("#dj-mode").is(":visible"))) {
+                $("#queue").hide();
+                $("#dj-mode").show();
+            }
+            // Set thread if necessary.
+            if (radio.thread !== thread) {
+                if (thread.toLowerCase() === "none") {
+                    // no thread
+                    $("#dj-mode").children()
+                        .replaceWith($('<h2 class="text-center">There is currently no thread up.</h2>'));
+                } else {
+                    // thread
+                    t = thread.replace("\"", "\\\""); // ugh im so good
+                    $("#dj-mode").children()
+                        .replaceWith($('<h1 class="text-center thread"><a href="' + t + '">Thread up!</a></h1>'));
+                }
+            }
+            radio.thread = thread;
+        }
+
+        function updatePeriodic() {
+            $.ajax({
+                method: 'get',
+                url: "/api",
+                dataType: 'json',
+                success: function (resp) {
+                    nowPlaying(resp.main.np);
+                    setListeners(resp.main.listeners);
+                    updateThread(resp.main.isafkstream, resp.main.thread);
+                    setDJ(resp.main.dj);
+                    updateLastPlayed(resp.main.lp);
+                    updateQueue(resp.main.queue);
+                    parseProgress(resp.main.start_time, resp.main.end_time, resp.main.current);
+                    $("time.timeago").timeago();
+                }
+            });
+        }
+
+        function parseProgress(start, end, cur) {
+            if (end != 0) {
+                radio.cur_time = Math.round(new Date().getTime() / 1000.0);
+                radio.sync_seconds = radio.cur_time - cur;
+                end += radio.sync_seconds;
+                start += radio.sync_seconds;
+                radio.temp_update_progress = 0;
+                radio.duration = end - start;
+                radio.position = radio.cur_time - start;
+                radio.update_progress = 100 / radio.duration * radio.position;
+                radio.update_progress_inc = 100 / radio.duration * 0.5;
+                radio.current_pos = radio.position;
+                radio.current_len = radio.duration;
+            }
+            else {
+                radio.update_progress = false;
+            }
+        }
+
+
+        function secondsToReadable(seconds) {
+            var hours = Math.floor(seconds / 3600);
+            var mins = Math.floor((seconds % 3600) / 60);
+            var secs = Math.floor((seconds % 3600) % 60);
+            return (
+                hours > 0 ? +
+                (hours < 10 ? '0' : '') +
+                hours + ':' : '') +
+                (mins < 10 ? '0' :'') +
+                mins + ':' +
+                (secs < 10 ? '0' : '') + secs;
+        }
+
+        function applyProgress() {
+            if (radio.update_progress) {
+                if ((radio.update_progress < radio.update_old_progress) || (radio.update_old_progress == false)) {
+                    radio.update_progress += radio.update_progress_inc;
+                    $("#progress .progress-bar").removeClass("progress-bar-danger");
+                    $("#progress .progress-bar").css({width: "{0}%".format(radio.update_progress)});
+                }
+                else {
+                    radio.update_progress += radio.update_progress_inc;
+                    $("#progress .progress-bar").removeClass("progress-bar-danger");
+                    $("#progress .progress-bar").css({width: "{0}%".format(radio.update_progress)});
+                }
+                // Fill the duration counter
+                $("#progress-current").text(secondsToReadable(radio.current_pos));
+                $("#progress-length").text(secondsToReadable(radio.current_len));
+            }
+            else {
+                $("#progress .progress-bar").addClass("progress-bar-danger");
+                $("#progress .progress-bar").css({width: "100%"})
+                // Empty the duration counter
+                $("#progress-current").empty();
+                $("#progress-length").empty();
+            }
+            radio.update_old_progress = radio.update_progress;
+        }
+
+        function periodic() {
+            radio.counter += 0.5;
+            radio.current_pos += 0.5;
+            applyProgress();
+            if (radio.counter >= 10.0) {
+                updatePeriodic();
+                radio.counter = 0;
+            }
+        }
+
+        updatePeriodic();
+        setInterval(periodic, 500);
+
+
+
+    });
+</script>
+        
+                                    
+        
+    </body>
+</html>

@@ -20,15 +20,25 @@ public class RadioRequestHandler {
         
         // Method and body
         urlRequest.httpMethod = request.method.rawValue
-        if let bodyParams = request.bodyParams {
-            urlRequest.httpBody = try? JSONEncoder().encode(bodyParams)
-        }
-        
+        urlRequest.httpBody = self.prepareBody(api: request, request: urlRequest)
+
         // Headers
         urlRequest = self.setAPIRequestHeaders(for: request, in: urlRequest)
         urlRequest = self.setGlobalHeaders(in: urlRequest)
-
+        
         return urlRequest
+    }
+    
+    private func prepareBody<T: APIRequest>(api: T, request: URLRequest) -> Data? {
+        if let type = api.contentType {
+            switch type {
+            case .urlFormEncoded(body: let body):
+                return body?.data(using: .utf8)
+            case .json(body: let body):
+                return try? JSONEncoder().encode(body)
+            }
+        }
+        return nil
     }
     
     private func endpoint<T: APIRequest>(for request: T) -> URL {
@@ -39,7 +49,10 @@ public class RadioRequestHandler {
         } else {
             base = baseSchemeAndAuthority
         }
-        guard let baseUrl = URL(string: request.path, relativeTo: base) else {
+        
+        let encodedPath = request.path.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        
+        guard let baseUrl = URL(string: encodedPath, relativeTo: base) else {
             fatalError("Bad resourceName: \(request.path)")
         }
         
@@ -51,6 +64,10 @@ public class RadioRequestHandler {
     
     private func setAPIRequestHeaders<T: APIRequest>(for api: T, in request: URLRequest) -> URLRequest {
         var urlRequest = request
+        
+        if let contentType = api.contentType {
+            urlRequest.setValue("Content-Type", forHTTPHeaderField: contentType.headerString)
+        }
         
         if let headers = api.headers {
             for header in headers {

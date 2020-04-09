@@ -1,12 +1,13 @@
 import Foundation
 import Swinject
 import Radio_Domain
+import Radio_cross
 
 class InterfaceConfigurator: Assembly {
     func assemble(container: Container) {
         
         container.register(NetworkClient.self) { _ in
-            return URLSessionClient()
+            return URLSessionClient(logger: container.resolve(LoggerWrapper.self)!)
         }
         container.register(RadioRequestHandler.self) { _ in
             return RadioRequestHandler(baseSchemeAndAuthority: URL(string: "https://r-a-d.io/")!)

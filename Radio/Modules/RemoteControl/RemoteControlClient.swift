@@ -1,17 +1,22 @@
 import Foundation
 import MediaPlayer
 import Combine
+import Radio_cross
 
-class RemoteControlClient: RemoteControl {
+class RemoteControlClient: RemoteControl, LoggerWithContext {
+    var loggerInstance: LoggerWrapper
 
     var defaultRegisteredCommands: [RemoteControlCommand]
     var defaultDisabledCommands: [RemoteControlCommand]
     
     var remoteControlCommands = PassthroughSubject<RemoteControlCommand,Never>()
 
-    init(registeredCommands: [RemoteControlCommand], disabledCommands: [RemoteControlCommand]) {
+    init(registeredCommands: [RemoteControlCommand],
+         disabledCommands: [RemoteControlCommand],
+         logger: LoggerWrapper) {
         self.defaultRegisteredCommands = registeredCommands
         self.defaultDisabledCommands = disabledCommands
+        self.loggerInstance = logger
     }
     
     func handleNowPlayableConfiguration() {
@@ -34,7 +39,7 @@ class RemoteControlClient: RemoteControl {
     }
     
     private func commandHandler(command: RemoteControlCommand, event: MPRemoteCommandEvent) -> MPRemoteCommandHandlerStatus {
-        print("Received command \(command)")
+        self.loggerInfo(message: "Received command \(command)")
         self.remoteControlCommands.send(command)
         return .success
     }

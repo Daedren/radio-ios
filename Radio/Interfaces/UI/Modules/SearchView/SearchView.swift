@@ -5,10 +5,18 @@ struct SearchView: View {
 
     var body: some View {
         NavigationView {
+            if !presenter.acceptingRequests {
+                Text("We're not currently accepting requests")
+            }
             VStack() {
                 SearchWrapper(inputtedText: $presenter.searchedText, placeholder: "Insert term to search")
-                List(presenter.returnedValues){
-                    Text("\($0.artist) - \($0.title)")
+                List(presenter.returnedValues.map({$0}), id: \.element.id){ (index, item) in
+                    HStack {
+                        Text("\(item.artist) - \(item.title)")
+                        Spacer()
+                        SongRequestButton(index: index, track: item, action: self.presenter.request(song:))
+
+                    }
                 }
                 .gesture(DragGesture().onChanged { _ in
                     UIApplication.shared.windows.forEach { $0.endEditing(false) }
@@ -17,8 +25,23 @@ struct SearchView: View {
                     .navigationBarTitle("Search")
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
+
+//struct SearchView_Previews: PreviewProvider {
+//    let pres = SearchPresenterPreviewer()
+//    static var previews: some View {
+//        Group {
+//            SearchView(presenter: pres)
+//              .environment(\.colorScheme, .light)
+//
+//           SearchView()
+//              .environment(\.colorScheme, .dark)
+//        }
+//    }
+//}
+
 
 //struct SearchView: View {
 //    let array = ["Peter", "Paul", "Mary", "Anna-Lena", "George", "John", "Greg", "Thomas", "Robert", "Bernie", "Mike", "Benno", "Hugo", "Miles", "Michael", "Mikel", "Tim", "Tom", "Lottie", "Lorrie", "Barbara"]

@@ -1,6 +1,7 @@
 import Foundation
 import Swinject
 import Radio_Domain
+import Radio_cross
 
 class GatewayConfigurator: Assembly {
     func assemble(container: Container) {
@@ -9,7 +10,7 @@ class GatewayConfigurator: Assembly {
             return RadioMapperImp()
         }
         container.register(AVGateway.self) { _ in
-            return AVGatewayImp()
+            return AVGatewayImp(logger: container.resolve(LoggerWrapper.self)!)
         }
         container.register(RadioGateway.self) { _ in
             return RadioGatewayImp(

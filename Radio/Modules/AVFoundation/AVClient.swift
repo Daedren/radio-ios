@@ -1,6 +1,7 @@
 import Foundation
 import Combine
 import AVFoundation
+import Radio_cross
 
 public protocol AVClientContract {
     func play()
@@ -11,7 +12,9 @@ public protocol AVClientContract {
     func getPlaybackPosition() -> AnyPublisher<Float,Never>
 }
 
-public class AVClient: NSObject, AVClientContract {
+public class AVClient: NSObject, AVClientContract, LoggerWithContext {
+    public var loggerInstance: LoggerWrapper
+    
     
     var manager: AVQueuePlayer
     var songName = PassthroughSubject<String,Never>()
@@ -19,7 +22,10 @@ public class AVClient: NSObject, AVClientContract {
 
     var timeObserverToken: Any?
 
-    public override init() {
+    public init(
+        logger: LoggerWrapper
+    ) {
+        self.loggerInstance = logger
         self.manager = AVQueuePlayer()
         super.init()
         
@@ -29,6 +35,15 @@ public class AVClient: NSObject, AVClientContract {
     }
     
     public func play() {
+        if let item = self.manager.currentItem,
+            let bufferedValue = item.loadedTimeRanges.first as? CMTimeRange
+            {
+            let bufferedTime = bufferedValue.duration + bufferedValue.start
+            let current = item.currentTime()
+            let seconds = CMTimeGetSeconds(bufferedTime - current)
+            print("Buffered time is \(seconds)")
+        }
+        
         self.manager.play()
         let timeScale = CMTimeScale(NSEC_PER_SEC)
         let time = CMTime(seconds: 5.0, preferredTimescale: timeScale)
@@ -41,6 +56,7 @@ public class AVClient: NSObject, AVClientContract {
     
     public func pause() {
         self.manager.pause()
+//        self.manager.removeAllItems()
         if let token = self.timeObserverToken {
             self.manager.removeTimeObserver(token)
             self.timeObserverToken = nil
@@ -70,16 +86,19 @@ public class AVClient: NSObject, AVClientContract {
     }
     
     @objc func itemFailedToPlayToEndTime(_ notification: Notification) {
-        print("\(notification.debugDescription)")
+        self.loggerInfo(message: "\(notification.debugDescription)")
     }
     @objc func itemPlaybackStalled(_ notification: Notification) {
-        print("\(notification.debugDescription)")
+        self.loggerInfo(message: "\(notification.debugDescription)")
     }
     @objc func itemNewErrorLogEntry(_ notification: Notification) {
-        print("\(notification.debugDescription)")
+        self.loggerInfo(message: "\(notification.debugDescription)")
     }
     
     private func updatePlaybackInfo(with time: CMTime) {
+        if let currentItem = manager.currentItem {
+            self.loggerInfo(message: "\(currentItem.canStepForward) \(currentItem.forwardPlaybackEndTime) \(currentItem.seekableTimeRanges)")
+        }
         self.position.send(Float(time.seconds))
     }
     

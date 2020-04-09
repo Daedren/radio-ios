@@ -52,5 +52,11 @@ class InteractorConfigurator: Assembly {
                 radioGateway: container.resolve(RadioGateway.self)!
             )
         }
+        
+        container.register(RequestSongInteractor.self) { _ in
+            return RequestSongInteractor(
+                radioGateway: container.resolve(RadioGateway.self)!
+            )
+        }
     }
 }

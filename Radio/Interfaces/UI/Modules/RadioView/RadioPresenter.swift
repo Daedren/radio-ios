@@ -99,24 +99,13 @@ class RadioPresenterImp: RadioPresenter {
     func getSongName() {
         self.songNameInteractor
             .execute()
-            .removeDuplicates(by: { lhs, rhs in return lhs.title == rhs.title })
+//            .removeDuplicates(by: { lhs, rhs in return lhs.title == rhs.title })
             .receive(on: DispatchQueue.main)
             .sink(receiveValue:{ [weak self] value in
                 self?.songName = "\(value.artist) - \(value.title)"
-                print("Changing songname to \(self?.songName ?? "")")
                 self?.currentTrack = CurrentTrackViewModel(base: value)
             })
             .store(in: &disposeBag)
-        
-        Timer.publish(every: 1.0, on: .current, in: .common)
-        .autoconnect()
-        .sink(receiveValue: { [weak self] newDate in
-            if var track = self?.currentTrack?.trackBackup {
-                track.currentTime = newDate
-                self?.currentTrack? = CurrentTrackViewModel(base: track)
-            }
-        })
-        .store(in: &disposeBag)
     }
     
     private func startSongQueueListener() {
@@ -177,7 +166,9 @@ class RadioPresenterImp: RadioPresenter {
             
         }, receiveValue: { [weak self] value in
             self?.listeners = value.listeners
-            self?.thread = value.thread
+            if value.thread != self?.thread {
+                self?.thread = value.thread
+            }
             self?.acceptingRequests = value.acceptingRequests
         })
             .store(in: &disposeBag)
