@@ -1,20 +1,22 @@
 import Foundation
 import Radio_Domain
 
+
 struct SearchedTrackViewModel: Identifiable {
-    var id: String {
-       "\(title)\(artist)"
-    }
+    var id: Int
     var title: String
     var artist: String
 //    var lastPlayed: Date?
     var lastRequested: String
-    var requestable: Bool
+    var state: SearchTrackState = .requestable
     
     init(from entity: SearchedTrack) {
         self.title = entity.title
         self.artist = entity.artist
-        self.requestable = entity.requestable ?? false
+        if let requestable = entity.requestable {
+            self.state = requestable ? .requestable : .notRequestable
+        }
+        self.id = entity.id
         
         let offset = entity.lastRequested?.offsetFrom(date: Date())
         self.lastRequested = offset ?? ""

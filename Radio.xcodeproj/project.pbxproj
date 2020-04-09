@@ -110,6 +110,7 @@
 		FB242EB6243E40D500115B49 /* Radio_cross.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB242EA2243E3C6100115B49 /* Radio_cross.framework */; };
 		FB242EB8243E424200115B49 /* CrossConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB242EB7243E424200115B49 /* CrossConfigurator.swift */; };
 		FB81FD12243F775E00058FF8 /* SongRequestResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD11243F775E00058FF8 /* SongRequestResponseModel.swift */; };
+		FB81FD16243F9B0800058FF8 /* ActivityIndicatorWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD15243F9B0800058FF8 /* ActivityIndicatorWrapper.swift */; };
 		FBD0CACD243F64310093BF71 /* LastPlayedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0CACC243F64310093BF71 /* LastPlayedPresenter.swift */; };
 		FBD0CACF243F643B0093BF71 /* LastPlayedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0CACE243F643B0093BF71 /* LastPlayedView.swift */; };
 		FBD0CAD1243F64470093BF71 /* LastPlayedConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0CAD0243F64470093BF71 /* LastPlayedConfigurator.swift */; };
@@ -275,6 +276,7 @@
 		FB242EB7243E424200115B49 /* CrossConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossConfigurator.swift; sourceTree = "<group>"; };
 		FB7E0FC0243E249500DCC043 /* Radio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Radio.entitlements; sourceTree = "<group>"; };
 		FB81FD11243F775E00058FF8 /* SongRequestResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRequestResponseModel.swift; sourceTree = "<group>"; };
+		FB81FD15243F9B0800058FF8 /* ActivityIndicatorWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorWrapper.swift; sourceTree = "<group>"; };
 		FBD0CACC243F64310093BF71 /* LastPlayedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPlayedPresenter.swift; sourceTree = "<group>"; };
 		FBD0CACE243F643B0093BF71 /* LastPlayedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPlayedView.swift; sourceTree = "<group>"; };
 		FBD0CAD0243F64470093BF71 /* LastPlayedConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPlayedConfigurator.swift; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 				098CAFA323BBC4D300B6B80E /* SearchWrapper.swift */,
 				09E9425123BE132F00A294E2 /* LabelAttributedStringWrapper.swift */,
 				0929C24A23D123930043E1D8 /* SongRequestButton.swift */,
+				FB81FD15243F9B0800058FF8 /* ActivityIndicatorWrapper.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1085,6 +1088,7 @@
 				0906958723A300E800CF0398 /* ResponseHandler.swift in Sources */,
 				093E6A6E23B79E0000578C99 /* DJViewModel.swift in Sources */,
 				0941B4FF23787D4A00994F67 /* RadioView.swift in Sources */,
+				FB81FD16243F9B0800058FF8 /* ActivityIndicatorWrapper.swift in Sources */,
 				09F8EB5B23B818D700FE6E25 /* MediaPlayerInterface.swift in Sources */,
 				098CAFA223BBC03900B6B80E /* SearchView.swift in Sources */,
 				098CAFB423BBD59600B6B80E /* WebViewWrapper.swift in Sources */,

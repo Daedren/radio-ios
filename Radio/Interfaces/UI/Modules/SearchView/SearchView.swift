@@ -10,11 +10,11 @@ struct SearchView: View {
             }
             VStack() {
                 SearchWrapper(inputtedText: $presenter.searchedText, placeholder: "Insert term to search")
-                List(presenter.returnedValues.map({$0}), id: \.element.id){ (index, item) in
+                List(presenter.returnedValues.enumerated().map({$0}), id: \.element.id){ (index, item) in
                     HStack {
                         Text("\(item.artist) - \(item.title)")
                         Spacer()
-                        SongRequestButton(index: index, track: item, action: self.presenter.request(song:))
+                        SongRequestButton(index: index, track: item, action: self.presenter.request(_:))
 
                     }
                 }

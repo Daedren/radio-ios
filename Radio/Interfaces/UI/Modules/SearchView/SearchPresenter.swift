@@ -21,7 +21,7 @@ class SearchPresenterImp: ObservableObject {
             self.searchEngine.send(self.searchedText)
         }
     }
-    @Published var returnedValues: EnumeratedSequence<[SearchedTrackViewModel]> = [SearchedTrackViewModel]().enumerated()
+    @Published var returnedValues: [SearchedTrackViewModel] = []
     @Published var acceptingRequests = false
     
     var searchDisposeBag = Set<AnyCancellable>()
@@ -57,7 +57,7 @@ class SearchPresenterImp: ObservableObject {
         .sink(receiveCompletion: { _ in
             
         }, receiveValue: { [weak self] value in
-            self?.returnedValues = value.enumerated()
+            self?.returnedValues = value
         })
         .store(in: &searchDisposeBag)
         
@@ -70,8 +70,17 @@ class SearchPresenterImp: ObservableObject {
         .store(in: &searchDisposeBag)
     }
     
-    func request(song: Int) {
-        let song = self.searchedTracks[song]
+    func createViewModels(from requests: [SearchedTrack]) {
+        
+    }
+
+    func request(_ index: Int) {
+        let song = self.searchedTracks[index]
+        var viewModel = self.returnedValues[index]
+        viewModel.state = .loading
+        DispatchQueue.main.async {
+            self.returnedValues[index] = viewModel
+        }
         if song.requestable ?? false {
             self.requestInteractor?.execute(song.id)
                 .sink(receiveCompletion: { _ in
@@ -79,13 +88,25 @@ class SearchPresenterImp: ObservableObject {
                 }, receiveValue: { result in
                     print(song.title)
                     if result {
+                        viewModel.state = .notRequestable
                         print("Success")
                     }
                     else {
+                        viewModel.state = .requestable
                         print("Failure")
+                    }
+                    DispatchQueue.main.async {
+                        self.returnedValues[index] = viewModel
                     }
                 })
             .store(in: &requestDisposeBag)
+        }
+        else {
+            var viewModel = self.returnedValues[index]
+            viewModel.state = .notRequestable
+            DispatchQueue.main.async {
+                self.returnedValues[index] = viewModel
+            }
         }
     }
     
