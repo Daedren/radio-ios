@@ -67,18 +67,18 @@ public class RadioGatewayImp: RadioGateway {
         .eraseToAnyPublisher()
     }
     
-    public func request(songId: Int) -> AnyPublisher<(), RadioError> {
+    public func request(songId: Int) -> AnyPublisher<Bool, RadioError> {
         return network.execute(request: GetTokenRequest())
             .flatMap{ [unowned self] token in
-                return self.network.execute(request: SongRequestRequest(id: songId, csrfToken: token))
-        }
-        .mapError{ _ in
-            return RadioError.apiContentMismatch
-        }
-        .map{ _ in
-            return ()
-        }
-        .eraseToAnyPublisher()
+                self.network.execute(request: SongRequestRequest(id: songId, csrfToken: token))
+            }
+            .map{ response -> Bool in
+                return (response.success != nil)
+            }
+            .mapError{ err in
+                return RadioError.apiContentMismatch
+            }
+            .eraseToAnyPublisher()
     }
     
 }
@@ -133,10 +133,10 @@ extension RadioGatewayImp {
     }
     
     private func manageNewAPI(result: RadioDetailedModel){
-        self.allTracks[result.currentTrack.hashValue] = result.currentTrack
         for track in result.queue {
             self.allTracks[track.hashValue] = track
         }
+        self.allTracks[result.currentTrack.hashValue] = result.currentTrack
         
         self.currentDJ.send(result.dj)
         self.currentTrack.send(result.currentTrack)

@@ -4,7 +4,7 @@ import Combine
 
 public class RequestSongInteractor: Interactor {
     public typealias Input = Int
-    public typealias Output = AnyPublisher<(),RadioError>
+    public typealias Output = AnyPublisher<Bool,RadioError>
 
     var radioGateway: RadioGateway?
     

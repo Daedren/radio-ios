@@ -109,6 +109,7 @@
 		FB242EB4243E3CFD00115B49 /* OSLogLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB242EB3243E3CFD00115B49 /* OSLogLogger.swift */; };
 		FB242EB6243E40D500115B49 /* Radio_cross.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB242EA2243E3C6100115B49 /* Radio_cross.framework */; };
 		FB242EB8243E424200115B49 /* CrossConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB242EB7243E424200115B49 /* CrossConfigurator.swift */; };
+		FB81FD12243F775E00058FF8 /* SongRequestResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD11243F775E00058FF8 /* SongRequestResponseModel.swift */; };
 		FBD0CACD243F64310093BF71 /* LastPlayedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0CACC243F64310093BF71 /* LastPlayedPresenter.swift */; };
 		FBD0CACF243F643B0093BF71 /* LastPlayedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0CACE243F643B0093BF71 /* LastPlayedView.swift */; };
 		FBD0CAD1243F64470093BF71 /* LastPlayedConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0CAD0243F64470093BF71 /* LastPlayedConfigurator.swift */; };
@@ -273,6 +274,7 @@
 		FB242EB3243E3CFD00115B49 /* OSLogLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLogLogger.swift; sourceTree = "<group>"; };
 		FB242EB7243E424200115B49 /* CrossConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossConfigurator.swift; sourceTree = "<group>"; };
 		FB7E0FC0243E249500DCC043 /* Radio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Radio.entitlements; sourceTree = "<group>"; };
+		FB81FD11243F775E00058FF8 /* SongRequestResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRequestResponseModel.swift; sourceTree = "<group>"; };
 		FBD0CACC243F64310093BF71 /* LastPlayedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPlayedPresenter.swift; sourceTree = "<group>"; };
 		FBD0CACE243F643B0093BF71 /* LastPlayedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPlayedView.swift; sourceTree = "<group>"; };
 		FBD0CAD0243F64470093BF71 /* LastPlayedConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPlayedConfigurator.swift; sourceTree = "<group>"; };
@@ -693,6 +695,7 @@
 				09DD268C23BCDB0A00B70C8E /* SearchResponseModel.swift */,
 				09A03D7D23D1162A00277D16 /* GetTokenRequest.swift */,
 				0929C24823D11DC80043E1D8 /* SongRequestRequest.swift */,
+				FB81FD11243F775E00058FF8 /* SongRequestResponseModel.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -747,8 +750,8 @@
 		09F8EB5923B8189D00FE6E25 /* MediaPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				09F8EB5A23B818D700FE6E25 /* MediaPlayerInterface.swift */,
 				09F8EB6023B8244F00FE6E25 /* MediaPlayerConfigurator.swift */,
+				09F8EB5A23B818D700FE6E25 /* MediaPlayerInterface.swift */,
 				09F8A10D23B83E5500D95643 /* ArtworkHandler.swift */,
 			);
 			path = MediaPlayer;
@@ -1052,6 +1055,7 @@
 				097C1EA42378716F00A7A5AD /* AppDelegate.swift in Sources */,
 				098CAFB223BBD13C00B6B80E /* SearchedTrackViewModel.swift in Sources */,
 				098CAFA423BBC4D300B6B80E /* SearchWrapper.swift in Sources */,
+				FB81FD12243F775E00058FF8 /* SongRequestResponseModel.swift in Sources */,
 				098CAFA623BBC78A00B6B80E /* SearchPresenter.swift in Sources */,
 				09D49EE723B8E71C00BCC62D /* CurrentTrackViewModel.swift in Sources */,
 				09DD268B23BCD33200B70C8E /* SearchRequest.swift in Sources */,

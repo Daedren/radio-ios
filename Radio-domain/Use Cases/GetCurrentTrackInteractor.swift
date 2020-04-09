@@ -19,57 +19,53 @@ public class GetCurrentTrackInteractor: GetCurrentTrackUseCase {
             .getCurrentTrack()
             .map{ track -> QueuedTrack? in
                 return track
-            }
-            .catch({err in
-                return Just<QueuedTrack?>(nil)
-            })
+        }
+        .catch({err in
+            return Just<QueuedTrack?>(nil)
+        })
             .prepend(Just<QueuedTrack?>(nil))
             .eraseToAnyPublisher()
         
         let icyName = self.avGateway.getSongName()
-            .removeDuplicates()
+            //            .removeDuplicates()
             .map{ [unowned self] artistAndName -> QueuedTrack? in
-                self.radioGateway.updateNow()
                 return self.radioGateway
                     .getTrackWith(identifier: artistAndName)
-            }
-            .prepend(Just<QueuedTrack?>(nil))
-//            .compactMap{ $0 }
+        }
+        .prepend(Just<QueuedTrack?>(nil))
+            //            .compactMap{ $0 }
             .eraseToAnyPublisher()
         
         let timer = Timer.publish(every: 1.0, on: .current, in: .common)
             .autoconnect()
             .eraseToAnyPublisher()
-        let now = Just(Date())
-            .merge(with: timer)
         
         let mergedObs = apiName
             .combineLatest(icyName, timer)
             .flatMap{ [unowned self] (arg) -> AnyPublisher<QueuedTrack,Never> in
                 let (api, icy, timer) = arg
-                if var icy = icy, self.avGateway.isPlaying() {
-                    icy.currentTime = timer
-                    if let endDate = icy.endTime,
+                
+                var model: QueuedTrack? = nil
+                if icy != nil, self.avGateway.isPlaying() {
+                    model = icy
+                }
+                else if api == nil{
+                    model = api
+                }
+                
+                if var model = model {
+                    model.currentTime = timer
+                    if let endDate = model.endTime,
                         timer == endDate {
                         self.radioGateway.updateNow()
                     }
-                    return Just(icy).eraseToAnyPublisher()
+                    return Just(model).eraseToAnyPublisher()
                 }
-                else if var api = api {
-                    api.currentTime = timer
-                    if let endDate = api.endTime,
-                        timer == endDate {
-                        self.radioGateway.updateNow()
-                    }
-                    return Just(api).eraseToAnyPublisher()
-                }
-                else {
-                    return Empty<QueuedTrack,Never>().eraseToAnyPublisher()
-                }
-            }
-            .eraseToAnyPublisher()
+                return Empty<QueuedTrack,Never>().eraseToAnyPublisher()
+        }
+        .eraseToAnyPublisher()
         
-
+        
         return mergedObs
     }
     

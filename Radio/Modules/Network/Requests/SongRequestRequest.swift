@@ -1,7 +1,7 @@
 import Foundation
 
 class SongRequestRequest: APIRequest {
-    public typealias Response = EmptyResponseModel
+    public typealias Response = SongRequestResponseModel
     
     var songId: Int
     var csrfToken: String

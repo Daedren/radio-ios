@@ -8,7 +8,7 @@ public protocol RadioGateway {
     func getLastPlayed() -> AnyPublisher<[QueuedTrack],RadioError>
     func getCurrentDJ() -> AnyPublisher<RadioDJ,RadioError>
     func searchFor(term: String) -> AnyPublisher<[SearchedTrack], RadioError>
-    func request(songId: Int) -> AnyPublisher<(), RadioError>
+    func request(songId: Int) -> AnyPublisher<Bool, RadioError>
     func updateNow()
     func getTrackWith(identifier: String) -> QueuedTrack?
 }

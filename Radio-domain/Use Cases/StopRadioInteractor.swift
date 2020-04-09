@@ -13,6 +13,6 @@ public class StopRadioInteractor: StopRadioUseCase {
     }
     
     public func execute() {
-        self.avGateway.pause()
+        self.avGateway.stop()
     }
 }
