@@ -8,6 +8,5 @@ class RadioMainAPI: APIRequest {
     public var method: HTTPMethod {
         return .get
     }
-    public var bodyParams: AnyEncodable?
 
 }

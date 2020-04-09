@@ -10,6 +10,7 @@ public protocol NetworkClient {
     func uploadFile(file: URL, url: URLRequest) -> Future<(URLResponse?, Data?), APIError>
 }
 
+public struct EmptyResponseModel: Decodable { }
 
 public struct AnyEncodable: Encodable {
     let value: Encodable

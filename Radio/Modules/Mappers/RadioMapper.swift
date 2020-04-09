@@ -126,7 +126,8 @@ struct RadioMapperImp: RadioMapper {
     
     func mapSearch(from model: SearchResponseModel) -> [SearchedTrack] {
         let tracks = model.data
-        return tracks.map { SearchedTrack(title: $0.title,
+        return tracks.map { SearchedTrack(id: $0.id,
+                                          title: $0.title,
                                           artist: $0.artist,
                                           lastPlayed: Date(timeIntervalSince1970: TimeInterval($0.lastplayed)),
                                           lastRequested: Date(timeIntervalSince1970: TimeInterval($0.lastrequested)),

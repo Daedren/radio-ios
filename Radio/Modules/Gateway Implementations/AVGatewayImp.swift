@@ -2,6 +2,7 @@ import Foundation
 import UIKit
 import Combine
 import Radio_Domain
+import Radio_cross
 import AVFoundation
 
 public class AVGatewayImp: AVGateway {
@@ -10,8 +11,8 @@ public class AVGatewayImp: AVGateway {
     
     var classDisposeBag = Set<AnyCancellable>()
     
-    init() {
-        self.audioClient = AVClient()
+    init(logger: LoggerWrapper) {
+        self.audioClient = AVClient(logger: logger)
     }
     
     public func play() {
@@ -41,6 +42,10 @@ public class AVGatewayImp: AVGateway {
                 return PlaybackInfo(position: position)
         }
         .eraseToAnyPublisher()
+    }
+    
+    public func isPlaying() -> Bool {
+        return audioClient.getPlaybackRate() > 0.0
     }
     
 }

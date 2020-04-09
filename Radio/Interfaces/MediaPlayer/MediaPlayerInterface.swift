@@ -18,6 +18,8 @@ class MediaPlayerInterface {
     
     var currentDJ: URL?
     var artworkHandler = ArtworkHandler()
+    
+    var isPlaying = false
 
     init(remoteControl: RemoteControlClient,
          play: PlayRadioUseCase,
@@ -51,6 +53,12 @@ class MediaPlayerInterface {
                     self?.playInteractor.execute()
                 case .pause:
                     self?.pauseInteractor.execute()
+                case .togglePausePlay:
+                    if self?.isPlaying ?? false {
+                        self?.playInteractor.execute()
+                    } else {
+                        self?.pauseInteractor.execute()
+                    }
                 default:
                     break
                 }
@@ -64,6 +72,7 @@ class MediaPlayerInterface {
         self.playbackInteractor.execute()
             .sink(receiveValue: { [weak self] metadata in
                 if let playback = self?.createDynamicMetadata(from: metadata) {
+                    self?.isPlaying = (metadata.rate > 0.0)
                     self?.remoteControl.setPlayback(metadata: playback)
                 }
             }).store(in: &nowPlayingDisposeBag)

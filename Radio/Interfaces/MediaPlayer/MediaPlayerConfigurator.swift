@@ -1,6 +1,7 @@
 import Foundation
 import Swinject
 import Radio_Domain
+import Radio_cross
 
 class MediaPlayerConfigurator: Configurator {
     let iOSCommands: [RemoteControlCommand] = [.togglePausePlay,
@@ -22,7 +23,9 @@ class MediaPlayerConfigurator: Configurator {
     private func inject() -> Container {
         return Container { container in
             container.register(RemoteControlClient.self) { _ in
-                return RemoteControlClient(registeredCommands: self.iOSCommands, disabledCommands: [])
+                return RemoteControlClient(registeredCommands: self.iOSCommands,
+                                           disabledCommands: [],
+                                           logger: self.assembler.resolver.resolve(LoggerWrapper.self)!)
             }
         }
         

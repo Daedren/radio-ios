@@ -11,8 +11,7 @@ class SearchRequest: APIRequest {
     public var method: HTTPMethod {
         return .get
     }
-    public var bodyParams: AnyEncodable?
-    
+
     init(term: String){
         self.searchTerm = term
     }

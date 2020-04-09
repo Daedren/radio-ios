@@ -1,21 +1,54 @@
 import SwiftUI
 
-struct MainTabsView<A: View, B: View>: View {
+struct MainTabsView<A: View, B: View, C: View>: View {
     @State private var selection = 0
+    @Environment(\.verticalSizeClass) var verticalSizeClass: UserInterfaceSizeClass?
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
+    
+    var largeWidthClass: Bool {
+        horizontalSizeClass == .regular || (horizontalSizeClass == .compact && verticalSizeClass == .compact)
+    }
     
     var tabOne: A
     var tabTwo: B
- 
+    var lastPlayed: C
+    
     var body: some View {
-        TabView(selection: $selection){
-            tabOne
-                .tabItem {
-                    VStack {
-                        Image(systemName: "hifispeaker.fill")
-                        Text("R/a/dio")
+        Group {
+            if largeWidthClass {
+                NavigationView {
+                    tabOne
+                    TabView(selection: $selection){
+                        lastPlayed
+                            .tabItem {
+                                VStack {
+                                    Image(systemName: "backward.fill")
+                                    Text("Last Played")
+                                }
+                        }
+                        .tag(0)
+                        self.standardTabs
                     }
                 }
-                .tag(0)
+            }
+            else {
+                TabView(selection: $selection){
+                    tabOne
+                        .tabItem {
+                            VStack {
+                                Image(systemName: "hifispeaker.fill")
+                                Text("R/a/dio")
+                            }
+                    }
+                    .tag(0)
+                    self.standardTabs
+                }
+            }
+        }
+    }
+    
+    var standardTabs: some View {
+        Group {
             tabTwo
                 .tabItem {
                     VStack {
@@ -31,8 +64,8 @@ struct MainTabsView<A: View, B: View>: View {
                         Image(systemName: "house.fill")
                         Text("News")
                     }
-                }
-                .tag(2)
+            }
+            .tag(2)
         }
     }
 }
@@ -40,6 +73,7 @@ struct MainTabsView<A: View, B: View>: View {
 struct TabView_Previews: PreviewProvider {
     static var previews: some View {
         MainTabsView(tabOne: RadioConfigurator().configure(),
-                     tabTwo: Text("placeholder"))
+                     tabTwo: Text("placeholder"),
+                     lastPlayed: LastPlayedConfigurator().configure())
     }
 }

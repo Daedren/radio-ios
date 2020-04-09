@@ -11,6 +11,7 @@ extension Configurator {
             return singleton
         } else {
             let newAssembler = Assembler([
+                              CrossConfigurator(),
                               InterfaceConfigurator(),
                               GatewayConfigurator(),
                               InteractorConfigurator()

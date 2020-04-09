@@ -8,10 +8,7 @@ struct WebView : UIViewRepresentable {
     var delegate: WebViewDelegate = WebViewDelegate()
 
     func makeUIView(context: Context) -> WKWebView  {
-        return WKWebView()
-    }
-      
-    func updateUIView(_ uiView: WKWebView, context: Context) {
+        let uiView = WKWebView()
         uiView.isOpaque = false
         uiView.backgroundColor = .clear
         uiView.scrollView.backgroundColor = .clear
@@ -19,30 +16,35 @@ struct WebView : UIViewRepresentable {
             uiView.load(request)
         }
         if let html = html {
-        uiView.navigationDelegate = self.delegate
+            uiView.navigationDelegate = self.delegate
             uiView.loadHTMLString("""
                 <!DOCTYPE html>
                 <html>
-                <header>
+                <head>
                 <meta name="viewport" content="width=device-width" />
-                </header>
-                <body>
-                <a style="color:teal;
+                <style>
+                html {
+                font-size: 1.5em;
+                }
+                a {
+                color:teal;
                 text-align: center;
                 display: block;
-                font-size: 3rem;
-                font-family: -apple-system, system-ui, BlinkMacSystemFont;" href="\(html)">Thread up!</a></h1>!--></html>
+                font-family: -apple-system, system-ui, BlinkMacSystemFont;
+                }
+                </style>
+                </head>
+                <body>
+                <a href="\(html)">Thread up!</a></h1>!--></html>
                 </body>
-"""
+                """
                 , baseURL: nil)
-            
-//            var scriptContent = "var meta = document.createElement('meta');"
-//            scriptContent += "meta.name='viewport';"
-//            scriptContent += "meta.content='width=device-width';"
-//            scriptContent += "document.getElementsByTagName('head')[0].appendChild(meta);"
-//
-//            uiView.evaluateJavaScript(scriptContent, completionHandler: nil)
-        }
+    }
+        return uiView
+    }
+      
+    func updateUIView(_ uiView: WKWebView, context: Context) {
+
     }
       
 }

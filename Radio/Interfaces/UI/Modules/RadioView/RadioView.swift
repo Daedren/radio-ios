@@ -6,12 +6,26 @@ struct RadioView<P: RadioPresenter>: View {
     @ObservedObject var presenter: P
     @State private var bottomSheetShown = false
     @Environment(\.verticalSizeClass) var verticalSizeClass: UserInterfaceSizeClass?
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
+    
+    var largeWidthClass: Bool {
+        horizontalSizeClass == .regular || (horizontalSizeClass == .compact && verticalSizeClass == .compact)
+    }
     
     var body: some View {
         Group {
-            if verticalSizeClass == .regular {
+            if !largeWidthClass {
                 ZStack(alignment: .top){
-                    self.djAndPlaybackView
+                    VStack {
+                        self.djAndPlaybackView
+                        if presenter.acceptingRequests {
+                            SongList(content: self.presenter.queue, tableColor: .systemBackground)
+                        }
+                        if presenter.thread != "" {
+                            WebView(html: presenter.thread)
+                        }
+                     Spacer()
+                    }
                     GeometryReader { geometry in
                         BottomSheetView(isOpen: self.$bottomSheetShown,
                                         maxHeight: geometry.size.height * 0.9){
@@ -23,17 +37,19 @@ struct RadioView<P: RadioPresenter>: View {
                 }
             }
             else {
-                HStack {
+                VStack {
                     self.djAndPlaybackView
                         .frame(width: 250.0)
-                    HStack {
-                        SongList(content: self.presenter.queue, title: "Queue")
-                        SongList(content: self.presenter.lastPlayed, title: "LastPlayed")
+                    if presenter.acceptingRequests {
+                        SongList(content: self.presenter.queue, tableColor: .systemBackground)
+                    }
+                    if presenter.thread != "" {
+                        WebView(html: presenter.thread)
                     }
                 }
             }
         }
-        .edgesIgnoringSafeArea(.vertical)
+//        .edgesIgnoringSafeArea(.vertical)
     }
     
     var djAndPlaybackView: some View {
@@ -59,12 +75,6 @@ struct RadioView<P: RadioPresenter>: View {
             Text(presenter.currentTrack?.title ?? "")
                 .font(.title)
                 .multilineTextAlignment(.center)
-            if presenter.acceptingRequests {
-                SongList(content: self.presenter.queue, tableColor: .systemBackground)
-            }
-            if presenter.thread != "" {
-                WebView(html: presenter.thread)
-            }
         }
     }
     
@@ -105,6 +115,7 @@ struct RadioView_Previews: PreviewProvider {
             //            .previewLayout(.fixed(width: 700, height: 350))
             //            .environment(\.verticalSizeClass, .compact)
             .environment(\.verticalSizeClass, .regular)
+            .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
         return nextPreview
     }
 }

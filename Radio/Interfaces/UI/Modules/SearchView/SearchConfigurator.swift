@@ -22,7 +22,9 @@ class SearchConfigurator: Configurator {
             container.register(SearchPresenterImp.self) { _ in
 
                 let presenter = SearchPresenterImp(
-                    searchInteractor: self.assembler.resolver.resolve(SearchForTermInteractor.self)!
+                    searchInteractor: self.assembler.resolver.resolve(SearchForTermInteractor.self)!,
+                    requestInteractor: self.assembler.resolver.resolve(RequestSongInteractor.self)!,
+                    statusInteractor: self.assembler.resolver.resolve(GetCurrentStatusInteractor.self)!
                 )
                 return presenter
             }
