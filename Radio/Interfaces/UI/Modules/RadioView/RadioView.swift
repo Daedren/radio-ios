@@ -39,7 +39,7 @@ struct RadioView<P: RadioPresenter>: View {
             else {
                 VStack {
                     self.djAndPlaybackView
-                        .frame(width: 250.0)
+//                        .frame(width: 250.0)
                     if presenter.acceptingRequests {
                         SongList(content: self.presenter.queue, tableColor: .systemBackground)
                     }
@@ -59,10 +59,16 @@ struct RadioView<P: RadioPresenter>: View {
                     //                    presenter.dj.map{ self.djView(dj: $0, action: presenter.tappedButton)}
                     self.djView
                     VStack {
-                        presenter.dj.map{Text($0.name)
+                        presenter.dj.map{
+                            Text($0.name)
                             .font(.headline)
+                            .lineLimit(1)
+                            .frame(alignment: .center)
                         }
-                        presenter.listeners.map{ Text("Listeners: \($0)") }
+                        presenter.listeners.map{
+                            Text("Listeners: \($0)")
+                            .frame(alignment: .center)
+                        }
                         
                     }
                 }
@@ -72,9 +78,11 @@ struct RadioView<P: RadioPresenter>: View {
                 .font(.subheadline)
                 .foregroundColor(Color(.secondaryLabel))
                 .multilineTextAlignment(.center)
+                .animation(.easeInOut(duration: 0.3))
             Text(presenter.currentTrack?.title ?? "")
                 .font(.title)
                 .multilineTextAlignment(.center)
+                .animation(.easeInOut(duration: 0.3))
         }
     }
     
@@ -111,11 +119,13 @@ struct RadioView<P: RadioPresenter>: View {
 struct RadioView_Previews: PreviewProvider {
     static var previews: some View {
         let nextPreview = RadioConfigurator().configureFake()
-            //            .environment(\.colorScheme, .dark)
-            //            .previewLayout(.fixed(width: 700, height: 350))
-            //            .environment(\.verticalSizeClass, .compact)
+            .environment(\.horizontalSizeClass, .regular)
             .environment(\.verticalSizeClass, .regular)
-            .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
+//            .previewDevice(PreviewDevice(rawValue: "iPad Pro (11-inch)"))
+            //            .environment(\.colorScheme, .dark)
+//            .previewLayout(.fixed(width: 700, height: 350))
+            .previewLayout(.fixed(width: 1200, height: 500))
+            //            .environment(\.verticalSizeClass, .compact)
         return nextPreview
     }
 }

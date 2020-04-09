@@ -15,7 +15,8 @@ class GatewayConfigurator: Assembly {
         container.register(RadioGateway.self) { _ in
             return RadioGatewayImp(
                 network: container.resolve(NetworkDispatcher.self, name: "real")!,
-                radioMapper: container.resolve(RadioMapper.self)!
+                radioMapper: container.resolve(RadioMapper.self)!,
+                logger: container.resolve(LoggerWrapper.self)!
             )
         }
     }

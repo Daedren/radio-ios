@@ -49,7 +49,7 @@ public class GetCurrentTrackInteractor: GetCurrentTrackUseCase {
                 if icy != nil, self.avGateway.isPlaying() {
                     model = icy
                 }
-                else if api == nil{
+                else if api != nil {
                     model = api
                 }
                 

@@ -2,8 +2,11 @@ import Foundation
 import Combine
 import UIKit
 import Radio_Domain
+import Radio_cross
 
-public class RadioGatewayImp: RadioGateway {
+public class RadioGatewayImp: RadioGateway, LoggerWithContext {
+    public var loggerInstance: LoggerWrapper
+    
     var network: NetworkDispatcher
     var mapper: RadioMapper
     
@@ -20,9 +23,12 @@ public class RadioGatewayImp: RadioGateway {
     var apiDisposeBag = Set<AnyCancellable>()
     var fetching = false
     
-    public init(network: NetworkDispatcher, radioMapper: RadioMapper) {
+    public init(network: NetworkDispatcher,
+                radioMapper: RadioMapper,
+                logger: LoggerWrapper) {
         self.network = network
         self.mapper = radioMapper
+        self.loggerInstance = logger
         
         self.startRecurringFetch()
     }
@@ -52,6 +58,7 @@ public class RadioGatewayImp: RadioGateway {
     }
     
     public func updateNow() {
+        self.loggerDebug(message: "Update Now called")
         self.fetchFromAPI()
             .sink(receiveCompletion: { _ in },
                   receiveValue: {  _ in })
