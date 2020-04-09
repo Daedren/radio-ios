@@ -28,11 +28,14 @@ struct SongRequestButton: View {
         Button(action: {
             self.action?(self.index)
         }) {
-            Text(self.track.state.getText())
-                .font(.headline)
-                .foregroundColor(.white)
             if self.track.state == .loading {
                 ActivityIndicatorWrapper(style: .medium)
+                    .padding([.leading,. trailing], nil)
+            }
+            else {
+                Text(self.track.state.getText())
+                    .font(.headline)
+                    .foregroundColor(.white)
             }
         }
         .padding()
@@ -47,6 +50,7 @@ struct SongRequestButton: View {
 struct SongRequestButton_Previews: PreviewProvider {
     static var previews: some View {
         var stub = SearchedTrackViewModel.stub()
+        stub.state = .loading
         return SongRequestButton(index: 0, track: stub, action: nil)
     }
 }
