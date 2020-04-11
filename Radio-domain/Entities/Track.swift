@@ -5,13 +5,19 @@ public protocol Track {
     var artist: String { get set }
 }
 
-public struct BaseTrack: Track, Hashable {
+extension Track where Self: Hashable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine("\(artist) - \(title)")
+    }
+}
+
+public class BaseTrack: Track, Hashable {
     public static func == (lhs: BaseTrack, rhs: BaseTrack) -> Bool {
         return lhs.hashValue == rhs.hashValue
     }
     
     public func hash(into hasher: inout Hasher) {
-        hasher.combine(self.title)
+        hasher.combine("\(artist) - \(title)")
     }
 
     public var title: String

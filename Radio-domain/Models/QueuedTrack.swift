@@ -1,10 +1,6 @@
 import Foundation
 
 public struct QueuedTrack: Track, Hashable {
-    public func hash(into hasher: inout Hasher) {
-        hasher.combine("\(artist) - \(title)")
-    }
-    
     public var title: String
     public var artist: String
     

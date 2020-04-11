@@ -22,6 +22,16 @@ struct SearchedTrackViewModel: Identifiable {
         self.lastRequested = offset ?? ""
     }
     
+    init(from entity: FavoriteTrack) {
+        self.title = entity.title
+        self.artist = entity.artist
+        self.id = entity.id
+        self.state = .notRequestable
+        
+        let offset = entity.lastRequested?.offsetFrom(date: Date())
+        self.lastRequested = offset ?? ""
+    }
+    
     static func stub() -> SearchedTrackViewModel {
         let track = SearchedTrack(id: 5917,
                                   title: "Pray",

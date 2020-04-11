@@ -1,6 +1,6 @@
 import Foundation
 
-public struct SearchedTrack: Track {
+public struct SearchedTrack: Track, Hashable {
     public var title: String
     public var artist: String
     public var id: Int

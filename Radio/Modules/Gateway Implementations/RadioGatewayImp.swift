@@ -21,6 +21,7 @@ public class RadioGatewayImp: RadioGateway, LoggerWithContext {
     var currentDJ = PassthroughSubject<RadioDJ,RadioError>()
     
     var apiDisposeBag = Set<AnyCancellable>()
+    var loopDisposeBag = Set<AnyCancellable>()
     var fetching = false
     
     public init(network: NetworkDispatcher,
@@ -30,7 +31,8 @@ public class RadioGatewayImp: RadioGateway, LoggerWithContext {
         self.mapper = radioMapper
         self.loggerInstance = logger
         
-        self.startRecurringFetch()
+        NotificationCenter.default.addObserver(self, selector: #selector(stopLoop), name: UIApplication.didEnterBackgroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(resumeLoop), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
     public func getCurrentTrack() -> AnyPublisher<QueuedTrack, RadioError> {
@@ -88,13 +90,24 @@ public class RadioGatewayImp: RadioGateway, LoggerWithContext {
             .eraseToAnyPublisher()
     }
     
+    public func getFavorites(for username: String) -> AnyPublisher<[FavoriteTrack], RadioError> {
+        return network.execute(request: GetFavoritesRequest(username: username))
+            .tryMap(mapper.mapFavorite(from:))
+            .mapError{ err in
+                return RadioError.apiContentMismatch
+            }
+            .eraseToAnyPublisher()
+    }
+    
 }
 
 
 extension RadioGatewayImp {
     private func startRecurringFetch() {
-        let timer = Timer.publish(every: 20.0, on: .current, in: .common)
+        self.loopDisposeBag = Set<AnyCancellable>()
+        let timer = Timer.publish(every: 60.0, on: .current, in: .common)
             .autoconnect()
+            .print()
             .eraseToAnyPublisher()
         
         let now = Just(Date())
@@ -108,11 +121,20 @@ extension RadioGatewayImp {
         .catch{ err in
             return Empty<RadioDetailedModel,Never>()
         }
-        .sink(receiveValue: { evt in
-            print(evt)
+        .sink(receiveValue: { _ in
         })
-            .store(in: &apiDisposeBag)
+            .store(in: &loopDisposeBag)
         
+    }
+    
+    @objc func stopLoop() {
+        self.loggerDebug(message: "Loop to be stopped")
+        self.loopDisposeBag = Set<AnyCancellable>()
+    }
+    
+    @objc func resumeLoop() {
+        self.loggerDebug(message: "Loop to be resumed")
+        self.startRecurringFetch()
     }
     
     private func fetchFromAPI() -> AnyPublisher<RadioDetailedModel,RadioError>{
@@ -135,12 +157,19 @@ extension RadioGatewayImp {
             }
             .eraseToAnyPublisher()
         }
-        return Empty<RadioDetailedModel,RadioError>().eraseToAnyPublisher()
+        return Empty<RadioDetailedModel,RadioError>(completeImmediately: true)
+            .eraseToAnyPublisher()
         
     }
     
+    
     private func manageNewAPI(result: RadioDetailedModel){
-        for track in result.queue {
+        for index in 0..<result.queue.count {
+            var track = result.queue[index]
+            if index+1 < result.queue.count {
+                let nextTrack = result.queue[index+1]
+                track.endTime = nextTrack.startTime
+            }
             self.allTracks[track.hashValue] = track
         }
         self.allTracks[result.currentTrack.hashValue] = result.currentTrack
@@ -151,6 +180,5 @@ extension RadioGatewayImp {
         self.queue.send(result.queue)
         self.allLastPlayed.addObjects(from: result.lastPlayed.reversed())
         self.lastPlayed.send(Array(self.allLastPlayed.array.reversed()) as! [QueuedTrack] )
-        
     }
 }

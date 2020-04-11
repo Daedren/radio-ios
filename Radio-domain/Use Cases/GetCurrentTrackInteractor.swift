@@ -56,7 +56,7 @@ public class GetCurrentTrackInteractor: GetCurrentTrackUseCase {
                 if var model = model {
                     model.currentTime = timer
                     if let endDate = model.endTime,
-                        timer == endDate {
+                        timer > endDate {
                         self.radioGateway.updateNow()
                     }
                     return Just(model).eraseToAnyPublisher()
@@ -68,15 +68,7 @@ public class GetCurrentTrackInteractor: GetCurrentTrackUseCase {
         
         return mergedObs
     }
-    
-    private func mergeTrackAndName(track: QueuedTrack, name: Track) -> QueuedTrack {
-        var newTrack = track
-        newTrack.title = name.title
-        newTrack.artist = name.artist
-        return newTrack
-    }
-    
-    
+
     private func mapToArtistAndTitle(model: String) -> BaseTrack? {
         let separator = " - "
         guard let range = model
