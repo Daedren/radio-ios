@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct MainTabsView<A: View, B: View, C: View>: View {
+struct MainTabsView<A: View, B: View, C: View, D: View>: View {
     @State private var selection = 0
     @Environment(\.verticalSizeClass) var verticalSizeClass: UserInterfaceSizeClass?
     @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
@@ -12,6 +12,7 @@ struct MainTabsView<A: View, B: View, C: View>: View {
     var tabOne: A
     var tabTwo: B
     var lastPlayed: C
+    var favorites: D
     
     var body: some View {
         Group {
@@ -57,6 +58,15 @@ struct MainTabsView<A: View, B: View, C: View>: View {
                     }
             }
             .tag(1)
+            favorites
+                .font(.title)
+                .tabItem {
+                    VStack {
+                        Image(systemName: "heart.fill")
+                        Text("Favorites")
+                    }
+            }
+            .tag(2)
             Text("Second View")
                 .font(.title)
                 .tabItem {
@@ -65,7 +75,7 @@ struct MainTabsView<A: View, B: View, C: View>: View {
                         Text("News")
                     }
             }
-            .tag(2)
+            .tag(3)
         }
     }
 }
@@ -74,6 +84,7 @@ struct TabView_Previews: PreviewProvider {
     static var previews: some View {
         MainTabsView(tabOne: RadioConfigurator().configure(),
                      tabTwo: Text("placeholder"),
-                     lastPlayed: LastPlayedConfigurator().configure())
+                     lastPlayed: LastPlayedConfigurator().configure(),
+                     favorites: FavoritesConfigurator().configure())
     }
 }

@@ -58,5 +58,11 @@ class InteractorConfigurator: Assembly {
                 radioGateway: container.resolve(RadioGateway.self)!
             )
         }
+        
+        container.register(GetFavoritesInteractor.self) { _ in
+            return GetFavoritesInteractor(
+                radioGateway: container.resolve(RadioGateway.self)!
+            )
+        }
     }
 }

@@ -11,6 +11,7 @@ public protocol RadioGateway {
     func request(songId: Int) -> AnyPublisher<Bool, RadioError>
     func updateNow()
     func getTrackWith(identifier: String) -> QueuedTrack?
+    func getFavorites(for username: String) -> AnyPublisher<[FavoriteTrack], RadioError>
 }
 
 public enum RadioError: Error {

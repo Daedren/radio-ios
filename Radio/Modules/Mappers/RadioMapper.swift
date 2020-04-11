@@ -5,6 +5,7 @@ import Radio_Domain
 public protocol RadioMapper {
     func map(from model: RadioMainAPIResponseModel) throws -> RadioDetailedModel
     func mapSearch(from model: SearchResponseModel) -> [SearchedTrack]
+    func mapFavorite(from model: [GetFavoritesResponseModel]) throws -> [FavoriteTrack]
 }
 
 
@@ -133,4 +134,27 @@ struct RadioMapperImp: RadioMapper {
                                           lastRequested: Date(timeIntervalSince1970: TimeInterval($0.lastrequested)),
                                           requestable: $0.requestable)}
     }
+    
+    func mapFavorite(from model: [GetFavoritesResponseModel]) throws -> [FavoriteTrack] {
+        
+        return try model.map {
+            if let artistAndTitle = mapToArtistAndTitle(model: $0.name) {
+                var lastPlayed: Date?
+                var lastRequest: Date?
+                if let modelDate = $0.lastplayed {
+                    lastPlayed = Date(timeIntervalSince1970: TimeInterval(modelDate))
+                }
+                if let modelDate = $0.lastrequested {
+                    lastRequest = Date(timeIntervalSince1970: TimeInterval(modelDate))
+                }
+                return FavoriteTrack(id: $0.id,
+                              title: artistAndTitle.title,
+                              artist: artistAndTitle.artist,
+                              lastPlayed: lastPlayed,
+                              lastRequested: lastRequest)
+            }
+            throw RadioError.apiContentMismatch
+        }
+    }
+    
 }
