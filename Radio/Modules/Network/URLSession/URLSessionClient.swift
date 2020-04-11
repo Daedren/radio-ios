@@ -36,6 +36,7 @@ extension URLSessionClient {
                         event(.success(result))
                     }
                 } catch {
+                    self?.loggerError(message: error.localizedDescription)
                     event(.failure(APIError.otherError))
                 }
             }
@@ -52,6 +53,7 @@ extension URLSessionClient {
                         event(.success(result))
                     }
                 } catch {
+                    self?.loggerError(message: error.localizedDescription)
                     event(.failure(APIError.otherError))
                 }
             }
@@ -60,9 +62,9 @@ extension URLSessionClient {
     }
     
     private func requestHandler(data: Data?, response: URLResponse?, error: Error?) throws -> (URLResponse?, Data?) {
-//        self.loggerVerbose(message: "\(String(describing: response))")
-//        self.loggerVerbose(message: "\(String(describing: String(data: data ?? Data(), encoding: .utf8)))")
-//        self.loggerVerbose(message: "\(String(describing: error))")
+        self.loggerVerbose(message: "\(String(describing: response))")
+        self.loggerVerbose(message: "\(String(describing: String(data: data ?? Data(), encoding: .utf8)))")
+        self.loggerVerbose(message: "\(String(describing: error))")
         
         if let error = error {
             let errorCode = error as NSError

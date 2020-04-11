@@ -3,11 +3,11 @@ import Radio_Domain
 
 
 struct SearchedTrackViewModel: Identifiable {
-    var id: Int
+    var id: Int?
     var title: String
     var artist: String
 //    var lastPlayed: Date?
-    var lastRequested: String
+    var lastRequested: String?
     var state: SearchTrackState = .requestable
     
     init(from entity: SearchedTrack) {

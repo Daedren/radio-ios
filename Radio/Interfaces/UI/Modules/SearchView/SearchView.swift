@@ -13,6 +13,7 @@ struct SearchView: View {
                 List(presenter.returnedValues.enumerated().map({$0}), id: \.element.id){ (index, item) in
                     HStack {
                         Text("\(item.artist) - \(item.title)")
+                        .font(.body)
                         Spacer()
                         SongRequestButton(index: index, track: item, action: self.presenter.request(_:))
 
