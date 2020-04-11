@@ -68,8 +68,9 @@ class FavoritesPresenterImp: ObservableObject {
         DispatchQueue.main.async {
             self.returnedValues[index] = viewModel
         }
-        if song.requestable ?? false {
-            self.requestInteractor?.execute(song.id)
+        if let id = song.id,
+            song.requestable ?? false {
+            self.requestInteractor?.execute(id)
                 .sink(receiveCompletion: { _ in
                     
                 }, receiveValue: { result in

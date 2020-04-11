@@ -1,7 +1,7 @@
 import Foundation
 
 public struct GetFavoritesResponseModel: Decodable {
-    var id: Int
+    var id: Int?
     var name: String
     var lastrequested: Int?
     var lastplayed: Int?
