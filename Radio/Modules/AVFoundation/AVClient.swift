@@ -66,6 +66,7 @@ public class AVClient: NSObject, AVClientContract, LoggerWithContext {
     
     public func stop() {
         self.manager.removeAllItems()
+        self.manager.rate = 0.0
         if let token = self.timeObserverToken {
             self.manager.removeTimeObserver(token)
             self.timeObserverToken = nil
