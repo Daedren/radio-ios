@@ -112,7 +112,7 @@ public class AVClient: NSObject, AVClientContract, LoggerWithContext {
     }
     
     public func getPlaybackRate() -> Float {
-        return 1.0
+        return self.manager.rate
     }
     
     public func getPlaybackPosition() -> AnyPublisher<Float,Never> {

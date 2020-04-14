@@ -9,6 +9,8 @@ public class GetCurrentTrackInteractor: GetCurrentTrackUseCase {
     var avGateway: AVGateway
     var radioGateway: RadioGateway
     
+    var endSongDisposeBag = Set<AnyCancellable>()
+    
     public init(avGateway: AVGateway, radioGateway: RadioGateway) {
         self.avGateway = avGateway
         self.radioGateway = radioGateway
@@ -41,45 +43,58 @@ public class GetCurrentTrackInteractor: GetCurrentTrackUseCase {
             .eraseToAnyPublisher()
         
         let mergedObs = apiName
-            .combineLatest(icyName, timer)
+            .combineLatest(icyName)
             .flatMap{ [unowned self] (arg) -> AnyPublisher<QueuedTrack,Never> in
-                let (api, icy, timer) = arg
+                let (api, icy) = arg
                 
                 var model: QueuedTrack? = nil
-                if icy != nil, self.avGateway.isPlaying() {
+                if self.avGateway.isPlaying() {
                     model = icy
                 }
-                else if api != nil {
+                else  {
                     model = api
                 }
-                
-                if var model = model {
-                    model.currentTime = timer
-                    if let endDate = model.endTime,
-                        timer > endDate {
-                        self.radioGateway.updateNow()
-                    }
+
+                if let model = model {
                     return Just(model).eraseToAnyPublisher()
                 }
-                return Empty<QueuedTrack,Never>().eraseToAnyPublisher()
+                else {
+                    return Empty<QueuedTrack,Never>().eraseToAnyPublisher()
+                }
+            }
+            .eraseToAnyPublisher()
+                
+        let mergedObsWithTimer = timer.combineLatest(mergedObs)
+            .flatMap{ (arg) -> AnyPublisher<QueuedTrack,Never> in
+                var (timer, model) = arg
+                model.currentTime = timer
+                return Just(model).eraseToAnyPublisher()
         }
         .eraseToAnyPublisher()
         
+        self.songOverHandler(obs: mergedObsWithTimer)
         
-        return mergedObs
+        
+        return mergedObsWithTimer
     }
-
-    private func mapToArtistAndTitle(model: String) -> BaseTrack? {
-        let separator = " - "
-        guard let range = model
-            .range(of: separator)
-            else { return nil }
-        
-        let finalString = [model.prefix(upTo: range.lowerBound), model.suffix(from: range.upperBound)]
-        
-        if finalString.count == 2 {
-            return BaseTrack(title: String(finalString[1]), artist: String(finalString[0]))
+    
+    private func songOverHandler(obs: AnyPublisher<QueuedTrack, Never>) {
+        obs
+            .compactMap{ return $0 }
+            .filter{
+                if let endTime = $0.endTime,
+                    let currentTime = $0.currentTime,
+                    endTime > currentTime {
+                    return true
+                }
+                return false
         }
-        return nil
+        .removeDuplicates(by: { $0.hashValue == $1.hashValue })
+//        .catch{ err in return Empty<QueuedTrack,Never>() }
+        .sink(receiveValue: { _ in
+            self.radioGateway.updateNow()
+        })
+            .store(in: &endSongDisposeBag)
     }
+    
 }
