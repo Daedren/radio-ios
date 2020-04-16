@@ -64,5 +64,11 @@ class InteractorConfigurator: Assembly {
                 radioGateway: container.resolve(RadioGateway.self)!
             )
         }
+        
+        container.register(GetNewsListInteractor.self) { _ in
+            return GetNewsListInteractor(
+                radioGateway: container.resolve(RadioGateway.self)!
+            )
+        }
     }
 }
