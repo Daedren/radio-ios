@@ -15,7 +15,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let startView = MainTabsView(tabOne: RadioConfigurator().configure(),
                                      tabTwo: SearchConfigurator().configure(),
                                      lastPlayed: LastPlayedConfigurator().configure(),
-                                     favorites: FavoritesConfigurator().configure()
+                                     favorites: FavoritesConfigurator().configure(),
+                                     newsList: NewsListConfigurator().configure()
                                      )
 
         // Use a UIHostingController as window root view controller.

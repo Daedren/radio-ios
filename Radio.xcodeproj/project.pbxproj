@@ -109,6 +109,17 @@
 		FB242EB4243E3CFD00115B49 /* OSLogLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB242EB3243E3CFD00115B49 /* OSLogLogger.swift */; };
 		FB242EB6243E40D500115B49 /* Radio_cross.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB242EA2243E3C6100115B49 /* Radio_cross.framework */; };
 		FB242EB8243E424200115B49 /* CrossConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB242EB7243E424200115B49 /* CrossConfigurator.swift */; };
+		FB66321624464264005C2A7D /* GetNewsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66321524464264005C2A7D /* GetNewsRequest.swift */; };
+		FB66321824464287005C2A7D /* GetNewsResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66321724464287005C2A7D /* GetNewsResponseModel.swift */; };
+		FB66321B244649DA005C2A7D /* NewsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66321A244649DA005C2A7D /* NewsListView.swift */; };
+		FB66321D24464A41005C2A7D /* NewsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66321C24464A41005C2A7D /* NewsListPresenter.swift */; };
+		FB66321F24464A49005C2A7D /* NewsListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66321E24464A49005C2A7D /* NewsListConfigurator.swift */; };
+		FB66322224464B38005C2A7D /* NewsEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB663213244641D7005C2A7D /* NewsEntry.swift */; };
+		FB66322324464B49005C2A7D /* GetNewsListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66322024464AF5005C2A7D /* GetNewsListInteractor.swift */; };
+		FB66322524464BD4005C2A7D /* NewsEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66322424464BD4005C2A7D /* NewsEntryView.swift */; };
+		FB67451D2448E72A0044ED68 /* NewsEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB67451C2448E7290044ED68 /* NewsEntryViewModel.swift */; };
+		FB6745212448E78C0044ED68 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6745202448E78C0044ED68 /* HTMLParser.swift */; };
+		FB6745272448F9810044ED68 /* AppAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6745262448F9810044ED68 /* AppAttributedString.swift */; };
 		FB81FD12243F775E00058FF8 /* SongRequestResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD11243F775E00058FF8 /* SongRequestResponseModel.swift */; };
 		FB81FD16243F9B0800058FF8 /* ActivityIndicatorWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD15243F9B0800058FF8 /* ActivityIndicatorWrapper.swift */; };
 		FB81FD18243FC7C300058FF8 /* GetFavoritesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD17243FC7C300058FF8 /* GetFavoritesRequest.swift */; };
@@ -117,7 +128,7 @@
 		FB81FD20243FCF4B00058FF8 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD1F243FCF4B00058FF8 /* FavoritesPresenter.swift */; };
 		FB81FD22243FCF5400058FF8 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD21243FCF5300058FF8 /* FavoritesView.swift */; };
 		FB81FD25243FD3D800058FF8 /* GetFavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD23243FD3AE00058FF8 /* GetFavoritesInteractor.swift */; };
-		FB81FD27243FD57F00058FF8 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD26243FD57F00058FF8 /* File.swift */; };
+		FB81FD27243FD57F00058FF8 /* FavoritesConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD26243FD57F00058FF8 /* FavoritesConfigurator.swift */; };
 		FBD0CACD243F64310093BF71 /* LastPlayedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0CACC243F64310093BF71 /* LastPlayedPresenter.swift */; };
 		FBD0CACF243F643B0093BF71 /* LastPlayedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0CACE243F643B0093BF71 /* LastPlayedView.swift */; };
 		FBD0CAD1243F64470093BF71 /* LastPlayedConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0CAD0243F64470093BF71 /* LastPlayedConfigurator.swift */; };
@@ -238,7 +249,7 @@
 		098CAF9C23BB8BF800B6B80E /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		098CAF9E23BB8FF700B6B80E /* SongList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongList.swift; sourceTree = "<group>"; };
 		098CAFA123BBC03900B6B80E /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
-		098CAFA323BBC4D300B6B80E /* SearchWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchWrapper.swift; path = ../Modules/SearchView/SearchWrapper.swift; sourceTree = "<group>"; };
+		098CAFA323BBC4D300B6B80E /* SearchWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWrapper.swift; sourceTree = "<group>"; };
 		098CAFA523BBC78A00B6B80E /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		098CAFA923BBC9DE00B6B80E /* SearchedTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedTrack.swift; sourceTree = "<group>"; };
 		098CAFAB23BBC9F500B6B80E /* QueuedTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueuedTrack.swift; sourceTree = "<group>"; };
@@ -281,6 +292,17 @@
 		FB242EB0243E3CC400115B49 /* AbstractLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractLogger.swift; sourceTree = "<group>"; };
 		FB242EB3243E3CFD00115B49 /* OSLogLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLogLogger.swift; sourceTree = "<group>"; };
 		FB242EB7243E424200115B49 /* CrossConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossConfigurator.swift; sourceTree = "<group>"; };
+		FB663213244641D7005C2A7D /* NewsEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsEntry.swift; sourceTree = "<group>"; };
+		FB66321524464264005C2A7D /* GetNewsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNewsRequest.swift; sourceTree = "<group>"; };
+		FB66321724464287005C2A7D /* GetNewsResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNewsResponseModel.swift; sourceTree = "<group>"; };
+		FB66321A244649DA005C2A7D /* NewsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListView.swift; sourceTree = "<group>"; };
+		FB66321C24464A41005C2A7D /* NewsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListPresenter.swift; sourceTree = "<group>"; };
+		FB66321E24464A49005C2A7D /* NewsListConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListConfigurator.swift; sourceTree = "<group>"; };
+		FB66322024464AF5005C2A7D /* GetNewsListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNewsListInteractor.swift; sourceTree = "<group>"; };
+		FB66322424464BD4005C2A7D /* NewsEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsEntryView.swift; sourceTree = "<group>"; };
+		FB67451C2448E7290044ED68 /* NewsEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsEntryViewModel.swift; sourceTree = "<group>"; };
+		FB6745202448E78C0044ED68 /* HTMLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
+		FB6745262448F9810044ED68 /* AppAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAttributedString.swift; sourceTree = "<group>"; };
 		FB7E0FC0243E249500DCC043 /* Radio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Radio.entitlements; sourceTree = "<group>"; };
 		FB81FD11243F775E00058FF8 /* SongRequestResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRequestResponseModel.swift; sourceTree = "<group>"; };
 		FB81FD15243F9B0800058FF8 /* ActivityIndicatorWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorWrapper.swift; sourceTree = "<group>"; };
@@ -290,7 +312,7 @@
 		FB81FD1F243FCF4B00058FF8 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
 		FB81FD21243FCF5300058FF8 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		FB81FD23243FD3AE00058FF8 /* GetFavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFavoritesInteractor.swift; sourceTree = "<group>"; };
-		FB81FD26243FD57F00058FF8 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		FB81FD26243FD57F00058FF8 /* FavoritesConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesConfigurator.swift; sourceTree = "<group>"; };
 		FBD0CACC243F64310093BF71 /* LastPlayedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPlayedPresenter.swift; sourceTree = "<group>"; };
 		FBD0CACE243F643B0093BF71 /* LastPlayedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPlayedView.swift; sourceTree = "<group>"; };
 		FBD0CAD0243F64470093BF71 /* LastPlayedConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPlayedConfigurator.swift; sourceTree = "<group>"; };
@@ -345,6 +367,7 @@
 		0922E2BC23A2F8AE00EB00C8 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				FB663219244649CF005C2A7D /* NewsListView */,
 				FB81FD1E243FCF4200058FF8 /* FavoritesView */,
 				FBD0CACB243F640C0093BF71 /* LastPlayedView */,
 				098CAFA023BBC02800B6B80E /* SearchView */,
@@ -357,18 +380,16 @@
 		0922E2BD23A2F8B400EB00C8 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FB6745222448F0800044ED68 /* Wrappers */,
 				0922E2BE23A2F8DC00EB00C8 /* TrackView.swift */,
 				093E6A6B23B79D5900578C99 /* DJView.swift */,
 				09F8A11323B853FC00D95643 /* SeekBarView.swift */,
 				09F8A11523B854AE00D95643 /* ProgressBar.swift */,
 				098CAF9C23BB8BF800B6B80E /* BottomSheetView.swift */,
 				098CAF9E23BB8FF700B6B80E /* SongList.swift */,
-				098CAFB323BBD59600B6B80E /* WebViewWrapper.swift */,
-				09DD269123BCE71600B70C8E /* NavigationWrapper.swift */,
-				098CAFA323BBC4D300B6B80E /* SearchWrapper.swift */,
-				09E9425123BE132F00A294E2 /* LabelAttributedStringWrapper.swift */,
 				0929C24A23D123930043E1D8 /* SongRequestButton.swift */,
 				FB81FD15243F9B0800058FF8 /* ActivityIndicatorWrapper.swift */,
+				FB66322424464BD4005C2A7D /* NewsEntryView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -380,6 +401,7 @@
 				098CAFB123BBD13C00B6B80E /* SearchedTrackViewModel.swift */,
 				093E6A6D23B79E0000578C99 /* DJViewModel.swift */,
 				09D49EE623B8E71C00BCC62D /* CurrentTrackViewModel.swift */,
+				FB67451C2448E7290044ED68 /* NewsEntryViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -414,6 +436,7 @@
 				09DD268E23BCE0E400B70C8E /* SearchForTermInteractor.swift */,
 				0929C24C23D127470043E1D8 /* RequestSongInteractor.swift */,
 				FB81FD23243FD3AE00058FF8 /* GetFavoritesInteractor.swift */,
+				FB66322024464AF5005C2A7D /* GetNewsListInteractor.swift */,
 			);
 			path = "Use Cases";
 			sourceTree = "<group>";
@@ -439,6 +462,7 @@
 		0941B4F72378773600994F67 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				FB6745252448F96E0044ED68 /* Controls and Labels */,
 				0922E2C023A2FA2000EB00C8 /* View Models */,
 				0922E2BD23A2F8B400EB00C8 /* Components */,
 				0922E2BC23A2F8AE00EB00C8 /* Modules */,
@@ -504,6 +528,7 @@
 				09560815237F4CB7008206A1 /* Track.swift */,
 				09560817237F4D24008206A1 /* RadioDJ.swift */,
 				09560819237F4F01008206A1 /* RadioStatus.swift */,
+				FB663213244641D7005C2A7D /* NewsEntry.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -718,6 +743,8 @@
 				FB81FD11243F775E00058FF8 /* SongRequestResponseModel.swift */,
 				FB81FD17243FC7C300058FF8 /* GetFavoritesRequest.swift */,
 				FB81FD19243FC88500058FF8 /* GetFavoritesResponseModel.swift */,
+				FB66321524464264005C2A7D /* GetNewsRequest.swift */,
+				FB66321724464287005C2A7D /* GetNewsResponseModel.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -760,6 +787,7 @@
 		09F8EB5823B8188900FE6E25 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				FB67451E2448E76F0044ED68 /* Dependencies */,
 				09F8EB5723B8186000FE6E25 /* Gateway Implementations */,
 				099FFB7623947AD2005E1AD6 /* Mappers */,
 				09BD780D237E2BD2008950CD /* Network */,
@@ -821,12 +849,57 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FB663219244649CF005C2A7D /* NewsListView */ = {
+			isa = PBXGroup;
+			children = (
+				FB66321A244649DA005C2A7D /* NewsListView.swift */,
+				FB66321C24464A41005C2A7D /* NewsListPresenter.swift */,
+				FB66321E24464A49005C2A7D /* NewsListConfigurator.swift */,
+			);
+			path = NewsListView;
+			sourceTree = "<group>";
+		};
+		FB67451E2448E76F0044ED68 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				FB67451F2448E77A0044ED68 /* SwiftSoup */,
+			);
+			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		FB67451F2448E77A0044ED68 /* SwiftSoup */ = {
+			isa = PBXGroup;
+			children = (
+				FB6745202448E78C0044ED68 /* HTMLParser.swift */,
+			);
+			path = SwiftSoup;
+			sourceTree = "<group>";
+		};
+		FB6745222448F0800044ED68 /* Wrappers */ = {
+			isa = PBXGroup;
+			children = (
+				098CAFB323BBD59600B6B80E /* WebViewWrapper.swift */,
+				09DD269123BCE71600B70C8E /* NavigationWrapper.swift */,
+				098CAFA323BBC4D300B6B80E /* SearchWrapper.swift */,
+				09E9425123BE132F00A294E2 /* LabelAttributedStringWrapper.swift */,
+			);
+			path = Wrappers;
+			sourceTree = "<group>";
+		};
+		FB6745252448F96E0044ED68 /* Controls and Labels */ = {
+			isa = PBXGroup;
+			children = (
+				FB6745262448F9810044ED68 /* AppAttributedString.swift */,
+			);
+			path = "Controls and Labels";
+			sourceTree = "<group>";
+		};
 		FB81FD1E243FCF4200058FF8 /* FavoritesView */ = {
 			isa = PBXGroup;
 			children = (
 				FB81FD1F243FCF4B00058FF8 /* FavoritesPresenter.swift */,
 				FB81FD21243FCF5300058FF8 /* FavoritesView.swift */,
-				FB81FD26243FD57F00058FF8 /* File.swift */,
+				FB81FD26243FD57F00058FF8 /* FavoritesConfigurator.swift */,
 			);
 			path = FavoritesView;
 			sourceTree = "<group>";
@@ -1075,9 +1148,11 @@
 				09BD7811237E2C01008950CD /* NetworkDispatcher.swift in Sources */,
 				09F8EB6123B8244F00FE6E25 /* MediaPlayerConfigurator.swift in Sources */,
 				0922E2C523A2FB5A00EB00C8 /* DateExtensions.swift in Sources */,
+				FB66321B244649DA005C2A7D /* NewsListView.swift in Sources */,
 				09DD268D23BCDB0A00B70C8E /* SearchResponseModel.swift in Sources */,
 				0906958923A304BE00CF0398 /* URLSessionClient.swift in Sources */,
 				0941B5102378834F00994F67 /* InteractorConfigurator.swift in Sources */,
+				FB66322524464BD4005C2A7D /* NewsEntryView.swift in Sources */,
 				09DD269223BCE71600B70C8E /* NavigationWrapper.swift in Sources */,
 				09F8A10E23B83E5500D95643 /* ArtworkHandler.swift in Sources */,
 				0941B4FB2378779400994F67 /* AVGatewayImp.swift in Sources */,
@@ -1089,6 +1164,7 @@
 				097C1EA42378716F00A7A5AD /* AppDelegate.swift in Sources */,
 				FB81FD18243FC7C300058FF8 /* GetFavoritesRequest.swift in Sources */,
 				098CAFB223BBD13C00B6B80E /* SearchedTrackViewModel.swift in Sources */,
+				FB66321F24464A49005C2A7D /* NewsListConfigurator.swift in Sources */,
 				098CAFA423BBC4D300B6B80E /* SearchWrapper.swift in Sources */,
 				FB81FD12243F775E00058FF8 /* SongRequestResponseModel.swift in Sources */,
 				098CAFA623BBC78A00B6B80E /* SearchPresenter.swift in Sources */,
@@ -1100,8 +1176,10 @@
 				097C1EA62378716F00A7A5AD /* SceneDelegate.swift in Sources */,
 				0956081F237F5413008206A1 /* RadioGatewayImp.swift in Sources */,
 				097C1EA82378716F00A7A5AD /* MainTabsView.swift in Sources */,
-				FB81FD27243FD57F00058FF8 /* File.swift in Sources */,
+				FB67451D2448E72A0044ED68 /* NewsEntryViewModel.swift in Sources */,
+				FB81FD27243FD57F00058FF8 /* FavoritesConfigurator.swift in Sources */,
 				0941B50C2378830400994F67 /* Configurator.swift in Sources */,
+				FB66321D24464A41005C2A7D /* NewsListPresenter.swift in Sources */,
 				098CAFB023BBD04400B6B80E /* SearchConfigurator.swift in Sources */,
 				09BD781B237E2D9B008950CD /* RadioMainAPIResponseModel.swift in Sources */,
 				09F8A11423B853FC00D95643 /* SeekBarView.swift in Sources */,
@@ -1118,7 +1196,9 @@
 				096E0B98237A07F300024572 /* RemoteControl.swift in Sources */,
 				0941B5062378800C00994F67 /* RadioPresenter.swift in Sources */,
 				098CAF9F23BB8FF700B6B80E /* SongList.swift in Sources */,
+				FB6745212448E78C0044ED68 /* HTMLParser.swift in Sources */,
 				0941B512237883E800994F67 /* RadioConfigurator.swift in Sources */,
+				FB6745272448F9810044ED68 /* AppAttributedString.swift in Sources */,
 				0906958723A300E800CF0398 /* ResponseHandler.swift in Sources */,
 				093E6A6E23B79E0000578C99 /* DJViewModel.swift in Sources */,
 				0941B4FF23787D4A00994F67 /* RadioView.swift in Sources */,
@@ -1130,9 +1210,11 @@
 				0906958623A300E800CF0398 /* RequestHandler.swift in Sources */,
 				096E0B9C237A08A500024572 /* RemoteControlMetadata.swift in Sources */,
 				09BD7813237E2C5A008950CD /* APIRequest.swift in Sources */,
+				FB66321624464264005C2A7D /* GetNewsRequest.swift in Sources */,
 				0990B7AF2378F8E100C213B7 /* AVClient.swift in Sources */,
 				09BD7819237E2D77008950CD /* RadioMainAPI.swift in Sources */,
 				098CAF9D23BB8BF800B6B80E /* BottomSheetView.swift in Sources */,
+				FB66321824464287005C2A7D /* GetNewsResponseModel.swift in Sources */,
 				FBD0CACD243F64310093BF71 /* LastPlayedPresenter.swift in Sources */,
 				09F8A11623B854AE00D95643 /* ProgressBar.swift in Sources */,
 				0922E2BF23A2F8DC00EB00C8 /* TrackView.swift in Sources */,
@@ -1156,6 +1238,7 @@
 			files = (
 				09F8EB5F23B81FC500FE6E25 /* PlaybackInfo.swift in Sources */,
 				0922E2B523A2EC0E00EB00C8 /* GetSongQueueInteractor.swift in Sources */,
+				FB66322324464B49005C2A7D /* GetNewsListInteractor.swift in Sources */,
 				FB81FD1D243FCA6F00058FF8 /* FavoriteTrack.swift in Sources */,
 				0941B4F32378746D00994F67 /* StopRadioInteractor.swift in Sources */,
 				093E6A6723B783BC00578C99 /* GetLastPlayedInteractor.swift in Sources */,
@@ -1166,6 +1249,7 @@
 				0922E2BA23A2EC3400EB00C8 /* RadioStatus.swift in Sources */,
 				0922E2B923A2EC3000EB00C8 /* RadioDJ.swift in Sources */,
 				09F8EB5E23B81F8500FE6E25 /* GetPlaybackInfoInteractor.swift in Sources */,
+				FB66322224464B38005C2A7D /* NewsEntry.swift in Sources */,
 				093E6A7423B7AEDB00578C99 /* GetCurrentStatusInteractor.swift in Sources */,
 				09DD269023BCE0FC00B70C8E /* SearchForTermInteractor.swift in Sources */,
 				0929C24E23D1276F0043E1D8 /* RequestSongInteractor.swift in Sources */,

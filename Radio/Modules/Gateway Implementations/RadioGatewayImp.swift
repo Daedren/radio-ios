@@ -80,14 +80,14 @@ public class RadioGatewayImp: RadioGateway, LoggerWithContext {
         return network.execute(request: GetTokenRequest())
             .flatMap{ [unowned self] token in
                 self.network.execute(request: SongRequestRequest(id: songId, csrfToken: token))
-            }
-            .map{ response -> Bool in
-                return (response.success != nil)
-            }
-            .mapError{ err in
-                return RadioError.apiContentMismatch
-            }
-            .eraseToAnyPublisher()
+        }
+        .map{ response -> Bool in
+            return (response.success != nil)
+        }
+        .mapError{ err in
+            return RadioError.apiContentMismatch
+        }
+        .eraseToAnyPublisher()
     }
     
     public func getFavorites(for username: String) -> AnyPublisher<[FavoriteTrack], RadioError> {
@@ -95,8 +95,17 @@ public class RadioGatewayImp: RadioGateway, LoggerWithContext {
             .tryMap(mapper.mapFavorite(from:))
             .mapError{ err in
                 return RadioError.apiContentMismatch
-            }
-            .eraseToAnyPublisher()
+        }
+        .eraseToAnyPublisher()
+    }
+    
+    public func getNews() -> AnyPublisher<[NewsEntry], RadioError> {
+        return network.execute(request: GetNewsRequest())
+            .tryMap(mapper.mapNews(from:))
+            .mapError{ err in
+                return RadioError.apiContentMismatch
+        }
+        .eraseToAnyPublisher()
     }
     
 }

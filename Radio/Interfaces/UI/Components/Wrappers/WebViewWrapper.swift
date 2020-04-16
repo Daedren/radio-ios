@@ -35,7 +35,7 @@ struct WebView : UIViewRepresentable {
                 </style>
                 </head>
                 <body>
-                <a href="\(html)">Thread up!</a></h1>!--></html>
+                <a href="\(html)">Thread up!</a></h1></html>
                 </body>
                 """
                 , baseURL: nil)

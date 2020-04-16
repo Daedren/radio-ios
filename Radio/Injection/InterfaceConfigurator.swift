@@ -24,6 +24,10 @@ class InterfaceConfigurator: Assembly {
                                        response: container.resolve(RadioResponseHandler.self)!,
                                        client: container.resolve(NetworkClient.self)!)
         }
+        
+        container.register(HTMLParser.self) { _ in
+            return DataHTMLParser()
+        }
 
     }
 }

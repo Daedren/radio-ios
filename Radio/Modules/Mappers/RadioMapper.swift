@@ -6,6 +6,7 @@ public protocol RadioMapper {
     func map(from model: RadioMainAPIResponseModel) throws -> RadioDetailedModel
     func mapSearch(from model: SearchResponseModel) -> [SearchedTrack]
     func mapFavorite(from model: [GetFavoritesResponseModel]) throws -> [FavoriteTrack]
+    func mapNews(from model: [GetNewsResponseModel]) throws -> [NewsEntry]
 }
 
 
@@ -148,12 +149,25 @@ struct RadioMapperImp: RadioMapper {
                     lastRequest = Date(timeIntervalSince1970: TimeInterval(modelDate))
                 }
                 return FavoriteTrack(id: $0.id,
-                              title: artistAndTitle.title,
-                              artist: artistAndTitle.artist,
-                              lastPlayed: lastPlayed,
-                              lastRequested: lastRequest)
+                                     title: artistAndTitle.title,
+                                     artist: artistAndTitle.artist,
+                                     lastPlayed: lastPlayed,
+                                     lastRequested: lastRequest)
             }
             throw RadioError.apiContentMismatch
+        }
+    }
+    
+    func mapNews(from model: [GetNewsResponseModel]) throws -> [NewsEntry] {
+        
+        return model.map {
+            return NewsEntry(id: $0.id,
+                title: $0.title,
+                text: $0.text,
+                header: $0.header,
+                author: $0.author.user,
+                createdDate: Date(),
+                modifiedDate: Date())
         }
     }
     
