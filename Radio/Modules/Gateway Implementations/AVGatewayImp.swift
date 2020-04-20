@@ -53,4 +53,11 @@ public class AVGatewayImp: AVGateway {
         return audioClient.getPlaybackRate() > 0.0
     }
     
+    public func publishedIsPlaying() -> AnyPublisher<Bool, Never> {
+        return self.audioClient.getPublisherPlaybackRate()
+            .print()
+            .map{ return $0 > 0.0 }
+            .eraseToAnyPublisher()
+    }
+    
 }

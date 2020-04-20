@@ -30,11 +30,7 @@ public class GetCurrentTrackInteractor: GetCurrentTrackUseCase {
         
         let icyName = self.avGateway.getSongName()
             //            .removeDuplicates()
-            .map{ [unowned self] artistAndName -> QueuedTrack? in
-                return self.radioGateway
-                    .getTrackWith(identifier: artistAndName)
-        }
-        .prepend(Just<QueuedTrack?>(nil))
+        .prepend(Just<String>(""))
             //            .compactMap{ $0 }
             .eraseToAnyPublisher()
         
@@ -49,7 +45,8 @@ public class GetCurrentTrackInteractor: GetCurrentTrackUseCase {
                 
                 var model: QueuedTrack? = nil
                 if self.avGateway.isPlaying() {
-                    model = icy
+                    model = self.radioGateway
+                        .getTrackWith(identifier: icy.trimmingCharacters(in: .whitespacesAndNewlines))
                 }
                 else  {
                     model = api

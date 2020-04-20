@@ -17,7 +17,7 @@
                BlueprintIdentifier = "097C1E9F2378716F00A7A5AD"
                BuildableName = "Radio.app"
                BlueprintName = "Radio"
-               ReferencedContainer = "container:radio.xcodeproj">
+               ReferencedContainer = "container:Radio.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "097C1EB52378717100A7A5AD"
                BuildableName = "RadioTests.xctest"
                BlueprintName = "RadioTests"
-               ReferencedContainer = "container:radio.xcodeproj">
+               ReferencedContainer = "container:Radio.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -45,7 +45,7 @@
                BlueprintIdentifier = "097C1ED12378719700A7A5AD"
                BuildableName = "Radio-DomainTests.xctest"
                BlueprintName = "Radio-DomainTests"
-               ReferencedContainer = "container:radio.xcodeproj">
+               ReferencedContainer = "container:Radio.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -67,7 +67,7 @@
             BlueprintIdentifier = "097C1E9F2378716F00A7A5AD"
             BuildableName = "Radio.app"
             BlueprintName = "Radio"
-            ReferencedContainer = "container:radio.xcodeproj">
+            ReferencedContainer = "container:Radio.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -84,7 +84,7 @@
             BlueprintIdentifier = "097C1E9F2378716F00A7A5AD"
             BuildableName = "Radio.app"
             BlueprintName = "Radio"
-            ReferencedContainer = "container:radio.xcodeproj">
+            ReferencedContainer = "container:Radio.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
