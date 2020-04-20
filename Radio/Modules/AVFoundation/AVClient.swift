@@ -10,6 +10,7 @@ public protocol AVClientContract {
     func enqueue(url: URL) -> Bool
     func getSongName() -> AnyPublisher<String,Never>
     func getPlaybackRate() -> Float
+    func getPublisherPlaybackRate() -> AnyPublisher<Float,Never>
     func getPlaybackPosition() -> AnyPublisher<Float,Never>
 }
 
@@ -20,6 +21,8 @@ public class AVClient: NSObject, AVClientContract, LoggerWithContext {
     var manager: AVQueuePlayer
     var songName = PassthroughSubject<String,Never>()
     var position = PassthroughSubject<Float,Never>()
+    var publisherRate = CurrentValueSubject<Float,Never>(0.0)
+    private var kvoObserver: NSKeyValueObservation?
 
     var timeObserverToken: Any?
 
@@ -33,6 +36,14 @@ public class AVClient: NSObject, AVClientContract, LoggerWithContext {
         NotificationCenter.default.addObserver(self, selector: #selector(itemFailedToPlayToEndTime(_:)), name: .AVPlayerItemFailedToPlayToEndTime, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(itemNewErrorLogEntry(_:)), name: .AVPlayerItemNewErrorLogEntry, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(itemPlaybackStalled(_:)), name: .AVPlayerItemPlaybackStalled, object: nil)
+        self.kvoObserver = self.manager.observe(\.rate, options: .new) { [weak self] (manager, change) in
+            guard let nextRate = change.newValue else { return }
+            self?.publisherRate.send(nextRate)
+        }
+    }
+    
+    deinit {
+        kvoObserver?.invalidate()
     }
     
     public func play() {
@@ -43,6 +54,10 @@ public class AVClient: NSObject, AVClientContract, LoggerWithContext {
             let current = item.currentTime()
             let seconds = CMTimeGetSeconds(bufferedTime - current)
             print("Buffered time is \(seconds)")
+        }
+        
+        if let timeObserverToken = self.timeObserverToken {
+            self.manager.removeTimeObserver(timeObserverToken)
         }
         
         self.manager.play()
@@ -56,7 +71,7 @@ public class AVClient: NSObject, AVClientContract, LoggerWithContext {
     }
     
     public func pause() {
-        self.manager.pause()
+        self.manager.rate = 0.0
 //        self.manager.removeAllItems()
         if let token = self.timeObserverToken {
             self.manager.removeTimeObserver(token)
@@ -120,6 +135,10 @@ public class AVClient: NSObject, AVClientContract, LoggerWithContext {
         return self.position.eraseToAnyPublisher()
     }
     
+    public func getPublisherPlaybackRate() -> AnyPublisher<Float,Never> {
+        return self.publisherRate.eraseToAnyPublisher()
+    }
+
 }
 
 extension AVClient: AVPlayerItemMetadataOutputPushDelegate {

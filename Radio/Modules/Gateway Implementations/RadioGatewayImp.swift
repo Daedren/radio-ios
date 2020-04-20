@@ -31,8 +31,8 @@ public class RadioGatewayImp: RadioGateway, LoggerWithContext {
         self.mapper = radioMapper
         self.loggerInstance = logger
         
-        NotificationCenter.default.addObserver(self, selector: #selector(stopLoop), name: UIApplication.didEnterBackgroundNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(resumeLoop), name: UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(stopLoop), name: UIApplication.willResignActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(resumeLoop), name: UIApplication.didBecomeActiveNotification, object: nil)
     }
     
     public func getCurrentTrack() -> AnyPublisher<QueuedTrack, RadioError> {

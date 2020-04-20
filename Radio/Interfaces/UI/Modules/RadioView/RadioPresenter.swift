@@ -35,6 +35,7 @@ class RadioPresenterPreviewer: RadioPresenter {
 class RadioPresenterImp: RadioPresenter {
     var playInteractor: PlayRadioUseCase
     var pauseInteractor: StopRadioUseCase
+    var isPlayingInteractor: IsPlayingUseCase
     var songNameInteractor: GetCurrentTrackUseCase
     var songQueueInteractor: GetSongQueueInteractor
     var lastPlayedInteractor: GetLastPlayedInteractor
@@ -58,6 +59,7 @@ class RadioPresenterImp: RadioPresenter {
         play: PlayRadioUseCase,
          pause: StopRadioUseCase,
          songName: GetCurrentTrackUseCase,
+         isPlaying: IsPlayingUseCase,
          queue: GetSongQueueInteractor,
          lastPlayed: GetLastPlayedInteractor,
          dj: GetDJInteractor,
@@ -70,26 +72,23 @@ class RadioPresenterImp: RadioPresenter {
         self.lastPlayedInteractor = lastPlayed
         self.djInteractor = dj
         self.statusInteractor = status
+        self.isPlayingInteractor = isPlaying
         
         self.startSongQueueListener()
         self.startLastPlayedListener()
         self.startDJListener()
         self.startStatusListener()
         self.getSongName()
+        self.startIsPlayingListener()
     }
     
     func togglePlay() {
         if isPlaying {
-            print("Pausing")
-            self.playText = "play.fill"
             self.pauseInteractor.execute()
         }
         else {
-            print("Playing")
-            self.playText = "stop.fill"
             self.playInteractor.execute()
         }
-        self.isPlaying = !isPlaying
     }
     
     func tappedButton() {
@@ -171,6 +170,26 @@ class RadioPresenterImp: RadioPresenter {
             }
             self?.acceptingRequests = value.acceptingRequests
         })
+            .store(in: &disposeBag)
+        
+    }
+    
+    private func startIsPlayingListener() {
+        self.isPlayingInteractor
+            .execute()
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { _ in
+                
+            }, receiveValue: { [weak self] value in
+                self?.isPlaying = value
+                
+                if value {
+                    self?.playText = "stop.fill"
+                }
+                else {
+                    self?.playText = "play.fill"
+                }
+            })
             .store(in: &disposeBag)
         
     }

@@ -102,6 +102,7 @@
 		09F8EB5E23B81F8500FE6E25 /* GetPlaybackInfoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F8EB5C23B81F2800FE6E25 /* GetPlaybackInfoInteractor.swift */; };
 		09F8EB5F23B81FC500FE6E25 /* PlaybackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FDBE73237E03C3001E34DE /* PlaybackInfo.swift */; };
 		09F8EB6123B8244F00FE6E25 /* MediaPlayerConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F8EB6023B8244F00FE6E25 /* MediaPlayerConfigurator.swift */; };
+		FB0F62FB244A0C3200532FE8 /* IsPlayingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0F62FA244A0C3200532FE8 /* IsPlayingUseCase.swift */; };
 		FB242EA6243E3C6100115B49 /* Radio_cross.h in Headers */ = {isa = PBXBuildFile; fileRef = FB242EA4243E3C6100115B49 /* Radio_cross.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB242EA9243E3C6100115B49 /* Radio_cross.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB242EA2243E3C6100115B49 /* Radio_cross.framework */; };
 		FB242EAA243E3C6100115B49 /* Radio_cross.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FB242EA2243E3C6100115B49 /* Radio_cross.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -286,6 +287,7 @@
 		09F8EB5C23B81F2800FE6E25 /* GetPlaybackInfoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaybackInfoInteractor.swift; sourceTree = "<group>"; };
 		09F8EB6023B8244F00FE6E25 /* MediaPlayerConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayerConfigurator.swift; sourceTree = "<group>"; };
 		09FDBE73237E03C3001E34DE /* PlaybackInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackInfo.swift; sourceTree = "<group>"; };
+		FB0F62FA244A0C3200532FE8 /* IsPlayingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsPlayingUseCase.swift; sourceTree = "<group>"; };
 		FB242EA2243E3C6100115B49 /* Radio_cross.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Radio_cross.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB242EA4243E3C6100115B49 /* Radio_cross.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Radio_cross.h; sourceTree = "<group>"; };
 		FB242EA5243E3C6100115B49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -437,6 +439,7 @@
 				0929C24C23D127470043E1D8 /* RequestSongInteractor.swift */,
 				FB81FD23243FD3AE00058FF8 /* GetFavoritesInteractor.swift */,
 				FB66322024464AF5005C2A7D /* GetNewsListInteractor.swift */,
+				FB0F62FA244A0C3200532FE8 /* IsPlayingUseCase.swift */,
 			);
 			path = "Use Cases";
 			sourceTree = "<group>";
@@ -1243,6 +1246,7 @@
 				0941B4F32378746D00994F67 /* StopRadioInteractor.swift in Sources */,
 				093E6A6723B783BC00578C99 /* GetLastPlayedInteractor.swift in Sources */,
 				0922E2B623A2EC1400EB00C8 /* GetCurrentTrackInteractor.swift in Sources */,
+				FB0F62FB244A0C3200532FE8 /* IsPlayingUseCase.swift in Sources */,
 				0941B4F12378744200994F67 /* AVGateway.swift in Sources */,
 				0941B4EE237873E400994F67 /* PlayRadioInteractor.swift in Sources */,
 				093E6A7123B7A1ED00578C99 /* GetDJInteractor.swift in Sources */,
