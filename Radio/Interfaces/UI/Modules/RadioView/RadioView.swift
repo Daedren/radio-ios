@@ -21,7 +21,7 @@ struct RadioView<P: RadioPresenter>: View {
                         if presenter.acceptingRequests {
                             SongList(content: self.presenter.queue, tableColor: .systemBackground)
                         }
-                        if presenter.thread != "" {
+                        else if presenter.thread != "" {
                             WebView(html: presenter.thread)
                         }
                      Spacer()
@@ -43,7 +43,7 @@ struct RadioView<P: RadioPresenter>: View {
                     if presenter.acceptingRequests {
                         SongList(content: self.presenter.queue, tableColor: .systemBackground)
                     }
-                    if presenter.thread != "" {
+                    else if presenter.thread != "" {
                         WebView(html: presenter.thread)
                     }
                 }
