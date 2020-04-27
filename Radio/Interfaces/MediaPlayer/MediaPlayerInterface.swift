@@ -85,7 +85,7 @@ class MediaPlayerInterface {
                 self?.artworkHandler.prepareArtworkFromDJ(url: newDJ.image)
             }).store(in: &nowPlayingDisposeBag)
         
-        self.songNameInteractor.execute()
+        self.songNameInteractor.execute(with: nowPlayingDisposeBag)
             .removeDuplicates(by: { lhs, rhs in return lhs.title == rhs.title })
             .sink(receiveValue: { [weak self] newName in
                 if let metadata = self?.createStaticMetadata(title: newName.title, artist: newName.artist, image: self?.currentDJ) {

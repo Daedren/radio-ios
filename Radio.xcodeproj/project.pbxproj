@@ -229,7 +229,7 @@
 		096E0B99237A089600024572 /* RemoteControlCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlCommand.swift; sourceTree = "<group>"; };
 		096E0B9B237A08A500024572 /* RemoteControlMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlMetadata.swift; sourceTree = "<group>"; };
 		096E0B9D237A08B500024572 /* RemoteControlError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlError.swift; sourceTree = "<group>"; };
-		097C1EA02378716F00A7A5AD /* Radio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Radio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		097C1EA02378716F00A7A5AD /* R/a/dio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = R/a/dio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		097C1EA32378716F00A7A5AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		097C1EA52378716F00A7A5AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		097C1EA72378716F00A7A5AD /* MainTabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabsView.swift; sourceTree = "<group>"; };
@@ -574,7 +574,7 @@
 		097C1EA12378716F00A7A5AD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				097C1EA02378716F00A7A5AD /* Radio.app */,
+				097C1EA02378716F00A7A5AD /* R/a/dio.app */,
 				097C1EB62378717100A7A5AD /* RadioTests.xctest */,
 				097C1ECA2378719700A7A5AD /* Radio_Domain.framework */,
 				097C1ED22378719700A7A5AD /* Radio-DomainTests.xctest */,
@@ -961,7 +961,7 @@
 				09A03D8023D1175400277D16 /* SwiftSoup */,
 			);
 			productName = radio;
-			productReference = 097C1EA02378716F00A7A5AD /* Radio.app */;
+			productReference = 097C1EA02378716F00A7A5AD /* R/a/dio.app */;
 			productType = "com.apple.product-type.application";
 		};
 		097C1EB52378717100A7A5AD /* RadioTests */ = {
@@ -1468,7 +1468,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rkm.r-a-dio";
-				PRODUCT_NAME = Radio;
+				PRODUCT_NAME = R/a/dio;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1493,7 +1493,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rkm.r-a-dio";
-				PRODUCT_NAME = Radio;
+				PRODUCT_NAME = R/a/dio;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
