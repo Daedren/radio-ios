@@ -34,7 +34,10 @@ public class GetCurrentTrackInteractor: GetCurrentTrackUseCase {
             //            .compactMap{ $0 }
             .eraseToAnyPublisher()
         
-        let timer = Timer.publish(every: 1.0, on: .current, in: .common)
+        let timer = Timer.publish(every: 1.0,
+                                  tolerance: 1.0,
+                                  on: .current,
+                                  in: .common)
             .autoconnect()
             .eraseToAnyPublisher()
         
