@@ -1,7 +1,14 @@
 import SwiftUI
 
-struct SearchView: View {
-    @ObservedObject var presenter: SearchPresenterImp
+protocol SearchPresenter: ObservableObject {
+    var searchedText: String { get set }
+    var returnedValues: [SearchedTrackViewModel] { get set }
+    var acceptingRequests: Bool { get set }
+    func request(_ index: Int)
+}
+
+struct SearchView<P: SearchPresenter>: View {
+    @ObservedObject var presenter: P
 
     var body: some View {
         NavigationView {

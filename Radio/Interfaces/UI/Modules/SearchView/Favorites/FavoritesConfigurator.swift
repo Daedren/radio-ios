@@ -9,8 +9,8 @@ class FavoritesConfigurator: Configurator {
 //        FavoritesView(presenter: FavoritesPresenterPreviewer())
 //    }
 
-    func configure() -> FavoritesView {
-        let view = FavoritesView(
+    func configure() -> SearchView<FavoritesPresenterImp> {
+        let view = SearchView<FavoritesPresenterImp>(
             presenter: self.inject().resolve(FavoritesPresenterImp.self)!
         )
         return view
