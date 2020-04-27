@@ -15,7 +15,9 @@ class MusicSearchPresenterImp: SearchPresenter {
         }
     }
     @Published var returnedValues: [SearchedTrackViewModel] = []
+    @Published var randomTrack: RandomTrackViewModel
     @Published var acceptingRequests = false
+    @Published var titleBarText = "Search"
     
     var searchDisposeBag = Set<AnyCancellable>()
     var requestDisposeBag = Set<AnyCancellable>()
@@ -26,12 +28,13 @@ class MusicSearchPresenterImp: SearchPresenter {
     var statusInteractor: GetCurrentStatusInteractor?
     
     var searchedTracks = [SearchedTrack]()
-
+    
     init(searchInteractor: SearchForTermInteractor, requestInteractor: RequestSongInteractor, statusInteractor: GetCurrentStatusInteractor) {
         self.searchInteractor = searchInteractor
         self.requestInteractor = requestInteractor
         self.statusInteractor = statusInteractor
         
+        self.randomTrack = RandomTrackViewModel(id: 0, state: .requestable)
         
         self.searchEngine
             .debounce(for: .seconds(1), scheduler: RunLoop.main)
@@ -43,63 +46,82 @@ class MusicSearchPresenterImp: SearchPresenter {
         .handleEvents(receiveOutput: { [weak self] in
             self?.searchedTracks = $0
         })
-        .map{ value in
-            return value.map{ SearchedTrackViewModel(from: $0)}
+            .map{ value in
+                var viewModels = [SearchedTrackViewModel]()
+                for i in 0..<value.count {
+                    viewModels.append(SearchedTrackViewModel(from: value[i], with: i))
+                }
+                return viewModels
         }
         .receive(on: DispatchQueue.main)
+        .print()
         .sink(receiveCompletion: { _ in
             
         }, receiveValue: { [weak self] value in
             self?.returnedValues = value
         })
-        .store(in: &searchDisposeBag)
+            .store(in: &searchDisposeBag)
         
         statusInteractor.execute()
-        .receive(on: DispatchQueue.main)
+            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { _ in },
                   receiveValue: { status in
                     self.acceptingRequests = status.acceptingRequests
             })
-        .store(in: &searchDisposeBag)
+            .store(in: &searchDisposeBag)
     }
     
     func createViewModels(from requests: [SearchedTrack]) {
         
     }
-
-    func request(_ index: Int) {
-        let song = self.searchedTracks[index]
-        var viewModel = self.returnedValues[index]
-        viewModel.state = .loading
-        DispatchQueue.main.async {
-            self.returnedValues[index] = viewModel
+    
+    func requestRandom(track: RandomTrackViewModel) {
+        if let song = self.searchedTracks.randomElement() {
+            self.requestSong(viewModel: track,
+                             track: song,
+                             stateChange: { [weak self] newState in
+                                var viewModel = track
+                                viewModel.state = newState
+                                DispatchQueue.main.async {
+                                    self?.randomTrack = viewModel
+                                }
+            })
         }
-        if song.requestable ?? false {
-            self.requestInteractor?.execute(song.id)
+        
+    }
+    
+    func request(track: SearchedTrackViewModel) {
+        let song = self.searchedTracks[track.id]
+        
+        self.requestSong(viewModel: track,
+                         track: song,
+                         stateChange: { [weak self] newState in
+                            var viewModel = track
+                            viewModel.state = newState
+                            DispatchQueue.main.async {
+                                self?.returnedValues[track.id] = viewModel
+                            }
+        })
+    }
+    
+    func requestSong(viewModel: RequestButtonViewModel, track: SearchedTrack, stateChange: @escaping ((SearchTrackState)->Void)) {
+        stateChange(.loading)
+        if track.requestable ?? false {
+            self.requestInteractor?.execute(track.id)
                 .sink(receiveCompletion: { _ in
                     
                 }, receiveValue: { result in
-                    print(song.title)
                     if result {
-                        viewModel.state = .notRequestable
-                        print("Success")
+                        stateChange(.notRequestable)
                     }
                     else {
-                        viewModel.state = .requestable
-                        print("Failure")
-                    }
-                    DispatchQueue.main.async {
-                        self.returnedValues[index] = viewModel
+                        stateChange(.requestable)
                     }
                 })
-            .store(in: &requestDisposeBag)
+                .store(in: &requestDisposeBag)
         }
         else {
-            var viewModel = self.returnedValues[index]
-            viewModel.state = .notRequestable
-            DispatchQueue.main.async {
-                self.returnedValues[index] = viewModel
-            }
+            stateChange(.notRequestable)
         }
     }
     

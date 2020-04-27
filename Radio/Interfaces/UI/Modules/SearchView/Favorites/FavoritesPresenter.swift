@@ -9,7 +9,9 @@ class FavoritesPresenterImp: SearchPresenter {
         }
     }
     @Published var returnedValues: [SearchedTrackViewModel] = []
+    @Published var randomTrack: RandomTrackViewModel
     @Published var acceptingRequests = false
+    @Published var titleBarText = "Favorites"
     
     var searchDisposeBag = Set<AnyCancellable>()
     var requestDisposeBag = Set<AnyCancellable>()
@@ -20,12 +22,13 @@ class FavoritesPresenterImp: SearchPresenter {
     var statusInteractor: GetCurrentStatusInteractor?
     
     var searchedTracks = [FavoriteTrack]()
-
+    
     init(searchInteractor: GetFavoritesInteractor, requestInteractor: RequestSongInteractor, statusInteractor: GetCurrentStatusInteractor) {
         self.searchInteractor = searchInteractor
         self.requestInteractor = requestInteractor
         self.statusInteractor = statusInteractor
         
+        self.randomTrack = RandomTrackViewModel(id: 0, state: .requestable)
         
         self.searchEngine
             .debounce(for: .seconds(1), scheduler: RunLoop.main)
@@ -37,8 +40,12 @@ class FavoritesPresenterImp: SearchPresenter {
         .handleEvents(receiveOutput: { [weak self] in
             self?.searchedTracks = $0
         })
-        .map{ value in
-            return value.map{ SearchedTrackViewModel(from: $0)}
+            .map{ value in
+                var viewModels = [SearchedTrackViewModel]()
+                for i in 0..<value.count {
+                    viewModels.append(SearchedTrackViewModel(from: value[i], with: i))
+                }
+                return viewModels
         }
         .receive(on: DispatchQueue.main)
         .sink(receiveCompletion: { _ in
@@ -46,56 +53,27 @@ class FavoritesPresenterImp: SearchPresenter {
         }, receiveValue: { [weak self] value in
             self?.returnedValues = value
         })
-        .store(in: &searchDisposeBag)
+            .store(in: &searchDisposeBag)
         
         statusInteractor.execute()
-        .receive(on: DispatchQueue.main)
+            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { _ in },
                   receiveValue: { status in
                     self.acceptingRequests = status.acceptingRequests
             })
-        .store(in: &searchDisposeBag)
+            .store(in: &searchDisposeBag)
     }
     
     func createViewModels(from requests: [FavoriteTrack]) {
         
     }
+    
+    func requestRandom(track: RandomTrackViewModel) {
 
-    func request(_ index: Int) {
-        let song = self.searchedTracks[index]
-        var viewModel = self.returnedValues[index]
-        viewModel.state = .loading
-        DispatchQueue.main.async {
-            self.returnedValues[index] = viewModel
-        }
-        if let id = song.id,
-            song.requestable ?? false {
-            self.requestInteractor?.execute(id)
-                .sink(receiveCompletion: { _ in
-                    
-                }, receiveValue: { result in
-                    print(song.title)
-                    if result {
-                        viewModel.state = .notRequestable
-                        print("Success")
-                    }
-                    else {
-                        viewModel.state = .requestable
-                        print("Failure")
-                    }
-                    DispatchQueue.main.async {
-                        self.returnedValues[index] = viewModel
-                    }
-                })
-            .store(in: &requestDisposeBag)
-        }
-        else {
-            var viewModel = self.returnedValues[index]
-            viewModel.state = .notRequestable
-            DispatchQueue.main.async {
-                self.returnedValues[index] = viewModel
-            }
-        }
+    }
+    
+    func request(track: SearchedTrackViewModel) {
+        
     }
     
 }

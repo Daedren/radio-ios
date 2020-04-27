@@ -5,35 +5,29 @@ enum SearchTrackState {
     case requestable
     case loading
     case notRequestable
-    
-    func getText() -> String {
-        switch self {
-        case .requestable:
-            return "Request"
-        case .loading:
-            return ""
-        case .notRequestable:
-            return "Requestable soon"
-        }
-    }
 }
 
-struct SongRequestButton: View {
+protocol RequestButtonViewModel {
+    var state: SearchTrackState { get set }
+    func buttonText(for state: SearchTrackState) -> String
+}
+
+struct SongRequestButton<P: RequestButtonViewModel>: View {
     
-    let index: Int
-    var track: SearchedTrackViewModel
-    var action: ((Int) -> Void)?
+    var viewModel: P
+    
+    var action: ((P) -> Void)?
 
     var body: some View {
         Button(action: {
-            self.action?(self.index)
+            self.action?(self.viewModel)
         }) {
-            if self.track.state == .loading {
+            if self.viewModel.state == .loading {
                 ActivityIndicatorWrapper(style: .medium)
                     .padding([.leading,. trailing], nil)
             }
             else {
-                Text(self.track.state.getText())
+                Text(self.viewModel.buttonText(for: self.viewModel.state))
                     .font(.headline)
                     .foregroundColor(.white)
             }
@@ -41,16 +35,14 @@ struct SongRequestButton: View {
         .padding()
         .background(Color.red)
         .clipShape(RoundedRectangle(cornerRadius: 10.0))
-        .opacity(self.track.state == .requestable ? 1 : 0.4)
+        .opacity(self.viewModel.state == .requestable ? 1 : 0.4)
         .animation(Animation.default.speed(1))
     }
 
 }
 
-struct SongRequestButton_Previews: PreviewProvider {
-    static var previews: some View {
-        var stub = SearchedTrackViewModel.stub()
-        stub.state = .loading
-        return SongRequestButton(index: 0, track: stub, action: nil)
-    }
-}
+//struct RadioButton_Previews: PreviewProvider {
+//    static var previews: some View {
+//        return RadioButton(action: nil, state: .loading)
+//    }
+//}
