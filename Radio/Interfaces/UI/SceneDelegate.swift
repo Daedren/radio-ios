@@ -13,7 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Create the SwiftUI view that provides the window contents.
         let startView = MainTabsView(tabOne: RadioConfigurator().configure(),
-                                     tabTwo: SearchConfigurator().configure(),
+                                     tabTwo: MusicSearchConfigurator().configure(),
                                      lastPlayed: LastPlayedConfigurator().configure(),
                                      favorites: FavoritesConfigurator().configure(),
                                      newsList: NewsListConfigurator().configure()

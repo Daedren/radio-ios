@@ -66,10 +66,9 @@
 		098CAF9F23BB8FF700B6B80E /* SongList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CAF9E23BB8FF700B6B80E /* SongList.swift */; };
 		098CAFA223BBC03900B6B80E /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CAFA123BBC03900B6B80E /* SearchView.swift */; };
 		098CAFA423BBC4D300B6B80E /* SearchWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CAFA323BBC4D300B6B80E /* SearchWrapper.swift */; };
-		098CAFA623BBC78A00B6B80E /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CAFA523BBC78A00B6B80E /* SearchPresenter.swift */; };
+		098CAFA623BBC78A00B6B80E /* MusicSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CAFA523BBC78A00B6B80E /* MusicSearchPresenter.swift */; };
 		098CAFAD23BBCDE000B6B80E /* SearchedTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CAFA923BBC9DE00B6B80E /* SearchedTrack.swift */; };
 		098CAFAE23BBCDE400B6B80E /* QueuedTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CAFAB23BBC9F500B6B80E /* QueuedTrack.swift */; };
-		098CAFB023BBD04400B6B80E /* SearchConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CAFAF23BBD04400B6B80E /* SearchConfigurator.swift */; };
 		098CAFB223BBD13C00B6B80E /* SearchedTrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CAFB123BBD13C00B6B80E /* SearchedTrackViewModel.swift */; };
 		098CAFB423BBD59600B6B80E /* WebViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CAFB323BBD59600B6B80E /* WebViewWrapper.swift */; };
 		0990B7AF2378F8E100C213B7 /* AVClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0990B7AE2378F8E100C213B7 /* AVClient.swift */; };
@@ -102,6 +101,7 @@
 		09F8EB5E23B81F8500FE6E25 /* GetPlaybackInfoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F8EB5C23B81F2800FE6E25 /* GetPlaybackInfoInteractor.swift */; };
 		09F8EB5F23B81FC500FE6E25 /* PlaybackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FDBE73237E03C3001E34DE /* PlaybackInfo.swift */; };
 		09F8EB6123B8244F00FE6E25 /* MediaPlayerConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F8EB6023B8244F00FE6E25 /* MediaPlayerConfigurator.swift */; };
+		FB0C9A662457559900320562 /* MusicSearchConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0C9A652457559900320562 /* MusicSearchConfigurator.swift */; };
 		FB0F62FB244A0C3200532FE8 /* IsPlayingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0F62FA244A0C3200532FE8 /* IsPlayingUseCase.swift */; };
 		FB242EA6243E3C6100115B49 /* Radio_cross.h in Headers */ = {isa = PBXBuildFile; fileRef = FB242EA4243E3C6100115B49 /* Radio_cross.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB242EA9243E3C6100115B49 /* Radio_cross.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB242EA2243E3C6100115B49 /* Radio_cross.framework */; };
@@ -127,7 +127,6 @@
 		FB81FD1A243FC88500058FF8 /* GetFavoritesResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD19243FC88500058FF8 /* GetFavoritesResponseModel.swift */; };
 		FB81FD1D243FCA6F00058FF8 /* FavoriteTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD1B243FC9BE00058FF8 /* FavoriteTrack.swift */; };
 		FB81FD20243FCF4B00058FF8 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD1F243FCF4B00058FF8 /* FavoritesPresenter.swift */; };
-		FB81FD22243FCF5400058FF8 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD21243FCF5300058FF8 /* FavoritesView.swift */; };
 		FB81FD25243FD3D800058FF8 /* GetFavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD23243FD3AE00058FF8 /* GetFavoritesInteractor.swift */; };
 		FB81FD27243FD57F00058FF8 /* FavoritesConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD26243FD57F00058FF8 /* FavoritesConfigurator.swift */; };
 		FBD0CACD243F64310093BF71 /* LastPlayedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0CACC243F64310093BF71 /* LastPlayedPresenter.swift */; };
@@ -251,10 +250,9 @@
 		098CAF9E23BB8FF700B6B80E /* SongList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongList.swift; sourceTree = "<group>"; };
 		098CAFA123BBC03900B6B80E /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		098CAFA323BBC4D300B6B80E /* SearchWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWrapper.swift; sourceTree = "<group>"; };
-		098CAFA523BBC78A00B6B80E /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		098CAFA523BBC78A00B6B80E /* MusicSearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSearchPresenter.swift; sourceTree = "<group>"; };
 		098CAFA923BBC9DE00B6B80E /* SearchedTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedTrack.swift; sourceTree = "<group>"; };
 		098CAFAB23BBC9F500B6B80E /* QueuedTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueuedTrack.swift; sourceTree = "<group>"; };
-		098CAFAF23BBD04400B6B80E /* SearchConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchConfigurator.swift; sourceTree = "<group>"; };
 		098CAFB123BBD13C00B6B80E /* SearchedTrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedTrackViewModel.swift; sourceTree = "<group>"; };
 		098CAFB323BBD59600B6B80E /* WebViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewWrapper.swift; sourceTree = "<group>"; };
 		0990B7AC2378F56000C213B7 /* GetCurrentTrackInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCurrentTrackInteractor.swift; sourceTree = "<group>"; };
@@ -287,6 +285,7 @@
 		09F8EB5C23B81F2800FE6E25 /* GetPlaybackInfoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaybackInfoInteractor.swift; sourceTree = "<group>"; };
 		09F8EB6023B8244F00FE6E25 /* MediaPlayerConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayerConfigurator.swift; sourceTree = "<group>"; };
 		09FDBE73237E03C3001E34DE /* PlaybackInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackInfo.swift; sourceTree = "<group>"; };
+		FB0C9A652457559900320562 /* MusicSearchConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicSearchConfigurator.swift; sourceTree = "<group>"; };
 		FB0F62FA244A0C3200532FE8 /* IsPlayingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsPlayingUseCase.swift; sourceTree = "<group>"; };
 		FB242EA2243E3C6100115B49 /* Radio_cross.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Radio_cross.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB242EA4243E3C6100115B49 /* Radio_cross.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Radio_cross.h; sourceTree = "<group>"; };
@@ -312,7 +311,6 @@
 		FB81FD19243FC88500058FF8 /* GetFavoritesResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFavoritesResponseModel.swift; sourceTree = "<group>"; };
 		FB81FD1B243FC9BE00058FF8 /* FavoriteTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTrack.swift; sourceTree = "<group>"; };
 		FB81FD1F243FCF4B00058FF8 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
-		FB81FD21243FCF5300058FF8 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		FB81FD23243FD3AE00058FF8 /* GetFavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFavoritesInteractor.swift; sourceTree = "<group>"; };
 		FB81FD26243FD57F00058FF8 /* FavoritesConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesConfigurator.swift; sourceTree = "<group>"; };
 		FBD0CACC243F64310093BF71 /* LastPlayedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPlayedPresenter.swift; sourceTree = "<group>"; };
@@ -651,9 +649,9 @@
 		098CAFA023BBC02800B6B80E /* SearchView */ = {
 			isa = PBXGroup;
 			children = (
-				098CAFAF23BBD04400B6B80E /* SearchConfigurator.swift */,
 				098CAFA123BBC03900B6B80E /* SearchView.swift */,
-				098CAFA523BBC78A00B6B80E /* SearchPresenter.swift */,
+				FB0C9A62245753EC00320562 /* Favorites */,
+				FB0C9A61245753E400320562 /* MusicSearch */,
 			);
 			path = SearchView;
 			sourceTree = "<group>";
@@ -810,6 +808,24 @@
 			path = MediaPlayer;
 			sourceTree = "<group>";
 		};
+		FB0C9A61245753E400320562 /* MusicSearch */ = {
+			isa = PBXGroup;
+			children = (
+				FB0C9A652457559900320562 /* MusicSearchConfigurator.swift */,
+				098CAFA523BBC78A00B6B80E /* MusicSearchPresenter.swift */,
+			);
+			path = MusicSearch;
+			sourceTree = "<group>";
+		};
+		FB0C9A62245753EC00320562 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				FB81FD1F243FCF4B00058FF8 /* FavoritesPresenter.swift */,
+				FB81FD26243FD57F00058FF8 /* FavoritesConfigurator.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
 		FB242EA3243E3C6100115B49 /* Radio-cross */ = {
 			isa = PBXGroup;
 			children = (
@@ -900,9 +916,6 @@
 		FB81FD1E243FCF4200058FF8 /* FavoritesView */ = {
 			isa = PBXGroup;
 			children = (
-				FB81FD1F243FCF4B00058FF8 /* FavoritesPresenter.swift */,
-				FB81FD21243FCF5300058FF8 /* FavoritesView.swift */,
-				FB81FD26243FD57F00058FF8 /* FavoritesConfigurator.swift */,
 			);
 			path = FavoritesView;
 			sourceTree = "<group>";
@@ -1156,6 +1169,7 @@
 				0906958923A304BE00CF0398 /* URLSessionClient.swift in Sources */,
 				0941B5102378834F00994F67 /* InteractorConfigurator.swift in Sources */,
 				FB66322524464BD4005C2A7D /* NewsEntryView.swift in Sources */,
+				FB0C9A662457559900320562 /* MusicSearchConfigurator.swift in Sources */,
 				09DD269223BCE71600B70C8E /* NavigationWrapper.swift in Sources */,
 				09F8A10E23B83E5500D95643 /* ArtworkHandler.swift in Sources */,
 				0941B4FB2378779400994F67 /* AVGatewayImp.swift in Sources */,
@@ -1170,7 +1184,7 @@
 				FB66321F24464A49005C2A7D /* NewsListConfigurator.swift in Sources */,
 				098CAFA423BBC4D300B6B80E /* SearchWrapper.swift in Sources */,
 				FB81FD12243F775E00058FF8 /* SongRequestResponseModel.swift in Sources */,
-				098CAFA623BBC78A00B6B80E /* SearchPresenter.swift in Sources */,
+				098CAFA623BBC78A00B6B80E /* MusicSearchPresenter.swift in Sources */,
 				09D49EE723B8E71C00BCC62D /* CurrentTrackViewModel.swift in Sources */,
 				09DD268B23BCD33200B70C8E /* SearchRequest.swift in Sources */,
 				09E9425223BE132F00A294E2 /* LabelAttributedStringWrapper.swift in Sources */,
@@ -1183,7 +1197,6 @@
 				FB81FD27243FD57F00058FF8 /* FavoritesConfigurator.swift in Sources */,
 				0941B50C2378830400994F67 /* Configurator.swift in Sources */,
 				FB66321D24464A41005C2A7D /* NewsListPresenter.swift in Sources */,
-				098CAFB023BBD04400B6B80E /* SearchConfigurator.swift in Sources */,
 				09BD781B237E2D9B008950CD /* RadioMainAPIResponseModel.swift in Sources */,
 				09F8A11423B853FC00D95643 /* SeekBarView.swift in Sources */,
 				0929C24B23D123930043E1D8 /* SongRequestButton.swift in Sources */,
@@ -1195,7 +1208,6 @@
 				0906958523A300E800CF0398 /* NetworkManager.swift in Sources */,
 				09BD780C237E2527008950CD /* RemoteControlClient.swift in Sources */,
 				0929C24923D11DC80043E1D8 /* SongRequestRequest.swift in Sources */,
-				FB81FD22243FCF5400058FF8 /* FavoritesView.swift in Sources */,
 				096E0B98237A07F300024572 /* RemoteControl.swift in Sources */,
 				0941B5062378800C00994F67 /* RadioPresenter.swift in Sources */,
 				098CAF9F23BB8FF700B6B80E /* SongList.swift in Sources */,

@@ -1,8 +1,14 @@
 import Foundation
-import Combine
 import Radio_Domain
+import Combine
+import SwiftUI
 
-class FavoritesPresenterImp: ObservableObject {
+//class SearchPresenterPreviewer: SearchPresenter {
+//    @Published var searchedText: String = ""
+//    @Published var returnedValues: [SearchedTrackViewModel] = []
+//}
+
+class MusicSearchPresenterImp: SearchPresenter {
     @Published var searchedText: String = "" {
         didSet {
             self.searchEngine.send(self.searchedText)
@@ -15,13 +21,13 @@ class FavoritesPresenterImp: ObservableObject {
     var requestDisposeBag = Set<AnyCancellable>()
     var searchEngine = PassthroughSubject<String, RadioError>()
     
-    var searchInteractor: GetFavoritesInteractor?
+    var searchInteractor: SearchForTermInteractor?
     var requestInteractor: RequestSongInteractor?
     var statusInteractor: GetCurrentStatusInteractor?
     
-    var searchedTracks = [FavoriteTrack]()
+    var searchedTracks = [SearchedTrack]()
 
-    init(searchInteractor: GetFavoritesInteractor, requestInteractor: RequestSongInteractor, statusInteractor: GetCurrentStatusInteractor) {
+    init(searchInteractor: SearchForTermInteractor, requestInteractor: RequestSongInteractor, statusInteractor: GetCurrentStatusInteractor) {
         self.searchInteractor = searchInteractor
         self.requestInteractor = requestInteractor
         self.statusInteractor = statusInteractor
@@ -31,7 +37,7 @@ class FavoritesPresenterImp: ObservableObject {
             .debounce(for: .seconds(1), scheduler: RunLoop.main)
             .removeDuplicates()
             .filter{ $0 != ""}
-            .flatMap{ value -> AnyPublisher<[FavoriteTrack],RadioError> in
+            .flatMap{ value -> AnyPublisher<[SearchedTrack],RadioError> in
                 return searchInteractor.execute(value)
         }
         .handleEvents(receiveOutput: { [weak self] in
@@ -57,7 +63,7 @@ class FavoritesPresenterImp: ObservableObject {
         .store(in: &searchDisposeBag)
     }
     
-    func createViewModels(from requests: [FavoriteTrack]) {
+    func createViewModels(from requests: [SearchedTrack]) {
         
     }
 
@@ -68,9 +74,8 @@ class FavoritesPresenterImp: ObservableObject {
         DispatchQueue.main.async {
             self.returnedValues[index] = viewModel
         }
-        if let id = song.id,
-            song.requestable ?? false {
-            self.requestInteractor?.execute(id)
+        if song.requestable ?? false {
+            self.requestInteractor?.execute(song.id)
                 .sink(receiveCompletion: { _ in
                     
                 }, receiveValue: { result in
