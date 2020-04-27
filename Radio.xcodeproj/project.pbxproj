@@ -21,7 +21,6 @@
 		0922E2C223A2FA2A00EB00C8 /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922E2C123A2FA2A00EB00C8 /* TrackViewModel.swift */; };
 		0922E2C523A2FB5A00EB00C8 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922E2C423A2FB5A00EB00C8 /* DateExtensions.swift */; };
 		0929C24923D11DC80043E1D8 /* SongRequestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0929C24823D11DC80043E1D8 /* SongRequestRequest.swift */; };
-		0929C24B23D123930043E1D8 /* SongRequestButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0929C24A23D123930043E1D8 /* SongRequestButton.swift */; };
 		0929C24E23D1276F0043E1D8 /* RequestSongInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0929C24C23D127470043E1D8 /* RequestSongInteractor.swift */; };
 		093E6A6423B77F7000578C99 /* RadioMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093E6A6323B77F7000578C99 /* RadioMapperTests.swift */; };
 		093E6A6723B783BC00578C99 /* GetLastPlayedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093E6A6523B7839D00578C99 /* GetLastPlayedInteractor.swift */; };
@@ -102,6 +101,8 @@
 		09F8EB5F23B81FC500FE6E25 /* PlaybackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FDBE73237E03C3001E34DE /* PlaybackInfo.swift */; };
 		09F8EB6123B8244F00FE6E25 /* MediaPlayerConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F8EB6023B8244F00FE6E25 /* MediaPlayerConfigurator.swift */; };
 		FB0C9A662457559900320562 /* MusicSearchConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0C9A652457559900320562 /* MusicSearchConfigurator.swift */; };
+		FB0C9A68245760A100320562 /* SongRequestButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0C9A67245760A100320562 /* SongRequestButton.swift */; };
+		FB0C9A6A24576E3100320562 /* RandomTrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0C9A6924576E3100320562 /* RandomTrackViewModel.swift */; };
 		FB0F62FB244A0C3200532FE8 /* IsPlayingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0F62FA244A0C3200532FE8 /* IsPlayingUseCase.swift */; };
 		FB242EA6243E3C6100115B49 /* Radio_cross.h in Headers */ = {isa = PBXBuildFile; fileRef = FB242EA4243E3C6100115B49 /* Radio_cross.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB242EA9243E3C6100115B49 /* Radio_cross.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB242EA2243E3C6100115B49 /* Radio_cross.framework */; };
@@ -197,7 +198,6 @@
 		0922E2C123A2FA2A00EB00C8 /* TrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewModel.swift; sourceTree = "<group>"; };
 		0922E2C423A2FB5A00EB00C8 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		0929C24823D11DC80043E1D8 /* SongRequestRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRequestRequest.swift; sourceTree = "<group>"; };
-		0929C24A23D123930043E1D8 /* SongRequestButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRequestButton.swift; sourceTree = "<group>"; };
 		0929C24C23D127470043E1D8 /* RequestSongInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSongInteractor.swift; sourceTree = "<group>"; };
 		093E6A6323B77F7000578C99 /* RadioMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioMapperTests.swift; sourceTree = "<group>"; };
 		093E6A6523B7839D00578C99 /* GetLastPlayedInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLastPlayedInteractor.swift; sourceTree = "<group>"; };
@@ -228,7 +228,7 @@
 		096E0B99237A089600024572 /* RemoteControlCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlCommand.swift; sourceTree = "<group>"; };
 		096E0B9B237A08A500024572 /* RemoteControlMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlMetadata.swift; sourceTree = "<group>"; };
 		096E0B9D237A08B500024572 /* RemoteControlError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlError.swift; sourceTree = "<group>"; };
-		097C1EA02378716F00A7A5AD /* R/a/dio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = R/a/dio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		097C1EA02378716F00A7A5AD /* Radio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Radio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		097C1EA32378716F00A7A5AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		097C1EA52378716F00A7A5AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		097C1EA72378716F00A7A5AD /* MainTabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabsView.swift; sourceTree = "<group>"; };
@@ -286,6 +286,8 @@
 		09F8EB6023B8244F00FE6E25 /* MediaPlayerConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayerConfigurator.swift; sourceTree = "<group>"; };
 		09FDBE73237E03C3001E34DE /* PlaybackInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackInfo.swift; sourceTree = "<group>"; };
 		FB0C9A652457559900320562 /* MusicSearchConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicSearchConfigurator.swift; sourceTree = "<group>"; };
+		FB0C9A67245760A100320562 /* SongRequestButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRequestButton.swift; sourceTree = "<group>"; };
+		FB0C9A6924576E3100320562 /* RandomTrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomTrackViewModel.swift; sourceTree = "<group>"; };
 		FB0F62FA244A0C3200532FE8 /* IsPlayingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsPlayingUseCase.swift; sourceTree = "<group>"; };
 		FB242EA2243E3C6100115B49 /* Radio_cross.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Radio_cross.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB242EA4243E3C6100115B49 /* Radio_cross.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Radio_cross.h; sourceTree = "<group>"; };
@@ -387,7 +389,7 @@
 				09F8A11523B854AE00D95643 /* ProgressBar.swift */,
 				098CAF9C23BB8BF800B6B80E /* BottomSheetView.swift */,
 				098CAF9E23BB8FF700B6B80E /* SongList.swift */,
-				0929C24A23D123930043E1D8 /* SongRequestButton.swift */,
+				FB0C9A67245760A100320562 /* SongRequestButton.swift */,
 				FB81FD15243F9B0800058FF8 /* ActivityIndicatorWrapper.swift */,
 				FB66322424464BD4005C2A7D /* NewsEntryView.swift */,
 			);
@@ -398,6 +400,7 @@
 			isa = PBXGroup;
 			children = (
 				0922E2C123A2FA2A00EB00C8 /* TrackViewModel.swift */,
+				FB0C9A6924576E3100320562 /* RandomTrackViewModel.swift */,
 				098CAFB123BBD13C00B6B80E /* SearchedTrackViewModel.swift */,
 				093E6A6D23B79E0000578C99 /* DJViewModel.swift */,
 				09D49EE623B8E71C00BCC62D /* CurrentTrackViewModel.swift */,
@@ -572,7 +575,7 @@
 		097C1EA12378716F00A7A5AD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				097C1EA02378716F00A7A5AD /* R/a/dio.app */,
+				097C1EA02378716F00A7A5AD /* Radio.app */,
 				097C1EB62378717100A7A5AD /* RadioTests.xctest */,
 				097C1ECA2378719700A7A5AD /* Radio_Domain.framework */,
 				097C1ED22378719700A7A5AD /* Radio-DomainTests.xctest */,
@@ -974,7 +977,7 @@
 				09A03D8023D1175400277D16 /* SwiftSoup */,
 			);
 			productName = radio;
-			productReference = 097C1EA02378716F00A7A5AD /* R/a/dio.app */;
+			productReference = 097C1EA02378716F00A7A5AD /* Radio.app */;
 			productType = "com.apple.product-type.application";
 		};
 		097C1EB52378717100A7A5AD /* RadioTests */ = {
@@ -1199,8 +1202,8 @@
 				FB66321D24464A41005C2A7D /* NewsListPresenter.swift in Sources */,
 				09BD781B237E2D9B008950CD /* RadioMainAPIResponseModel.swift in Sources */,
 				09F8A11423B853FC00D95643 /* SeekBarView.swift in Sources */,
-				0929C24B23D123930043E1D8 /* SongRequestButton.swift in Sources */,
 				099FFB73239468E6005E1AD6 /* RadioDetailedModel.swift in Sources */,
+				FB0C9A68245760A100320562 /* SongRequestButton.swift in Sources */,
 				096E0B9A237A089600024572 /* RemoteControlCommand.swift in Sources */,
 				FB242EB8243E424200115B49 /* CrossConfigurator.swift in Sources */,
 				09BD7815237E2CED008950CD /* FakeNetworkClient.swift in Sources */,
@@ -1221,6 +1224,7 @@
 				09F8EB5B23B818D700FE6E25 /* MediaPlayerInterface.swift in Sources */,
 				098CAFA223BBC03900B6B80E /* SearchView.swift in Sources */,
 				098CAFB423BBD59600B6B80E /* WebViewWrapper.swift in Sources */,
+				FB0C9A6A24576E3100320562 /* RandomTrackViewModel.swift in Sources */,
 				FBD0CACF243F643B0093BF71 /* LastPlayedView.swift in Sources */,
 				0906958623A300E800CF0398 /* RequestHandler.swift in Sources */,
 				096E0B9C237A08A500024572 /* RemoteControlMetadata.swift in Sources */,
@@ -1480,7 +1484,8 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rkm.r-a-dio";
-				PRODUCT_NAME = R/a/dio;
+				PRODUCT_MODULE_NAME = Radio;
+				PRODUCT_NAME = Radio;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1505,7 +1510,8 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rkm.r-a-dio";
-				PRODUCT_NAME = R/a/dio;
+				PRODUCT_MODULE_NAME = Radio;
+				PRODUCT_NAME = Radio;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
