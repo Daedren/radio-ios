@@ -47,11 +47,9 @@ struct SongList: View {
         Group {
             if recycling {
                 List{
-                    Section( content: {
                         ForEach(content){
                             TrackView(track: $0)
                         }
-                    })
                         .listRowBackground(Color(tableColor))
                 }
             }
