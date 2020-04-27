@@ -114,7 +114,10 @@ public class RadioGatewayImp: RadioGateway, LoggerWithContext {
 extension RadioGatewayImp {
     private func startRecurringFetch() {
         self.loopDisposeBag = Set<AnyCancellable>()
-        let timer = Timer.publish(every: 60.0, on: .current, in: .common)
+        let timer = Timer.publish(every: 60.0,
+                                  tolerance: 5.0,
+                                  on: .current,
+                                  in: .common)
             .autoconnect()
             .print()
             .eraseToAnyPublisher()

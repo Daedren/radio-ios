@@ -1,6 +1,7 @@
 import Foundation
 import Combine
 import Radio_Domain
+import UIKit
 
 protocol RadioPresenter: ObservableObject {
     var songName: String { get }
@@ -36,7 +37,7 @@ class RadioPresenterImp: RadioPresenter {
     var playInteractor: PlayRadioUseCase
     var pauseInteractor: StopRadioUseCase
     var isPlayingInteractor: IsPlayingUseCase
-    var songNameInteractor: GetCurrentTrackUseCase
+    var currentTrackInteractor: GetCurrentTrackUseCase
     var songQueueInteractor: GetSongQueueInteractor
     var lastPlayedInteractor: GetLastPlayedInteractor
     var djInteractor: GetDJInteractor
@@ -44,6 +45,7 @@ class RadioPresenterImp: RadioPresenter {
     
     var isPlaying = false
     private var disposeBag = Set<AnyCancellable>()
+    private var appDisposeBag = Set<AnyCancellable>()
     
     @Published var songName: String = ""
     @Published var playText: String = "play.fill"
@@ -58,7 +60,7 @@ class RadioPresenterImp: RadioPresenter {
     init(
         play: PlayRadioUseCase,
          pause: StopRadioUseCase,
-         songName: GetCurrentTrackUseCase,
+         currentTrack: GetCurrentTrackUseCase,
          isPlaying: IsPlayingUseCase,
          queue: GetSongQueueInteractor,
          lastPlayed: GetLastPlayedInteractor,
@@ -67,18 +69,34 @@ class RadioPresenterImp: RadioPresenter {
     ) {
         self.playInteractor = play
         self.pauseInteractor = pause
-        self.songNameInteractor = songName
+        self.currentTrackInteractor = currentTrack
         self.songQueueInteractor = queue
         self.lastPlayedInteractor = lastPlayed
         self.djInteractor = dj
         self.statusInteractor = status
         self.isPlayingInteractor = isPlaying
         
+        startListeners()
+        
+        NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)
+            .sink(receiveValue: { [weak self] _ in
+                self?.disposeBag = Set<AnyCancellable>()
+            })
+            .store(in: &appDisposeBag)
+
+        NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)
+            .sink(receiveValue: { [weak self] _ in
+                self?.startListeners()
+            })
+            .store(in: &appDisposeBag)
+    }
+    
+    func startListeners() {
         self.startSongQueueListener()
         self.startLastPlayedListener()
         self.startDJListener()
         self.startStatusListener()
-        self.getSongName()
+        self.startCurrentTrackListener()
         self.startIsPlayingListener()
     }
     
@@ -95,8 +113,8 @@ class RadioPresenterImp: RadioPresenter {
         togglePlay()
     }
     
-    func getSongName() {
-        self.songNameInteractor
+    func startCurrentTrackListener() {
+        self.currentTrackInteractor
             .execute()
 //            .removeDuplicates(by: { lhs, rhs in return lhs.title == rhs.title })
             .receive(on: DispatchQueue.main)
