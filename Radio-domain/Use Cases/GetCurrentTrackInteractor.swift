@@ -2,7 +2,7 @@ import Foundation
 import Combine
 
 public protocol GetCurrentTrackUseCase {
-    func execute() -> AnyPublisher<QueuedTrack,Never>
+    func execute(with disposeBag: Set<AnyCancellable>) -> AnyPublisher<QueuedTrack,Never>
 }
 
 public class GetCurrentTrackInteractor: GetCurrentTrackUseCase {
@@ -16,7 +16,9 @@ public class GetCurrentTrackInteractor: GetCurrentTrackUseCase {
         self.radioGateway = radioGateway
     }
     
-    public func execute() -> AnyPublisher<QueuedTrack, Never>{
+    public func execute(with disposeBag: Set<AnyCancellable>) -> AnyPublisher<QueuedTrack, Never>{
+        self.endSongDisposeBag = disposeBag
+        
         let apiName = self.radioGateway
             .getCurrentTrack()
             .map{ track -> QueuedTrack? in

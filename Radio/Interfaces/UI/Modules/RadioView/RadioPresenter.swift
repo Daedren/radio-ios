@@ -115,7 +115,7 @@ class RadioPresenterImp: RadioPresenter {
     
     func startCurrentTrackListener() {
         self.currentTrackInteractor
-            .execute()
+            .execute(with: self.disposeBag)
 //            .removeDuplicates(by: { lhs, rhs in return lhs.title == rhs.title })
             .receive(on: DispatchQueue.main)
             .sink(receiveValue:{ [weak self] value in
