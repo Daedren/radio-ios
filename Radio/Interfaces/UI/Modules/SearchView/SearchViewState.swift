@@ -8,7 +8,7 @@ protocol SearchPresenter: ObservableObject {
 
 struct SearchListState: Equatable {
     var tracks: [SearchedTrackViewModel] = []
-    var randomTrack: RandomTrackViewModel?
+    var randomTrack = RandomTrackViewModel(state: .requestable)
     var acceptingRequests: Bool = false
     var error: String?
     var loadingTracks = [Int: Bool]()

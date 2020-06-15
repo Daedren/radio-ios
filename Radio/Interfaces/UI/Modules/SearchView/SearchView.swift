@@ -44,10 +44,10 @@ struct SearchView<P: SearchPresenter>: View {
                 SearchWrapper(placeholder: "Insert term to search",
                               textDidChange: self.searchedText)
                 List{
-                    if presenter.state.randomTrack != nil {
+                    if presenter.state.tracks.count > 1 {
                         Section {
                             SongRequestButton(
-                                viewModel: presenter.state.randomTrack!,
+                                viewModel: presenter.state.randomTrack,
                                 isLoading: self.presenter.state.loadingRandom,
                                 action: { self.actions.send(.chooseRandom) }
                             )

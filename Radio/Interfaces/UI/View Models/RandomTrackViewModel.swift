@@ -1,8 +1,7 @@
 import Foundation
 import Radio_Domain
 
-struct RandomTrackViewModel: Identifiable, Equatable, RequestButtonViewModel {
-    var id: Int
+struct RandomTrackViewModel: Equatable, RequestButtonViewModel {
     var state: SearchTrackState
     
     func buttonText(for state: SearchTrackState) -> String {
