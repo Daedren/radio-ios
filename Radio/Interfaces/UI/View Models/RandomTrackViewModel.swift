@@ -1,7 +1,7 @@
 import Foundation
 import Radio_Domain
 
-struct RandomTrackViewModel: Identifiable, RequestButtonViewModel {
+struct RandomTrackViewModel: Identifiable, Equatable, RequestButtonViewModel {
     var id: Int
     var state: SearchTrackState
     
@@ -9,8 +9,6 @@ struct RandomTrackViewModel: Identifiable, RequestButtonViewModel {
         switch state {
         case .requestable:
             return "Request random track from list below"
-        case .loading:
-            return ""
         case .notRequestable:
             return "Cannot request at the moment"
         }

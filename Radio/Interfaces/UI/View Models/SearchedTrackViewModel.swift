@@ -2,7 +2,7 @@ import Foundation
 import Radio_Domain
 
 
-struct SearchedTrackViewModel: Identifiable, RequestButtonViewModel {
+struct SearchedTrackViewModel: Identifiable, Equatable, RequestButtonViewModel {
     var id: Int
     var externalId: Int?
     var title: String
@@ -10,6 +10,10 @@ struct SearchedTrackViewModel: Identifiable, RequestButtonViewModel {
     //    var lastPlayed: Date?
     var lastRequested: String?
     var state: SearchTrackState = .requestable
+    
+    var fullText: String {
+        "\(artist) - \(title)"
+    }
     
     init(from entity: SearchedTrack, with id: Int) {
         self.title = entity.title
@@ -39,8 +43,6 @@ struct SearchedTrackViewModel: Identifiable, RequestButtonViewModel {
         switch state {
         case .requestable:
             return "Request"
-        case .loading:
-            return ""
         case .notRequestable:
             return "Requestable soon"
         }

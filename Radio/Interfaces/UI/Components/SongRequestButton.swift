@@ -3,7 +3,6 @@ import SwiftUI
 
 enum SearchTrackState {
     case requestable
-    case loading
     case notRequestable
 }
 
@@ -12,21 +11,27 @@ protocol RequestButtonViewModel {
     func buttonText(for state: SearchTrackState) -> String
 }
 
-struct SongRequestButton<P: RequestButtonViewModel>: View {
+struct SongRequestButton: View {
     
-    var viewModel: P
+    var viewModel: RequestButtonViewModel
+    var isLoading: Bool = false
     
-    var action: ((P) -> Void)?
+    var action: (() -> ())
+    
+    init(viewModel: RequestButtonViewModel, isLoading: Bool, action: @escaping (() -> ())) {
+        self.viewModel = viewModel
+        self.isLoading = isLoading
+        self.action = action
+    }
 
     var body: some View {
         Button(action: {
-            self.action?(self.viewModel)
+            self.action()
         }) {
-            if self.viewModel.state == .loading {
+            if self.isLoading {
                 ActivityIndicatorWrapper(style: .medium)
                     .padding([.leading,. trailing], nil)
-            }
-            else {
+            } else {
                 Text(self.viewModel.buttonText(for: self.viewModel.state))
                     .font(.headline)
                     .foregroundColor(.white)
