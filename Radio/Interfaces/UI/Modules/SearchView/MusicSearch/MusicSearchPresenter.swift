@@ -9,15 +9,8 @@ import SwiftUI
 //}
 
 class MusicSearchPresenterImp: SearchPresenter {
-    @Published var searchedText: String = "" {
-        didSet {
-            self.searchEngine.send(self.searchedText)
-        }
-    }
-    @Published var returnedValues: [SearchedTrackViewModel] = []
-    @Published var randomTrack: RandomTrackViewModel
-    @Published var acceptingRequests = false
-    @Published var titleBarText = "Search"
+    
+    @Published var state: SearchListState
     
     var searchDisposeBag = Set<AnyCancellable>()
     var requestDisposeBag = Set<AnyCancellable>()
@@ -28,101 +21,123 @@ class MusicSearchPresenterImp: SearchPresenter {
     var statusInteractor: GetCurrentStatusInteractor?
     
     var searchedTracks = [SearchedTrack]()
+    var searchedTerm = ""
     
     init(searchInteractor: SearchForTermInteractor, requestInteractor: RequestSongInteractor, statusInteractor: GetCurrentStatusInteractor) {
         self.searchInteractor = searchInteractor
         self.requestInteractor = requestInteractor
         self.statusInteractor = statusInteractor
         
-        self.randomTrack = RandomTrackViewModel(id: 0, state: .requestable)
+        self.state = SearchListState.initial
+    }
+
+    func start(actions: AnyPublisher<SearchListAction, Never>) {
+        let actions = actions
+            .flatMap(handleAction)
         
-        self.searchEngine
-            .debounce(for: .seconds(1), scheduler: RunLoop.main)
-            .removeDuplicates()
-            .filter{ $0 != ""}
-            .flatMap{ value -> AnyPublisher<[SearchedTrack],RadioError> in
-                return searchInteractor.execute(value)
-        }
-        .handleEvents(receiveOutput: { [weak self] in
-            self?.searchedTracks = $0
-        })
-            .map{ value in
-                var viewModels = [SearchedTrackViewModel]()
-                for i in 0..<value.count {
-                    viewModels.append(SearchedTrackViewModel(from: value[i], with: i))
-                }
-                return viewModels
-        }
-        .receive(on: DispatchQueue.main)
-        .print()
-        .sink(receiveCompletion: { _ in
-            
-        }, receiveValue: { [weak self] value in
-            self?.returnedValues = value
-        })
-            .store(in: &searchDisposeBag)
+        let outside = getStatus()
         
-        statusInteractor.execute()
+        actions.merge(with: outside)
+            .scan(SearchListState.initial, SearchListState.reduce(state:mutation:))
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { _ in },
-                  receiveValue: { status in
-                    self.acceptingRequests = status.acceptingRequests
+            .sink(receiveValue: { newState in
+                self.state = newState
             })
             .store(in: &searchDisposeBag)
     }
     
-    func createViewModels(from requests: [SearchedTrack]) {
+    private func handleAction(_ action: SearchListAction) -> AnyPublisher<SearchListState.Mutation, Never> {
+        
+        switch action {
+        case .chooseRandom:
+            return self.requestRandom()
+        case let .choose(indexPath):
+            return self.request(index: indexPath)
+        case let .search(searchedText):
+            self.searchedTerm = searchedText
+            return self.search(text: searchedText)
+        }
         
     }
+
+    func createViewModels(from requests: [SearchedTrack]) -> [SearchedTrackViewModel] {
+        var viewModels = [SearchedTrackViewModel]()
+        for i in 0..<requests.count {
+            viewModels.append(SearchedTrackViewModel(from: requests[i], with: i))
+        }
+        return viewModels
+    }
     
-    func requestRandom(track: RandomTrackViewModel) {
-        if let song = self.searchedTracks.randomElement() {
-            self.requestSong(viewModel: track,
-                             track: song,
-                             stateChange: { [weak self] newState in
-                                var viewModel = track
-                                viewModel.state = newState
-                                DispatchQueue.main.async {
-                                    self?.randomTrack = viewModel
-                                }
+    // MARK: ACTIONS
+    
+    func getStatus() -> AnyPublisher<SearchListState.Mutation, Never> {
+        guard let statusInteractor = self.statusInteractor else { fatalError() }
+        return statusInteractor
+            .execute()
+            .map { status in
+                return SearchListState.Mutation.acceptingRequests(status.acceptingRequests)
+        }
+        .catch{ err in
+            return Just(SearchListState.Mutation.error(err.localizedDescription))
+        }
+        .eraseToAnyPublisher()
+    }
+    
+    func search(text: String) -> AnyPublisher<SearchListState.Mutation, Never> {
+        guard let searchInteractor = self.searchInteractor else { return Just<SearchListState.Mutation>(.error("")).eraseToAnyPublisher() }
+        return searchInteractor
+            .execute(text)
+            .handleEvents(receiveOutput: { [weak self] newTracks in
+                self?.searchedTracks = newTracks
             })
+            .map{ [unowned self] newTracks -> SearchListState.Mutation in
+                let cellModels = self.createViewModels(from: newTracks)
+                return SearchListState.Mutation.searchedTracks(cellModels)
         }
-        
+        .catch{ err in
+            return Just(SearchListState.Mutation.error(err.localizedDescription))
+        }
+        .eraseToAnyPublisher()
     }
     
-    func request(track: SearchedTrackViewModel) {
-        let song = self.searchedTracks[track.id]
+    func requestRandom() -> AnyPublisher<SearchListState.Mutation, Never> {
+        let index = Int.random(in: 0 ... self.searchedTracks.count-1)
+        let song = self.searchedTracks[index]
         
-        self.requestSong(viewModel: track,
-                         track: song,
-                         stateChange: { [weak self] newState in
-                            var viewModel = track
-                            viewModel.state = newState
-                            DispatchQueue.main.async {
-                                self?.returnedValues[track.id] = viewModel
-                            }
-        })
+        return self.requestSong(track: song)
+            .prepend(.loading(index))
+        .eraseToAnyPublisher()
     }
     
-    func requestSong(viewModel: RequestButtonViewModel, track: SearchedTrack, stateChange: @escaping ((SearchTrackState)->Void)) {
-        stateChange(.loading)
+    func request(index: Int) -> AnyPublisher<SearchListState.Mutation, Never> {
+        let song = self.searchedTracks[index]
+        
+        return self.requestSong(track: song)
+            .prepend(.loading(index))
+        .eraseToAnyPublisher()
+    }
+    
+    func requestSong(track: SearchedTrack) -> AnyPublisher<SearchListState.Mutation, Never> {
+        guard let requestInteractor = self.requestInteractor else { fatalError("Missing DI") }
+        
         if track.requestable ?? false {
-            self.requestInteractor?.execute(track.id)
-                .sink(receiveCompletion: { _ in
-                    
-                }, receiveValue: { result in
+            return requestInteractor
+                .execute(track.id)
+                .flatMap{ result -> AnyPublisher<SearchListState.Mutation,RadioError> in
                     if result {
-                        stateChange(.notRequestable)
+                        return self.search(text: self.searchedTerm)
+                            .mapError{ _ -> RadioError in return .unknown }
+                            .eraseToAnyPublisher()
+                    } else {
+                        return Empty().eraseToAnyPublisher()
                     }
-                    else {
-                        stateChange(.requestable)
-                    }
-                })
-                .store(in: &requestDisposeBag)
-        }
-        else {
-            stateChange(.notRequestable)
+            }
+            .catch{ err in
+                return Just(SearchListState.Mutation.error(err.localizedDescription))
+            }
+            .eraseToAnyPublisher()
+        } else {
+            return Empty().eraseToAnyPublisher()
         }
     }
-    
 }

@@ -10,8 +10,11 @@ class MusicSearchConfigurator: Configurator {
 //    }
 
     func configure() -> SearchView<MusicSearchPresenterImp> {
+        let properties = SearchListProperties(titleBar: "Search")
+        
         let view = SearchView<MusicSearchPresenterImp>(
-            presenter: self.inject().resolve(MusicSearchPresenterImp.self)!
+            presenter: self.inject().resolve(MusicSearchPresenterImp.self)!,
+            properties: properties
         )
         return view
     }

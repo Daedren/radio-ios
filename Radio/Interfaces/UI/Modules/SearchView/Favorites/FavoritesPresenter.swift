@@ -2,16 +2,10 @@ import Foundation
 import Combine
 import Radio_Domain
 
+
 class FavoritesPresenterImp: SearchPresenter {
-    @Published var searchedText: String = "" {
-        didSet {
-            self.searchEngine.send(self.searchedText)
-        }
-    }
-    @Published var returnedValues: [SearchedTrackViewModel] = []
-    @Published var randomTrack: RandomTrackViewModel
-    @Published var acceptingRequests = false
-    @Published var titleBarText = "Favorites"
+
+    @Published var state: SearchListState
     
     var searchDisposeBag = Set<AnyCancellable>()
     var requestDisposeBag = Set<AnyCancellable>()
@@ -23,57 +17,92 @@ class FavoritesPresenterImp: SearchPresenter {
     
     var searchedTracks = [FavoriteTrack]()
     
-    init(searchInteractor: GetFavoritesInteractor, requestInteractor: RequestSongInteractor, statusInteractor: GetCurrentStatusInteractor) {
+    init(searchInteractor: GetFavoritesInteractor,
+         requestInteractor: RequestSongInteractor,
+         statusInteractor: GetCurrentStatusInteractor) {
         self.searchInteractor = searchInteractor
         self.requestInteractor = requestInteractor
         self.statusInteractor = statusInteractor
         
-        self.randomTrack = RandomTrackViewModel(id: 0, state: .requestable)
+        self.state = SearchListState.initial
+    }
+    
+    func send(_ action: SearchListAction) {
         
-        self.searchEngine
-            .debounce(for: .seconds(1), scheduler: RunLoop.main)
-            .removeDuplicates()
-            .filter{ $0 != ""}
-            .flatMap{ value -> AnyPublisher<[FavoriteTrack],RadioError> in
-                return searchInteractor.execute(value)
-        }
-        .handleEvents(receiveOutput: { [weak self] in
-            self?.searchedTracks = $0
-        })
-            .map{ value in
-                var viewModels = [SearchedTrackViewModel]()
-                for i in 0..<value.count {
-                    viewModels.append(SearchedTrackViewModel(from: value[i], with: i))
-                }
-                return viewModels
-        }
-        .receive(on: DispatchQueue.main)
-        .sink(receiveCompletion: { _ in
-            
-        }, receiveValue: { [weak self] value in
-            self?.returnedValues = value
-        })
-            .store(in: &searchDisposeBag)
+    }
+    
+    func start(actions: AnyPublisher<SearchListAction, Never>) {
+        let actions = actions
+            .flatMap(handleAction)
         
-        statusInteractor.execute()
+        let outside = getStatus()
+        
+        actions.merge(with: outside)
+            .scan(SearchListState.initial, SearchListState.reduce(state:mutation:))
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { _ in },
-                  receiveValue: { status in
-                    self.acceptingRequests = status.acceptingRequests
+            .sink(receiveValue: { newState in
+                self.state = newState
             })
             .store(in: &searchDisposeBag)
     }
     
-    func createViewModels(from requests: [FavoriteTrack]) {
+    private func handleAction(_ action: SearchListAction) -> AnyPublisher<SearchListState.Mutation, Never> {
+        
+        switch action {
+        case .chooseRandom:
+            return self.requestRandom()
+        case let .choose(indexPath):
+            return self.request(track: self.searchedTracks[indexPath])
+        case let .search(searchedText):
+            return self.search(text: searchedText)
+        }
         
     }
     
-    func requestRandom(track: RandomTrackViewModel) {
+    
+    func createViewModels(from requests: [FavoriteTrack]) -> [SearchedTrackViewModel] {
+        var viewModels = [SearchedTrackViewModel]()
+        for i in 0..<requests.count {
+            viewModels.append(SearchedTrackViewModel(from: requests[i], with: i))
+        }
+        return viewModels
+    }
+    
+    // MARK: ACTIONS
+    
+    func getStatus() -> AnyPublisher<SearchListState.Mutation, Never> {
+        guard let statusInteractor = self.statusInteractor else { fatalError() }
+        return statusInteractor
+            .execute()
+            .map { status in
+                return SearchListState.Mutation.acceptingRequests(status.acceptingRequests)
+            }
+            .catch{ err in
+                return Just(SearchListState.Mutation.error(err.localizedDescription))
+            }
+            .eraseToAnyPublisher()
+    }
 
+    func search(text: String) -> AnyPublisher<SearchListState.Mutation, Never> {
+        guard let searchInteractor = self.searchInteractor else { return Just<SearchListState.Mutation>(.error("")).eraseToAnyPublisher() }
+        return searchInteractor
+            .execute(text)
+            .map{ [unowned self] newTracks -> SearchListState.Mutation in
+                let cellModels = self.createViewModels(from: newTracks)
+                return SearchListState.Mutation.searchedTracks(cellModels)
+        }
+        .catch{ err in
+            return Just(SearchListState.Mutation.error(err.localizedDescription))
+        }
+        .eraseToAnyPublisher()
     }
     
-    func request(track: SearchedTrackViewModel) {
-        
+    func requestRandom() -> AnyPublisher<SearchListState.Mutation, Never> {
+        return Empty().eraseToAnyPublisher()
+    }
+    
+    func request(track: FavoriteTrack) -> AnyPublisher<SearchListState.Mutation, Never> {
+        return Empty().eraseToAnyPublisher()
     }
     
 }

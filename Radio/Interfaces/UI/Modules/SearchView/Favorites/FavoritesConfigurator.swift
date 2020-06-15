@@ -10,8 +10,11 @@ class FavoritesConfigurator: Configurator {
 //    }
 
     func configure() -> SearchView<FavoritesPresenterImp> {
+        let properties = SearchListProperties(titleBar: "Favorites")
+        
         let view = SearchView<FavoritesPresenterImp>(
-            presenter: self.inject().resolve(FavoritesPresenterImp.self)!
+            presenter: self.inject().resolve(FavoritesPresenterImp.self)!,
+            properties: properties
         )
         return view
     }
