@@ -10,12 +10,25 @@ class CurrentTrackViewModel: TrackViewModel {
     public var percentage: Double?
     public var startTag: String?
     public var endTag: String?
-
+    
     override public init(base: QueuedTrack) {
         super.init(base: base)
         self.trackBackup = base
         self.setCurrentTrackVars(current: base.currentTime,start: base.startTime,end: base.endTime)
     }
+    
+    override func equalTo(rhs: TrackViewModel) -> Bool {
+        guard let rhs = rhs as? CurrentTrackViewModel else { return false }
+        return self.title == rhs.title &&
+            self.artist == rhs.artist &&
+            self.currentDate == rhs.currentDate
+    }
+    
+//    static func == (lhs: CurrentTrackViewModel, rhs: CurrentTrackViewModel) -> Bool {
+//        lhs.title == rhs.title &&
+//            lhs.artist == rhs.artist &&
+//            lhs.currentDate == rhs.currentDate
+//    }
     
     private func setCurrentTrackVars(current: Date?, start: Date?, end: Date?) {
         if let currentTime = current, let startTime = start, let endTime = end {
@@ -48,11 +61,11 @@ class CurrentTrackViewModel: TrackViewModel {
     
     public static func stubCurrent() -> CurrentTrackViewModel {
         let track = QueuedTrack(title: "title",
-                          artist: "artist",
-                          startTime: Date.init(timeIntervalSince1970: 1577622501),
-                          endTime: Date.init(timeIntervalSince1970: 1577622752),
-                          currentTime: Date.init(timeIntervalSince1970: 1577622606),
-                          requested: false)
+                                artist: "artist",
+                                startTime: Date.init(timeIntervalSince1970: 1577622501),
+                                endTime: Date.init(timeIntervalSince1970: 1577622752),
+                                currentTime: Date.init(timeIntervalSince1970: 1577622606),
+                                requested: false)
         return CurrentTrackViewModel(base: track)
     }
 }

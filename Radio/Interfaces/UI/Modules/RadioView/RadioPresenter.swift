@@ -3,33 +3,12 @@ import Combine
 import Radio_Domain
 import UIKit
 
-protocol RadioPresenter: ObservableObject {
-    var songName: String { get }
-    var playText: String { get }
-    var queue: [TrackViewModel] { get }
-    var lastPlayed: [TrackViewModel] { get }
-    var currentTrack: CurrentTrackViewModel? { get }
-    var dj: DJViewModel? { get }
-    var listeners: Int? { get }
-    var thread: String { get }
-    var acceptingRequests: Bool { get }
-    
-    func tappedButton()
-}
 
 class RadioPresenterPreviewer: RadioPresenter {
-    @Published var songName: String = "songnamehere"
-    @Published var playText: String = "play.fill"
-    @Published var queue: [TrackViewModel] = [TrackViewModel.stub(),TrackViewModel.stub(),TrackViewModel.stub(),TrackViewModel.stub(),TrackViewModel.stub()]
-    @Published var lastPlayed: [TrackViewModel] = [TrackViewModel.stub(),TrackViewModel.stub(),TrackViewModel.stub(),TrackViewModel.stub(),TrackViewModel.stub()]
-    @Published var currentTrack: CurrentTrackViewModel? = CurrentTrackViewModel.stubCurrent()
-    @Published var dj: DJViewModel? = DJViewModel.stub()
-    @Published var listeners: Int? = 420
-    @Published var thread: String = ""
-    @Published var acceptingRequests: Bool = true
+    @Published var state = RadioViewState()
     
-    func tappedButton() {
-        print("Tapped")
+    func start(actions: AnyPublisher<RadioViewAction, Never>) {
+        
     }
 }
 
@@ -47,25 +26,17 @@ class RadioPresenterImp: RadioPresenter {
     private var disposeBag = Set<AnyCancellable>()
     private var appDisposeBag = Set<AnyCancellable>()
     
-    @Published var songName: String = ""
-    @Published var playText: String = "play.fill"
-    @Published var queue: [TrackViewModel] = []
-    @Published var lastPlayed: [TrackViewModel] = []
-    @Published var currentTrack: CurrentTrackViewModel?
-    @Published var dj: DJViewModel?
-    @Published var listeners: Int?
-    @Published var thread: String = ""
-    @Published var acceptingRequests: Bool = true
+    @Published var state: RadioViewState = RadioViewState()
     
     init(
         play: PlayRadioUseCase,
-         pause: StopRadioUseCase,
-         currentTrack: GetCurrentTrackUseCase,
-         isPlaying: IsPlayingUseCase,
-         queue: GetSongQueueInteractor,
-         lastPlayed: GetLastPlayedInteractor,
-         dj: GetDJInteractor,
-         status: GetCurrentStatusInteractor
+        pause: StopRadioUseCase,
+        currentTrack: GetCurrentTrackUseCase,
+        isPlaying: IsPlayingUseCase,
+        queue: GetSongQueueInteractor,
+        lastPlayed: GetLastPlayedInteractor,
+        dj: GetDJInteractor,
+        status: GetCurrentStatusInteractor
     ) {
         self.playInteractor = play
         self.pauseInteractor = pause
@@ -76,139 +47,140 @@ class RadioPresenterImp: RadioPresenter {
         self.statusInteractor = status
         self.isPlayingInteractor = isPlaying
         
-        startListeners()
-        
-        NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)
-            .sink(receiveValue: { [weak self] _ in
-                self?.disposeBag = Set<AnyCancellable>()
-            })
-            .store(in: &appDisposeBag)
 
-        NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)
-            .sink(receiveValue: { [weak self] _ in
-                self?.startListeners()
+//        NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)
+//            .sink(receiveValue: { [weak self] _ in
+//                self?.disposeBag = Set<AnyCancellable>()
+//            })
+//            .store(in: &appDisposeBag)
+//
+//        NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)
+//            .sink(receiveValue: { [weak self] _ in
+//                self?.startListeners()
+//            })
+//            .store(in: &appDisposeBag)
+    }
+    
+    func start(actions: AnyPublisher<RadioViewAction, Never>) {
+        let listeners = self.startListeners()
+        
+        let actions = actions
+            .flatMap(handleAction)
+            
+        actions.merge(with: listeners)
+            .scan(RadioViewState.initial, RadioViewState.reduce(state:mutation:))
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: { newState in
+                self.state = newState
             })
-            .store(in: &appDisposeBag)
+            .store(in: &disposeBag)
     }
     
-    func startListeners() {
-        self.startSongQueueListener()
-        self.startLastPlayedListener()
-        self.startDJListener()
-        self.startStatusListener()
-        self.startCurrentTrackListener()
+    private func handleAction(_ action: RadioViewAction) -> AnyPublisher<RadioViewState.Mutation, Never> {
+        switch action {
+        case .tappedPlayPause:
+            return self.togglePlay()
+        }
+    }
+    
+    func startListeners() -> AnyPublisher<RadioViewState.Mutation, Never> {
+        Publishers.Merge6(
+        self.startSongQueueListener(),
+        self.startLastPlayedListener(),
+        self.startDJListener(),
+        self.startStatusListener(),
+        self.startCurrentTrackListener(),
         self.startIsPlayingListener()
+        )
+        .eraseToAnyPublisher()
     }
     
-    func togglePlay() {
+    func togglePlay() -> AnyPublisher<RadioViewState.Mutation, Never> {
         if isPlaying {
             self.pauseInteractor.execute()
         }
         else {
             self.playInteractor.execute()
         }
+        return Empty<RadioViewState.Mutation, Never>()
+        .eraseToAnyPublisher()
     }
     
-    func tappedButton() {
-        togglePlay()
-    }
-    
-    func startCurrentTrackListener() {
+    func startCurrentTrackListener() -> AnyPublisher<RadioViewState.Mutation, Never> {
         self.currentTrackInteractor
             .execute(with: self.disposeBag)
-//            .removeDuplicates(by: { lhs, rhs in return lhs.title == rhs.title })
-            .receive(on: DispatchQueue.main)
-            .sink(receiveValue:{ [weak self] value in
-                self?.songName = "\(value.artist) - \(value.title)"
-                self?.currentTrack = CurrentTrackViewModel(base: value)
-            })
-            .store(in: &disposeBag)
+            .map { result -> RadioViewState.Mutation in
+                let track = CurrentTrackViewModel(base: result)
+                return .currentTrack(track)
+        }
+        .receive(on: DispatchQueue.global(qos: .userInteractive))
+        .eraseToAnyPublisher()
     }
     
-    private func startSongQueueListener() {
+    private func startSongQueueListener() -> AnyPublisher<RadioViewState.Mutation, Never> {
         self.songQueueInteractor
             .execute()
-            .map { tracks -> [TrackViewModel] in
+            .map { tracks -> RadioViewState.Mutation in
                 let models: [TrackViewModel] = tracks.map{ return TrackViewModel(base: $0) }
-                return models
+                return .queuedTracks(models)
         }
-        .receive(on: DispatchQueue.main)
-        .sink(receiveCompletion: { _ in
-            
-        }, receiveValue: { [weak self] value in
-            self?.queue = value
-        })
-            .store(in: &disposeBag)
-        
+        .catch{ err in
+            return Just(RadioViewState.Mutation.error(err.localizedDescription))
+        }
+        .receive(on: DispatchQueue.global(qos: .default))
+        .eraseToAnyPublisher()
     }
     
-    private func startLastPlayedListener() {
+    private func startLastPlayedListener() -> AnyPublisher<RadioViewState.Mutation, Never> {
         self.lastPlayedInteractor
             .execute()
-            .map { tracks -> [TrackViewModel] in
+            .map { tracks -> RadioViewState.Mutation in
                 let models: [TrackViewModel] = tracks.map{ return TrackViewModel(base: $0) }
-                return models
+                return .lastPlayedTracks(models)
         }
-        .receive(on: DispatchQueue.main)
-        .sink(receiveCompletion: { _ in
-            
-        }, receiveValue: { [weak self] value in
-            self?.lastPlayed = value
-        })
-            .store(in: &disposeBag)
-        
+        .catch{ err in
+            return Just(RadioViewState.Mutation.error(err.localizedDescription))
+        }
+        .receive(on: DispatchQueue.global(qos: .default))
+        .eraseToAnyPublisher()
     }
     
-    private func startDJListener() {
+    private func startDJListener() -> AnyPublisher<RadioViewState.Mutation, Never> {
         self.djInteractor
             .execute()
-            .map { domainDJ -> DJViewModel in
-                return DJViewModel(base: domainDJ)
+            .map { domainDJ -> RadioViewState.Mutation in
+                let djModel = DJViewModel(base: domainDJ)
+                return .dj(djModel)
         }
-        .receive(on: DispatchQueue.main)
-        .sink(receiveCompletion: { _ in
-            
-        }, receiveValue: { [weak self] value in
-            self?.dj = value
-        })
-            .store(in: &disposeBag)
-        
+        .catch{ err in
+            return Just(RadioViewState.Mutation.error(err.localizedDescription))
+        }
+        .receive(on: DispatchQueue.global(qos: .default))
+        .eraseToAnyPublisher()
     }
     
-    private func startStatusListener() {
+    private func startStatusListener() -> AnyPublisher<RadioViewState.Mutation, Never> {
         self.statusInteractor
             .execute()
-        .receive(on: DispatchQueue.main)
-        .sink(receiveCompletion: { _ in
-            
-        }, receiveValue: { [weak self] value in
-            self?.listeners = value.listeners
-            if value.thread != self?.thread {
-                self?.thread = value.thread
-            }
-            self?.acceptingRequests = value.acceptingRequests
-        })
-            .store(in: &disposeBag)
-        
+            .map{ status -> RadioViewState.Mutation in
+                return .status(thread: status.thread,
+                               listeners: status.listeners,
+                               acceptingRequests: status.acceptingRequests)
+        }
+        .catch{ err in
+            return Just(RadioViewState.Mutation.error(err.localizedDescription))
+        }
+        .receive(on: DispatchQueue.global(qos: .default))
+        .eraseToAnyPublisher()
     }
     
-    private func startIsPlayingListener() {
+    private func startIsPlayingListener() -> AnyPublisher<RadioViewState.Mutation, Never> {
         self.isPlayingInteractor
             .execute()
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { _ in
-                
-            }, receiveValue: { [weak self] value in
-                self?.isPlaying = value
-                
-                if value {
-                    self?.playText = "stop.fill"
-                }
-                else {
-                    self?.playText = "play.fill"
-                }
-            })
-            .store(in: &disposeBag)
-        
+            .map{ result -> RadioViewState.Mutation in
+                .isPlaying(result)
+        }
+        .receive(on: DispatchQueue.global(qos: .userInitiated))
+        .eraseToAnyPublisher()
     }
 }

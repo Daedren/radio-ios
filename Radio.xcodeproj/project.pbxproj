@@ -131,6 +131,7 @@
 		FB81FD20243FCF4B00058FF8 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD1F243FCF4B00058FF8 /* FavoritesPresenter.swift */; };
 		FB81FD25243FD3D800058FF8 /* GetFavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD23243FD3AE00058FF8 /* GetFavoritesInteractor.swift */; };
 		FB81FD27243FD57F00058FF8 /* FavoritesConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD26243FD57F00058FF8 /* FavoritesConfigurator.swift */; };
+		FBC9140224992ECF0051DA21 /* RadioViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC9140124992ECF0051DA21 /* RadioViewState.swift */; };
 		FBD0CACD243F64310093BF71 /* LastPlayedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0CACC243F64310093BF71 /* LastPlayedPresenter.swift */; };
 		FBD0CACF243F643B0093BF71 /* LastPlayedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0CACE243F643B0093BF71 /* LastPlayedView.swift */; };
 		FBD0CAD1243F64470093BF71 /* LastPlayedConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0CAD0243F64470093BF71 /* LastPlayedConfigurator.swift */; };
@@ -317,6 +318,7 @@
 		FB81FD1F243FCF4B00058FF8 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
 		FB81FD23243FD3AE00058FF8 /* GetFavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFavoritesInteractor.swift; sourceTree = "<group>"; };
 		FB81FD26243FD57F00058FF8 /* FavoritesConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesConfigurator.swift; sourceTree = "<group>"; };
+		FBC9140124992ECF0051DA21 /* RadioViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioViewState.swift; sourceTree = "<group>"; };
 		FBD0CACC243F64310093BF71 /* LastPlayedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPlayedPresenter.swift; sourceTree = "<group>"; };
 		FBD0CACE243F643B0093BF71 /* LastPlayedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPlayedView.swift; sourceTree = "<group>"; };
 		FBD0CAD0243F64470093BF71 /* LastPlayedConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPlayedConfigurator.swift; sourceTree = "<group>"; };
@@ -511,6 +513,7 @@
 				0941B511237883E800994F67 /* RadioConfigurator.swift */,
 				0941B4FE23787D4A00994F67 /* RadioView.swift */,
 				0941B5052378800C00994F67 /* RadioPresenter.swift */,
+				FBC9140124992ECF0051DA21 /* RadioViewState.swift */,
 			);
 			path = RadioView;
 			sourceTree = "<group>";
@@ -1208,6 +1211,7 @@
 				09F8A11423B853FC00D95643 /* SeekBarView.swift in Sources */,
 				099FFB73239468E6005E1AD6 /* RadioDetailedModel.swift in Sources */,
 				FB0C9A68245760A100320562 /* SongRequestButton.swift in Sources */,
+				FBC9140224992ECF0051DA21 /* RadioViewState.swift in Sources */,
 				096E0B9A237A089600024572 /* RemoteControlCommand.swift in Sources */,
 				FB242EB8243E424200115B49 /* CrossConfigurator.swift in Sources */,
 				09BD7815237E2CED008950CD /* FakeNetworkClient.swift in Sources */,

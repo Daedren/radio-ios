@@ -3,6 +3,10 @@ import Swinject
 import Radio_Domain
 import SwiftUI
 
+struct NewsListProperties {
+    var titleBar: String
+}
+
 class NewsListConfigurator: Configurator {
     
 //    func configureFake() -> NewsListView<NewsListPresenterPreviewer> {
@@ -10,8 +14,10 @@ class NewsListConfigurator: Configurator {
 //    }
 
     func configure() -> NewsListView {
+        let properties = NewsListProperties(titleBar: "News")
         let view = NewsListView(
-            presenter: self.inject().resolve(NewsListPresenterImp.self)!
+            presenter: self.inject().resolve(NewsListPresenterImp.self)!,
+            properties: properties
         )
         return view
     }

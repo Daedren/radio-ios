@@ -1,6 +1,11 @@
 import SwiftUI
 import UIKit
+import Combine
 import KingfisherSwiftUI
+
+enum RadioViewAction: Equatable {
+    case tappedPlayPause
+}
 
 struct RadioView<P: RadioPresenter>: View {
     @ObservedObject var presenter: P
@@ -12,17 +17,26 @@ struct RadioView<P: RadioPresenter>: View {
         horizontalSizeClass == .regular || (horizontalSizeClass == .compact && verticalSizeClass == .compact)
     }
     
+    var actions = PassthroughSubject<RadioViewAction, Never>()
+    
+    init(presenter: P) {
+        self.presenter = presenter
+        
+        self.presenter.start(actions:
+            actions.eraseToAnyPublisher())
+    }
+    
     var body: some View {
         Group {
             if !largeWidthClass {
                 ZStack(alignment: .top){
                     VStack {
                         self.djAndPlaybackView
-                        if presenter.acceptingRequests {
-                            SongList(content: self.presenter.queue, tableColor: .systemBackground)
+                        if presenter.state.acceptingRequests {
+                            SongList(content: self.presenter.state.queue, tableColor: .systemBackground)
                         }
-                        else if presenter.thread != "" {
-                            WebView(html: presenter.thread)
+                        else if presenter.state.thread != "" {
+                            WebView(html: presenter.state.thread)
                         }
                      Spacer()
                     }
@@ -30,7 +44,7 @@ struct RadioView<P: RadioPresenter>: View {
                         BottomSheetView(isOpen: self.$bottomSheetShown,
                                         maxHeight: geometry.size.height * 0.9){
                                             VStack(spacing: 0.0) {
-                                                SongList(content: self.presenter.lastPlayed, title: "Last Played")
+                                                SongList(content: self.presenter.state.lastPlayed, title: "Last Played")
                                             }
                         }
                     }
@@ -40,11 +54,11 @@ struct RadioView<P: RadioPresenter>: View {
                 VStack {
                     self.djAndPlaybackView
 //                        .frame(width: 250.0)
-                    if presenter.acceptingRequests {
-                        SongList(content: self.presenter.queue, tableColor: .systemBackground)
+                    if presenter.state.acceptingRequests {
+                        SongList(content: self.presenter.state.queue, tableColor: .systemBackground)
                     }
-                    else if presenter.thread != "" {
-                        WebView(html: presenter.thread)
+                    else if presenter.state.thread != "" {
+                        WebView(html: presenter.state.thread)
                     }
                 }
             }
@@ -59,13 +73,13 @@ struct RadioView<P: RadioPresenter>: View {
                     //                    presenter.dj.map{ self.djView(dj: $0, action: presenter.tappedButton)}
                     self.djView
                     VStack {
-                        presenter.dj.map{
+                        presenter.state.dj.map{
                             Text($0.name)
                             .font(.headline)
                             .lineLimit(1)
                             .frame(alignment: .center)
                         }
-                        presenter.listeners.map{
+                        presenter.state.listeners.map{
                             Text("Listeners: \($0)")
                             .frame(alignment: .center)
                         }
@@ -73,13 +87,13 @@ struct RadioView<P: RadioPresenter>: View {
                     }
                 }
             }
-            presenter.currentTrack.map{SeekBarView(track: $0)}
-            Text(presenter.currentTrack?.artist ?? "")
+            presenter.state.currentTrack.map{SeekBarView(track: $0)}
+            Text(presenter.state.currentTrack?.artist ?? "")
                 .font(.subheadline)
                 .foregroundColor(Color(.secondaryLabel))
                 .multilineTextAlignment(.center)
                 .animation(.easeInOut(duration: 0.3))
-            Text(presenter.currentTrack?.title ?? "")
+            Text(presenter.state.currentTrack?.title ?? "")
                 .font(.title)
                 .multilineTextAlignment(.center)
                 .animation(.easeInOut(duration: 0.3))
@@ -88,7 +102,7 @@ struct RadioView<P: RadioPresenter>: View {
     
     var djView: some View {
         VStack {
-            presenter.dj.map{ dj in
+            presenter.state.dj.map{ dj in
                 ZStack(alignment: .bottomTrailing){
                     KFImage(dj.image)
                         .resizable()
@@ -98,9 +112,9 @@ struct RadioView<P: RadioPresenter>: View {
                                alignment: .center)
                         .clipShape(Circle())
                     Button(action: {
-                        self.presenter.tappedButton()
+                        self.actions.send(.tappedPlayPause)
                     }) {
-                        Image(systemName: presenter.playText)
+                        Image(systemName: presenter.state.isPlaying ? "stop.fill" : "play.fill")
                             .resizable()
                             .scaledToFit()
                             .padding(10.0)

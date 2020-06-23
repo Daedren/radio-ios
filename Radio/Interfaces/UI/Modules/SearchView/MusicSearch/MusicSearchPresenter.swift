@@ -97,6 +97,7 @@ class MusicSearchPresenterImp: SearchPresenter {
         .catch{ err in
             return Just(SearchListState.Mutation.error(err.localizedDescription))
         }
+        .receive(on: DispatchQueue.global(qos: .default))
         .eraseToAnyPublisher()
     }
     
@@ -135,6 +136,7 @@ class MusicSearchPresenterImp: SearchPresenter {
             .catch{ err in
                 return Just(SearchListState.Mutation.error(err.localizedDescription))
             }
+            .receive(on: DispatchQueue.global(qos: .default))
             .eraseToAnyPublisher()
         } else {
             return Empty().eraseToAnyPublisher()
