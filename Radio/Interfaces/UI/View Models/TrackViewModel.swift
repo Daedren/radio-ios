@@ -1,7 +1,7 @@
 import Foundation
 import Radio_Domain
 
-class TrackViewModel: Identifiable {
+class TrackViewModel: Identifiable, Equatable {
     var id: String = UUID().uuidString
     
     public var title: String
@@ -25,6 +25,15 @@ class TrackViewModel: Identifiable {
         }
     }
     
+    static func == (lhs: TrackViewModel, rhs: TrackViewModel) -> Bool {
+        lhs.equalTo(rhs: rhs)
+    }
+    
+    func equalTo(rhs: TrackViewModel) -> Bool {
+        self.title == rhs.title &&
+            self.artist == rhs.artist
+    }
+
     public static func stub() -> TrackViewModel {
         let track = QueuedTrack(title: "title", artist: "artist", startTime: Date.init(timeIntervalSinceNow: 30.0), endTime: Date.init(timeIntervalSinceNow: 30.0), requested: false)
         return TrackViewModel(base: track)
