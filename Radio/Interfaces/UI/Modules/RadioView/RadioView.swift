@@ -44,7 +44,10 @@ struct RadioView<P: RadioPresenter>: View {
                         BottomSheetView(isOpen: self.$bottomSheetShown,
                                         maxHeight: geometry.size.height * 0.9){
                                             VStack(spacing: 0.0) {
-                                                SongList(content: self.presenter.state.lastPlayed, title: "Last Played")
+                                                SongList(content: self.presenter.state.lastPlayed,
+                                                         title: "Last Played",
+                                                         topBarColor: .secondarySystemBackground,
+                                                         tableColor: .tertiarySystemBackground)
                                             }
                         }
                     }
@@ -134,11 +137,11 @@ struct RadioView_Previews: PreviewProvider {
     static var previews: some View {
         let nextPreview = RadioConfigurator().configureFake()
             .environment(\.horizontalSizeClass, .regular)
-            .environment(\.verticalSizeClass, .regular)
-//            .previewDevice(PreviewDevice(rawValue: "iPad Pro (11-inch)"))
-            //            .environment(\.colorScheme, .dark)
+            .environment(\.verticalSizeClass, .compact)
+            .previewDevice(PreviewDevice(rawValue: "iPad Pro (11-inch)"))
+//             .environment(\.colorScheme, .dark)
 //            .previewLayout(.fixed(width: 700, height: 350))
-            .previewLayout(.fixed(width: 1200, height: 500))
+//            .previewLayout(.fixed(width: 1200, height: 500))
             //            .environment(\.verticalSizeClass, .compact)
         return nextPreview
     }

@@ -83,10 +83,11 @@ struct MainTabsView<A: View, B: View, C: View, D: View, E: View>: View {
 
 struct TabView_Previews: PreviewProvider {
     static var previews: some View {
-        MainTabsView(tabOne: RadioConfigurator().configure(),
+        MainTabsView(tabOne: RadioConfigurator().configureFake(),
                      tabTwo: Text("placeholder"),
-                     lastPlayed: LastPlayedConfigurator().configure(),
+                     lastPlayed: LastPlayedConfigurator().configureFake(),
                      favorites: FavoritesConfigurator().configure(),
                      newsList: NewsListConfigurator().configure())
+            .preferredColorScheme(.dark)
     }
 }

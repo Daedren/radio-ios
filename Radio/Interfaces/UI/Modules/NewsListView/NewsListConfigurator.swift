@@ -9,11 +9,12 @@ struct NewsListProperties {
 
 class NewsListConfigurator: Configurator {
     
-//    func configureFake() -> NewsListView<NewsListPresenterPreviewer> {
-//        NewsListView(presenter: NewsListPresenterPreviewer())
-//    }
+    func configureFake() -> NewsListView<NewsListPresenterPreviewer> {
+        NewsListView(presenter: NewsListPresenterPreviewer(),
+                     properties: NewsListProperties(titleBar: "News"))
+    }
 
-    func configure() -> NewsListView {
+    func configure() -> NewsListView<NewsListPresenterImp> {
         let properties = NewsListProperties(titleBar: "News")
         let view = NewsListView(
             presenter: self.inject().resolve(NewsListPresenterImp.self)!,

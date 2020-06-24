@@ -10,8 +10,11 @@ public protocol RadioMapper {
 }
 
 
-struct RadioMapperImp: RadioMapper {
-    func map(from model: RadioMainAPIResponseModel) throws -> RadioDetailedModel {
+public struct RadioMapperImp: RadioMapper {
+    
+    public init() {}
+    
+    public func map(from model: RadioMainAPIResponseModel) throws -> RadioDetailedModel {
         let dj = try mapDJ(from: model.main.dj)
         let currentTrack = try mapCurrentTrack(from: model)
         let queue = try mapToQueue(model: model)
@@ -112,7 +115,7 @@ struct RadioMapperImp: RadioMapper {
         return nil
     }
     
-    func mapToArtistAndTitle(model: String) -> Track? {
+    public func mapToArtistAndTitle(model: String) -> Track? {
         let separator = " - "
         guard let range = model
             .range(of: separator)
@@ -126,7 +129,7 @@ struct RadioMapperImp: RadioMapper {
         return nil
     }
     
-    func mapSearch(from model: SearchResponseModel) -> [SearchedTrack] {
+    public func mapSearch(from model: SearchResponseModel) -> [SearchedTrack] {
         let tracks = model.data
         return tracks.map { SearchedTrack(id: $0.id,
                                           title: $0.title,
@@ -136,7 +139,7 @@ struct RadioMapperImp: RadioMapper {
                                           requestable: $0.requestable)}
     }
     
-    func mapFavorite(from model: [GetFavoritesResponseModel]) throws -> [FavoriteTrack] {
+    public func mapFavorite(from model: [GetFavoritesResponseModel]) throws -> [FavoriteTrack] {
         
         return try model.map {
             if let artistAndTitle = mapToArtistAndTitle(model: $0.name) {
@@ -158,7 +161,7 @@ struct RadioMapperImp: RadioMapper {
         }
     }
     
-    func mapNews(from model: [GetNewsResponseModel]) throws -> [NewsEntry] {
+    public func mapNews(from model: [GetNewsResponseModel]) throws -> [NewsEntry] {
         
         return model.map {
             return NewsEntry(id: $0.id,

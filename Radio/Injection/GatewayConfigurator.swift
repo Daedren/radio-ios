@@ -2,6 +2,7 @@ import Foundation
 import Swinject
 import Radio_Domain
 import Radio_cross
+import Radio_data
 
 class GatewayConfigurator: Assembly {
     func assemble(container: Container) {

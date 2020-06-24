@@ -5,7 +5,10 @@ struct ActivityIndicatorWrapper: UIViewRepresentable {
     let style: UIActivityIndicatorView.Style
 
     func makeUIView(context: UIViewRepresentableContext<ActivityIndicatorWrapper>) -> UIActivityIndicatorView {
-        return UIActivityIndicatorView(style: style)
+        
+        let indicator = UIActivityIndicatorView(style: style)
+        indicator.color = UIColor.white
+        return indicator
     }
 
     func updateUIView(_ uiView: UIActivityIndicatorView, context: UIViewRepresentableContext<ActivityIndicatorWrapper>) {
