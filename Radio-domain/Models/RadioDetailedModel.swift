@@ -1,14 +1,13 @@
 import Foundation
-import Radio_Domain
 
 public class RadioDetailedModel {
-    var status: RadioStatus
-    var dj: RadioDJ
-    var currentTrack: QueuedTrack
-    var queue: [QueuedTrack]
-    var lastPlayed: [QueuedTrack]
+    public var status: RadioStatus
+    public var dj: RadioDJ
+    public var currentTrack: QueuedTrack
+    public var queue: [QueuedTrack]
+    public var lastPlayed: [QueuedTrack]
     
-    init(
+    public init(
         status: RadioStatus,
         dj: RadioDJ,
         currentTrack: QueuedTrack,

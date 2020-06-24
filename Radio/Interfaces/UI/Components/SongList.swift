@@ -5,14 +5,20 @@ struct SongList: View {
     var recycling = true
     var title: LocalizedStringKey
     var tableColor: UIColor
+    var topBarColor: UIColor
 
     
-    init(content: [TrackViewModel], title: LocalizedStringKey = "", tableColor: UIColor = .tertiarySystemBackground, recycling: Bool = true) {
+    init(content: [TrackViewModel],
+         title: LocalizedStringKey = "",
+         topBarColor: UIColor = .systemBackground,
+         tableColor: UIColor = .secondarySystemBackground,
+         recycling: Bool = true) {
         UITableView.appearance().tableFooterView = UIView()
-        UITableView.appearance().backgroundColor = .clear
+//        UITableView.appearance().backgroundColor = .clear
         self.title = title
         self.content = content
         self.tableColor = tableColor
+        self.topBarColor = topBarColor
         self.recycling = recycling
     }
     
@@ -28,11 +34,11 @@ struct SongList: View {
                     }
                     .padding(.leading, 10.0)
                     .frame(height: 100.0)
-                    .background(Color(.secondarySystemBackground))
+                    .background(Color(topBarColor))
                     
                     songList
                     .navigationBarTitle(title, displayMode: .inline)
-                    .background(Color(tableColor))
+                        .background(Color(.systemBackground))
                 }
                 
             }

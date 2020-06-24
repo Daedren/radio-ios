@@ -1,5 +1,5 @@
 import XCTest
-@testable import Radio
+@testable import Radio_data
 
 class ResponseHandlerTests: XCTestCase {
     

@@ -18,6 +18,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                                      favorites: FavoritesConfigurator().configure(),
                                      newsList: NewsListConfigurator().configure()
                                      )
+        
+        let intentManager = IntentManager()
+        intentManager.addQueueShortcut()
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

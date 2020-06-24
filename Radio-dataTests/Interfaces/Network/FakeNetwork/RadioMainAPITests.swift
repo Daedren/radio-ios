@@ -1,6 +1,6 @@
 import XCTest
 import Combine
-@testable import Radio
+@testable import Radio_data
 
 class RadioMainAPITests: XCTestCase {
     

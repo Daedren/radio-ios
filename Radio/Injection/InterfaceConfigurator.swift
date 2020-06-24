@@ -1,6 +1,7 @@
 import Foundation
 import Swinject
 import Radio_Domain
+import Radio_data
 import Radio_cross
 
 class InterfaceConfigurator: Assembly {

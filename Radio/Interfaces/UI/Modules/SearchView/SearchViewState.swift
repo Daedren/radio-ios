@@ -1,6 +1,20 @@
 import Foundation
 import Combine
 
+class SearchPresenterPreviewer: SearchPresenter {
+    @Published var state = SearchListState()
+    
+    init() {
+        state.acceptingRequests = true
+        state.tracks = [SearchedTrackViewModel.stub(), SearchedTrackViewModel.stub(), SearchedTrackViewModel.stub()]
+        state.loadingTracks = [2: true]
+    }
+    
+    func start(actions: AnyPublisher<SearchListAction, Never>) {
+        
+    }
+}
+
 protocol SearchPresenter: ObservableObject {
     var state: SearchListState { get set }
     func start(actions: AnyPublisher<SearchListAction, Never>)

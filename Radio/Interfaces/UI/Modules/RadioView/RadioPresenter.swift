@@ -7,6 +7,18 @@ import UIKit
 class RadioPresenterPreviewer: RadioPresenter {
     @Published var state = RadioViewState()
     
+    init() {
+        state.songName = "songnamehere"
+        state.isPlaying = false
+        state.queue = [TrackViewModel.stub(),TrackViewModel.stub(),TrackViewModel.stub(),TrackViewModel.stub(),TrackViewModel.stub()]
+        state.lastPlayed = [TrackViewModel.stub(),TrackViewModel.stub(),TrackViewModel.stub(),TrackViewModel.stub(),TrackViewModel.stub()]
+        state.currentTrack = CurrentTrackViewModel.stubCurrent()
+        state.dj = DJViewModel.stub()
+        state.listeners = 420
+        state.thread = ""
+        state.acceptingRequests = true
+    }
+    
     func start(actions: AnyPublisher<RadioViewAction, Never>) {
         
     }

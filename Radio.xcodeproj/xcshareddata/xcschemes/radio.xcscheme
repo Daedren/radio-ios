@@ -48,6 +48,26 @@
                ReferencedContainer = "container:Radio.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FBCABEEC24A2864900BCD18B"
+               BuildableName = "Radio-dataTests.xctest"
+               BlueprintName = "Radio-dataTests"
+               ReferencedContainer = "container:Radio.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FB69E8E624A3D2DB004921E4"
+               BuildableName = "RadioUITests.xctest"
+               BlueprintName = "RadioUITests"
+               ReferencedContainer = "container:Radio.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

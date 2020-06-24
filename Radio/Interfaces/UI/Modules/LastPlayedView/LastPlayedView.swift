@@ -5,7 +5,9 @@ struct LastPlayedView<P: LastPlayedPresenter>: View {
     
     var body: some View {
         VStack {
-            SongList(content: self.presenter.lastPlayed, title: "Last Played", tableColor: .systemBackground)
+            SongList(content: self.presenter.lastPlayed, title: "Last Played",
+                     topBarColor: .systemBackground,
+                     tableColor: .secondarySystemBackground)
         }
     }
 }
@@ -13,5 +15,6 @@ struct LastPlayedView<P: LastPlayedPresenter>: View {
 struct LastPlayedView_Previews: PreviewProvider {
     static var previews: some View {
         LastPlayedConfigurator().configureFake()
+                     .environment(\.colorScheme, .dark)
     }
 }

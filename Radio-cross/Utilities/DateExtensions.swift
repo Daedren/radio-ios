@@ -1,7 +1,7 @@
 import Foundation
 extension Date {
     
-    func offsetFrom(date : Date) -> String {
+    public func offsetFrom(date : Date) -> String {
         
         let dayHourMinuteSecond: Set<Calendar.Component> = [.day, .hour, .minute, .second]
         let difference = NSCalendar.current.dateComponents(dayHourMinuteSecond, from: date, to: self);
@@ -19,7 +19,7 @@ extension Date {
     }
     
     
-    func numericOffsetFrom(date : Date) -> String {
+    public func numericOffsetFrom(date : Date) -> String {
         
         let dayHourMinuteSecond: Set<Calendar.Component> = [.minute, .second]
         let diff = NSCalendar.current.dateComponents(dayHourMinuteSecond, from: date, to: self);

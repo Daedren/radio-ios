@@ -77,5 +77,11 @@ class InteractorConfigurator: Assembly {
                 radioGateway: container.resolve(RadioGateway.self)!
             )
         }
+        
+        container.register(FetchRadioDataUseCase.self) { _ in
+            return FetchRadioDataInteractor(
+                radioGateway: container.resolve(RadioGateway.self)!
+            )
+        }
     }
 }

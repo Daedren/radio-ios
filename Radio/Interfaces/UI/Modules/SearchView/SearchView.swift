@@ -30,9 +30,9 @@ struct SearchView<P: SearchPresenter>: View {
             .map{ SearchListAction.search($0) }
         
         self.presenter.start(actions:
-            actions
-                .merge(with: text)
-                .eraseToAnyPublisher())
+                                actions
+                                .merge(with: text)
+                                .eraseToAnyPublisher())
     }
     
     var body: some View {
@@ -44,30 +44,28 @@ struct SearchView<P: SearchPresenter>: View {
                 SearchWrapper(placeholder: "Insert term to search",
                               textDidChange: self.searchedText)
                 List{
-                    if presenter.state.tracks.count > 1 {
-                        Section {
+                    Section {
+                        if presenter.state.tracks.count > 1 {
                             SongRequestButton(
                                 viewModel: presenter.state.randomTrack,
                                 isLoading: self.presenter.state.loadingRandom,
                                 action: { self.actions.send(.chooseRandom) }
                             )
-                                .frame(maxWidth: .infinity)
-                                .buttonStyle(PlainButtonStyle())
+                            .frame(maxWidth: .infinity)
+                            .buttonStyle(PlainButtonStyle())
                         }
-                    }
-                    Section {
                         ForEach(Array(self.presenter.state.tracks.enumerated()), id: \.offset) { index, item in
                             self.buttonFor(index: index, item: item)
                         }
                         .buttonStyle(PlainButtonStyle())
                     }
-                    
                 }
+//                .styledList()
                 .gesture(DragGesture().onChanged { _ in
                     UIApplication.shared.windows.forEach { $0.endEditing(false) }
                 })
-                Spacer()
-                    .navigationBarTitle(properties.titleBar)
+                .environment(\.horizontalSizeClass, .regular)
+                .navigationBarTitle(properties.titleBar)
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
@@ -86,15 +84,15 @@ struct SearchView<P: SearchPresenter>: View {
     }
 }
 
-//struct SearchView_Previews: PreviewProvider {
-//    let pres = SearchPresenterPreviewer()
-//    static var previews: some View {
-//        Group {
-//            SearchView(presenter: pres)
-//              .environment(\.colorScheme, .light)
-//
-//           SearchView()
-//              .environment(\.colorScheme, .dark)
-//        }
-//    }
-//}
+struct SearchView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            SearchView<SearchPresenterPreviewer>(
+                presenter: SearchPresenterPreviewer(),
+                properties:
+                    SearchListProperties(titleBar: "Search"))
+            //              .environment(\.colorScheme, .dark)
+        }
+    }
+}
+

@@ -3,7 +3,21 @@ import UIKit
 import Combine
 import Radio_Domain
 
-class NewsListPresenterImp: ObservableObject {
+protocol NewsListPresenter: ObservableObject {
+    var returnedValues: [NewsEntryViewModel] { get }
+}
+
+class NewsListPresenterPreviewer: NewsListPresenter {
+    @Published var returnedValues: [NewsEntryViewModel]
+    
+    init() {
+        returnedValues = [NewsEntryViewModel.stub(),
+                          NewsEntryViewModel.stub(),
+                          NewsEntryViewModel.stub()]
+    }
+}
+
+class NewsListPresenterImp: NewsListPresenter {
     @Published var returnedValues: [NewsEntryViewModel] = []
     
     var searchDisposeBag = Set<AnyCancellable>()
