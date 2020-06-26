@@ -14,15 +14,19 @@ class FavoritesPresenterImp: SearchPresenter {
     var searchInteractor: GetFavoritesInteractor?
     var requestInteractor: RequestSongInteractor?
     var statusInteractor: GetCurrentStatusInteractor?
+    var cooldownInteractor: CanRequestSongInteractor?
+
     
     var searchedTracks = [FavoriteTrack]()
     
     init(searchInteractor: GetFavoritesInteractor,
          requestInteractor: RequestSongInteractor,
-         statusInteractor: GetCurrentStatusInteractor) {
+         statusInteractor: GetCurrentStatusInteractor,
+         cooldownInteractor: CanRequestSongInteractor) {
         self.searchInteractor = searchInteractor
         self.requestInteractor = requestInteractor
         self.statusInteractor = statusInteractor
+        self.cooldownInteractor = cooldownInteractor
         
         self.state = SearchListState.initial
     }
@@ -55,6 +59,8 @@ class FavoritesPresenterImp: SearchPresenter {
             return self.request(track: self.searchedTracks[indexPath])
         case let .search(searchedText):
             return self.search(text: searchedText)
+        case .viewDidAppear:
+            return self.getRequestStatus()
         }
         
     }
@@ -69,6 +75,24 @@ class FavoritesPresenterImp: SearchPresenter {
     }
     
     // MARK: ACTIONS
+    
+    func getRequestStatus() -> AnyPublisher<SearchListState.Mutation, Never> {
+        guard let cooldownInteractor = self.cooldownInteractor else { fatalError() }
+        return cooldownInteractor
+            .execute()
+            .map{ result -> SearchListState.Mutation in
+                if result.canRequest {
+                    return .canRequest
+                } else if let date = result.timeUntilCanRequest {
+                    let formattedDate = date.offsetFrom(date: Date())
+                    return .canRequestAt(formattedDate)
+                } else {
+                    return .cannotRequest
+                }
+                
+            }
+            .eraseToAnyPublisher()
+    }
     
     func getStatus() -> AnyPublisher<SearchListState.Mutation, Never> {
         guard let statusInteractor = self.statusInteractor else { fatalError() }

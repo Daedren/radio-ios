@@ -33,7 +33,9 @@ struct SearchedTrackViewModel: Identifiable, Equatable, RequestButtonViewModel {
         self.artist = entity.artist
         self.externalId = entity.id
         self.id = id
-        self.state = .notRequestable
+        if let requestable = entity.requestable {
+            self.state = requestable ? .requestable : .notRequestable
+        }
         
         let offset = entity.lastRequested?.offsetFrom(date: Date())
         self.lastRequested = offset ?? ""
@@ -44,7 +46,7 @@ struct SearchedTrackViewModel: Identifiable, Equatable, RequestButtonViewModel {
         case .requestable:
             return "Request"
         case .notRequestable:
-            return "Requestable soon"
+            return "Request"
         }
     }
     

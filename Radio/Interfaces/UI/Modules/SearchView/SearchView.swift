@@ -9,6 +9,8 @@ enum SearchListAction: Equatable {
     case chooseRandom
     case choose(Int)
     case search(String)
+    case viewDidAppear
+    
 }
 
 
@@ -39,28 +41,36 @@ struct SearchView<P: SearchPresenter>: View {
         NavigationView {
             if !presenter.state.acceptingRequests {
                 Text("We're not currently accepting requests")
+                    .font(.largeTitle)
             }
             VStack() {
                 SearchWrapper(placeholder: "Insert term to search",
                               textDidChange: self.searchedText)
                 List{
-                    Section {
-                        if presenter.state.tracks.count > 1 {
-                            SongRequestButton(
-                                viewModel: presenter.state.randomTrack,
-                                isLoading: self.presenter.state.loadingRandom,
-                                action: { self.actions.send(.chooseRandom) }
-                            )
-                            .frame(maxWidth: .infinity)
-                            .buttonStyle(PlainButtonStyle())
+                    Section(footer: Text("You can request once every 30 minutes.\nSong cooldown is variable.")){
+                        VStack {
+                            requestTimeText()
+                                .font(.headline)
+                            Spacer()
+                            if presenter.state.tracks.count > 1 {
+                                SongRequestButton(
+                                    viewModel: presenter.state.randomTrack,
+                                    isLoading: self.presenter.state.loadingRandom,
+                                    action: { self.actions.send(.chooseRandom) }
+                                )
+                                .buttonStyle(PlainButtonStyle())
+                            }
                         }
+                        .frame(maxWidth: .infinity)
+                    }
+                    Section(header: Text("Results")) {
                         ForEach(Array(self.presenter.state.tracks.enumerated()), id: \.offset) { index, item in
                             self.buttonFor(index: index, item: item)
                         }
                         .buttonStyle(PlainButtonStyle())
                     }
                 }
-//                .styledList()
+                .styledList()
                 .gesture(DragGesture().onChanged { _ in
                     UIApplication.shared.windows.forEach { $0.endEditing(false) }
                 })
@@ -69,6 +79,9 @@ struct SearchView<P: SearchPresenter>: View {
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .onAppear {
+            self.actions.send(.viewDidAppear)
+        }
     }
     
     func buttonFor(index: Int, item: SearchedTrackViewModel) -> some View {
@@ -82,6 +95,17 @@ struct SearchView<P: SearchPresenter>: View {
                 action: { self.actions.send(.choose(index)) })
         }
     }
+    
+    func requestTimeText() -> Text {
+        if presenter.state.canRequest {
+            return Text("You can now request.")
+        } else if let date = presenter.state.canRequestAt{
+            return Text("On cooldown until \(date)")
+        } else {
+            return Text("On cooldown")
+        }
+
+    }
 }
 
 struct SearchView_Previews: PreviewProvider {
@@ -91,7 +115,7 @@ struct SearchView_Previews: PreviewProvider {
                 presenter: SearchPresenterPreviewer(),
                 properties:
                     SearchListProperties(titleBar: "Search"))
-            //              .environment(\.colorScheme, .dark)
+                          .environment(\.colorScheme, .dark)
         }
     }
 }

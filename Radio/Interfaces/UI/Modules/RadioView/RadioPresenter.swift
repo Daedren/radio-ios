@@ -189,6 +189,9 @@ class RadioPresenterImp: RadioPresenter {
     private func startIsPlayingListener() -> AnyPublisher<RadioViewState.Mutation, Never> {
         self.isPlayingInteractor
             .execute()
+            .handleEvents(receiveOutput: { [weak self] result in
+                self?.isPlaying = result
+            })
             .map{ result -> RadioViewState.Mutation in
                 .isPlaying(result)
         }
