@@ -108,6 +108,15 @@ public class RadioGatewayImp: RadioGateway, LoggerWithContext {
         .eraseToAnyPublisher()
     }
     
+    public func canRequestSong() -> AnyPublisher<Bool, RadioError> {
+        return network.execute(request: CanRequestSongRequest())
+            .map{ $0.main.requests }
+            .mapError{ err in
+                return RadioError.apiContentMismatch
+        }
+        .eraseToAnyPublisher()
+    }
+    
 }
 
 

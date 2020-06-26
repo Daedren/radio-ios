@@ -49,7 +49,7 @@ struct RadioViewState: Equatable {
             state.acceptingRequests = acceptingRequests
         case let .isPlaying(value):
             state.isPlaying = value
-        case let .error(value):
+        case .error(_):
             break
         }
         

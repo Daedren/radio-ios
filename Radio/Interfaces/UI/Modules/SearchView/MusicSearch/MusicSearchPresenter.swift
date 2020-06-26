@@ -19,14 +19,19 @@ class MusicSearchPresenterImp: SearchPresenter {
     var searchInteractor: SearchForTermInteractor?
     var requestInteractor: RequestSongInteractor?
     var statusInteractor: GetCurrentStatusInteractor?
+    var cooldownInteractor: CanRequestSongInteractor?
     
     var searchedTracks = [SearchedTrack]()
     var searchedTerm = ""
     
-    init(searchInteractor: SearchForTermInteractor, requestInteractor: RequestSongInteractor, statusInteractor: GetCurrentStatusInteractor) {
+    init(searchInteractor: SearchForTermInteractor,
+         requestInteractor: RequestSongInteractor,
+         statusInteractor: GetCurrentStatusInteractor,
+         cooldownInteractor: CanRequestSongInteractor) {
         self.searchInteractor = searchInteractor
         self.requestInteractor = requestInteractor
         self.statusInteractor = statusInteractor
+        self.cooldownInteractor = cooldownInteractor
         
         self.state = SearchListState.initial
     }
@@ -56,6 +61,8 @@ class MusicSearchPresenterImp: SearchPresenter {
         case let .search(searchedText):
             self.searchedTerm = searchedText
             return self.search(text: searchedText)
+        case .viewDidAppear:
+            return self.getRequestStatus()
         }
         
     }
@@ -69,6 +76,24 @@ class MusicSearchPresenterImp: SearchPresenter {
     }
     
     // MARK: ACTIONS
+    
+    func getRequestStatus() -> AnyPublisher<SearchListState.Mutation, Never> {
+        guard let cooldownInteractor = self.cooldownInteractor else { fatalError() }
+        return cooldownInteractor
+            .execute()
+            .map{ result -> SearchListState.Mutation in
+                if result.canRequest {
+                    return .canRequest
+                } else if let date = result.timeUntilCanRequest {
+                    let formattedDate = date.offsetFrom(date: Date())
+                    return .canRequestAt(formattedDate)
+                } else {
+                    return .cannotRequest
+                }
+                
+            }
+            .eraseToAnyPublisher()
+    }
     
     func getStatus() -> AnyPublisher<SearchListState.Mutation, Never> {
         guard let statusInteractor = self.statusInteractor else { fatalError() }
@@ -124,10 +149,11 @@ class MusicSearchPresenterImp: SearchPresenter {
         if track.requestable ?? false {
             return requestInteractor
                 .execute(track.id)
-                .flatMap{ result -> AnyPublisher<SearchListState.Mutation,RadioError> in
+                .flatMap{ result -> AnyPublisher<SearchListState.Mutation,RequestSongUseCaseError> in
                     if result {
+                        // refresh search when done.
                         return self.search(text: self.searchedTerm)
-                            .mapError{ _ -> RadioError in return .unknown }
+                            .mapError{ _ -> RequestSongUseCaseError in return .genericError(.unknown) }
                             .eraseToAnyPublisher()
                     } else {
                         return Empty().eraseToAnyPublisher()

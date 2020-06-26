@@ -77,6 +77,10 @@
 		09F8EB5F23B81FC500FE6E25 /* PlaybackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FDBE73237E03C3001E34DE /* PlaybackInfo.swift */; };
 		09F8EB6123B8244F00FE6E25 /* MediaPlayerConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F8EB6023B8244F00FE6E25 /* MediaPlayerConfigurator.swift */; };
 		FB01747424A3FC4200A5E64A /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01747324A3FC4200A5E64A /* ViewExtensions.swift */; };
+		FB01747624A40D8200A5E64A /* CanRequestSongRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01747524A40D8200A5E64A /* CanRequestSongRequest.swift */; };
+		FB01747824A40DAB00A5E64A /* CanRequestSongResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01747724A40DAB00A5E64A /* CanRequestSongResponseModel.swift */; };
+		FB01747B24A40FE300A5E64A /* RequestLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01747A24A40FE300A5E64A /* RequestLogic.swift */; };
+		FB01747E24A4124900A5E64A /* CanRequestSongInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01747D24A4124900A5E64A /* CanRequestSongInteractor.swift */; };
 		FB0C9A662457559900320562 /* MusicSearchConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0C9A652457559900320562 /* MusicSearchConfigurator.swift */; };
 		FB0C9A68245760A100320562 /* SongRequestButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0C9A67245760A100320562 /* SongRequestButton.swift */; };
 		FB0C9A6A24576E3100320562 /* RandomTrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0C9A6924576E3100320562 /* RandomTrackViewModel.swift */; };
@@ -118,6 +122,8 @@
 		FB81FD20243FCF4B00058FF8 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD1F243FCF4B00058FF8 /* FavoritesPresenter.swift */; };
 		FB81FD25243FD3D800058FF8 /* GetFavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD23243FD3AE00058FF8 /* GetFavoritesInteractor.swift */; };
 		FB81FD27243FD57F00058FF8 /* FavoritesConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD26243FD57F00058FF8 /* FavoritesConfigurator.swift */; };
+		FBBBA01124A5F24B0019615F /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBBA01024A5F24B0019615F /* SnapshotHelper.swift */; };
+		FBBBA01424A5F2AF0019615F /* RadioViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBBA01324A5F2AF0019615F /* RadioViewTests.swift */; };
 		FBC9140224992ECF0051DA21 /* RadioViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC9140124992ECF0051DA21 /* RadioViewState.swift */; };
 		FBCABEB224A2724D00BCD18B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBCABEB124A2724D00BCD18B /* WidgetKit.framework */; };
 		FBCABEB424A2724D00BCD18B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBCABEB324A2724D00BCD18B /* SwiftUI.framework */; };
@@ -133,7 +139,6 @@
 		FBCABF0224A2869200BCD18B /* SearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DD268A23BCD33200B70C8E /* SearchRequest.swift */; };
 		FBCABF0324A2869200BCD18B /* RadioMainAPIFake.json in Resources */ = {isa = PBXBuildFile; fileRef = 09BD781C237E2DBB008950CD /* RadioMainAPIFake.json */; };
 		FBCABF0424A2869200BCD18B /* GetFavoritesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD17243FC7C300058FF8 /* GetFavoritesRequest.swift */; };
-		FBCABF0524A2869200BCD18B /* RadioHomeAPIFake.html in Resources */ = {isa = PBXBuildFile; fileRef = 09A03D8523D11A0A00277D16 /* RadioHomeAPIFake.html */; };
 		FBCABF0624A2869200BCD18B /* GetFavoritesResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD19243FC88500058FF8 /* GetFavoritesResponseModel.swift */; };
 		FBCABF0724A2869200BCD18B /* RadioGatewayImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0956081E237F5413008206A1 /* RadioGatewayImp.swift */; };
 		FBCABF0824A2869200BCD18B /* FakeNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD7814237E2CED008950CD /* FakeNetworkClient.swift */; };
@@ -173,6 +178,11 @@
 		FBD0CACD243F64310093BF71 /* LastPlayedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0CACC243F64310093BF71 /* LastPlayedPresenter.swift */; };
 		FBD0CACF243F643B0093BF71 /* LastPlayedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0CACE243F643B0093BF71 /* LastPlayedView.swift */; };
 		FBD0CAD1243F64470093BF71 /* LastPlayedConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0CAD0243F64470093BF71 /* LastPlayedConfigurator.swift */; };
+		FBE7D1E024A512FA008693D6 /* RequestLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE7D1DE24A512F6008693D6 /* RequestLogicTests.swift */; };
+		FBE7D1E424A51804008693D6 /* RequestTimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE7D1E224A517C2008693D6 /* RequestTimeModel.swift */; };
+		FBF0D44D24A53DE7003B0DAA /* SongDelayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF0D44C24A53DE7003B0DAA /* SongDelayLogic.swift */; };
+		FBF0D45024A542E1003B0DAA /* SongDelayLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF0D44E24A542DD003B0DAA /* SongDelayLogicTests.swift */; };
+		FBF0D45124A5558B003B0DAA /* RadioHomeAPIFake.html in Resources */ = {isa = PBXBuildFile; fileRef = 09A03D8523D11A0A00277D16 /* RadioHomeAPIFake.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -463,6 +473,10 @@
 		09F8EB6023B8244F00FE6E25 /* MediaPlayerConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayerConfigurator.swift; sourceTree = "<group>"; };
 		09FDBE73237E03C3001E34DE /* PlaybackInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackInfo.swift; sourceTree = "<group>"; };
 		FB01747324A3FC4200A5E64A /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		FB01747524A40D8200A5E64A /* CanRequestSongRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanRequestSongRequest.swift; sourceTree = "<group>"; };
+		FB01747724A40DAB00A5E64A /* CanRequestSongResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanRequestSongResponseModel.swift; sourceTree = "<group>"; };
+		FB01747A24A40FE300A5E64A /* RequestLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestLogic.swift; sourceTree = "<group>"; };
+		FB01747D24A4124900A5E64A /* CanRequestSongInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanRequestSongInteractor.swift; sourceTree = "<group>"; };
 		FB0C9A652457559900320562 /* MusicSearchConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicSearchConfigurator.swift; sourceTree = "<group>"; };
 		FB0C9A67245760A100320562 /* SongRequestButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRequestButton.swift; sourceTree = "<group>"; };
 		FB0C9A6924576E3100320562 /* RandomTrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomTrackViewModel.swift; sourceTree = "<group>"; };
@@ -501,6 +515,8 @@
 		FB81FD1F243FCF4B00058FF8 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
 		FB81FD23243FD3AE00058FF8 /* GetFavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFavoritesInteractor.swift; sourceTree = "<group>"; };
 		FB81FD26243FD57F00058FF8 /* FavoritesConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesConfigurator.swift; sourceTree = "<group>"; };
+		FBBBA01024A5F24B0019615F /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
+		FBBBA01324A5F2AF0019615F /* RadioViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioViewTests.swift; sourceTree = "<group>"; };
 		FBC9140124992ECF0051DA21 /* RadioViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioViewState.swift; sourceTree = "<group>"; };
 		FBCABEB024A2724D00BCD18B /* Radio-widgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Radio-widgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBCABEB124A2724D00BCD18B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -526,6 +542,10 @@
 		FBD0CACC243F64310093BF71 /* LastPlayedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPlayedPresenter.swift; sourceTree = "<group>"; };
 		FBD0CACE243F643B0093BF71 /* LastPlayedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPlayedView.swift; sourceTree = "<group>"; };
 		FBD0CAD0243F64470093BF71 /* LastPlayedConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPlayedConfigurator.swift; sourceTree = "<group>"; };
+		FBE7D1DE24A512F6008693D6 /* RequestLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestLogicTests.swift; sourceTree = "<group>"; };
+		FBE7D1E224A517C2008693D6 /* RequestTimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTimeModel.swift; sourceTree = "<group>"; };
+		FBF0D44C24A53DE7003B0DAA /* SongDelayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDelayLogic.swift; sourceTree = "<group>"; };
+		FBF0D44E24A542DD003B0DAA /* SongDelayLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDelayLogicTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -697,6 +717,7 @@
 				FB66322024464AF5005C2A7D /* GetNewsListInteractor.swift */,
 				FB0F62FA244A0C3200532FE8 /* IsPlayingUseCase.swift */,
 				FB69E8CF24A3C16E004921E4 /* FetchRadioDataInteractor.swift */,
+				FB01747D24A4124900A5E64A /* CanRequestSongInteractor.swift */,
 			);
 			path = "Use Cases";
 			sourceTree = "<group>";
@@ -894,6 +915,7 @@
 				097C1EE8237871F500A7A5AD /* Architecture */,
 				0941B4EF2378742300994F67 /* Gateways */,
 				0941B4EC237873D800994F67 /* Use Cases */,
+				FB01747924A40FD400A5E64A /* Logic */,
 				097C1ECC2378719700A7A5AD /* radio_domain.h */,
 				097C1ECD2378719700A7A5AD /* Info.plist */,
 			);
@@ -903,6 +925,7 @@
 		097C1ED82378719700A7A5AD /* Radio-domainTests */ = {
 			isa = PBXGroup;
 			children = (
+				FBE7D1DD24A512EA008693D6 /* Logic */,
 				097C1ED92378719700A7A5AD /* radio_domainTests.swift */,
 				097C1EDB2378719700A7A5AD /* Info.plist */,
 			);
@@ -937,6 +960,7 @@
 				098CAFA923BBC9DE00B6B80E /* SearchedTrack.swift */,
 				098CAFAB23BBC9F500B6B80E /* QueuedTrack.swift */,
 				FB81FD1B243FC9BE00058FF8 /* FavoriteTrack.swift */,
+				FBE7D1E224A517C2008693D6 /* RequestTimeModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1019,6 +1043,8 @@
 				FB81FD19243FC88500058FF8 /* GetFavoritesResponseModel.swift */,
 				FB66321524464264005C2A7D /* GetNewsRequest.swift */,
 				FB66321724464287005C2A7D /* GetNewsResponseModel.swift */,
+				FB01747524A40D8200A5E64A /* CanRequestSongRequest.swift */,
+				FB01747724A40DAB00A5E64A /* CanRequestSongResponseModel.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -1083,6 +1109,15 @@
 				FB01747324A3FC4200A5E64A /* ViewExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FB01747924A40FD400A5E64A /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				FB01747A24A40FE300A5E64A /* RequestLogic.swift */,
+				FBF0D44C24A53DE7003B0DAA /* SongDelayLogic.swift */,
+			);
+			path = Logic;
 			sourceTree = "<group>";
 		};
 		FB0C9A61245753E400320562 /* MusicSearch */ = {
@@ -1197,6 +1232,7 @@
 		FB69E8E824A3D2DB004921E4 /* RadioUITests */ = {
 			isa = PBXGroup;
 			children = (
+				FBBBA01224A5F2730019615F /* Snapshot */,
 				FB69E8F124A3D2F0004921E4 /* Siri */,
 				FB69E8E924A3D2DB004921E4 /* RadioUITests.swift */,
 				FB69E8EB24A3D2DB004921E4 /* Info.plist */,
@@ -1217,6 +1253,15 @@
 			children = (
 			);
 			path = FavoritesView;
+			sourceTree = "<group>";
+		};
+		FBBBA01224A5F2730019615F /* Snapshot */ = {
+			isa = PBXGroup;
+			children = (
+				FBBBA01024A5F24B0019615F /* SnapshotHelper.swift */,
+				FBBBA01324A5F2AF0019615F /* RadioViewTests.swift */,
+			);
+			path = Snapshot;
 			sourceTree = "<group>";
 		};
 		FBCABEB524A2724D00BCD18B /* Radio-widget */ = {
@@ -1305,6 +1350,15 @@
 				FBD0CACE243F643B0093BF71 /* LastPlayedView.swift */,
 			);
 			path = LastPlayedView;
+			sourceTree = "<group>";
+		};
+		FBE7D1DD24A512EA008693D6 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				FBE7D1DE24A512F6008693D6 /* RequestLogicTests.swift */,
+				FBF0D44E24A542DD003B0DAA /* SongDelayLogicTests.swift */,
+			);
+			path = Logic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1682,7 +1736,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBCABF0324A2869200BCD18B /* RadioMainAPIFake.json in Resources */,
-				FBCABF0524A2869200BCD18B /* RadioHomeAPIFake.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1690,6 +1743,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBF0D45124A5558B003B0DAA /* RadioHomeAPIFake.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1794,7 +1848,10 @@
 				0941B4F12378744200994F67 /* AVGateway.swift in Sources */,
 				0941B4EE237873E400994F67 /* PlayRadioInteractor.swift in Sources */,
 				093E6A7123B7A1ED00578C99 /* GetDJInteractor.swift in Sources */,
+				FB01747B24A40FE300A5E64A /* RequestLogic.swift in Sources */,
 				0922E2BA23A2EC3400EB00C8 /* RadioStatus.swift in Sources */,
+				FBE7D1E424A51804008693D6 /* RequestTimeModel.swift in Sources */,
+				FBF0D44D24A53DE7003B0DAA /* SongDelayLogic.swift in Sources */,
 				0922E2B923A2EC3000EB00C8 /* RadioDJ.swift in Sources */,
 				09F8EB5E23B81F8500FE6E25 /* GetPlaybackInfoInteractor.swift in Sources */,
 				FB66322224464B38005C2A7D /* NewsEntry.swift in Sources */,
@@ -1809,6 +1866,7 @@
 				098CAFAD23BBCDE000B6B80E /* SearchedTrack.swift in Sources */,
 				098CAFAE23BBCDE400B6B80E /* QueuedTrack.swift in Sources */,
 				097C1EEA2378720100A7A5AD /* Interactor.swift in Sources */,
+				FB01747E24A4124900A5E64A /* CanRequestSongInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1816,6 +1874,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBF0D45024A542E1003B0DAA /* SongDelayLogicTests.swift in Sources */,
+				FBE7D1E024A512FA008693D6 /* RequestLogicTests.swift in Sources */,
 				097C1EDA2378719700A7A5AD /* radio_domainTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1834,8 +1894,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBBBA01424A5F2AF0019615F /* RadioViewTests.swift in Sources */,
 				FB69E8EA24A3D2DB004921E4 /* RadioUITests.swift in Sources */,
 				FB69E8F524A3D316004921E4 /* QueueIntentTests.swift in Sources */,
+				FBBBA01124A5F24B0019615F /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1854,6 +1916,8 @@
 			files = (
 				FBCABF2D24A287EA00BCD18B /* NetworkManager.swift in Sources */,
 				FBCABF1B24A2870F00BCD18B /* RadioMapper.swift in Sources */,
+				FB01747824A40DAB00A5E64A /* CanRequestSongResponseModel.swift in Sources */,
+				FB01747624A40D8200A5E64A /* CanRequestSongRequest.swift in Sources */,
 				FBCABF0424A2869200BCD18B /* GetFavoritesRequest.swift in Sources */,
 				FBCABF0624A2869200BCD18B /* GetFavoritesResponseModel.swift in Sources */,
 				FBCABF1224A2869200BCD18B /* NetworkDispatcher.swift in Sources */,
@@ -2151,12 +2215,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rkm.r-a-dio";
 				PRODUCT_MODULE_NAME = Radio;
 				PRODUCT_NAME = Radio;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Debug;
 		};
@@ -2178,12 +2245,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rkm.r-a-dio";
 				PRODUCT_MODULE_NAME = Radio;
 				PRODUCT_NAME = Radio;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Release;
 		};
@@ -2201,11 +2271,14 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rkm.radioTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Radio.app/Radio";
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Debug;
 		};
@@ -2223,11 +2296,14 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rkm.radioTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Radio.app/Radio";
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Release;
 		};
@@ -2249,14 +2325,17 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rkm.radio-domain";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 13.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Debug;
 		};
@@ -2278,13 +2357,16 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rkm.radio-domain";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 13.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Release;
 		};
@@ -2300,11 +2382,14 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rkm.radio-domainTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Radio.app/Radio";
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Debug;
 		};
@@ -2320,11 +2405,14 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rkm.radio-domainTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Radio.app/Radio";
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Release;
 		};
@@ -2347,14 +2435,17 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "eu.atlantico.Radio-cross";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 13.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Debug;
 		};
@@ -2377,13 +2468,16 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "eu.atlantico.Radio-cross";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 13.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Release;
 		};
@@ -2393,17 +2487,20 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RadioUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rkm.RadioUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Radio;
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Debug;
 		};
@@ -2413,17 +2510,20 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RadioUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rkm.RadioUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Radio;
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Release;
 		};
@@ -2498,13 +2598,16 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "eu.atlantico.Radio-data";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 13.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Debug;
 		};
@@ -2527,13 +2630,16 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "eu.atlantico.Radio-data";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 13.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Release;
 		};
@@ -2544,17 +2650,20 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Radio-dataTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "eu.atlantico.Radio-dataTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Radio.app/Radio";
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Debug;
 		};
@@ -2565,17 +2674,20 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Radio-dataTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "eu.atlantico.Radio-dataTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Radio.app/Radio";
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Release;
 		};
@@ -2588,18 +2700,21 @@
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = N34AH7UQAR;
 				INFOPLIST_FILE = "Radio-intent/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rkm.r-a-dio.Radio-intent";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Debug;
 		};
@@ -2612,18 +2727,21 @@
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = N34AH7UQAR;
 				INFOPLIST_FILE = "Radio-intent/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rkm.r-a-dio.Radio-intent";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Release;
 		};

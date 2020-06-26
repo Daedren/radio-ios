@@ -33,13 +33,15 @@ struct SongRequestButton: View {
                     .padding([.leading,. trailing], nil)
             } else {
                 Text(self.viewModel.buttonText(for: self.viewModel.state))
-                    .font(.headline)
+                    .font(.subheadline)
+                    .bold()
                     .foregroundColor(.white)
             }
         }
-        .padding()
+        .padding([.leading,. trailing], 15.0)
+        .padding([.top, .bottom], 10.0)
         .background(Color.red)
-        .clipShape(RoundedRectangle(cornerRadius: 10.0))
+        .clipShape(RoundedRectangle(cornerRadius: 30.0))
         .opacity(self.viewModel.state == .requestable ? 1 : 0.4)
         .animation(Animation.default.speed(1))
     }

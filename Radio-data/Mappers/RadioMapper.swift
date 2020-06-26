@@ -155,7 +155,8 @@ public struct RadioMapperImp: RadioMapper {
                                      title: artistAndTitle.title,
                                      artist: artistAndTitle.artist,
                                      lastPlayed: lastPlayed,
-                                     lastRequested: lastRequest)
+                                     lastRequested: lastRequest,
+                                     requestCount: $0.requestcount)
             }
             throw RadioError.apiContentMismatch
         }

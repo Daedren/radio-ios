@@ -7,9 +7,9 @@ struct RandomTrackViewModel: Equatable, RequestButtonViewModel {
     func buttonText(for state: SearchTrackState) -> String {
         switch state {
         case .requestable:
-            return "Random track from below"
+            return "Random from results"
         case .notRequestable:
-            return "Cannot request at the moment"
+            return "Random from results"
         }
     }
 

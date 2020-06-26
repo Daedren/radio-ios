@@ -4,6 +4,12 @@ import Radio_Domain
 
 class InteractorConfigurator: Assembly {
     func assemble(container: Container) {
+        container.register(SongDelayLogic.self) { _ in
+            return SongDelayLogic()
+        }
+        container.register(RequestLogic.self) { _ in
+            return RequestLogic()
+        }
         
         container.register(PlayRadioUseCase.self) { _ in
             return PlayRadioInteractor(
@@ -62,19 +68,28 @@ class InteractorConfigurator: Assembly {
         
         container.register(RequestSongInteractor.self) { _ in
             return RequestSongInteractor(
-                radioGateway: container.resolve(RadioGateway.self)!
+                radioGateway: container.resolve(RadioGateway.self)!,
+                requestValidation: container.resolve(RequestLogic.self)!
             )
         }
         
         container.register(GetFavoritesInteractor.self) { _ in
             return GetFavoritesInteractor(
-                radioGateway: container.resolve(RadioGateway.self)!
+                radioGateway: container.resolve(RadioGateway.self)!,
+                songDelayCalc: container.resolve(SongDelayLogic.self)!
             )
         }
         
         container.register(GetNewsListInteractor.self) { _ in
             return GetNewsListInteractor(
                 radioGateway: container.resolve(RadioGateway.self)!
+            )
+        }
+        
+        container.register(CanRequestSongInteractor.self) { _ in
+            return CanRequestSongInteractor(
+                radioGateway: container.resolve(RadioGateway.self)!,
+                requestValidation: container.resolve(RequestLogic.self)!
             )
         }
         

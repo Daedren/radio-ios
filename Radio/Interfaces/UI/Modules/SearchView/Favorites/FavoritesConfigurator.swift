@@ -27,7 +27,8 @@ class FavoritesConfigurator: Configurator {
                 let presenter = FavoritesPresenterImp(
                     searchInteractor: self.assembler.resolver.resolve(GetFavoritesInteractor.self)!,
                     requestInteractor: self.assembler.resolver.resolve(RequestSongInteractor.self)!,
-                    statusInteractor: self.assembler.resolver.resolve(GetCurrentStatusInteractor.self)!
+                    statusInteractor: self.assembler.resolver.resolve(GetCurrentStatusInteractor.self)!,
+                    cooldownInteractor: self.assembler.resolver.resolve(CanRequestSongInteractor.self)!
                 )
                 return presenter
             }
