@@ -1,9 +1,10 @@
 import Foundation
 import Swinject
-import Radio_Domain
 
-class InteractorConfigurator: Assembly {
-    func assemble(container: Container) {
+public class InteractorConfigurator: Assembly {
+    public init() {}
+    
+    public func assemble(container: Container) {
         container.register(SongDelayLogic.self) { _ in
             return SongDelayLogic()
         }

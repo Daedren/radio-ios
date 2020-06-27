@@ -29,10 +29,7 @@
 		0941B4FF23787D4A00994F67 /* RadioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941B4FE23787D4A00994F67 /* RadioView.swift */; };
 		0941B50223787EC400994F67 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0941B50423787EC400994F67 /* Localizable.strings */; };
 		0941B5062378800C00994F67 /* RadioPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941B5052378800C00994F67 /* RadioPresenter.swift */; };
-		0941B5092378823F00994F67 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 0941B5082378823F00994F67 /* Swinject */; };
 		0941B50C2378830400994F67 /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941B50B2378830400994F67 /* Configurator.swift */; };
-		0941B50E2378834700994F67 /* GatewayConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941B50D2378834700994F67 /* GatewayConfigurator.swift */; };
-		0941B5102378834F00994F67 /* InteractorConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941B50F2378834F00994F67 /* InteractorConfigurator.swift */; };
 		0941B512237883E800994F67 /* RadioConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941B511237883E800994F67 /* RadioConfigurator.swift */; };
 		09560821237F5596008206A1 /* InterfaceConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09560820237F5596008206A1 /* InterfaceConfigurator.swift */; };
 		096E0B98237A07F300024572 /* RemoteControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E0B97237A07F300024572 /* RemoteControl.swift */; };
@@ -62,7 +59,6 @@
 		098CAFB223BBD13C00B6B80E /* SearchedTrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CAFB123BBD13C00B6B80E /* SearchedTrackViewModel.swift */; };
 		098CAFB423BBD59600B6B80E /* WebViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CAFB323BBD59600B6B80E /* WebViewWrapper.swift */; };
 		0990B7AF2378F8E100C213B7 /* AVClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0990B7AE2378F8E100C213B7 /* AVClient.swift */; };
-		099FFB7523947A2C005E1AD6 /* MapperConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FFB7423947A2C005E1AD6 /* MapperConfigurator.swift */; };
 		09BD7809237E206D008950CD /* AppleLicense in Resources */ = {isa = PBXBuildFile; fileRef = 09BD7808237E206D008950CD /* AppleLicense */; };
 		09BD780C237E2527008950CD /* RemoteControlClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD780B237E2527008950CD /* RemoteControlClient.swift */; };
 		09D49EE723B8E71C00BCC62D /* CurrentTrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D49EE623B8E71C00BCC62D /* CurrentTrackViewModel.swift */; };
@@ -92,7 +88,6 @@
 		FB242EB1243E3CC400115B49 /* AbstractLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB242EB0243E3CC400115B49 /* AbstractLogger.swift */; };
 		FB242EB4243E3CFD00115B49 /* OSLogLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB242EB3243E3CFD00115B49 /* OSLogLogger.swift */; };
 		FB242EB6243E40D500115B49 /* Radio_cross.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB242EA2243E3C6100115B49 /* Radio_cross.framework */; };
-		FB242EB8243E424200115B49 /* CrossConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB242EB7243E424200115B49 /* CrossConfigurator.swift */; };
 		FB66321B244649DA005C2A7D /* NewsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66321A244649DA005C2A7D /* NewsListView.swift */; };
 		FB66321D24464A41005C2A7D /* NewsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66321C24464A41005C2A7D /* NewsListPresenter.swift */; };
 		FB66321F24464A49005C2A7D /* NewsListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66321E24464A49005C2A7D /* NewsListConfigurator.swift */; };
@@ -122,6 +117,15 @@
 		FB81FD20243FCF4B00058FF8 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD1F243FCF4B00058FF8 /* FavoritesPresenter.swift */; };
 		FB81FD25243FD3D800058FF8 /* GetFavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD23243FD3AE00058FF8 /* GetFavoritesInteractor.swift */; };
 		FB81FD27243FD57F00058FF8 /* FavoritesConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD26243FD57F00058FF8 /* FavoritesConfigurator.swift */; };
+		FB89367F24A7E3D40014EAC3 /* InteractorConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941B50F2378834F00994F67 /* InteractorConfigurator.swift */; };
+		FB89368B24A7E5A50014EAC3 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = FB89368A24A7E5A50014EAC3 /* Swinject */; };
+		FB89368D24A7E6060014EAC3 /* DataGatewayConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941B50D2378834700994F67 /* DataGatewayConfigurator.swift */; };
+		FB89368E24A7E6280014EAC3 /* MapperConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FFB7423947A2C005E1AD6 /* MapperConfigurator.swift */; };
+		FB89369024A7E6500014EAC3 /* CrossConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB242EB7243E424200115B49 /* CrossConfigurator.swift */; };
+		FB89369424A7E6A80014EAC3 /* iOSGatewayConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB89369324A7E6A80014EAC3 /* iOSGatewayConfiguration.swift */; };
+		FB89369524A7E6B70014EAC3 /* AVGatewayImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941B4FA2378779400994F67 /* AVGatewayImp.swift */; };
+		FB89369824A7E7330014EAC3 /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB89369724A7E7330014EAC3 /* Configurator.swift */; };
+		FB89369B24A7E8480014EAC3 /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB89369924A7E8410014EAC3 /* Configurator.swift */; };
 		FBBBA01124A5F24B0019615F /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBBA01024A5F24B0019615F /* SnapshotHelper.swift */; };
 		FBBBA01424A5F2AF0019615F /* RadioViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBBA01324A5F2AF0019615F /* RadioViewTests.swift */; };
 		FBC9140224992ECF0051DA21 /* RadioViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC9140124992ECF0051DA21 /* RadioViewState.swift */; };
@@ -152,7 +156,6 @@
 		FBCABF1124A2869200BCD18B /* SongRequestResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD11243F775E00058FF8 /* SongRequestResponseModel.swift */; };
 		FBCABF1224A2869200BCD18B /* NetworkDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD7810237E2C01008950CD /* NetworkDispatcher.swift */; };
 		FBCABF1324A2869200BCD18B /* SongRequestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0929C24823D11DC80043E1D8 /* SongRequestRequest.swift */; };
-		FBCABF1A24A286EA00BCD18B /* AVGatewayImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941B4FA2378779400994F67 /* AVGatewayImp.swift */; };
 		FBCABF1B24A2870F00BCD18B /* RadioMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FFB6F239431D5005E1AD6 /* RadioMapper.swift */; };
 		FBCABF1C24A2871E00BCD18B /* RadioDetailedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FFB72239468E6005E1AD6 /* RadioDetailedModel.swift */; };
 		FBCABF1D24A2874C00BCD18B /* Radio_Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 097C1ECA2378719700A7A5AD /* Radio_Domain.framework */; };
@@ -401,7 +404,7 @@
 		0941B50323787EC400994F67 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0941B5052378800C00994F67 /* RadioPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPresenter.swift; sourceTree = "<group>"; };
 		0941B50B2378830400994F67 /* Configurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurator.swift; sourceTree = "<group>"; };
-		0941B50D2378834700994F67 /* GatewayConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayConfigurator.swift; sourceTree = "<group>"; };
+		0941B50D2378834700994F67 /* DataGatewayConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGatewayConfigurator.swift; sourceTree = "<group>"; };
 		0941B50F2378834F00994F67 /* InteractorConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorConfigurator.swift; sourceTree = "<group>"; };
 		0941B511237883E800994F67 /* RadioConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioConfigurator.swift; sourceTree = "<group>"; };
 		09560815237F4CB7008206A1 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
@@ -515,6 +518,9 @@
 		FB81FD1F243FCF4B00058FF8 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
 		FB81FD23243FD3AE00058FF8 /* GetFavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFavoritesInteractor.swift; sourceTree = "<group>"; };
 		FB81FD26243FD57F00058FF8 /* FavoritesConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesConfigurator.swift; sourceTree = "<group>"; };
+		FB89369324A7E6A80014EAC3 /* iOSGatewayConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSGatewayConfiguration.swift; sourceTree = "<group>"; };
+		FB89369724A7E7330014EAC3 /* Configurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurator.swift; sourceTree = "<group>"; };
+		FB89369924A7E8410014EAC3 /* Configurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurator.swift; sourceTree = "<group>"; };
 		FBBBA01024A5F24B0019615F /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		FBBBA01324A5F2AF0019615F /* RadioViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioViewTests.swift; sourceTree = "<group>"; };
 		FBC9140124992ECF0051DA21 /* RadioViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioViewState.swift; sourceTree = "<group>"; };
@@ -557,7 +563,6 @@
 				FBCABEFA24A2864900BCD18B /* Radio_data.framework in Frameworks */,
 				097C1EDF2378719700A7A5AD /* Radio_Domain.framework in Frameworks */,
 				FB242EA9243E3C6100115B49 /* Radio_cross.framework in Frameworks */,
-				0941B5092378823F00994F67 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,6 +593,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB89368B24A7E5A50014EAC3 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -798,10 +804,7 @@
 			children = (
 				0941B50B2378830400994F67 /* Configurator.swift */,
 				09560820237F5596008206A1 /* InterfaceConfigurator.swift */,
-				0941B50D2378834700994F67 /* GatewayConfigurator.swift */,
-				0941B50F2378834F00994F67 /* InteractorConfigurator.swift */,
-				099FFB7423947A2C005E1AD6 /* MapperConfigurator.swift */,
-				FB242EB7243E424200115B49 /* CrossConfigurator.swift */,
+				FB89369324A7E6A80014EAC3 /* iOSGatewayConfiguration.swift */,
 			);
 			path = Injection;
 			sourceTree = "<group>";
@@ -910,6 +913,7 @@
 		097C1ECB2378719700A7A5AD /* Radio-domain */ = {
 			isa = PBXGroup;
 			children = (
+				FB89367E24A7E3C40014EAC3 /* Injection */,
 				099FFB71239468D9005E1AD6 /* Models */,
 				09560814237F4C9E008206A1 /* Entities */,
 				097C1EE8237871F500A7A5AD /* Architecture */,
@@ -1141,6 +1145,7 @@
 		FB242EA3243E3C6100115B49 /* Radio-cross */ = {
 			isa = PBXGroup;
 			children = (
+				FB89368F24A7E6420014EAC3 /* Injection */,
 				0922E2C323A2FB5100EB00C8 /* Utilities */,
 				FB242EAE243E3C7100115B49 /* Concerns */,
 				FB242EA4243E3C6100115B49 /* Radio_cross.h */,
@@ -1255,6 +1260,39 @@
 			path = FavoritesView;
 			sourceTree = "<group>";
 		};
+		FB89367E24A7E3C40014EAC3 /* Injection */ = {
+			isa = PBXGroup;
+			children = (
+				0941B50F2378834F00994F67 /* InteractorConfigurator.swift */,
+			);
+			path = Injection;
+			sourceTree = "<group>";
+		};
+		FB89368C24A7E5FE0014EAC3 /* Injection */ = {
+			isa = PBXGroup;
+			children = (
+				099FFB7423947A2C005E1AD6 /* MapperConfigurator.swift */,
+				0941B50D2378834700994F67 /* DataGatewayConfigurator.swift */,
+			);
+			path = Injection;
+			sourceTree = "<group>";
+		};
+		FB89368F24A7E6420014EAC3 /* Injection */ = {
+			isa = PBXGroup;
+			children = (
+				FB242EB7243E424200115B49 /* CrossConfigurator.swift */,
+			);
+			path = Injection;
+			sourceTree = "<group>";
+		};
+		FB89369624A7E72A0014EAC3 /* Injection */ = {
+			isa = PBXGroup;
+			children = (
+				FB89369724A7E7330014EAC3 /* Configurator.swift */,
+			);
+			path = Injection;
+			sourceTree = "<group>";
+		};
 		FBBBA01224A5F2730019615F /* Snapshot */ = {
 			isa = PBXGroup;
 			children = (
@@ -1286,6 +1324,7 @@
 		FBCABED224A2845000BCD18B /* Injection */ = {
 			isa = PBXGroup;
 			children = (
+				FB89369924A7E8410014EAC3 /* Configurator.swift */,
 			);
 			path = Injection;
 			sourceTree = "<group>";
@@ -1293,6 +1332,7 @@
 		FBCABEE624A2864800BCD18B /* Radio-data */ = {
 			isa = PBXGroup;
 			children = (
+				FB89368C24A7E5FE0014EAC3 /* Injection */,
 				099FFB7623947AD2005E1AD6 /* Mappers */,
 				09F8EB5723B8186000FE6E25 /* Gateway Implementations */,
 				09BD780D237E2BD2008950CD /* Network */,
@@ -1323,6 +1363,7 @@
 		FBCABF3724A2927E00BCD18B /* Radio-intent */ = {
 			isa = PBXGroup;
 			children = (
+				FB89369624A7E72A0014EAC3 /* Injection */,
 				FBCABEB824A2724D00BCD18B /* Radio_intent.intentdefinition */,
 				FBCABEC924A27B5B00BCD18B /* IntentHandler.swift */,
 				FBCABEC824A27B5000BCD18B /* Intent Handlers */,
@@ -1412,7 +1453,6 @@
 			);
 			name = Radio;
 			packageProductDependencies = (
-				0941B5082378823F00994F67 /* Swinject */,
 				093E6A6923B7931A00578C99 /* KingfisherSwiftUI */,
 			);
 			productName = radio;
@@ -1451,6 +1491,8 @@
 			dependencies = (
 			);
 			name = "Radio-Domain";
+			packageProductDependencies = (
+			);
 			productName = "radio-domain";
 			productReference = 097C1ECA2378719700A7A5AD /* Radio_Domain.framework */;
 			productType = "com.apple.product-type.framework";
@@ -1488,6 +1530,9 @@
 			dependencies = (
 			);
 			name = "Radio-cross";
+			packageProductDependencies = (
+				FB89368A24A7E5A50014EAC3 /* Swinject */,
+			);
 			productName = "Radio-cross";
 			productReference = FB242EA2243E3C6100115B49 /* Radio_cross.framework */;
 			productType = "com.apple.product-type.framework";
@@ -1652,9 +1697,9 @@
 			);
 			mainGroup = 097C1E972378716F00A7A5AD;
 			packageReferences = (
-				0941B5072378823F00994F67 /* XCRemoteSwiftPackageReference "Swinject" */,
 				093E6A6823B7931A00578C99 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				FBCABF2F24A2884D00BCD18B /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+				FB89368924A7E5A50014EAC3 /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			productRefGroup = 097C1EA12378716F00A7A5AD /* Products */;
 			projectDirPath = "";
@@ -1763,15 +1808,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				093E6A6C23B79D5900578C99 /* DJView.swift in Sources */,
-				099FFB7523947A2C005E1AD6 /* MapperConfigurator.swift in Sources */,
 				09F8EB6123B8244F00FE6E25 /* MediaPlayerConfigurator.swift in Sources */,
 				FB66321B244649DA005C2A7D /* NewsListView.swift in Sources */,
-				0941B5102378834F00994F67 /* InteractorConfigurator.swift in Sources */,
 				FB66322524464BD4005C2A7D /* NewsEntryView.swift in Sources */,
+				FB89369524A7E6B70014EAC3 /* AVGatewayImp.swift in Sources */,
 				FB0C9A662457559900320562 /* MusicSearchConfigurator.swift in Sources */,
 				09DD269223BCE71600B70C8E /* NavigationWrapper.swift in Sources */,
 				09F8A10E23B83E5500D95643 /* ArtworkHandler.swift in Sources */,
-				0941B50E2378834700994F67 /* GatewayConfigurator.swift in Sources */,
 				FBD0CAD1243F64470093BF71 /* LastPlayedConfigurator.swift in Sources */,
 				FBCABF7024A29FAF00BCD18B /* IntentManager.swift in Sources */,
 				FB81FD20243FCF4B00058FF8 /* FavoritesPresenter.swift in Sources */,
@@ -1795,12 +1838,12 @@
 				FB0C9A68245760A100320562 /* SongRequestButton.swift in Sources */,
 				FBC9140224992ECF0051DA21 /* RadioViewState.swift in Sources */,
 				096E0B9A237A089600024572 /* RemoteControlCommand.swift in Sources */,
-				FB242EB8243E424200115B49 /* CrossConfigurator.swift in Sources */,
 				096E0B9E237A08B500024572 /* RemoteControlError.swift in Sources */,
 				09BD780C237E2527008950CD /* RemoteControlClient.swift in Sources */,
 				096E0B98237A07F300024572 /* RemoteControl.swift in Sources */,
 				0941B5062378800C00994F67 /* RadioPresenter.swift in Sources */,
 				098CAF9F23BB8FF700B6B80E /* SongList.swift in Sources */,
+				FB89369424A7E6A80014EAC3 /* iOSGatewayConfiguration.swift in Sources */,
 				FB6745212448E78C0044ED68 /* HTMLParser.swift in Sources */,
 				0941B512237883E800994F67 /* RadioConfigurator.swift in Sources */,
 				FB6745272448F9810044ED68 /* AppAttributedString.swift in Sources */,
@@ -1817,7 +1860,6 @@
 				096E0B9C237A08A500024572 /* RemoteControlMetadata.swift in Sources */,
 				0990B7AF2378F8E100C213B7 /* AVClient.swift in Sources */,
 				098CAF9D23BB8BF800B6B80E /* BottomSheetView.swift in Sources */,
-				FBCABF1A24A286EA00BCD18B /* AVGatewayImp.swift in Sources */,
 				FBD0CACD243F64310093BF71 /* LastPlayedPresenter.swift in Sources */,
 				09F8A11623B854AE00D95643 /* ProgressBar.swift in Sources */,
 				0922E2BF23A2F8DC00EB00C8 /* TrackView.swift in Sources */,
@@ -1841,6 +1883,7 @@
 				FB66322324464B49005C2A7D /* GetNewsListInteractor.swift in Sources */,
 				FB81FD1D243FCA6F00058FF8 /* FavoriteTrack.swift in Sources */,
 				0941B4F32378746D00994F67 /* StopRadioInteractor.swift in Sources */,
+				FB89367F24A7E3D40014EAC3 /* InteractorConfigurator.swift in Sources */,
 				FB69E8D024A3C16E004921E4 /* FetchRadioDataInteractor.swift in Sources */,
 				093E6A6723B783BC00578C99 /* GetLastPlayedInteractor.swift in Sources */,
 				0922E2B623A2EC1400EB00C8 /* GetCurrentTrackInteractor.swift in Sources */,
@@ -1887,6 +1930,7 @@
 				FB242EB4243E3CFD00115B49 /* OSLogLogger.swift in Sources */,
 				FB242EB1243E3CC400115B49 /* AbstractLogger.swift in Sources */,
 				FBCABF2824A287B600BCD18B /* DateExtensions.swift in Sources */,
+				FB89369024A7E6500014EAC3 /* CrossConfigurator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1906,6 +1950,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBCABEBC24A2724F00BCD18B /* Radio_intent.intentdefinition in Sources */,
+				FB89369B24A7E8480014EAC3 /* Configurator.swift in Sources */,
 				FBCABEB724A2724D00BCD18B /* Radio_widget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1918,12 +1963,14 @@
 				FBCABF1B24A2870F00BCD18B /* RadioMapper.swift in Sources */,
 				FB01747824A40DAB00A5E64A /* CanRequestSongResponseModel.swift in Sources */,
 				FB01747624A40D8200A5E64A /* CanRequestSongRequest.swift in Sources */,
+				FB89368D24A7E6060014EAC3 /* DataGatewayConfigurator.swift in Sources */,
 				FBCABF0424A2869200BCD18B /* GetFavoritesRequest.swift in Sources */,
 				FBCABF0624A2869200BCD18B /* GetFavoritesResponseModel.swift in Sources */,
 				FBCABF1224A2869200BCD18B /* NetworkDispatcher.swift in Sources */,
 				FBCABF2B24A287EA00BCD18B /* URLSessionClient.swift in Sources */,
 				FBCABF0824A2869200BCD18B /* FakeNetworkClient.swift in Sources */,
 				FBCABF0F24A2869200BCD18B /* RadioMainAPIResponseModel.swift in Sources */,
+				FB89368E24A7E6280014EAC3 /* MapperConfigurator.swift in Sources */,
 				FBCABF1024A2869200BCD18B /* RadioMainAPI.swift in Sources */,
 				FBCABF0224A2869200BCD18B /* SearchRequest.swift in Sources */,
 				FBCABF0A24A2869200BCD18B /* GetTokenRequest.swift in Sources */,
@@ -1957,6 +2004,7 @@
 				FB69E8DF24A3CDE8004921E4 /* IntentConfigurator.swift in Sources */,
 				FBCABF6D24A2935F00BCD18B /* Radio_intent.intentdefinition in Sources */,
 				FBCABF5824A2930800BCD18B /* QueueIntentHandler.swift in Sources */,
+				FB89369824A7E7330014EAC3 /* Configurator.swift in Sources */,
 				FBCABF5724A292CC00BCD18B /* IntentHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2216,7 +2264,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rkm.r-a-dio";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.r-a-dio";
 				PRODUCT_MODULE_NAME = Radio;
 				PRODUCT_NAME = Radio;
 				SUPPORTS_MACCATALYST = YES;
@@ -2246,7 +2294,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rkm.r-a-dio";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.r-a-dio";
 				PRODUCT_MODULE_NAME = Radio;
 				PRODUCT_NAME = Radio;
 				SUPPORTS_MACCATALYST = YES;
@@ -2272,7 +2320,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rkm.radioTests;
+				PRODUCT_BUNDLE_IDENTIFIER = cc.raik.radioTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2297,7 +2345,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rkm.radioTests;
+				PRODUCT_BUNDLE_IDENTIFIER = cc.raik.radioTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2326,7 +2374,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rkm.radio-domain";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio-domain";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2358,7 +2406,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rkm.radio-domain";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio-domain";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -2383,7 +2431,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rkm.radio-domainTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio-domainTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2406,7 +2454,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rkm.radio-domainTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio-domainTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2494,7 +2542,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rkm.RadioUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = cc.raik.RadioUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2517,7 +2565,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rkm.RadioUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = cc.raik.RadioUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2544,7 +2592,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rkm.r-a-dio.Radio-widget";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.r-a-dio.Radio-widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = YES;
@@ -2570,7 +2618,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rkm.r-a-dio.Radio-widget";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.r-a-dio.Radio-widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = YES;
@@ -2707,7 +2755,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rkm.r-a-dio.Radio-intent";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.r-a-dio.Radio-intent";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = YES;
@@ -2734,7 +2782,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rkm.r-a-dio.Radio-intent";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.r-a-dio.Radio-intent";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = YES;
@@ -2858,7 +2906,7 @@
 				minimumVersion = 5.12.0;
 			};
 		};
-		0941B5072378823F00994F67 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+		FB89368924A7E5A50014EAC3 /* XCRemoteSwiftPackageReference "Swinject" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Swinject/Swinject";
 			requirement = {
@@ -2882,9 +2930,9 @@
 			package = 093E6A6823B7931A00578C99 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = KingfisherSwiftUI;
 		};
-		0941B5082378823F00994F67 /* Swinject */ = {
+		FB89368A24A7E5A50014EAC3 /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0941B5072378823F00994F67 /* XCRemoteSwiftPackageReference "Swinject" */;
+			package = FB89368924A7E5A50014EAC3 /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
 		};
 		FBCABF3024A2884D00BCD18B /* SwiftSoup */ = {
