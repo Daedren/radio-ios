@@ -4,5 +4,5 @@ Raichvent on Rizon
 
 ### Screenshots
 
-![iOS](https://raik.cc/s/8XWXqRdr.png)
-![macOS](https://raik.cc/s/lx3E2UyW.png)
+<img src="https://raik.cc/s/8XWXqRdr.png" width="300">
+<img src="https://raik.cc/s/lx3E2UyW.png">
