@@ -10,9 +10,9 @@
 			<key>IntentExamples</key>
 			<array>
 				<string>What&apos;s playing next</string>
-				<string>Show the song queue</string>
-				<string>Show the upcoming songs</string>
-				<string>Show what&apos;s playing next</string>
+				<string>Show the song queue on Radio</string>
+				<string>Show the upcoming songs on Radio</string>
+				<string>Show what&apos;s playing next on Radio</string>
 			</array>
 		</dict>
 	</array>

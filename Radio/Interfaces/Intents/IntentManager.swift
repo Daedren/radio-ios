@@ -2,15 +2,26 @@ import Foundation
 import Intents
 
 class IntentManager {
+    
     init() {
-        
+
     }
     
-    func addQueueShortcut() {
-        let intent = QueueIntent()
-        
-        intent.suggestedInvocationPhrase = "Show the song queue"
-        
+    private func requestPerms(onSuccess: @escaping ()->Void) {
+        INPreferences.requestSiriAuthorization({ result in
+            switch result {
+            case .authorized:
+                print("Siri allowed")
+                onSuccess()
+            case .denied, .notDetermined, .restricted:
+                print("siri permission failed \(result)")
+            @unknown default:
+                print("siri permission unknown \(result)")
+            }
+        })
+    }
+    
+    private func donateIntent(_ intent: INIntent) {
         let interaction = INInteraction(intent: intent, response: nil)
         
         interaction.donate { (error) in
@@ -22,6 +33,13 @@ class IntentManager {
                 }
             }
         }
+    }
+    
+    func addQueueShortcut() {
+        let intent = QueueIntent()
+        intent.suggestedInvocationPhrase = "Show the song queue"
+        
+        self.requestPerms(onSuccess: { [weak self] in self?.donateIntent(intent) } )
     }
     //
     //    func addQueueShortcut() {
