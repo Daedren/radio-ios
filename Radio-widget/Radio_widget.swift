@@ -3,8 +3,7 @@ import SwiftUI
 import Intents
 import Combine
 import Radio_Domain
-import Radio_data
-import Radio_cross
+import Swinject
 
 struct WidgetTrackViewModel: Identifiable, Equatable {
     var id: String {
@@ -25,18 +24,16 @@ struct Provider: TimelineProvider {
         if context.isPreview {
             completion(SimpleEntry(date: Date(), tracks: []))
         } else {
-            let logger = OSLogLogger(loggingLevel: .error)
-            let networkCli = URLSessionClient(configuration: nil, logger: logger)
-            let response = RadioResponseHandler()
-            let request = RadioRequestHandler(baseSchemeAndAuthority: URL(string: "https://r-a-d.io/")!)
-            let network = RadioNetworkManager(request: request, response: response, client: networkCli)
-            let mapper = RadioMapperImp()
-            let radioGateway = RadioGatewayImp(network: network, radioMapper: mapper, logger: logger)
-            let songQueue = GetSongQueueInteractor(radio: radioGateway)
-            let updateUseCase = FetchRadioDataInteractor(radioGateway: radioGateway)
+            guard let songQueue = Assembler.sharedInstance?.resolver.resolve(GetSongQueueInteractor.self),
+            let updateUseCase = Assembler.sharedInstance?.resolver.resolve(FetchRadioDataUseCase.self)
+            else {
+                completion(SimpleEntry(date: Date(), tracks: []))
+                return
+            }
+            
             var queueDisposeBag = Set<AnyCancellable>()
             
-            updateUseCase.execute()
+            updateUseCase.execute(())
            
             songQueue
                 .execute()

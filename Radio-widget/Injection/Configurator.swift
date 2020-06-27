@@ -5,7 +5,7 @@ import Radio_cross
 import Radio_data
 
 protocol Configurator {
-
+    
 }
 
 extension Configurator {
@@ -14,14 +14,12 @@ extension Configurator {
             return singleton
         } else {
             let newAssembler = Assembler([
-                              CrossConfigurator(),
-                              InterfaceConfigurator(),
-                              MapperConfigurator(),
-                              DataGatewayConfigurator(),
-                              iOSGatewayConfigurator(),
-                              InteractorConfigurator()
-                ], parent: nil,
-                   defaultObjectScope: .container)
+                CrossConfigurator(),
+                MapperConfigurator(),
+                DataGatewayConfigurator(),
+                InteractorConfigurator()
+            ], parent: nil,
+            defaultObjectScope: .container)
             Assembler.sharedInstance = newAssembler
             return newAssembler
         }
