@@ -1,6 +1,6 @@
 import Foundation
 import Combine
-import Radio_Domain
+import Radio_domain
 
 public protocol RadioMapper {
     func map(from model: RadioMainAPIResponseModel) throws -> RadioDetailedModel

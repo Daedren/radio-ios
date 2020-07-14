@@ -1,5 +1,5 @@
 import XCTest
-@testable import Radio_Domain
+@testable import Radio_domain
 
 class RequestLogicTests: XCTestCase {
 

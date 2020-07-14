@@ -1,7 +1,7 @@
 import Foundation
-import Radio_Domain
+import Radio_domain
 
-class CurrentTrackViewModel: TrackViewModel {
+public class CurrentTrackViewModel: TrackViewModel {
     public var trackBackup: QueuedTrack?
     public var currentDate: Date?
     public var startDate: Date?
@@ -60,8 +60,8 @@ class CurrentTrackViewModel: TrackViewModel {
     }
     
     public static func stubCurrent() -> CurrentTrackViewModel {
-        let track = QueuedTrack(title: "title",
-                                artist: "artist",
+        let track = QueuedTrack(title: "Synchrogazer",
+                                artist: "Mizuki Nana",
                                 startTime: Date.init(timeIntervalSince1970: 1577622501),
                                 endTime: Date.init(timeIntervalSince1970: 1577622752),
                                 currentTime: Date.init(timeIntervalSince1970: 1577622606),

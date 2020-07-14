@@ -1,7 +1,7 @@
 import Foundation
 import Combine
 import UIKit
-import Radio_Domain
+import Radio_domain
 import Radio_cross
 
 public class RadioGatewayImp: RadioGateway, LoggerWithContext {
@@ -31,8 +31,10 @@ public class RadioGatewayImp: RadioGateway, LoggerWithContext {
         self.mapper = radioMapper
         self.loggerInstance = logger
         
+        #if os(iOS)
         NotificationCenter.default.addObserver(self, selector: #selector(stopLoop), name: UIApplication.willResignActiveNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(resumeLoop), name: UIApplication.didBecomeActiveNotification, object: nil)
+        #endif
     }
     
     public func getCurrentTrack() -> AnyPublisher<QueuedTrack, RadioError> {
@@ -135,6 +137,7 @@ extension RadioGatewayImp {
         
         now
             .merge(with: timer)
+            .print("fug")
             .setFailureType(to: RadioError.self)
             .flatMap { [unowned self] _ in
                 self.fetchFromAPI()

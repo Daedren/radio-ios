@@ -4,6 +4,7 @@ import SwiftUI
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var queueManager: QueueIntentManager?
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -21,6 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let intentManager = IntentManager()
         intentManager.addQueueShortcut()
+        
+        queueManager = QueueIntentManagerConfigurator().configure()
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

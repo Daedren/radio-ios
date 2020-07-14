@@ -2,7 +2,7 @@ import WidgetKit
 import SwiftUI
 import Intents
 import Combine
-import Radio_Domain
+import Radio_domain
 import Swinject
 
 struct WidgetTrackViewModel: Identifiable, Equatable {
@@ -24,8 +24,9 @@ struct Provider: TimelineProvider {
         if context.isPreview {
             completion(SimpleEntry(date: Date(), tracks: []))
         } else {
-            guard let songQueue = Assembler.sharedInstance?.resolver.resolve(GetSongQueueInteractor.self),
-            let updateUseCase = Assembler.sharedInstance?.resolver.resolve(FetchRadioDataUseCase.self)
+            let configurator = IntentConfigurator()
+            guard let songQueue = configurator.assembler.resolver.resolve(GetSongQueueInteractor.self),
+            let updateUseCase = configurator.assembler.resolver.resolve(FetchRadioDataUseCase.self)
             else {
                 completion(SimpleEntry(date: Date(), tracks: []))
                 return

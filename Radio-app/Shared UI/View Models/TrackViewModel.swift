@@ -1,8 +1,9 @@
 import Foundation
-import Radio_Domain
+import Radio_domain
+import Radio_cross
 
-class TrackViewModel: Identifiable, Equatable {
-    var id: String = UUID().uuidString
+public class TrackViewModel: Identifiable, Equatable {
+    public var id: String = UUID().uuidString
     
     public var title: String
     public var artist: String
@@ -25,7 +26,7 @@ class TrackViewModel: Identifiable, Equatable {
         }
     }
     
-    static func == (lhs: TrackViewModel, rhs: TrackViewModel) -> Bool {
+    public static func == (lhs: TrackViewModel, rhs: TrackViewModel) -> Bool {
         lhs.equalTo(rhs: rhs)
     }
     

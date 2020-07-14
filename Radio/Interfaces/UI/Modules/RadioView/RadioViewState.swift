@@ -1,11 +1,6 @@
 import Foundation
+import Radio_app
 import Combine
-
-protocol RadioPresenter: ObservableObject {
-    var state: RadioViewState { get }
-    
-    func start(actions: AnyPublisher<RadioViewAction, Never>)
-}
 
 struct RadioViewState: Equatable {
     var songName: String = ""

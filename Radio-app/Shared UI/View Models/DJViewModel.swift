@@ -1,9 +1,9 @@
 import Foundation
-import Radio_Domain
+import Radio_domain
 import SwiftUI
 
-struct DJViewModel: Identifiable, Equatable {
-    var id: String {
+public struct DJViewModel: Identifiable, Equatable {
+    public var id: String {
         return name
     }
     

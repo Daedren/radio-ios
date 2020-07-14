@@ -1,6 +1,7 @@
 import Foundation
 import Combine
-import Radio_Domain
+import Radio_domain
+import Radio_app
 
 protocol LastPlayedPresenter: ObservableObject {
     var lastPlayed: [TrackViewModel] { get }

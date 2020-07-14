@@ -1,6 +1,6 @@
 import Foundation
 import Combine
-import Radio_Domain
+import Radio_domain
 
 
 class FavoritesPresenterImp: SearchPresenter {
@@ -111,6 +111,9 @@ class FavoritesPresenterImp: SearchPresenter {
         guard let searchInteractor = self.searchInteractor else { return Just<SearchListState.Mutation>(.error("")).eraseToAnyPublisher() }
         return searchInteractor
             .execute(text)
+            .handleEvents(receiveOutput: { [weak self] newTracks in
+                self?.searchedTracks = newTracks
+            })
             .map{ [unowned self] newTracks -> SearchListState.Mutation in
                 let cellModels = self.createViewModels(from: newTracks)
                 return SearchListState.Mutation.searchedTracks(cellModels)

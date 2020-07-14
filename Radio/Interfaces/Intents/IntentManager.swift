@@ -39,7 +39,18 @@ class IntentManager {
         let intent = QueueIntent()
         intent.suggestedInvocationPhrase = "Show the song queue"
         
-        self.requestPerms(onSuccess: { [weak self] in self?.donateIntent(intent) } )
+        let siriSearch = INSearchForMediaIntent()
+        siriSearch.suggestedInvocationPhrase = "Search for"
+        
+        let shortcutSearch = SearchIntent()
+        shortcutSearch.suggestedInvocationPhrase = "Search for"
+        
+        self.requestPerms(onSuccess: { [weak self] in
+                            self?.donateIntent(intent)
+                            self?.donateIntent(siriSearch)
+                            self?.donateIntent(shortcutSearch)
+        })
+        
     }
     //
     //    func addQueueShortcut() {

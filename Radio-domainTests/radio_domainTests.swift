@@ -1,7 +1,7 @@
 import XCTest
-@testable import Radio_Domain
+@testable import Radio_domain
 
-class Radio_DomainTests: XCTestCase {
+class Radio_domainTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
