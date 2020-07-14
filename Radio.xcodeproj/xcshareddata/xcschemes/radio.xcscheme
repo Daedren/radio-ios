@@ -68,6 +68,16 @@
                ReferencedContainer = "container:Radio.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FB64DC8C24BE4B7000F47D8B"
+               BuildableName = "Radio-appTests.xctest"
+               BlueprintName = "Radio-appTests"
+               ReferencedContainer = "container:Radio.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

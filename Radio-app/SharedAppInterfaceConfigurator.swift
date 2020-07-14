@@ -1,9 +1,9 @@
 import Foundation
 import Swinject
-import Radio_Domain
+import Radio_domain
 import Radio_cross
 
-public class iOSGatewayConfigurator: Assembly {
+public class SharedAppInterfaceConfigurator: Assembly {
     public init() {}
     public func assemble(container: Container) {
         

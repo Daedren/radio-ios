@@ -22,7 +22,8 @@ class QueueIntentTests: XCTestCase {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let siri = XCUIDevice.shared.siriService
-          siri.activate(voiceRecognitionText: "Show the upcoming songs on Radio")
+            sleep(10)
+          siri.activate(voiceRecognitionText: "What's playing next on Radio")
           let predicate = NSPredicate {(_, _) -> Bool in
               sleep(5)
               return true

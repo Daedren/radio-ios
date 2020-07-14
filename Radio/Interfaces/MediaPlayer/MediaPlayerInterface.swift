@@ -1,6 +1,6 @@
 import Foundation
 import Combine
-import Radio_Domain
+import Radio_domain
 import MediaPlayer
 
 class MediaPlayerInterface {

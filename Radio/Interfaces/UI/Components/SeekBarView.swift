@@ -1,13 +1,17 @@
 import Foundation
 import SwiftUI
+import Radio_app
 
 struct SeekBarView: View {
     
     var track: CurrentTrackViewModel
-
+    
     var body: some View {
         VStack {
-            track.percentage.map{ProgressBar(value: CGFloat($0))}
+            track.percentage.map{ProgressBar(
+                value: CGFloat($0),
+                backgroundColor: Color(.secondarySystemBackground),
+                fillColor: Color(.systemTeal))}
             HStack(spacing: 0) {
                 Text("\(track.startTag ?? "")")
                     .inExpandingRectangle(alignment: .leading)

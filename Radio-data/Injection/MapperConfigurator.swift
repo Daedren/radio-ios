@@ -1,6 +1,6 @@
 import Foundation
 import Swinject
-import Radio_Domain
+import Radio_domain
 
 public class MapperConfigurator: Assembly {
     public init() {}

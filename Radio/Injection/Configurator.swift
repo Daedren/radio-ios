@@ -1,8 +1,9 @@
 import Foundation
 import Swinject
-import Radio_Domain
+import Radio_domain
 import Radio_cross
 import Radio_data
+import Radio_app
 
 protocol Configurator {
 
@@ -15,10 +16,10 @@ extension Configurator {
         } else {
             let newAssembler = Assembler([
                               CrossConfigurator(),
-                              InterfaceConfigurator(),
+                              iOSInterfaceConfigurator(),
                               MapperConfigurator(),
                               DataGatewayConfigurator(),
-                              iOSGatewayConfigurator(),
+                              SharedAppInterfaceConfigurator(),
                               InteractorConfigurator()
                 ], parent: nil,
                    defaultObjectScope: .container)

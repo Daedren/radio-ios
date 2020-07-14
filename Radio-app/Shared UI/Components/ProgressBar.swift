@@ -8,19 +8,28 @@
 //  Based on https://dev.to/gualtierofr/progress-bar-in-swiftui-24a3
 import SwiftUI
 
-struct ProgressBar: View {
-    let barHeight: CGFloat = 20.0
+public struct ProgressBar: View {
+    var barHeight: CGFloat
     var value:CGFloat
+    var backgroundColor: Color
+    var fillColor: Color
     
-    var body: some View {
+    public init(barHeight: CGFloat = 20.0, value: CGFloat, backgroundColor: Color, fillColor: Color) {
+        self.barHeight = barHeight
+        self.value = value
+        self.backgroundColor = backgroundColor
+        self.fillColor = fillColor
+    }
+    
+    public var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .trailing) {
                 ZStack(alignment: .leading) {
                     Rectangle()
-                        .fill(Color(.secondarySystemBackground))
+                        .fill(self.backgroundColor)
                         .cornerRadius(self.barHeight)
                     Rectangle()
-                        .fill(Color(.systemTeal))
+                        .fill(self.fillColor)
                         .frame(minWidth: 0, idealWidth:self.getProgressBarWidth(geometry: geometry),
                                maxWidth: self.getProgressBarWidth(geometry: geometry))
                         .cornerRadius(self.barHeight)
@@ -28,7 +37,7 @@ struct ProgressBar: View {
                 }
                 .frame(height: self.barHeight)
             }.frame(height: self.barHeight)
-        }.frame(height: self.barHeight + 10)
+        }.frame(height: self.barHeight + (self.barHeight/2))
     }
     
     func getProgressBarWidth(geometry:GeometryProxy) -> CGFloat {
@@ -44,7 +53,7 @@ struct ProgressBar: View {
 
 struct ProgressBar_Previews: PreviewProvider {
     static var previews: some View {
-        let track = ProgressBar(value: 0.5)
+        let track = ProgressBar(value: 0.5, backgroundColor: .gray, fillColor: .blue)
         return track
     }
 }

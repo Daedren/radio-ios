@@ -1,8 +1,13 @@
 import Foundation
 import Combine
-import Radio_Domain
+import Radio_domain
+import Radio_app
 import UIKit
 
+protocol RadioPresenter: ObservableObject {
+    var state: RadioViewState { get }
+    func start(actions: AnyPublisher<RadioViewAction, Never>)
+}
 
 class RadioPresenterPreviewer: RadioPresenter {
     @Published var state = RadioViewState()

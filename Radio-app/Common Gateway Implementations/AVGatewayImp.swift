@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 import Combine
-import Radio_Domain
+import Radio_domain
 import Radio_cross
 import AVFoundation
 
@@ -11,12 +11,22 @@ public class AVGatewayImp: AVGateway {
     
     var classDisposeBag = Set<AnyCancellable>()
     
+    var categoryOptions: AVAudioSession.CategoryOptions
+    
     init(logger: LoggerWrapper) {
         self.audioClient = AVClient(logger: logger)
+        
+        #if os(iOS)
+            self.categoryOptions = [.allowAirPlay, .allowBluetooth, .allowBluetoothA2DP]
+        #endif
+        
+        #if os(watchOS)
+            self.categoryOptions = [.allowBluetoothA2DP]
+        #endif
     }
     
     public func play() {
-        try? AVAudioSession.sharedInstance().setCategory(.playback, options: [.allowAirPlay, .allowBluetooth, .allowBluetoothA2DP])
+        try? AVAudioSession.sharedInstance().setCategory(.playback, options: self.categoryOptions)
         try? AVAudioSession.sharedInstance().setActive(true)
         audioClient.play()
         

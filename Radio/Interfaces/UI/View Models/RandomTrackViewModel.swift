@@ -1,5 +1,5 @@
 import Foundation
-import Radio_Domain
+import Radio_domain
 
 struct RandomTrackViewModel: Equatable, RequestButtonViewModel {
     var state: SearchTrackState
