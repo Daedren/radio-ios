@@ -50,4 +50,28 @@ class RadioMapperTests: XCTestCase {
         XCTAssertEqual(result?.artist, "")
         XCTAssertEqual(result?.title, "konata healing springs")
     }
+    
+    func testNews_Standard_Success() {
+        let stub = GetNewsResponseModel(id: 62,
+                                        title: "Anison Hijack is Moving",
+                                        text: "<p>Times in EDT:</p>\n\n<p>McDoogle: 9:00-9:45<br>\nSuzubrah: 9:45-10:30<br>\nYorozuya: 10:30-11:15<br>\nmercury: 11:15-12:00<br>\ndeswide: 12:00-12:45<br>\nRipVanWenkle: 12:45-1:30<br>\nBakkun: 1:30-END</p>\n",
+                                        header: "<p>You know the drill. Here's who's playing: </p>\n",
+                                        userID: 59,
+                                        deletedAt: nil,
+                                        createdAt: "2020-08-19 20:27:50",
+                                        updatedAt: "2020-08-20 06:37:06",
+                                        isNewsPrivate: 0,
+                                        author: AuthorResponseModel(id: 59, user: "mcdoogle"))
+        if let mapped = try? mapper.mapNews(from: [stub]),
+           let result = mapped.first {
+            XCTAssertEqual(result.createdDate, Date(timeIntervalSince1970: 1597868870))
+            XCTAssertEqual(result.modifiedDate, Date(timeIntervalSince1970: 1597905426))
+            XCTAssertEqual(result.title, stub.title)
+            XCTAssertEqual(result.text, stub.text)
+        } else {
+            XCTFail()
+        }
+        
+        
+    }
 }

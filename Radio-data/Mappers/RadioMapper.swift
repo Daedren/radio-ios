@@ -11,6 +11,7 @@ public protocol RadioMapper {
 
 
 public struct RadioMapperImp: RadioMapper {
+    let dateFormatter = DateFormatter()
     
     public init() {}
     
@@ -118,8 +119,8 @@ public struct RadioMapperImp: RadioMapper {
     public func mapToArtistAndTitle(model: String) -> Track? {
         let separator = " - "
         guard let range = model
-            .range(of: separator)
-            else { return BaseTrack(title: model, artist: "") }
+                .range(of: separator)
+        else { return BaseTrack(title: model, artist: "") }
         
         let finalString = [model.prefix(upTo: range.lowerBound), model.suffix(from: range.upperBound)]
         
@@ -163,15 +164,17 @@ public struct RadioMapperImp: RadioMapper {
     }
     
     public func mapNews(from model: [GetNewsResponseModel]) throws -> [NewsEntry] {
-        
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         return model.map {
             return NewsEntry(id: $0.id,
-                title: $0.title,
-                text: $0.text,
-                header: $0.header,
-                author: $0.author.user,
-                createdDate: Date(),
-                modifiedDate: Date())
+                             title: $0.title,
+                             text: $0.text,
+                             header: $0.header,
+                             author: $0.author.user,
+                             createdDate: dateFormatter.date(from: $0.createdAt) ?? Date(),
+                             modifiedDate: dateFormatter.date(from: $0.updatedAt) ?? Date())
         }
     }
     
