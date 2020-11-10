@@ -35,6 +35,10 @@ public class RadioGatewayImp: RadioGateway, LoggerWithContext {
         NotificationCenter.default.addObserver(self, selector: #selector(stopLoop), name: UIApplication.willResignActiveNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(resumeLoop), name: UIApplication.didBecomeActiveNotification, object: nil)
         #endif
+        
+        #if os(watchOS)
+        self.startRecurringFetch()
+        #endif
     }
     
     public func getCurrentTrack() -> AnyPublisher<QueuedTrack, RadioError> {
@@ -137,7 +141,6 @@ extension RadioGatewayImp {
         
         now
             .merge(with: timer)
-            .print("fug")
             .setFailureType(to: RadioError.self)
             .flatMap { [unowned self] _ in
                 self.fetchFromAPI()

@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct MainTabsView<A: View, B: View, C: View, D: View, E: View>: View {
+struct MainTabsView<A: View, B: View, C: View, D: View, E: View, F: View>: View {
     @State private var selection = 0
     @Environment(\.verticalSizeClass) var verticalSizeClass: UserInterfaceSizeClass?
     @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
@@ -14,6 +14,7 @@ struct MainTabsView<A: View, B: View, C: View, D: View, E: View>: View {
     var lastPlayed: C
     var favorites: D
     var newsList: E
+    var settings: F
     
     var body: some View {
         Group {
@@ -77,6 +78,15 @@ struct MainTabsView<A: View, B: View, C: View, D: View, E: View>: View {
                     }
             }
             .tag(3)
+            settings
+                .font(.title)
+                .tabItem {
+                    VStack {
+                        Image(systemName: "circle.grid.2x2.fill")
+                        Text("Settings")
+                    }
+            }
+            .tag(4)
         }
     }
 }
@@ -87,7 +97,8 @@ struct TabView_Previews: PreviewProvider {
                      tabTwo: Text("placeholder"),
                      lastPlayed: LastPlayedConfigurator().configureFake(),
                      favorites: FavoritesConfigurator().configure(),
-                     newsList: NewsListConfigurator().configure())
+                     newsList: NewsListConfigurator().configure(),
+                     settings: SettingsConfigurator().configure())
             .preferredColorScheme(.dark)
     }
 }

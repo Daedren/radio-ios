@@ -17,13 +17,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                                      tabTwo: MusicSearchConfigurator().configure(),
                                      lastPlayed: LastPlayedConfigurator().configure(),
                                      favorites: FavoritesConfigurator().configure(),
-                                     newsList: NewsListConfigurator().configure()
+                                     newsList: NewsListConfigurator().configure(),
+                                     settings: SettingsConfigurator().configure()
                                      )
         
-        let intentManager = IntentManager()
-        intentManager.addQueueShortcut()
-        
-        queueManager = QueueIntentManagerConfigurator().configure()
+//        let intentManager = IntentManager()
+//        intentManager.addQueueShortcut()
+//        
+//        queueManager = QueueIntentManagerConfigurator().configure()
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

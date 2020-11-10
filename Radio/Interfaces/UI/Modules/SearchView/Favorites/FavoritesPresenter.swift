@@ -84,7 +84,7 @@ class FavoritesPresenterImp: SearchPresenter {
                 if result.canRequest {
                     return .canRequest
                 } else if let date = result.timeUntilCanRequest {
-                    let formattedDate = date.offsetFrom(date: Date())
+                    let formattedDate = date.dateToView()
                     return .canRequestAt(formattedDate)
                 } else {
                     return .cannotRequest
