@@ -251,7 +251,6 @@
 		FB8936BB24A7F3AF0014EAC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB8936BA24A7F3AF0014EAC3 /* Assets.xcassets */; };
 		FB8936BE24A7F3AF0014EAC3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB8936BD24A7F3AF0014EAC3 /* Preview Assets.xcassets */; };
 		FBB6AAC924AA6337002A7608 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB6AAC824AA6337002A7608 /* SettingsView.swift */; };
-		FBBBA01124A5F24B0019615F /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBBA01024A5F24B0019615F /* SnapshotHelper.swift */; };
 		FBBBA01424A5F2AF0019615F /* RadioViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBBA01324A5F2AF0019615F /* RadioViewTests.swift */; };
 		FBC8EC0024AFAD33008F91F6 /* QueueIntentManagerConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC8EBFF24AFAD33008F91F6 /* QueueIntentManagerConfigurator.swift */; };
 		FBC8EC0324AFAF63008F91F6 /* SearchIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC8EC0224AFAF63008F91F6 /* SearchIntentHandler.swift */; };
@@ -832,7 +831,6 @@
 		FB8936BF24A7F3AF0014EAC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB8936C024A7F3AF0014EAC3 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		FBB6AAC824AA6337002A7608 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		FBBBA01024A5F24B0019615F /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		FBBBA01324A5F2AF0019615F /* RadioViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioViewTests.swift; sourceTree = "<group>"; };
 		FBC8EBFF24AFAD33008F91F6 /* QueueIntentManagerConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueIntentManagerConfigurator.swift; sourceTree = "<group>"; };
 		FBC8EC0224AFAF63008F91F6 /* SearchIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchIntentHandler.swift; sourceTree = "<group>"; };
@@ -1855,7 +1853,6 @@
 		FBBBA01224A5F2730019615F /* Snapshot */ = {
 			isa = PBXGroup;
 			children = (
-				FBBBA01024A5F24B0019615F /* SnapshotHelper.swift */,
 				FBBBA01324A5F2AF0019615F /* RadioViewTests.swift */,
 			);
 			path = Snapshot;
@@ -2964,7 +2961,6 @@
 				FBBBA01424A5F2AF0019615F /* RadioViewTests.swift in Sources */,
 				FB69E8EA24A3D2DB004921E4 /* RadioUITests.swift in Sources */,
 				FB69E8F524A3D316004921E4 /* QueueIntentTests.swift in Sources */,
-				FBBBA01124A5F24B0019615F /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
