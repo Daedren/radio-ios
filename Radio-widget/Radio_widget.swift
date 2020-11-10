@@ -17,6 +17,7 @@ struct WidgetTrackViewModel: Identifiable, Equatable {
 }
 
 struct Provider: TimelineProvider {
+
     public typealias Entry = SimpleEntry
     
     public func snapshot(with context: Context, completion: @escaping (SimpleEntry) -> ()) {
@@ -58,8 +59,8 @@ struct Provider: TimelineProvider {
         }
     }
 
-    public func timeline(with context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [SimpleEntry] = []
+    public func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+        let entries: [SimpleEntry] = []
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
@@ -67,6 +68,15 @@ struct Provider: TimelineProvider {
 
         let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
+    }
+    func placeholder(in context: Context) -> SimpleEntry {
+        return SimpleEntry(date: Date(),
+                           tracks: [])
+    }
+    
+    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> Void) {
+        completion(SimpleEntry(date: Date(),
+                               tracks: []))
     }
 }
 
@@ -103,9 +113,9 @@ struct Radio_widget: Widget {
     public var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind,
                             provider: Provider(),
-                            placeholder: PlaceholderView()) { entry in
+                            content: { entry in
             Radio_widgetEntryView(entry: entry)
-        }
+        })
         .configurationDisplayName("My Widget")
         .description("This is an example widget.")
     }
