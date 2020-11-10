@@ -1,4 +1,5 @@
 import SwiftUI
+import Combine
 import Radio_app
 
 enum RadioWatchViewAction: Equatable {
@@ -7,27 +8,35 @@ enum RadioWatchViewAction: Equatable {
 
 struct RadioWatchView<P: RadioWatchPresenter>: View {
     @ObservedObject var presenter: P
+    var actions = PassthroughSubject<RadioWatchViewAction, Never>()
+    
+    init(presenter: P) {
+        self.presenter = presenter
+        
+        self.presenter.start(actions:
+            actions.eraseToAnyPublisher())
+    }
     
     var body: some View {
         Group {
             VStack {
-                Text(presenter.state.currentTrack?.artist ?? "")
-                    .font(.footnote)
-                Text(presenter.state.currentTrack?.title ?? "")
-                    .font(.headline)
-                Image(systemName: "play.fill")
+                MarqueeText(text: presenter.state.currentTrack?.artist ?? "",
+                            font: .footnote)
+                MarqueeText(text: presenter.state.currentTrack?.title ?? "",
+                            font: .headline)
+                Image(systemName: presenter.state.isPlaying ? "stop.fill" : "play.fill")
                     .resizable()
                     .scaledToFit()
                     .foregroundColor(Color(.white))
-                ProgressBar(barHeight: 5.0,
-                            value: 0.5,
-                            backgroundColor: .gray,
-                            fillColor: .blue)
-                HStack(spacing: 0) {
-                    Text(presenter.state.currentTrack?.startTag ?? "")
-                    Spacer()
-                    Text(presenter.state.currentTrack?.endTag ?? "")
-                }
+//                ProgressBar(barHeight: 5.0,
+//                            value: 0.5,
+//                            backgroundColor: .gray,
+//                            fillColor: .blue)
+//                HStack(spacing: 0) {
+//                    Text(presenter.state.currentTrack?.startTag ?? "")
+//                    Spacer()
+//                    Text(presenter.state.currentTrack?.endTag ?? "")
+//                }
                 Text("DJ \(presenter.state.dj?.name ?? "??")")
                     .font(.footnote)
                     .multilineTextAlignment(.center)

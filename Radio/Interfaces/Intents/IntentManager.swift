@@ -1,10 +1,44 @@
 import Foundation
 import Intents
+import IntentsUI
+
+enum IntentModel: Int {
+   case queue
+    case siriSearch
+    case shortcutSearch
+    
+    var title: String {
+        switch self {
+        case .queue:
+            return "Queue"
+        case .siriSearch:
+            return "Siri search"
+        case .shortcutSearch:
+            return "Shortcut search"
+        }
+    }
+}
 
 class IntentManager {
+    var intents: [IntentModel: INIntent] = [:]
     
     init() {
-
+        self.intents = createIntents()
+    }
+    
+    private func createIntents() -> [IntentModel: INIntent] {
+        let intent = QueueIntent()
+        intent.suggestedInvocationPhrase = "Show the song queue"
+        
+        let siriSearch = INSearchForMediaIntent()
+        siriSearch.suggestedInvocationPhrase = "Search for"
+        
+        let shortcutSearch = SearchIntent()
+        shortcutSearch.suggestedInvocationPhrase = "Search for"
+        
+        return [.queue: intent,
+                .siriSearch: siriSearch,
+                .shortcutSearch: shortcutSearch]
     }
     
     private func requestPerms(onSuccess: @escaping ()->Void) {
@@ -35,22 +69,29 @@ class IntentManager {
         }
     }
     
-    func addQueueShortcut() {
-        let intent = QueueIntent()
-        intent.suggestedInvocationPhrase = "Show the song queue"
-        
-        let siriSearch = INSearchForMediaIntent()
-        siriSearch.suggestedInvocationPhrase = "Search for"
-        
-        let shortcutSearch = SearchIntent()
-        shortcutSearch.suggestedInvocationPhrase = "Search for"
-        
-        self.requestPerms(onSuccess: { [weak self] in
-                            self?.donateIntent(intent)
-                            self?.donateIntent(siriSearch)
-                            self?.donateIntent(shortcutSearch)
-        })
-        
+//    private func donateVoiceIntent(_ intent: INIntent) -> UIViewController {
+//        let shortcut = INShortcut(intent: intent)
+//        let viewC = INUIAddVoiceShortcutViewController(shortcut: shortcut)
+//        return viewC
+//    }
+    
+    func getIntents() -> [IntentModel] {
+        return Array(self.intents.keys)
+    }
+    
+    func donate(intent: IntentModel) {
+        if let actualIntent = self.intents[intent] {
+            self.requestPerms(onSuccess: { [weak self] in
+                                self?.donateIntent(actualIntent)
+            })
+        }
+    }
+    
+    func get(intent: IntentModel) -> INIntent? {
+        if let actualIntent = self.intents[intent] {
+            return actualIntent
+        }
+        return nil
     }
     //
     //    func addQueueShortcut() {

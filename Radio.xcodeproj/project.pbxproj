@@ -59,6 +59,7 @@
 		FB242EB1243E3CC400115B49 /* AbstractLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB242EB0243E3CC400115B49 /* AbstractLogger.swift */; };
 		FB242EB4243E3CFD00115B49 /* OSLogLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB242EB3243E3CFD00115B49 /* OSLogLogger.swift */; };
 		FB242EB6243E40D500115B49 /* Radio_cross.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB242EA2243E3C6100115B49 /* Radio_cross.framework */; };
+		FB3013202559FDE9004C442C /* SiriSettingsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB30131F2559FDE9004C442C /* SiriSettingsWireframe.swift */; };
 		FB49CADD24A808E400AE88F1 /* SongListWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB49CADC24A808E400AE88F1 /* SongListWatchView.swift */; };
 		FB64DBC624BE44BB00F47D8B /* RadioWatchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB64DBC524BE44BB00F47D8B /* RadioWatchPresenter.swift */; };
 		FB64DBC824BE454900F47D8B /* RadioWatchViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB64DBC724BE454900F47D8B /* RadioWatchViewState.swift */; };
@@ -195,6 +196,13 @@
 		FB64DCD024BE513E00F47D8B /* AVClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0990B7AE2378F8E100C213B7 /* AVClient.swift */; };
 		FB64DCD124BE522200F47D8B /* Radio_domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 097C1ECA2378719700A7A5AD /* Radio_domain.framework */; };
 		FB64DCD624BE522B00F47D8B /* Radio_domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB64DBDB24BE462600F47D8B /* Radio_domain.framework */; };
+		FB64DCDE24BE61DA00F47D8B /* MarqueeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB64DCDC24BE61D000F47D8B /* MarqueeText.swift */; };
+		FB64DCE324BE620500F47D8B /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB64DCE124BE620100F47D8B /* StringExtensions.swift */; };
+		FB64DCE424BE620600F47D8B /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB64DCE124BE620100F47D8B /* StringExtensions.swift */; };
+		FB65C6BE24FAB79C0047A069 /* SiriSettingsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB65C6BA24FAB79C0047A069 /* SiriSettingsConfigurator.swift */; };
+		FB65C6BF24FAB79C0047A069 /* SiriSettingsViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB65C6BB24FAB79C0047A069 /* SiriSettingsViewState.swift */; };
+		FB65C6C024FAB79C0047A069 /* SiriSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB65C6BC24FAB79C0047A069 /* SiriSettingsView.swift */; };
+		FB65C6C124FAB79C0047A069 /* SiriSettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB65C6BD24FAB79C0047A069 /* SiriSettingsPresenter.swift */; };
 		FB66321B244649DA005C2A7D /* NewsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66321A244649DA005C2A7D /* NewsListView.swift */; };
 		FB66321D24464A41005C2A7D /* NewsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66321C24464A41005C2A7D /* NewsListPresenter.swift */; };
 		FB66321F24464A49005C2A7D /* NewsListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66321E24464A49005C2A7D /* NewsListConfigurator.swift */; };
@@ -216,6 +224,13 @@
 		FB69E8F624A3D35A004921E4 /* RadioMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093E6A6323B77F7000578C99 /* RadioMapperTests.swift */; };
 		FB69E8F724A3D381004921E4 /* ResponseHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A03D8323D1190E00277D16 /* ResponseHandlerTests.swift */; };
 		FB69E8F824A3D384004921E4 /* RadioMainAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD7823237E30FB008950CD /* RadioMainAPITests.swift */; };
+		FB7D5D4424F9A8DD00A7CB29 /* SettingsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D5D4324F9A8DD00A7CB29 /* SettingsConfigurator.swift */; };
+		FB7D5D4624F9A90800A7CB29 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D5D4524F9A90800A7CB29 /* SettingsPresenter.swift */; };
+		FB7D5D4924F9A9A800A7CB29 /* ListOptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D5D4824F9A9A800A7CB29 /* ListOptionViewModel.swift */; };
+		FB7D5D4B24F9AE5C00A7CB29 /* ListOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D5D4A24F9AE5C00A7CB29 /* ListOptionView.swift */; };
+		FB7D5D4D24F9B02800A7CB29 /* SettingsViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D5D4C24F9B02800A7CB29 /* SettingsViewState.swift */; };
+		FB7D5D4F24F9B20900A7CB29 /* ListOptionSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D5D4E24F9B20900A7CB29 /* ListOptionSwitchView.swift */; };
+		FB7D5D5124F9B26D00A7CB29 /* ListOptionSwitchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D5D5024F9B26D00A7CB29 /* ListOptionSwitchViewModel.swift */; };
 		FB81FD16243F9B0800058FF8 /* ActivityIndicatorWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD15243F9B0800058FF8 /* ActivityIndicatorWrapper.swift */; };
 		FB81FD20243FCF4B00058FF8 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD1F243FCF4B00058FF8 /* FavoritesPresenter.swift */; };
 		FB81FD27243FD57F00058FF8 /* FavoritesConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD26243FD57F00058FF8 /* FavoritesConfigurator.swift */; };
@@ -292,6 +307,8 @@
 		FBD0CACF243F643B0093BF71 /* LastPlayedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0CACE243F643B0093BF71 /* LastPlayedView.swift */; };
 		FBD0CAD1243F64470093BF71 /* LastPlayedConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0CAD0243F64470093BF71 /* LastPlayedConfigurator.swift */; };
 		FBE7D1E024A512FA008693D6 /* RequestLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE7D1DE24A512F6008693D6 /* RequestLogicTests.swift */; };
+		FBEE69A524FE26C300D6898C /* IntentModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEE69A424FE26C300D6898C /* IntentModels.swift */; };
+		FBEE69A724FE2B9800D6898C /* AddShortcutWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEE69A624FE2B9800D6898C /* AddShortcutWrapper.swift */; };
 		FBF0D45024A542E1003B0DAA /* SongDelayLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF0D44E24A542DD003B0DAA /* SongDelayLogicTests.swift */; };
 		FBF0D45124A5558B003B0DAA /* RadioHomeAPIFake.html in Resources */ = {isa = PBXBuildFile; fileRef = 09A03D8523D11A0A00277D16 /* RadioHomeAPIFake.html */; };
 		FBFD6BAB24AFAB22005A03E4 /* QueueIntentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFD6BAA24AFAB22005A03E4 /* QueueIntentManager.swift */; };
@@ -742,6 +759,7 @@
 		FB242EB0243E3CC400115B49 /* AbstractLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractLogger.swift; sourceTree = "<group>"; };
 		FB242EB3243E3CFD00115B49 /* OSLogLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLogLogger.swift; sourceTree = "<group>"; };
 		FB242EB7243E424200115B49 /* CrossConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossConfigurator.swift; sourceTree = "<group>"; };
+		FB30131F2559FDE9004C442C /* SiriSettingsWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriSettingsWireframe.swift; sourceTree = "<group>"; };
 		FB49CADC24A808E400AE88F1 /* SongListWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListWatchView.swift; sourceTree = "<group>"; };
 		FB64DBC524BE44BB00F47D8B /* RadioWatchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioWatchPresenter.swift; sourceTree = "<group>"; };
 		FB64DBC724BE454900F47D8B /* RadioWatchViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioWatchViewState.swift; sourceTree = "<group>"; };
@@ -758,6 +776,12 @@
 		FB64DCC224BE4FFA00F47D8B /* RadioWatchConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioWatchConfigurator.swift; sourceTree = "<group>"; };
 		FB64DCC524BE503D00F47D8B /* Configurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurator.swift; sourceTree = "<group>"; };
 		FB64DCCB24BE509000F47D8B /* SharedAppInterfaceConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedAppInterfaceConfigurator.swift; sourceTree = "<group>"; };
+		FB64DCDC24BE61D000F47D8B /* MarqueeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarqueeText.swift; sourceTree = "<group>"; };
+		FB64DCE124BE620100F47D8B /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		FB65C6BA24FAB79C0047A069 /* SiriSettingsConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiriSettingsConfigurator.swift; sourceTree = "<group>"; };
+		FB65C6BB24FAB79C0047A069 /* SiriSettingsViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiriSettingsViewState.swift; sourceTree = "<group>"; };
+		FB65C6BC24FAB79C0047A069 /* SiriSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiriSettingsView.swift; sourceTree = "<group>"; };
+		FB65C6BD24FAB79C0047A069 /* SiriSettingsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiriSettingsPresenter.swift; sourceTree = "<group>"; };
 		FB663213244641D7005C2A7D /* NewsEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsEntry.swift; sourceTree = "<group>"; };
 		FB66321524464264005C2A7D /* GetNewsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNewsRequest.swift; sourceTree = "<group>"; };
 		FB66321724464287005C2A7D /* GetNewsResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNewsResponseModel.swift; sourceTree = "<group>"; };
@@ -776,6 +800,13 @@
 		FB69E8E924A3D2DB004921E4 /* RadioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioUITests.swift; sourceTree = "<group>"; };
 		FB69E8EB24A3D2DB004921E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB69E8F424A3D316004921E4 /* QueueIntentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueIntentTests.swift; sourceTree = "<group>"; };
+		FB7D5D4324F9A8DD00A7CB29 /* SettingsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsConfigurator.swift; sourceTree = "<group>"; };
+		FB7D5D4524F9A90800A7CB29 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		FB7D5D4824F9A9A800A7CB29 /* ListOptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOptionViewModel.swift; sourceTree = "<group>"; };
+		FB7D5D4A24F9AE5C00A7CB29 /* ListOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOptionView.swift; sourceTree = "<group>"; };
+		FB7D5D4C24F9B02800A7CB29 /* SettingsViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewState.swift; sourceTree = "<group>"; };
+		FB7D5D4E24F9B20900A7CB29 /* ListOptionSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOptionSwitchView.swift; sourceTree = "<group>"; };
+		FB7D5D5024F9B26D00A7CB29 /* ListOptionSwitchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOptionSwitchViewModel.swift; sourceTree = "<group>"; };
 		FB7E0FC0243E249500DCC043 /* Radio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Radio.entitlements; sourceTree = "<group>"; };
 		FB81FD11243F775E00058FF8 /* SongRequestResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRequestResponseModel.swift; sourceTree = "<group>"; };
 		FB81FD15243F9B0800058FF8 /* ActivityIndicatorWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorWrapper.swift; sourceTree = "<group>"; };
@@ -832,6 +863,8 @@
 		FBD0CAD0243F64470093BF71 /* LastPlayedConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPlayedConfigurator.swift; sourceTree = "<group>"; };
 		FBE7D1DE24A512F6008693D6 /* RequestLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestLogicTests.swift; sourceTree = "<group>"; };
 		FBE7D1E224A517C2008693D6 /* RequestTimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTimeModel.swift; sourceTree = "<group>"; };
+		FBEE69A424FE26C300D6898C /* IntentModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentModels.swift; sourceTree = "<group>"; };
+		FBEE69A624FE2B9800D6898C /* AddShortcutWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShortcutWrapper.swift; sourceTree = "<group>"; };
 		FBF0D44C24A53DE7003B0DAA /* SongDelayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDelayLogic.swift; sourceTree = "<group>"; };
 		FBF0D44E24A542DD003B0DAA /* SongDelayLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDelayLogicTests.swift; sourceTree = "<group>"; };
 		FBFD6BAA24AFAB22005A03E4 /* QueueIntentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueIntentManager.swift; sourceTree = "<group>"; };
@@ -1019,6 +1052,8 @@
 				FB0C9A67245760A100320562 /* SongRequestButton.swift */,
 				FB81FD15243F9B0800058FF8 /* ActivityIndicatorWrapper.swift */,
 				FB66322424464BD4005C2A7D /* NewsEntryView.swift */,
+				FB7D5D4A24F9AE5C00A7CB29 /* ListOptionView.swift */,
+				FB7D5D4E24F9B20900A7CB29 /* ListOptionSwitchView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1029,6 +1064,8 @@
 				FB0C9A6924576E3100320562 /* RandomTrackViewModel.swift */,
 				098CAFB123BBD13C00B6B80E /* SearchedTrackViewModel.swift */,
 				FB67451C2448E7290044ED68 /* NewsEntryViewModel.swift */,
+				FB7D5D4824F9A9A800A7CB29 /* ListOptionViewModel.swift */,
+				FB7D5D5024F9B26D00A7CB29 /* ListOptionSwitchViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -1037,6 +1074,7 @@
 			isa = PBXGroup;
 			children = (
 				0922E2C423A2FB5A00EB00C8 /* DateExtensions.swift */,
+				FB64DCE124BE620100F47D8B /* StringExtensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1595,6 +1633,7 @@
 		FB64DCB724BE4C3400F47D8B /* Shared UI */ = {
 			isa = PBXGroup;
 			children = (
+				FB64DCDB24BE61AF00F47D8B /* Controls */,
 				FB64DCBB24BE4CCC00F47D8B /* View Models */,
 				FB64DCB824BE4C4000F47D8B /* Components */,
 			);
@@ -1625,6 +1664,14 @@
 				FB64DCC524BE503D00F47D8B /* Configurator.swift */,
 			);
 			path = Injection;
+			sourceTree = "<group>";
+		};
+		FB64DCDB24BE61AF00F47D8B /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				FB64DCDC24BE61D000F47D8B /* MarqueeText.swift */,
+			);
+			path = Controls;
 			sourceTree = "<group>";
 		};
 		FB663219244649CF005C2A7D /* NewsListView */ = {
@@ -1660,6 +1707,7 @@
 				09DD269123BCE71600B70C8E /* NavigationWrapper.swift */,
 				098CAFA323BBC4D300B6B80E /* SearchWrapper.swift */,
 				09E9425123BE132F00A294E2 /* LabelAttributedStringWrapper.swift */,
+				FBEE69A624FE2B9800D6898C /* AddShortcutWrapper.swift */,
 			);
 			path = Wrappers;
 			sourceTree = "<group>";
@@ -1689,6 +1737,18 @@
 				FB69E8F424A3D316004921E4 /* QueueIntentTests.swift */,
 			);
 			path = Siri;
+			sourceTree = "<group>";
+		};
+		FB7D5D4724F9A96600A7CB29 /* SiriSettings */ = {
+			isa = PBXGroup;
+			children = (
+				FB65C6BA24FAB79C0047A069 /* SiriSettingsConfigurator.swift */,
+				FB65C6BD24FAB79C0047A069 /* SiriSettingsPresenter.swift */,
+				FB65C6BC24FAB79C0047A069 /* SiriSettingsView.swift */,
+				FB65C6BB24FAB79C0047A069 /* SiriSettingsViewState.swift */,
+				FB30131F2559FDE9004C442C /* SiriSettingsWireframe.swift */,
+			);
+			path = SiriSettings;
 			sourceTree = "<group>";
 		};
 		FB81FD1E243FCF4200058FF8 /* FavoritesView */ = {
@@ -1783,7 +1843,11 @@
 		FBB6AAC724AA6329002A7608 /* SettingsView */ = {
 			isa = PBXGroup;
 			children = (
+				FB7D5D4724F9A96600A7CB29 /* SiriSettings */,
 				FBB6AAC824AA6337002A7608 /* SettingsView.swift */,
+				FB7D5D4324F9A8DD00A7CB29 /* SettingsConfigurator.swift */,
+				FB7D5D4524F9A90800A7CB29 /* SettingsPresenter.swift */,
+				FB7D5D4C24F9B02800A7CB29 /* SettingsViewState.swift */,
 			);
 			path = SettingsView;
 			sourceTree = "<group>";
@@ -1874,6 +1938,7 @@
 		FBCABF6E24A29F9900BCD18B /* Intents */ = {
 			isa = PBXGroup;
 			children = (
+				FBEE69A324FE26B700D6898C /* Models */,
 				FBCABF6F24A29FAF00BCD18B /* IntentManager.swift */,
 				FBFD6BAA24AFAB22005A03E4 /* QueueIntentManager.swift */,
 				FBC8EBFF24AFAD33008F91F6 /* QueueIntentManagerConfigurator.swift */,
@@ -1898,6 +1963,14 @@
 				FBF0D44E24A542DD003B0DAA /* SongDelayLogicTests.swift */,
 			);
 			path = Logic;
+			sourceTree = "<group>";
+		};
+		FBEE69A324FE26B700D6898C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FBEE69A424FE26C300D6898C /* IntentModels.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2629,6 +2702,8 @@
 			files = (
 				093E6A6C23B79D5900578C99 /* DJView.swift in Sources */,
 				09F8EB6123B8244F00FE6E25 /* MediaPlayerConfigurator.swift in Sources */,
+				FB65C6BF24FAB79C0047A069 /* SiriSettingsViewState.swift in Sources */,
+				FBEE69A524FE26C300D6898C /* IntentModels.swift in Sources */,
 				FB66321B244649DA005C2A7D /* NewsListView.swift in Sources */,
 				FB66322524464BD4005C2A7D /* NewsEntryView.swift in Sources */,
 				FB0C9A662457559900320562 /* MusicSearchConfigurator.swift in Sources */,
@@ -2642,6 +2717,8 @@
 				FB11DF722497DE2E006F9BDA /* SearchViewState.swift in Sources */,
 				098CAFB223BBD13C00B6B80E /* SearchedTrackViewModel.swift in Sources */,
 				FB66321F24464A49005C2A7D /* NewsListConfigurator.swift in Sources */,
+				FBEE69A724FE2B9800D6898C /* AddShortcutWrapper.swift in Sources */,
+				FB65C6C024FAB79C0047A069 /* SiriSettingsView.swift in Sources */,
 				098CAFA423BBC4D300B6B80E /* SearchWrapper.swift in Sources */,
 				098CAFA623BBC78A00B6B80E /* MusicSearchPresenter.swift in Sources */,
 				09E9425223BE132F00A294E2 /* LabelAttributedStringWrapper.swift in Sources */,
@@ -2650,13 +2727,16 @@
 				097C1EA82378716F00A7A5AD /* MainTabsView.swift in Sources */,
 				FB67451D2448E72A0044ED68 /* NewsEntryViewModel.swift in Sources */,
 				FB81FD27243FD57F00058FF8 /* FavoritesConfigurator.swift in Sources */,
+				FB7D5D4424F9A8DD00A7CB29 /* SettingsConfigurator.swift in Sources */,
 				0941B50C2378830400994F67 /* Configurator.swift in Sources */,
+				FB7D5D5124F9B26D00A7CB29 /* ListOptionSwitchViewModel.swift in Sources */,
 				FB66321D24464A41005C2A7D /* NewsListPresenter.swift in Sources */,
 				09F8A11423B853FC00D95643 /* SeekBarView.swift in Sources */,
 				FB0C9A68245760A100320562 /* SongRequestButton.swift in Sources */,
 				FBC9140224992ECF0051DA21 /* RadioViewState.swift in Sources */,
 				096E0B9A237A089600024572 /* RemoteControlCommand.swift in Sources */,
 				096E0B9E237A08B500024572 /* RemoteControlError.swift in Sources */,
+				FB7D5D4B24F9AE5C00A7CB29 /* ListOptionView.swift in Sources */,
 				09BD780C237E2527008950CD /* RemoteControlClient.swift in Sources */,
 				096E0B98237A07F300024572 /* RemoteControl.swift in Sources */,
 				0941B5062378800C00994F67 /* RadioPresenter.swift in Sources */,
@@ -2664,12 +2744,17 @@
 				FB6745212448E78C0044ED68 /* HTMLParser.swift in Sources */,
 				0941B512237883E800994F67 /* RadioConfigurator.swift in Sources */,
 				FB6745272448F9810044ED68 /* AppAttributedString.swift in Sources */,
+				FB65C6BE24FAB79C0047A069 /* SiriSettingsConfigurator.swift in Sources */,
 				0941B4FF23787D4A00994F67 /* RadioView.swift in Sources */,
 				FBCABF7124A2A1A500BCD18B /* Radio_intent.intentdefinition in Sources */,
+				FB7D5D4F24F9B20900A7CB29 /* ListOptionSwitchView.swift in Sources */,
 				FB81FD16243F9B0800058FF8 /* ActivityIndicatorWrapper.swift in Sources */,
+				FB7D5D4624F9A90800A7CB29 /* SettingsPresenter.swift in Sources */,
 				09F8EB5B23B818D700FE6E25 /* MediaPlayerInterface.swift in Sources */,
 				098CAFA223BBC03900B6B80E /* SearchView.swift in Sources */,
 				098CAFB423BBD59600B6B80E /* WebViewWrapper.swift in Sources */,
+				FB65C6C124FAB79C0047A069 /* SiriSettingsPresenter.swift in Sources */,
+				FB3013202559FDE9004C442C /* SiriSettingsWireframe.swift in Sources */,
 				FBB6AAC924AA6337002A7608 /* SettingsView.swift in Sources */,
 				FB0C9A6A24576E3100320562 /* RandomTrackViewModel.swift in Sources */,
 				FBD0CACF243F643B0093BF71 /* LastPlayedView.swift in Sources */,
@@ -2678,6 +2763,8 @@
 				098CAF9D23BB8BF800B6B80E /* BottomSheetView.swift in Sources */,
 				FBD0CACD243F64310093BF71 /* LastPlayedPresenter.swift in Sources */,
 				FBFD6BAB24AFAB22005A03E4 /* QueueIntentManager.swift in Sources */,
+				FB7D5D4D24F9B02800A7CB29 /* SettingsViewState.swift in Sources */,
+				FB7D5D4924F9A9A800A7CB29 /* ListOptionViewModel.swift in Sources */,
 				0922E2BF23A2F8DC00EB00C8 /* TrackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2745,6 +2832,7 @@
 			files = (
 				FB242EB4243E3CFD00115B49 /* OSLogLogger.swift in Sources */,
 				FB242EB1243E3CC400115B49 /* AbstractLogger.swift in Sources */,
+				FB64DCE424BE620600F47D8B /* StringExtensions.swift in Sources */,
 				FBCABF2824A287B600BCD18B /* DateExtensions.swift in Sources */,
 				FB89369024A7E6500014EAC3 /* CrossConfigurator.swift in Sources */,
 			);
@@ -2795,6 +2883,7 @@
 			files = (
 				FB64DC5A24BE4A1B00F47D8B /* AbstractLogger.swift in Sources */,
 				FB64DC5B24BE4A1B00F47D8B /* DateExtensions.swift in Sources */,
+				FB64DCE324BE620500F47D8B /* StringExtensions.swift in Sources */,
 				FB64DC5824BE4A1B00F47D8B /* OSLogLogger.swift in Sources */,
 				FB64DC5924BE4A1B00F47D8B /* CrossConfigurator.swift in Sources */,
 			);
@@ -2858,6 +2947,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB64DCBE24BE4CDB00F47D8B /* TrackViewModel.swift in Sources */,
+				FB64DCDE24BE61DA00F47D8B /* MarqueeText.swift in Sources */,
 				FB64DCCF24BE513E00F47D8B /* AVClient.swift in Sources */,
 				FB64DCBC24BE4CDB00F47D8B /* CurrentTrackViewModel.swift in Sources */,
 				FB64DCBD24BE4CDB00F47D8B /* DJViewModel.swift in Sources */,

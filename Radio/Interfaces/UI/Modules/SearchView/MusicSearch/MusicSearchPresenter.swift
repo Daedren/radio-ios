@@ -58,6 +58,8 @@ class MusicSearchPresenterImp: SearchPresenter {
             return self.requestRandom()
         case let .choose(indexPath):
             return self.request(index: indexPath)
+                .append(self.getRequestStatus())
+                .eraseToAnyPublisher()
         case let .search(searchedText):
             self.searchedTerm = searchedText
             return self.search(text: searchedText)

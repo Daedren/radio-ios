@@ -60,7 +60,7 @@ public class CurrentTrackViewModel: TrackViewModel {
     }
     
     public static func stubCurrent() -> CurrentTrackViewModel {
-        let track = QueuedTrack(title: "Synchrogazer",
+        let track = QueuedTrack(title: "Beyond the BLADE (IGNITED arrangement)",
                                 artist: "Mizuki Nana",
                                 startTime: Date.init(timeIntervalSince1970: 1577622501),
                                 endTime: Date.init(timeIntervalSince1970: 1577622752),
