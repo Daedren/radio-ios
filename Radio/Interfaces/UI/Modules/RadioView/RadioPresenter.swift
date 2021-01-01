@@ -179,6 +179,7 @@ class RadioPresenterImp: RadioPresenter {
     private func startStatusListener() -> AnyPublisher<RadioViewState.Mutation, Never> {
         self.statusInteractor
             .execute()
+            .print()
             .map{ status -> RadioViewState.Mutation in
                 return .status(thread: status.thread,
                                listeners: status.listeners,

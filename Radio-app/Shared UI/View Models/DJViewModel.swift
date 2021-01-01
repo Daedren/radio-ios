@@ -19,7 +19,7 @@ public struct DJViewModel: Identifiable, Equatable {
         let track = RadioDJ(id: 0,
                             name: "Hanyuu-sama",
                             text: "",
-                            image: URL(fileURLWithPath: "https://r-a-d.io/api/dj-image/43-424d62e9.png"),
+                            image: URL(string: "https://r-a-d.io/api/dj-image/43-424d62e9.png")!,
                             color: Color(red: 255, green: 0, blue: 0),
                             visible: true,
                             priority: 0)

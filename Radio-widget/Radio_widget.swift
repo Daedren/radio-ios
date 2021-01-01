@@ -5,20 +5,20 @@ import Combine
 import Radio_domain
 import Swinject
 
-struct WidgetTrackViewModel: Identifiable, Equatable {
-    var id: String {
-        title+artist
-    }
+struct WidgetViewState: Identifiable, Equatable {
+    var id = UUID()
     
-    public var title: String
-    public var artist: String
-    
-    public var date: String
+    var queue: [TrackViewModel] = []
+    var lastPlayed: [TrackViewModel] = []
+    var currentTrack: CurrentTrackViewModel?
+    var dj: DJViewModel?
 }
 
-struct Provider: TimelineProvider {
-
+final class Provider: TimelineProvider {
+    
     public typealias Entry = SimpleEntry
+    var currQueue = [WidgetViewState]()
+    var queueDisposeBag = Set<AnyCancellable>()
     
     public func snapshot(with context: Context, completion: @escaping (SimpleEntry) -> ()) {
         
@@ -27,47 +27,51 @@ struct Provider: TimelineProvider {
         } else {
             let configurator = IntentConfigurator()
             guard let songQueue = configurator.assembler.resolver.resolve(GetSongQueueInteractor.self),
-            let updateUseCase = configurator.assembler.resolver.resolve(FetchRadioDataUseCase.self)
+                  let updateUseCase = configurator.assembler.resolver.resolve(FetchRadioDataUseCase.self),
+                  let currentTrackInteractor = configurator.assembler.resolver.resolve(GetCurrentTrackUseCase.self),
+                  let lastPlayedInteractor = configurator.assembler.resolver.resolve(GetLastPlayedInteractor.self),
+                  let djInteractor = configurator.assembler.resolver.resolve(GetDJInteractor.self)
             else {
                 completion(SimpleEntry(date: Date(), tracks: []))
                 return
             }
             
-            var queueDisposeBag = Set<AnyCancellable>()
-            
             updateUseCase.execute(())
-           
-            songQueue
-                .execute()
-                .filter{ !$0.isEmpty }
-                .first()
-                .map{ tracks -> [WidgetTrackViewModel] in
-                    return tracks.map { track -> WidgetTrackViewModel in
-                        return WidgetTrackViewModel(title: track.title,
-                                                    artist: track.artist,
-                                                    date: "a")
-                    }
+                
+            let main = songQueue.execute()
+                .catch{_ in return Just([QueuedTrack]())}
+                .eraseToAnyPublisher()
+                
+            main.first()
+                .combineLatest(currentTrackInteractor.execute(with: queueDisposeBag).first(),
+                               lastPlayedInteractor.execute()
+                                .catch{_ in return Just([QueuedTrack]())}
+                                .first(),
+                               djInteractor.execute()
+                                .catch{_ in return Empty()}
+                                .first())
+                .sink(receiveValue: { queue, curr, last, dj in
+                    let firstQueue = queue.first?.startTime ?? Date()
+                    let state = WidgetViewState(
+                        queue: queue.map{ return TrackViewModel(base: $0)},
+                        lastPlayed: last.map{ return TrackViewModel(base: $0)},
+                        currentTrack: CurrentTrackViewModel(base: curr),
+                        dj: DJViewModel(base: dj))
                     
-                }
-                .sink(receiveCompletion: { _ in
-                    
-                }, receiveValue: { tracks in
-                    completion(SimpleEntry(date: Date(), tracks: tracks))
+                    completion(SimpleEntry(date: firstQueue,
+                                           tracks: [state]))
                 })
                 .store(in: &queueDisposeBag)
             
         }
     }
-
+    
     public func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        let entries: [SimpleEntry] = []
-
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
- 
-
-        let timeline = Timeline(entries: entries, policy: .atEnd)
-        completion(timeline)
+        
+        snapshot(with: context, completion: { newEntry in
+            let timeline = Timeline(entries: [newEntry], policy: .atEnd)
+            completion(timeline)
+        })
     }
     func placeholder(in context: Context) -> SimpleEntry {
         return SimpleEntry(date: Date(),
@@ -75,54 +79,26 @@ struct Provider: TimelineProvider {
     }
     
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> Void) {
-        completion(SimpleEntry(date: Date(),
-                               tracks: []))
+        snapshot(with: context, completion: completion)
     }
 }
 
 struct SimpleEntry: TimelineEntry {
     public let date: Date
-    public let tracks: [WidgetTrackViewModel]
-}
-
-struct PlaceholderView : View {
-    var body: some View {
-        Text("Placeholder")
-    }
-}
-
-struct Radio_widgetEntryView : View {
-    var entry: Provider.Entry
-
-    var body: some View {
-        VStack {
-            List{
-                ForEach(entry.tracks){
-                    Text($0.title)
-                }
-            }
-            Text("Loaded View")
-        }
-    }
+    public let tracks: [WidgetViewState]
 }
 
 @main
 struct Radio_widget: Widget {
     private let kind: String = "Radio_widget"
-
+    
     public var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind,
                             provider: Provider(),
                             content: { entry in
-            Radio_widgetEntryView(entry: entry)
-        })
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
-    }
-}
-
-struct Radio_widget_Previews: PreviewProvider {
-    static var previews: some View {
-        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+                                Radio_widgetEntryView(entry: entry)
+                            })
+            .configurationDisplayName("My Widget")
+            .description("This is an example widget.")
     }
 }

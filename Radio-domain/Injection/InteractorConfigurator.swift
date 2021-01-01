@@ -24,7 +24,7 @@ public class InteractorConfigurator: Assembly {
         }
         container.register(GetCurrentTrackUseCase.self) { _ in
             return GetCurrentTrackInteractor(
-                avGateway: container.resolve(AVGateway.self)!,
+                avGateway: container.resolve(AVGateway.self),
                 radioGateway: container.resolve(RadioGateway.self)!
             )
         }

@@ -6,12 +6,12 @@ public protocol GetCurrentTrackUseCase {
 }
 
 public class GetCurrentTrackInteractor: GetCurrentTrackUseCase {
-    var avGateway: AVGateway
+    var avGateway: AVGateway?
     var radioGateway: RadioGateway
     
     var endSongDisposeBag = Set<AnyCancellable>()
     
-    public init(avGateway: AVGateway, radioGateway: RadioGateway) {
+    public init(avGateway: AVGateway?, radioGateway: RadioGateway) {
         self.avGateway = avGateway
         self.radioGateway = radioGateway
     }
@@ -30,26 +30,26 @@ public class GetCurrentTrackInteractor: GetCurrentTrackUseCase {
             .prepend(Just<QueuedTrack?>(nil))
             .eraseToAnyPublisher()
         
-        let icyName = self.avGateway.getSongName()
+        let icyName = self.avGateway?.getSongName()
             //            .removeDuplicates()
         .prepend(Just<String>(""))
             //            .compactMap{ $0 }
             .eraseToAnyPublisher()
         
         let timer = Timer.publish(every: 1.0,
-                                  tolerance: 1.0,
+                                  tolerance: 5.0,
                                   on: .current,
                                   in: .common)
             .autoconnect()
             .eraseToAnyPublisher()
         
         let mergedObs = apiName
-            .combineLatest(icyName)
+            .combineLatest(icyName ?? Just<String>("").eraseToAnyPublisher())
             .flatMap{ [unowned self] (arg) -> AnyPublisher<QueuedTrack,Never> in
                 let (api, icy) = arg
                 
                 var model: QueuedTrack? = nil
-                if self.avGateway.isPlaying() {
+                if self.avGateway?.isPlaying() ?? false {
                     model = self.radioGateway
                         .getTrackWith(identifier: icy.trimmingCharacters(in: .whitespacesAndNewlines))
                 }

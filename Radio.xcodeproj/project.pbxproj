@@ -52,6 +52,8 @@
 		FB0C9A662457559900320562 /* MusicSearchConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0C9A652457559900320562 /* MusicSearchConfigurator.swift */; };
 		FB0C9A68245760A100320562 /* SongRequestButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0C9A67245760A100320562 /* SongRequestButton.swift */; };
 		FB0C9A6A24576E3100320562 /* RandomTrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0C9A6924576E3100320562 /* RandomTrackViewModel.swift */; };
+		FB0F5B2D255B52180033713A /* CurrentTrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D49EE623B8E71C00BCC62D /* CurrentTrackViewModel.swift */; };
+		FB0F5B3D255B521C0033713A /* DJViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093E6A6D23B79E0000578C99 /* DJViewModel.swift */; };
 		FB11DF722497DE2E006F9BDA /* SearchViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB11DF712497DE2E006F9BDA /* SearchViewState.swift */; };
 		FB242EA6243E3C6100115B49 /* Radio_cross.h in Headers */ = {isa = PBXBuildFile; fileRef = FB242EA4243E3C6100115B49 /* Radio_cross.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB242EA9243E3C6100115B49 /* Radio_cross.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB242EA2243E3C6100115B49 /* Radio_cross.framework */; };
@@ -231,6 +233,7 @@
 		FB7D5D4D24F9B02800A7CB29 /* SettingsViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D5D4C24F9B02800A7CB29 /* SettingsViewState.swift */; };
 		FB7D5D4F24F9B20900A7CB29 /* ListOptionSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D5D4E24F9B20900A7CB29 /* ListOptionSwitchView.swift */; };
 		FB7D5D5124F9B26D00A7CB29 /* ListOptionSwitchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D5D5024F9B26D00A7CB29 /* ListOptionSwitchViewModel.swift */; };
+		FB7FA6BF259EA25D00C47508 /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922E2C123A2FA2A00EB00C8 /* TrackViewModel.swift */; };
 		FB81FD16243F9B0800058FF8 /* ActivityIndicatorWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD15243F9B0800058FF8 /* ActivityIndicatorWrapper.swift */; };
 		FB81FD20243FCF4B00058FF8 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD1F243FCF4B00058FF8 /* FavoritesPresenter.swift */; };
 		FB81FD27243FD57F00058FF8 /* FavoritesConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD26243FD57F00058FF8 /* FavoritesConfigurator.swift */; };
@@ -302,6 +305,8 @@
 		FBCABF6D24A2935F00BCD18B /* Radio_intent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = FBCABEB824A2724D00BCD18B /* Radio_intent.intentdefinition */; };
 		FBCABF7024A29FAF00BCD18B /* IntentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCABF6F24A29FAF00BCD18B /* IntentManager.swift */; };
 		FBCABF7124A2A1A500BCD18B /* Radio_intent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = FBCABEB824A2724D00BCD18B /* Radio_intent.intentdefinition */; };
+		FBCE1AA9255F62C600C5D460 /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCE1AA8255F62C600C5D460 /* NetworkImage.swift */; };
+		FBCE1ABA255F6EBE00C5D460 /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCE1AB9255F6EBE00C5D460 /* WidgetView.swift */; };
 		FBD0CACD243F64310093BF71 /* LastPlayedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0CACC243F64310093BF71 /* LastPlayedPresenter.swift */; };
 		FBD0CACF243F643B0093BF71 /* LastPlayedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0CACE243F643B0093BF71 /* LastPlayedView.swift */; };
 		FBD0CAD1243F64470093BF71 /* LastPlayedConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0CAD0243F64470093BF71 /* LastPlayedConfigurator.swift */; };
@@ -856,6 +861,8 @@
 		FBCABF4024A2927E00BCD18B /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
 		FBCABF5024A2927E00BCD18B /* Radio-intent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Radio-intent.entitlements"; sourceTree = "<group>"; };
 		FBCABF6F24A29FAF00BCD18B /* IntentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentManager.swift; sourceTree = "<group>"; };
+		FBCE1AA8255F62C600C5D460 /* NetworkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImage.swift; sourceTree = "<group>"; };
+		FBCE1AB9255F6EBE00C5D460 /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
 		FBD0CACC243F64310093BF71 /* LastPlayedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPlayedPresenter.swift; sourceTree = "<group>"; };
 		FBD0CACE243F643B0093BF71 /* LastPlayedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPlayedView.swift; sourceTree = "<group>"; };
 		FBD0CAD0243F64470093BF71 /* LastPlayedConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPlayedConfigurator.swift; sourceTree = "<group>"; };
@@ -1865,6 +1872,8 @@
 				FBCABEB624A2724D00BCD18B /* Radio_widget.swift */,
 				FBCABEB924A2724F00BCD18B /* Assets.xcassets */,
 				FBCABEBB24A2724F00BCD18B /* Info.plist */,
+				FBCE1AA8255F62C600C5D460 /* NetworkImage.swift */,
+				FBCE1AB9255F6EBE00C5D460 /* WidgetView.swift */,
 			);
 			path = "Radio-widget";
 			sourceTree = "<group>";
@@ -2984,9 +2993,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB7FA6BF259EA25D00C47508 /* TrackViewModel.swift in Sources */,
 				FBCABEBC24A2724F00BCD18B /* Radio_intent.intentdefinition in Sources */,
+				FBCE1ABA255F6EBE00C5D460 /* WidgetView.swift in Sources */,
 				FB89369B24A7E8480014EAC3 /* Configurator.swift in Sources */,
 				FBCABEB724A2724D00BCD18B /* Radio_widget.swift in Sources */,
+				FB0F5B3D255B521C0033713A /* DJViewModel.swift in Sources */,
+				FB0F5B2D255B52180033713A /* CurrentTrackViewModel.swift in Sources */,
+				FBCE1AA9255F62C600C5D460 /* NetworkImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

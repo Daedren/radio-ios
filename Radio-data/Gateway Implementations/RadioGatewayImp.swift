@@ -134,7 +134,6 @@ extension RadioGatewayImp {
                                   on: .current,
                                   in: .common)
             .autoconnect()
-            .print()
             .eraseToAnyPublisher()
         
         let now = Just(Date())

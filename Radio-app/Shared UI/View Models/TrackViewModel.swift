@@ -7,7 +7,6 @@ public class TrackViewModel: Identifiable, Equatable {
     
     public var title: String
     public var artist: String
-    
     public var startsIn: String
     public var endsAt: String
     public var requested: Bool
