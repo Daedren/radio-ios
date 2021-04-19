@@ -46,7 +46,7 @@
 		09F8A11423B853FC00D95643 /* SeekBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F8A11323B853FC00D95643 /* SeekBarView.swift */; };
 		09F8EB5B23B818D700FE6E25 /* MediaPlayerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F8EB5A23B818D700FE6E25 /* MediaPlayerInterface.swift */; };
 		09F8EB6123B8244F00FE6E25 /* MediaPlayerConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F8EB6023B8244F00FE6E25 /* MediaPlayerConfigurator.swift */; };
-		0BB75862B62DBB8B36C3ECF7 /* Pods_Radio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEE0E58242690A0B163C794 /* Pods_Radio.framework */; };
+		32C5CA2E5252C205A20DD583 /* Pods_Radio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3240E919A831BC90CF9DB85 /* Pods_Radio.framework */; };
 		FB01747424A3FC4200A5E64A /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01747324A3FC4200A5E64A /* ViewExtensions.swift */; };
 		FB01747624A40D8200A5E64A /* CanRequestSongRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01747524A40D8200A5E64A /* CanRequestSongRequest.swift */; };
 		FB01747824A40DAB00A5E64A /* CanRequestSongResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01747724A40DAB00A5E64A /* CanRequestSongResponseModel.swift */; };
@@ -169,7 +169,6 @@
 		FB64DC7124BE4A3A00F47D8B /* CanRequestSongRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01747524A40D8200A5E64A /* CanRequestSongRequest.swift */; };
 		FB64DC7224BE4A3A00F47D8B /* SearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DD268A23BCD33200B70C8E /* SearchRequest.swift */; };
 		FB64DC7324BE4A3A00F47D8B /* RadioMainAPIResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD781A237E2D9B008950CD /* RadioMainAPIResponseModel.swift */; };
-		FB64DC7424BE4A4B00F47D8B /* RadioMainAPIFake.json in Resources */ = {isa = PBXBuildFile; fileRef = 09BD781C237E2DBB008950CD /* RadioMainAPIFake.json */; };
 		FB64DC7624BE4A9500F47D8B /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = FB64DC7524BE4A9500F47D8B /* SwiftSoup */; };
 		FB64DC7724BE4A9500F47D8B /* Radio_cross.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB64DC3224BE475F00F47D8B /* Radio_cross.framework */; };
 		FB64DC7B24BE4A9500F47D8B /* Radio_domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB64DBDB24BE462600F47D8B /* Radio_domain.framework */; };
@@ -238,7 +237,6 @@
 		FB7FA72B259EC23E00C47508 /* GetFourierScalesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7FA72A259EC23E00C47508 /* GetFourierScalesUseCase.swift */; };
 		FB7FA72C259EC23E00C47508 /* GetFourierScalesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7FA72A259EC23E00C47508 /* GetFourierScalesUseCase.swift */; };
 		FB7FA7CA259EC58300C47508 /* FSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7FA742259EC38C00C47508 /* FSClient.swift */; };
-		FB7FA84D259EC5F000C47508 /* ASClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7FA745259EC38C00C47508 /* ASClient.swift */; };
 		FB7FA8F1259ECB0400C47508 /* FSFrequencyPlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7FA73E259EC38C00C47508 /* FSFrequencyPlotView.m */; };
 		FB7FA951259ECC6400C47508 /* FSFrequencyDomainAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7FA740259EC38C00C47508 /* FSFrequencyDomainAnalyzer.m */; };
 		FB81FD16243F9B0800058FF8 /* ActivityIndicatorWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD15243F9B0800058FF8 /* ActivityIndicatorWrapper.swift */; };
@@ -319,11 +317,14 @@
 		FBD0CAD1243F64470093BF71 /* LastPlayedConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0CAD0243F64470093BF71 /* LastPlayedConfigurator.swift */; };
 		FBDDA97E262D9A1000868E84 /* watchConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDDA97D262D9A1000868E84 /* watchConfigurator.swift */; };
 		FBE37CD0262DC5120048C69C /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE37CCF262DC5120048C69C /* BarChartView.swift */; };
+		FBE37D34262DE5630048C69C /* RadioMainAPIFake.json in Resources */ = {isa = PBXBuildFile; fileRef = 09BD781C237E2DBB008950CD /* RadioMainAPIFake.json */; };
+		FBE37D35262DE5630048C69C /* RadioHomeAPIFake.html in Resources */ = {isa = PBXBuildFile; fileRef = 09A03D8523D11A0A00277D16 /* RadioHomeAPIFake.html */; };
+		FBE37D45262DE5630048C69C /* RadioMainAPIFake.json in Resources */ = {isa = PBXBuildFile; fileRef = 09BD781C237E2DBB008950CD /* RadioMainAPIFake.json */; };
+		FBE37D46262DE5630048C69C /* RadioHomeAPIFake.html in Resources */ = {isa = PBXBuildFile; fileRef = 09A03D8523D11A0A00277D16 /* RadioHomeAPIFake.html */; };
 		FBE7D1E024A512FA008693D6 /* RequestLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE7D1DE24A512F6008693D6 /* RequestLogicTests.swift */; };
 		FBEE69A524FE26C300D6898C /* IntentModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEE69A424FE26C300D6898C /* IntentModels.swift */; };
 		FBEE69A724FE2B9800D6898C /* AddShortcutWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEE69A624FE2B9800D6898C /* AddShortcutWrapper.swift */; };
 		FBF0D45024A542E1003B0DAA /* SongDelayLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF0D44E24A542DD003B0DAA /* SongDelayLogicTests.swift */; };
-		FBF0D45124A5558B003B0DAA /* RadioHomeAPIFake.html in Resources */ = {isa = PBXBuildFile; fileRef = 09A03D8523D11A0A00277D16 /* RadioHomeAPIFake.html */; };
 		FBFD6BAB24AFAB22005A03E4 /* QueueIntentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFD6BAA24AFAB22005A03E4 /* QueueIntentManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -758,7 +759,7 @@
 		09FDBE73237E03C3001E34DE /* PlaybackInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackInfo.swift; sourceTree = "<group>"; };
 		14D24DE44949DEC71B706C79 /* Pods-Radio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Radio.debug.xcconfig"; path = "Target Support Files/Pods-Radio/Pods-Radio.debug.xcconfig"; sourceTree = "<group>"; };
 		178835497C07F780BF2919E1 /* Pods-Radio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Radio.release.xcconfig"; path = "Target Support Files/Pods-Radio/Pods-Radio.release.xcconfig"; sourceTree = "<group>"; };
-		DDEE0E58242690A0B163C794 /* Pods_Radio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Radio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3240E919A831BC90CF9DB85 /* Pods_Radio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Radio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB01747324A3FC4200A5E64A /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		FB01747524A40D8200A5E64A /* CanRequestSongRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanRequestSongRequest.swift; sourceTree = "<group>"; };
 		FB01747724A40DAB00A5E64A /* CanRequestSongResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanRequestSongResponseModel.swift; sourceTree = "<group>"; };
@@ -915,7 +916,7 @@
 				FBCABEFA24A2864900BCD18B /* Radio_data.framework in Frameworks */,
 				097C1EDF2378719700A7A5AD /* Radio_domain.framework in Frameworks */,
 				FB242EA9243E3C6100115B49 /* Radio_cross.framework in Frameworks */,
-				0BB75862B62DBB8B36C3ECF7 /* Pods_Radio.framework in Frameworks */,
+				32C5CA2E5252C205A20DD583 /* Pods_Radio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1633,7 +1634,7 @@
 				FBCABEB124A2724D00BCD18B /* WidgetKit.framework */,
 				FBCABEB324A2724D00BCD18B /* SwiftUI.framework */,
 				FBCABF4024A2927E00BCD18B /* IntentsUI.framework */,
-				DDEE0E58242690A0B163C794 /* Pods_Radio.framework */,
+				C3240E919A831BC90CF9DB85 /* Pods_Radio.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2142,7 +2143,7 @@
 				097C1E9E2378716F00A7A5AD /* Resources */,
 				097C1EE42378719700A7A5AD /* Embed Frameworks */,
 				FBCABEC224A2724F00BCD18B /* Embed App Extensions */,
-				67E97782795E4DD82C33B9B7 /* [CP] Embed Pods Frameworks */,
+				2D485468B1DBE1F50EB47862 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2696,6 +2697,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBE37D45262DE5630048C69C /* RadioMainAPIFake.json in Resources */,
+				FBE37D46262DE5630048C69C /* RadioHomeAPIFake.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2763,6 +2766,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBE37D34262DE5630048C69C /* RadioMainAPIFake.json in Resources */,
+				FBE37D35262DE5630048C69C /* RadioHomeAPIFake.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2770,8 +2775,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB64DC7424BE4A4B00F47D8B /* RadioMainAPIFake.json in Resources */,
-				FBF0D45124A5558B003B0DAA /* RadioHomeAPIFake.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2786,6 +2789,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2D485468B1DBE1F50EB47862 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Radio/Pods-Radio-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Radio/Pods-Radio-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Radio/Pods-Radio-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		329415174EBE4922E1C46733 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2806,23 +2826,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		67E97782795E4DD82C33B9B7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Radio/Pods-Radio-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Radio/Pods-Radio-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Radio/Pods-Radio-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2867,7 +2870,6 @@
 				FB7D5D5124F9B26D00A7CB29 /* ListOptionSwitchViewModel.swift in Sources */,
 				FB66321D24464A41005C2A7D /* NewsListPresenter.swift in Sources */,
 				09F8A11423B853FC00D95643 /* SeekBarView.swift in Sources */,
-				FB7FA84D259EC5F000C47508 /* ASClient.swift in Sources */,
 				FB0C9A68245760A100320562 /* SongRequestButton.swift in Sources */,
 				FBC9140224992ECF0051DA21 /* RadioViewState.swift in Sources */,
 				FB7FA7CA259EC58300C47508 /* FSClient.swift in Sources */,

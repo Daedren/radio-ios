@@ -5,7 +5,7 @@ class RadioViewTests: XCTestCase {
     override func setUpWithError() throws {
         let app = XCUIApplication()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        setupSnapshot(app)
+//        setupSnapshot(app)
         
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
@@ -21,7 +21,7 @@ class RadioViewTests: XCTestCase {
     }
 
     func testExample() throws {
-        snapshot("01RadioView")
+//        snapshot("01RadioView")
     }
 
 }
