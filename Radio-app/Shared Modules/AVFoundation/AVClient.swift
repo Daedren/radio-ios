@@ -3,7 +3,7 @@ import Combine
 import AVFoundation
 import Radio_cross
 
-public protocol AVClientContract {
+public protocol AudioClientContract {
     func play()
     func pause()
     func stop()
@@ -12,9 +12,17 @@ public protocol AVClientContract {
     func getPlaybackRate() -> Float
     func getPublisherPlaybackRate() -> AnyPublisher<Float,Never>
     func getPlaybackPosition() -> AnyPublisher<Float,Never>
+    func getLevels() -> AnyPublisher<[Float],Never>
 }
 
-public class AVClient: NSObject, AVClientContract, LoggerWithContext {
+// Optional functions for the contract
+extension AudioClientContract {
+    public func getLevels() -> AnyPublisher<[Float],Never> {
+        return Empty().eraseToAnyPublisher()
+    }
+}
+
+public class AVClient: NSObject, AudioClientContract, LoggerWithContext {
     public var loggerInstance: LoggerWrapper
     
     

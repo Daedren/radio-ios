@@ -18,7 +18,7 @@ extension Configurator {
                               CrossConfigurator(),
                               MapperConfigurator(),
                               DataGatewayConfigurator(),
-                              SharedAppInterfaceConfigurator(),
+//                              SharedAppInterfaceConfigurator(),
                               InteractorConfigurator()
                 ], parent: nil,
                    defaultObjectScope: .container)

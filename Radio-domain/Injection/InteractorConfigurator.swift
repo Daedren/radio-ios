@@ -99,5 +99,11 @@ public class InteractorConfigurator: Assembly {
                 radioGateway: container.resolve(RadioGateway.self)!
             )
         }
+        
+        container.register(GetFourierScalesUseCase.self) { _ in
+            return GetFourierScalesInteractor(
+                avGateway: container.resolve(AVGateway.self)!
+            )
+        }
     }
 }

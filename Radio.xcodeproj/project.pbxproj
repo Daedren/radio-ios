@@ -46,6 +46,7 @@
 		09F8A11423B853FC00D95643 /* SeekBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F8A11323B853FC00D95643 /* SeekBarView.swift */; };
 		09F8EB5B23B818D700FE6E25 /* MediaPlayerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F8EB5A23B818D700FE6E25 /* MediaPlayerInterface.swift */; };
 		09F8EB6123B8244F00FE6E25 /* MediaPlayerConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F8EB6023B8244F00FE6E25 /* MediaPlayerConfigurator.swift */; };
+		0BB75862B62DBB8B36C3ECF7 /* Pods_Radio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDEE0E58242690A0B163C794 /* Pods_Radio.framework */; };
 		FB01747424A3FC4200A5E64A /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01747324A3FC4200A5E64A /* ViewExtensions.swift */; };
 		FB01747624A40D8200A5E64A /* CanRequestSongRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01747524A40D8200A5E64A /* CanRequestSongRequest.swift */; };
 		FB01747824A40DAB00A5E64A /* CanRequestSongResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01747724A40DAB00A5E64A /* CanRequestSongResponseModel.swift */; };
@@ -234,6 +235,12 @@
 		FB7D5D4F24F9B20900A7CB29 /* ListOptionSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D5D4E24F9B20900A7CB29 /* ListOptionSwitchView.swift */; };
 		FB7D5D5124F9B26D00A7CB29 /* ListOptionSwitchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D5D5024F9B26D00A7CB29 /* ListOptionSwitchViewModel.swift */; };
 		FB7FA6BF259EA25D00C47508 /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922E2C123A2FA2A00EB00C8 /* TrackViewModel.swift */; };
+		FB7FA72B259EC23E00C47508 /* GetFourierScalesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7FA72A259EC23E00C47508 /* GetFourierScalesUseCase.swift */; };
+		FB7FA72C259EC23E00C47508 /* GetFourierScalesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7FA72A259EC23E00C47508 /* GetFourierScalesUseCase.swift */; };
+		FB7FA7CA259EC58300C47508 /* FSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7FA742259EC38C00C47508 /* FSClient.swift */; };
+		FB7FA84D259EC5F000C47508 /* ASClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7FA745259EC38C00C47508 /* ASClient.swift */; };
+		FB7FA8F1259ECB0400C47508 /* FSFrequencyPlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7FA73E259EC38C00C47508 /* FSFrequencyPlotView.m */; };
+		FB7FA951259ECC6400C47508 /* FSFrequencyDomainAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7FA740259EC38C00C47508 /* FSFrequencyDomainAnalyzer.m */; };
 		FB81FD16243F9B0800058FF8 /* ActivityIndicatorWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD15243F9B0800058FF8 /* ActivityIndicatorWrapper.swift */; };
 		FB81FD20243FCF4B00058FF8 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD1F243FCF4B00058FF8 /* FavoritesPresenter.swift */; };
 		FB81FD27243FD57F00058FF8 /* FavoritesConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD26243FD57F00058FF8 /* FavoritesConfigurator.swift */; };
@@ -310,6 +317,8 @@
 		FBD0CACD243F64310093BF71 /* LastPlayedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0CACC243F64310093BF71 /* LastPlayedPresenter.swift */; };
 		FBD0CACF243F643B0093BF71 /* LastPlayedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0CACE243F643B0093BF71 /* LastPlayedView.swift */; };
 		FBD0CAD1243F64470093BF71 /* LastPlayedConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD0CAD0243F64470093BF71 /* LastPlayedConfigurator.swift */; };
+		FBDDA97E262D9A1000868E84 /* watchConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDDA97D262D9A1000868E84 /* watchConfigurator.swift */; };
+		FBE37CD0262DC5120048C69C /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE37CCF262DC5120048C69C /* BarChartView.swift */; };
 		FBE7D1E024A512FA008693D6 /* RequestLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE7D1DE24A512F6008693D6 /* RequestLogicTests.swift */; };
 		FBEE69A524FE26C300D6898C /* IntentModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEE69A424FE26C300D6898C /* IntentModels.swift */; };
 		FBEE69A724FE2B9800D6898C /* AddShortcutWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEE69A624FE2B9800D6898C /* AddShortcutWrapper.swift */; };
@@ -747,6 +756,9 @@
 		09F8EB5C23B81F2800FE6E25 /* GetPlaybackInfoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaybackInfoInteractor.swift; sourceTree = "<group>"; };
 		09F8EB6023B8244F00FE6E25 /* MediaPlayerConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayerConfigurator.swift; sourceTree = "<group>"; };
 		09FDBE73237E03C3001E34DE /* PlaybackInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackInfo.swift; sourceTree = "<group>"; };
+		14D24DE44949DEC71B706C79 /* Pods-Radio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Radio.debug.xcconfig"; path = "Target Support Files/Pods-Radio/Pods-Radio.debug.xcconfig"; sourceTree = "<group>"; };
+		178835497C07F780BF2919E1 /* Pods-Radio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Radio.release.xcconfig"; path = "Target Support Files/Pods-Radio/Pods-Radio.release.xcconfig"; sourceTree = "<group>"; };
+		DDEE0E58242690A0B163C794 /* Pods_Radio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Radio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB01747324A3FC4200A5E64A /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		FB01747524A40D8200A5E64A /* CanRequestSongRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanRequestSongRequest.swift; sourceTree = "<group>"; };
 		FB01747724A40DAB00A5E64A /* CanRequestSongResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanRequestSongResponseModel.swift; sourceTree = "<group>"; };
@@ -812,6 +824,15 @@
 		FB7D5D4E24F9B20900A7CB29 /* ListOptionSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOptionSwitchView.swift; sourceTree = "<group>"; };
 		FB7D5D5024F9B26D00A7CB29 /* ListOptionSwitchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOptionSwitchViewModel.swift; sourceTree = "<group>"; };
 		FB7E0FC0243E249500DCC043 /* Radio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Radio.entitlements; sourceTree = "<group>"; };
+		FB7FA72A259EC23E00C47508 /* GetFourierScalesUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetFourierScalesUseCase.swift; sourceTree = "<group>"; };
+		FB7FA73E259EC38C00C47508 /* FSFrequencyPlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSFrequencyPlotView.m; sourceTree = "<group>"; };
+		FB7FA73F259EC38C00C47508 /* PCMHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCMHandler.swift; sourceTree = "<group>"; };
+		FB7FA740259EC38C00C47508 /* FSFrequencyDomainAnalyzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSFrequencyDomainAnalyzer.m; sourceTree = "<group>"; };
+		FB7FA741259EC38C00C47508 /* FSFrequencyPlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSFrequencyPlotView.h; sourceTree = "<group>"; };
+		FB7FA742259EC38C00C47508 /* FSClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSClient.swift; sourceTree = "<group>"; };
+		FB7FA743259EC38C00C47508 /* FSFrequencyDomainAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSFrequencyDomainAnalyzer.h; sourceTree = "<group>"; };
+		FB7FA745259EC38C00C47508 /* ASClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASClient.swift; sourceTree = "<group>"; };
+		FB7FA76E259EC4DE00C47508 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		FB81FD11243F775E00058FF8 /* SongRequestResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRequestResponseModel.swift; sourceTree = "<group>"; };
 		FB81FD15243F9B0800058FF8 /* ActivityIndicatorWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorWrapper.swift; sourceTree = "<group>"; };
 		FB81FD17243FC7C300058FF8 /* GetFavoritesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFavoritesRequest.swift; sourceTree = "<group>"; };
@@ -866,6 +887,8 @@
 		FBD0CACC243F64310093BF71 /* LastPlayedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPlayedPresenter.swift; sourceTree = "<group>"; };
 		FBD0CACE243F643B0093BF71 /* LastPlayedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPlayedView.swift; sourceTree = "<group>"; };
 		FBD0CAD0243F64470093BF71 /* LastPlayedConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPlayedConfigurator.swift; sourceTree = "<group>"; };
+		FBDDA97D262D9A1000868E84 /* watchConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = watchConfigurator.swift; sourceTree = "<group>"; };
+		FBE37CCF262DC5120048C69C /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
 		FBE7D1DE24A512F6008693D6 /* RequestLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestLogicTests.swift; sourceTree = "<group>"; };
 		FBE7D1E224A517C2008693D6 /* RequestTimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTimeModel.swift; sourceTree = "<group>"; };
 		FBEE69A424FE26C300D6898C /* IntentModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentModels.swift; sourceTree = "<group>"; };
@@ -876,6 +899,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		044DD2D0F302993FBB049160 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		097C1E9D2378716F00A7A5AD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -885,6 +915,7 @@
 				FBCABEFA24A2864900BCD18B /* Radio_data.framework in Frameworks */,
 				097C1EDF2378719700A7A5AD /* Radio_domain.framework in Frameworks */,
 				FB242EA9243E3C6100115B49 /* Radio_cross.framework in Frameworks */,
+				0BB75862B62DBB8B36C3ECF7 /* Pods_Radio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -908,6 +939,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				097C1ED32378719700A7A5AD /* Radio_domain.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4897EBBB445A730788528FCA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1059,6 +1097,7 @@
 				FB66322424464BD4005C2A7D /* NewsEntryView.swift */,
 				FB7D5D4A24F9AE5C00A7CB29 /* ListOptionView.swift */,
 				FB7D5D4E24F9B20900A7CB29 /* ListOptionSwitchView.swift */,
+				FBE37CCF262DC5120048C69C /* BarChartView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1095,6 +1134,7 @@
 		0941B4EC237873D800994F67 /* Use Cases */ = {
 			isa = PBXGroup;
 			children = (
+				FB7FA72A259EC23E00C47508 /* GetFourierScalesUseCase.swift */,
 				0941B4ED237873E400994F67 /* PlayRadioInteractor.swift */,
 				0941B4F22378746D00994F67 /* StopRadioInteractor.swift */,
 				0990B7AC2378F56000C213B7 /* GetCurrentTrackInteractor.swift */,
@@ -1246,6 +1286,7 @@
 				FB64DC9324BE4B7000F47D8B /* Radio-appTests */,
 				097C1EA12378716F00A7A5AD /* Products */,
 				FB242EB5243E40D500115B49 /* Frameworks */,
+				AF200533378D4FF48A7656DD /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1278,6 +1319,7 @@
 		097C1EA22378716F00A7A5AD /* Radio */ = {
 			isa = PBXGroup;
 			children = (
+				FB7FA76E259EC4DE00C47508 /* BridgingHeader.h */,
 				FB7E0FC0243E249500DCC043 /* Radio.entitlements */,
 				0941B4F82378774E00994F67 /* Resources */,
 				0941B50A2378827500994F67 /* Injection */,
@@ -1487,6 +1529,7 @@
 		09F8EB5823B8188900FE6E25 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				FB7FA73C259EC38C00C47508 /* Audio Clients */,
 				FB67451E2448E76F0044ED68 /* Dependencies */,
 				096E0B96237A07EC00024572 /* RemoteControl */,
 			);
@@ -1501,6 +1544,15 @@
 				09F8A10D23B83E5500D95643 /* ArtworkHandler.swift */,
 			);
 			path = MediaPlayer;
+			sourceTree = "<group>";
+		};
+		AF200533378D4FF48A7656DD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				14D24DE44949DEC71B706C79 /* Pods-Radio.debug.xcconfig */,
+				178835497C07F780BF2919E1 /* Pods-Radio.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		FB01747024A3F44F00A5E64A /* Extensions */ = {
@@ -1581,6 +1633,7 @@
 				FBCABEB124A2724D00BCD18B /* WidgetKit.framework */,
 				FBCABEB324A2724D00BCD18B /* SwiftUI.framework */,
 				FBCABF4024A2927E00BCD18B /* IntentsUI.framework */,
+				DDEE0E58242690A0B163C794 /* Pods_Radio.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1667,6 +1720,7 @@
 			isa = PBXGroup;
 			children = (
 				FB64DCC524BE503D00F47D8B /* Configurator.swift */,
+				FBDDA97D262D9A1000868E84 /* watchConfigurator.swift */,
 			);
 			path = Injection;
 			sourceTree = "<group>";
@@ -1754,6 +1808,36 @@
 				FB30131F2559FDE9004C442C /* SiriSettingsWireframe.swift */,
 			);
 			path = SiriSettings;
+			sourceTree = "<group>";
+		};
+		FB7FA73C259EC38C00C47508 /* Audio Clients */ = {
+			isa = PBXGroup;
+			children = (
+				FB7FA73D259EC38C00C47508 /* FreeStreamer */,
+				FB7FA744259EC38C00C47508 /* AudioStreamer */,
+			);
+			path = "Audio Clients";
+			sourceTree = "<group>";
+		};
+		FB7FA73D259EC38C00C47508 /* FreeStreamer */ = {
+			isa = PBXGroup;
+			children = (
+				FB7FA741259EC38C00C47508 /* FSFrequencyPlotView.h */,
+				FB7FA73E259EC38C00C47508 /* FSFrequencyPlotView.m */,
+				FB7FA743259EC38C00C47508 /* FSFrequencyDomainAnalyzer.h */,
+				FB7FA740259EC38C00C47508 /* FSFrequencyDomainAnalyzer.m */,
+				FB7FA73F259EC38C00C47508 /* PCMHandler.swift */,
+				FB7FA742259EC38C00C47508 /* FSClient.swift */,
+			);
+			path = FreeStreamer;
+			sourceTree = "<group>";
+		};
+		FB7FA744259EC38C00C47508 /* AudioStreamer */ = {
+			isa = PBXGroup;
+			children = (
+				FB7FA745259EC38C00C47508 /* ASClient.swift */,
+			);
+			path = AudioStreamer;
 			sourceTree = "<group>";
 		};
 		FB81FD1E243FCF4200058FF8 /* FavoritesView */ = {
@@ -2052,11 +2136,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 097C1EBF2378717100A7A5AD /* Build configuration list for PBXNativeTarget "Radio" */;
 			buildPhases = (
+				329415174EBE4922E1C46733 /* [CP] Check Pods Manifest.lock */,
 				097C1E9C2378716F00A7A5AD /* Sources */,
 				097C1E9D2378716F00A7A5AD /* Frameworks */,
 				097C1E9E2378716F00A7A5AD /* Resources */,
 				097C1EE42378719700A7A5AD /* Embed Frameworks */,
 				FBCABEC224A2724F00BCD18B /* Embed App Extensions */,
+				67E97782795E4DD82C33B9B7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2108,8 +2194,6 @@
 			dependencies = (
 			);
 			name = "Radio-domain-iOS";
-			packageProductDependencies = (
-			);
 			productName = "radio-domain";
 			productReference = 097C1ECA2378719700A7A5AD /* Radio_domain.framework */;
 			productType = "com.apple.product-type.framework";
@@ -2298,6 +2382,7 @@
 			buildPhases = (
 				FB89369C24A7F3AC0014EAC3 /* Resources */,
 				FB8936C824A7F3AF0014EAC3 /* Embed Watch Content */,
+				4897EBBB445A730788528FCA /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2315,6 +2400,7 @@
 			buildPhases = (
 				FB89369F24A7F3AD0014EAC3 /* Resources */,
 				FB8936C424A7F3AF0014EAC3 /* Embed App Extensions */,
+				044DD2D0F302993FBB049160 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2345,8 +2431,6 @@
 				FB64DCB524BE4BEA00F47D8B /* PBXTargetDependency */,
 			);
 			name = "Radio-watch-extension";
-			packageProductDependencies = (
-			);
 			productName = "Radio-watch WatchKit Extension";
 			productReference = FB8936AD24A7F3AF0014EAC3 /* Radio-watch-extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
@@ -2701,6 +2785,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		329415174EBE4922E1C46733 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Radio-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		67E97782795E4DD82C33B9B7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Radio/Pods-Radio-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Radio/Pods-Radio-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Radio/Pods-Radio-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		097C1E9C2378716F00A7A5AD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -2713,6 +2839,7 @@
 				FB66321B244649DA005C2A7D /* NewsListView.swift in Sources */,
 				FB66322524464BD4005C2A7D /* NewsEntryView.swift in Sources */,
 				FB0C9A662457559900320562 /* MusicSearchConfigurator.swift in Sources */,
+				FBE37CD0262DC5120048C69C /* BarChartView.swift in Sources */,
 				09DD269223BCE71600B70C8E /* NavigationWrapper.swift in Sources */,
 				09F8A10E23B83E5500D95643 /* ArtworkHandler.swift in Sources */,
 				FBD0CAD1243F64470093BF71 /* LastPlayedConfigurator.swift in Sources */,
@@ -2721,6 +2848,7 @@
 				FBC8EC0024AFAD33008F91F6 /* QueueIntentManagerConfigurator.swift in Sources */,
 				097C1EA42378716F00A7A5AD /* AppDelegate.swift in Sources */,
 				FB11DF722497DE2E006F9BDA /* SearchViewState.swift in Sources */,
+				FB7FA951259ECC6400C47508 /* FSFrequencyDomainAnalyzer.m in Sources */,
 				098CAFB223BBD13C00B6B80E /* SearchedTrackViewModel.swift in Sources */,
 				FB66321F24464A49005C2A7D /* NewsListConfigurator.swift in Sources */,
 				FBEE69A724FE2B9800D6898C /* AddShortcutWrapper.swift in Sources */,
@@ -2732,14 +2860,17 @@
 				097C1EA62378716F00A7A5AD /* SceneDelegate.swift in Sources */,
 				097C1EA82378716F00A7A5AD /* MainTabsView.swift in Sources */,
 				FB67451D2448E72A0044ED68 /* NewsEntryViewModel.swift in Sources */,
+				FB7FA8F1259ECB0400C47508 /* FSFrequencyPlotView.m in Sources */,
 				FB81FD27243FD57F00058FF8 /* FavoritesConfigurator.swift in Sources */,
 				FB7D5D4424F9A8DD00A7CB29 /* SettingsConfigurator.swift in Sources */,
 				0941B50C2378830400994F67 /* Configurator.swift in Sources */,
 				FB7D5D5124F9B26D00A7CB29 /* ListOptionSwitchViewModel.swift in Sources */,
 				FB66321D24464A41005C2A7D /* NewsListPresenter.swift in Sources */,
 				09F8A11423B853FC00D95643 /* SeekBarView.swift in Sources */,
+				FB7FA84D259EC5F000C47508 /* ASClient.swift in Sources */,
 				FB0C9A68245760A100320562 /* SongRequestButton.swift in Sources */,
 				FBC9140224992ECF0051DA21 /* RadioViewState.swift in Sources */,
+				FB7FA7CA259EC58300C47508 /* FSClient.swift in Sources */,
 				096E0B9A237A089600024572 /* RemoteControlCommand.swift in Sources */,
 				096E0B9E237A08B500024572 /* RemoteControlError.swift in Sources */,
 				FB7D5D4B24F9AE5C00A7CB29 /* ListOptionView.swift in Sources */,
@@ -2795,6 +2926,7 @@
 				FB64DC1324BE46B300F47D8B /* GetLastPlayedInteractor.swift in Sources */,
 				FB64DC2024BE46B300F47D8B /* RequestTimeModel.swift in Sources */,
 				FB64DC1024BE46B300F47D8B /* FetchRadioDataInteractor.swift in Sources */,
+				FB7FA72B259EC23E00C47508 /* GetFourierScalesUseCase.swift in Sources */,
 				FB64DC2224BE46B300F47D8B /* GetSongQueueInteractor.swift in Sources */,
 				FB64DC0D24BE46B300F47D8B /* RadioDJ.swift in Sources */,
 				FB64DC1924BE46B300F47D8B /* GetCurrentStatusInteractor.swift in Sources */,
@@ -2856,6 +2988,7 @@
 				FB64DBF124BE46AE00F47D8B /* GetLastPlayedInteractor.swift in Sources */,
 				FB64DBFE24BE46AE00F47D8B /* RequestTimeModel.swift in Sources */,
 				FB64DBEE24BE46AE00F47D8B /* FetchRadioDataInteractor.swift in Sources */,
+				FB7FA72C259EC23E00C47508 /* GetFourierScalesUseCase.swift in Sources */,
 				FB64DC0024BE46AE00F47D8B /* GetSongQueueInteractor.swift in Sources */,
 				FB64DBEB24BE46AE00F47D8B /* RadioDJ.swift in Sources */,
 				FB64DBF724BE46AE00F47D8B /* GetCurrentStatusInteractor.swift in Sources */,
@@ -2977,6 +3110,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBDDA97E262D9A1000868E84 /* watchConfigurator.swift in Sources */,
 				FB64DBC624BE44BB00F47D8B /* RadioWatchPresenter.swift in Sources */,
 				FB64DCC624BE503D00F47D8B /* Configurator.swift in Sources */,
 				FB8936B724A7F3AF0014EAC3 /* NotificationController.swift in Sources */,
@@ -3370,6 +3504,7 @@
 		};
 		097C1EC02378717100A7A5AD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14D24DE44949DEC71B706C79 /* Pods-Radio.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -3393,6 +3528,7 @@
 				PRODUCT_MODULE_NAME = Radio;
 				PRODUCT_NAME = Radio;
 				SUPPORTS_MACCATALYST = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = Radio/BridgingHeader.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TVOS_DEPLOYMENT_TARGET = 13.0;
@@ -3402,6 +3538,7 @@
 		};
 		097C1EC12378717100A7A5AD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 178835497C07F780BF2919E1 /* Pods-Radio.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -3423,6 +3560,7 @@
 				PRODUCT_MODULE_NAME = Radio;
 				PRODUCT_NAME = Radio;
 				SUPPORTS_MACCATALYST = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = Radio/BridgingHeader.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TVOS_DEPLOYMENT_TARGET = 13.0;
@@ -3436,7 +3574,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D5C75HG392;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = RadioTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -3461,7 +3599,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D5C75HG392;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = RadioTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -3485,10 +3623,11 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = D5C75HG392;
+				DEVELOPMENT_TEAM = N34AH7UQAR;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -3518,10 +3657,11 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = D5C75HG392;
+				DEVELOPMENT_TEAM = N34AH7UQAR;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -3550,7 +3690,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D5C75HG392;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Radio-domainTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3573,7 +3713,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D5C75HG392;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Radio-domainTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3596,6 +3736,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -3630,6 +3771,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -3663,9 +3805,11 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = N34AH7UQAR;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -3693,9 +3837,11 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = N34AH7UQAR;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -3723,9 +3869,11 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = N34AH7UQAR;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -3753,9 +3901,11 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = N34AH7UQAR;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -3783,9 +3933,11 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = N34AH7UQAR;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -3813,9 +3965,11 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = N34AH7UQAR;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -3842,6 +3996,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -3860,6 +4015,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.Radio-app-iOS";
 				PRODUCT_NAME = Radio_app;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -3871,6 +4027,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -3889,6 +4046,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.Radio-app-iOS";
 				PRODUCT_NAME = Radio_app;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -3943,9 +4101,11 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = N34AH7UQAR;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -3973,9 +4133,11 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = N34AH7UQAR;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -4051,6 +4213,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Radio-watch-extension/Preview Content\"";
+				DEVELOPMENT_TEAM = N34AH7UQAR;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Radio-watch-extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -4075,6 +4238,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Radio-watch-extension/Preview Content\"";
+				DEVELOPMENT_TEAM = N34AH7UQAR;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Radio-watch-extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -4100,6 +4264,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N34AH7UQAR;
 				IBSC_MODULE = Radio_watch_WatchKit_Extension;
 				INFOPLIST_FILE = "Radio-watch-app/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.Radio-watch.watchkitapp";
@@ -4120,6 +4285,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N34AH7UQAR;
 				IBSC_MODULE = Radio_watch_WatchKit_Extension;
 				INFOPLIST_FILE = "Radio-watch-app/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.Radio-watch.watchkitapp";
@@ -4139,6 +4305,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N34AH7UQAR;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.Radio-watch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -4153,6 +4320,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N34AH7UQAR;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.Radio-watch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -4217,6 +4385,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -4233,7 +4402,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "eu.atlantico.Radio-data-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.Radio-data-iOS";
 				PRODUCT_NAME = Radio_data;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -4250,6 +4419,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -4266,7 +4436,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "eu.atlantico.Radio-data-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.Radio-data-iOS";
 				PRODUCT_NAME = Radio_data;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;

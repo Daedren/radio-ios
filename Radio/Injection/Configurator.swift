@@ -19,7 +19,7 @@ extension Configurator {
                               iOSInterfaceConfigurator(),
                               MapperConfigurator(),
                               DataGatewayConfigurator(),
-                              SharedAppInterfaceConfigurator(),
+//                              SharedAppInterfaceConfigurator(),
                               InteractorConfigurator()
                 ], parent: nil,
                    defaultObjectScope: .container)

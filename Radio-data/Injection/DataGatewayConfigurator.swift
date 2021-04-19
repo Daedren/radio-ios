@@ -16,7 +16,7 @@ public class DataGatewayConfigurator: Assembly {
         }
         
         container.register(NetworkClient.self) { _ in
-            return URLSessionClient(logger: container.resolve(LoggerWrapper.self)!)
+            return URLSessionClient(logger: container.resolve(LoggerWrapper.self)!) 
         }
         container.register(RadioRequestHandler.self) { _ in
             return RadioRequestHandler(baseSchemeAndAuthority: URL(string: "https://r-a-d.io/")!)

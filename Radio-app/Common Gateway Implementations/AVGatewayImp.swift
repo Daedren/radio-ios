@@ -7,14 +7,14 @@ import AVFoundation
 
 public class AVGatewayImp: AVGateway {
     
-    var audioClient: AVClientContract
+    var audioClient: AudioClientContract
     
     var classDisposeBag = Set<AnyCancellable>()
     
     var categoryOptions: AVAudioSession.CategoryOptions
     
-    init(logger: LoggerWrapper) {
-        self.audioClient = AVClient(logger: logger)
+    public init(logger: LoggerWrapper, client: AudioClientContract) {
+        self.audioClient = client
         
         #if os(iOS)
             self.categoryOptions = [.allowAirPlay, .allowBluetooth, .allowBluetoothA2DP]
@@ -67,6 +67,10 @@ public class AVGatewayImp: AVGateway {
         return self.audioClient.getPublisherPlaybackRate()
             .map{ return $0 > 0.0 }
             .eraseToAnyPublisher()
+    }
+    
+    public func getScales() -> AnyPublisher<[Float], Never> {
+        return audioClient.getLevels()
     }
     
 }

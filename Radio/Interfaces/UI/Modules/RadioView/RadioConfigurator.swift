@@ -29,7 +29,8 @@ class RadioConfigurator: Configurator {
                     queue: self.assembler.resolver.resolve(GetSongQueueInteractor.self)!,
                     lastPlayed: self.assembler.resolver.resolve(GetLastPlayedInteractor.self)!,
                     dj: self.assembler.resolver.resolve(GetDJInteractor.self)!,
-                    status: self.assembler.resolver.resolve(GetCurrentStatusInteractor.self)!
+                    status: self.assembler.resolver.resolve(GetCurrentStatusInteractor.self)!,
+                    getScales: self.assembler.resolver.resolve(GetFourierScalesUseCase.self)!
                 )
                 return presenter
             }

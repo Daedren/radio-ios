@@ -8,7 +8,7 @@ public protocol PlayRadioUseCase {
 
 public class PlayRadioInteractor: PlayRadioUseCase {
     var avGateway: AVGateway
-    var radioUrl: URL = URL(string: "https://r-a-d.io/assets/main.mp3.m3u")!
+    var radioUrl: URL = URL(string: "https://stream.r-a-d.io/main.mp3")!
 //    var radioUrl: URL = URL(string: "https://r-a-d.io/main.mp3")!
     
     public init(avGateway: AVGateway) {

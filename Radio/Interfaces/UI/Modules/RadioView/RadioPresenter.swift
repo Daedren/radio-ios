@@ -38,6 +38,7 @@ class RadioPresenterImp: RadioPresenter {
     var lastPlayedInteractor: GetLastPlayedInteractor
     var djInteractor: GetDJInteractor
     var statusInteractor: GetCurrentStatusInteractor
+    var getScales: GetFourierScalesUseCase
     
     var isPlaying = false
     private var disposeBag = Set<AnyCancellable>()
@@ -53,7 +54,8 @@ class RadioPresenterImp: RadioPresenter {
         queue: GetSongQueueInteractor,
         lastPlayed: GetLastPlayedInteractor,
         dj: GetDJInteractor,
-        status: GetCurrentStatusInteractor
+        status: GetCurrentStatusInteractor,
+        getScales: GetFourierScalesUseCase
     ) {
         self.playInteractor = play
         self.pauseInteractor = pause
@@ -63,19 +65,20 @@ class RadioPresenterImp: RadioPresenter {
         self.djInteractor = dj
         self.statusInteractor = status
         self.isPlayingInteractor = isPlaying
+        self.getScales = getScales
         
-
-//        NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)
-//            .sink(receiveValue: { [weak self] _ in
-//                self?.disposeBag = Set<AnyCancellable>()
-//            })
-//            .store(in: &appDisposeBag)
-//
-//        NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)
-//            .sink(receiveValue: { [weak self] _ in
-//                self?.startListeners()
-//            })
-//            .store(in: &appDisposeBag)
+        
+        //        NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)
+        //            .sink(receiveValue: { [weak self] _ in
+        //                self?.disposeBag = Set<AnyCancellable>()
+        //            })
+        //            .store(in: &appDisposeBag)
+        //
+        //        NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)
+        //            .sink(receiveValue: { [weak self] _ in
+        //                self?.startListeners()
+        //            })
+        //            .store(in: &appDisposeBag)
     }
     
     func start(actions: AnyPublisher<RadioViewAction, Never>) {
@@ -83,7 +86,7 @@ class RadioPresenterImp: RadioPresenter {
         
         let actions = actions
             .flatMap(handleAction)
-            
+        
         actions.merge(with: listeners)
             .scan(RadioViewState.initial, RadioViewState.reduce(state:mutation:))
             .receive(on: DispatchQueue.main)
@@ -101,13 +104,14 @@ class RadioPresenterImp: RadioPresenter {
     }
     
     func startListeners() -> AnyPublisher<RadioViewState.Mutation, Never> {
-        Publishers.Merge6(
-        self.startSongQueueListener(),
-        self.startLastPlayedListener(),
-        self.startDJListener(),
-        self.startStatusListener(),
-        self.startCurrentTrackListener(),
-        self.startIsPlayingListener()
+        Publishers.Merge7(
+            self.startSongQueueListener(),
+            self.startLastPlayedListener(),
+            self.startDJListener(),
+            self.startStatusListener(),
+            self.startCurrentTrackListener(),
+            self.startIsPlayingListener(),
+            self.startScalesListener()
         )
         .eraseToAnyPublisher()
     }
@@ -120,7 +124,7 @@ class RadioPresenterImp: RadioPresenter {
             self.playInteractor.execute()
         }
         return Empty<RadioViewState.Mutation, Never>()
-        .eraseToAnyPublisher()
+            .eraseToAnyPublisher()
     }
     
     func startCurrentTrackListener() -> AnyPublisher<RadioViewState.Mutation, Never> {
@@ -129,9 +133,9 @@ class RadioPresenterImp: RadioPresenter {
             .map { result -> RadioViewState.Mutation in
                 let track = CurrentTrackViewModel(base: result)
                 return .currentTrack(track)
-        }
-        .receive(on: DispatchQueue.global(qos: .userInteractive))
-        .eraseToAnyPublisher()
+            }
+            .receive(on: DispatchQueue.global(qos: .userInteractive))
+            .eraseToAnyPublisher()
     }
     
     private func startSongQueueListener() -> AnyPublisher<RadioViewState.Mutation, Never> {
@@ -140,12 +144,12 @@ class RadioPresenterImp: RadioPresenter {
             .map { tracks -> RadioViewState.Mutation in
                 let models: [TrackViewModel] = tracks.map{ return TrackViewModel(base: $0) }
                 return .queuedTracks(models)
-        }
-        .catch{ err in
-            return Just(RadioViewState.Mutation.error(err.localizedDescription))
-        }
-        .receive(on: DispatchQueue.global(qos: .default))
-        .eraseToAnyPublisher()
+            }
+            .catch{ err in
+                return Just(RadioViewState.Mutation.error(err.localizedDescription))
+            }
+            .receive(on: DispatchQueue.global(qos: .default))
+            .eraseToAnyPublisher()
     }
     
     private func startLastPlayedListener() -> AnyPublisher<RadioViewState.Mutation, Never> {
@@ -154,12 +158,12 @@ class RadioPresenterImp: RadioPresenter {
             .map { tracks -> RadioViewState.Mutation in
                 let models: [TrackViewModel] = tracks.map{ return TrackViewModel(base: $0) }
                 return .lastPlayedTracks(models)
-        }
-        .catch{ err in
-            return Just(RadioViewState.Mutation.error(err.localizedDescription))
-        }
-        .receive(on: DispatchQueue.global(qos: .default))
-        .eraseToAnyPublisher()
+            }
+            .catch{ err in
+                return Just(RadioViewState.Mutation.error(err.localizedDescription))
+            }
+            .receive(on: DispatchQueue.global(qos: .default))
+            .eraseToAnyPublisher()
     }
     
     private func startDJListener() -> AnyPublisher<RadioViewState.Mutation, Never> {
@@ -168,12 +172,12 @@ class RadioPresenterImp: RadioPresenter {
             .map { domainDJ -> RadioViewState.Mutation in
                 let djModel = DJViewModel(base: domainDJ)
                 return .dj(djModel)
-        }
-        .catch{ err in
-            return Just(RadioViewState.Mutation.error(err.localizedDescription))
-        }
-        .receive(on: DispatchQueue.global(qos: .default))
-        .eraseToAnyPublisher()
+            }
+            .catch{ err in
+                return Just(RadioViewState.Mutation.error(err.localizedDescription))
+            }
+            .receive(on: DispatchQueue.global(qos: .default))
+            .eraseToAnyPublisher()
     }
     
     private func startStatusListener() -> AnyPublisher<RadioViewState.Mutation, Never> {
@@ -184,12 +188,12 @@ class RadioPresenterImp: RadioPresenter {
                 return .status(thread: status.thread,
                                listeners: status.listeners,
                                acceptingRequests: status.acceptingRequests)
-        }
-        .catch{ err in
-            return Just(RadioViewState.Mutation.error(err.localizedDescription))
-        }
-        .receive(on: DispatchQueue.global(qos: .default))
-        .eraseToAnyPublisher()
+            }
+            .catch{ err in
+                return Just(RadioViewState.Mutation.error(err.localizedDescription))
+            }
+            .receive(on: DispatchQueue.global(qos: .default))
+            .eraseToAnyPublisher()
     }
     
     private func startIsPlayingListener() -> AnyPublisher<RadioViewState.Mutation, Never> {
@@ -200,8 +204,19 @@ class RadioPresenterImp: RadioPresenter {
             })
             .map{ result -> RadioViewState.Mutation in
                 .isPlaying(result)
-        }
-        .receive(on: DispatchQueue.global(qos: .userInitiated))
-        .eraseToAnyPublisher()
+            }
+            .receive(on: DispatchQueue.global(qos: .userInitiated))
+            .eraseToAnyPublisher()
+    }
+    
+    private func startScalesListener() -> AnyPublisher<RadioViewState.Mutation, Never> {
+        self.getScales
+            .execute()
+            .map{ result -> RadioViewState.Mutation in
+                .scales(BarChartViewModel(id: result.hashValue,
+                                          values: result))
+            }
+            .receive(on: DispatchQueue.global(qos: .userInitiated))
+            .eraseToAnyPublisher()
     }
 }

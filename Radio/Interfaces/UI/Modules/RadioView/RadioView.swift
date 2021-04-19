@@ -63,6 +63,10 @@ struct RadioView<P: RadioPresenter>: View {
                     else if presenter.state.thread != "" {
                         WebView(html: presenter.state.thread)
                     }
+//                    if let scales = self.presenter.state.scales {
+//                        BarChartView(viewModel: scales)
+//                    }
+//                    MTKViewWrapper(scales: presenter.scales)
                 }
             }
         }
