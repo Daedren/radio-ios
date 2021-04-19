@@ -2,7 +2,8 @@ import SwiftUI
 
 struct NewsEntryView: View {
     var viewModel: NewsEntryViewModel
-    @State private var textHeight: CGFloat = .zero
+    // Dynamic attributed string size
+    @State private var textSize: CGSize = .zero
     
     var body: some View {
             VStack {
@@ -18,9 +19,10 @@ struct NewsEntryView: View {
                 Text(self.viewModel.createdAt.description)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.subheadline)
-                TextWithAttributedString(height: self.$textHeight,
+                TextWithAttributedString(size: self.$textSize,
                                          attributedString: self.viewModel.body.value)
-            }
+                    .frame(width: nil, height: textSize.height)
+        }
     }
 }
 

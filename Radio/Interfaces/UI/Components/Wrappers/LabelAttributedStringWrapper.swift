@@ -2,7 +2,7 @@ import UIKit
 import SwiftUI
 
 struct TextWithAttributedString: UIViewRepresentable {
-    @Binding var height: CGFloat
+    @Binding var size: CGSize
     var attributedString:NSMutableAttributedString
     
     func makeUIView(context: Context) -> UILabel {
@@ -19,7 +19,7 @@ struct TextWithAttributedString: UIViewRepresentable {
         uiView.attributedText = attributedString
         
         DispatchQueue.main.async {
-            self.height = uiView.sizeThatFits(UIScreen.main.bounds.size).height
+            self.size = uiView.sizeThatFits(uiView.superview?.bounds.size ?? .zero)
         }
 
     }
