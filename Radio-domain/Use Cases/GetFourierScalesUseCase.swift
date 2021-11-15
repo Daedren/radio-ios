@@ -6,9 +6,9 @@ public protocol GetFourierScalesUseCase {
 }
 
 public class GetFourierScalesInteractor: GetFourierScalesUseCase {
-    let avGateway: AVGateway
+    let avGateway: MusicGateway
 
-    public init(avGateway: AVGateway) {
+    public init(avGateway: MusicGateway) {
         self.avGateway = avGateway
     }
     

@@ -5,7 +5,7 @@ import Radio_domain
 import Radio_cross
 import AVFoundation
 
-public class AVGatewayImp: AVGateway {
+public class MusicRepository: MusicGateway {
     
     var audioClient: AudioClientContract
     

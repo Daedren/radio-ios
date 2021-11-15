@@ -6,9 +6,9 @@ public protocol StopRadioUseCase {
 }
 
 public class StopRadioInteractor: StopRadioUseCase {
-    var avGateway: AVGateway
+    var avGateway: MusicGateway
     
-    public init(avGateway: AVGateway) {
+    public init(avGateway: MusicGateway) {
         self.avGateway = avGateway
     }
     

@@ -5,9 +5,9 @@ public class GetPlaybackInfoInteractor: Interactor {
     public typealias Input = Void
     public typealias Output = AnyPublisher<PlaybackInfo,Never>
 
-    var avGateway: AVGateway?
+    var avGateway: MusicGateway?
     
-    public init(avGateway: AVGateway? = nil) {
+    public init(avGateway: MusicGateway? = nil) {
         self.avGateway = avGateway
     }
     

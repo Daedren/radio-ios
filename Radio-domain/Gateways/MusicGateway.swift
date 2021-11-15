@@ -2,7 +2,7 @@
 import Foundation
 import Combine
 
-public protocol AVGateway {
+public protocol MusicGateway {
     func play()
     func pause()
     func stop()

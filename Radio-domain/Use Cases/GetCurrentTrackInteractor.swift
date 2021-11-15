@@ -6,12 +6,12 @@ public protocol GetCurrentTrackUseCase {
 }
 
 public class GetCurrentTrackInteractor: GetCurrentTrackUseCase {
-    var avGateway: AVGateway?
+    var avGateway: MusicGateway?
     var radioGateway: RadioGateway
     
     var endSongDisposeBag = Set<AnyCancellable>()
     
-    public init(avGateway: AVGateway?, radioGateway: RadioGateway) {
+    public init(avGateway: MusicGateway?, radioGateway: RadioGateway) {
         self.avGateway = avGateway
         self.radioGateway = radioGateway
     }

@@ -14,17 +14,17 @@ public class InteractorConfigurator: Assembly {
         
         container.register(PlayRadioUseCase.self) { _ in
             return PlayRadioInteractor(
-                avGateway: container.resolve(AVGateway.self)!
+                avGateway: container.resolve(MusicGateway.self)!
             )
         }
         container.register(StopRadioUseCase.self) { _ in
             return StopRadioInteractor(
-                avGateway: container.resolve(AVGateway.self)!
+                avGateway: container.resolve(MusicGateway.self)!
             )
         }
         container.register(GetCurrentTrackUseCase.self) { _ in
             return GetCurrentTrackInteractor(
-                avGateway: container.resolve(AVGateway.self),
+                avGateway: container.resolve(MusicGateway.self),
                 radioGateway: container.resolve(RadioGateway.self)!
             )
         }
@@ -42,7 +42,7 @@ public class InteractorConfigurator: Assembly {
         
         container.register(IsPlayingUseCase.self) { _ in
             return IsPlayingInteractor(
-                avGateway: container.resolve(AVGateway.self)!
+                avGateway: container.resolve(MusicGateway.self)!
             )
         }
         
@@ -58,7 +58,7 @@ public class InteractorConfigurator: Assembly {
         }
         container.register(GetPlaybackInfoInteractor.self) { _ in
             return GetPlaybackInfoInteractor(
-                avGateway: container.resolve(AVGateway.self)!
+                avGateway: container.resolve(MusicGateway.self)!
             )
         }
         container.register(SearchForTermInteractor.self) { _ in
@@ -102,7 +102,7 @@ public class InteractorConfigurator: Assembly {
         
         container.register(GetFourierScalesUseCase.self) { _ in
             return GetFourierScalesInteractor(
-                avGateway: container.resolve(AVGateway.self)!
+                avGateway: container.resolve(MusicGateway.self)!
             )
         }
     }

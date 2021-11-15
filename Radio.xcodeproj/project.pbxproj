@@ -47,6 +47,10 @@
 		09F8EB5B23B818D700FE6E25 /* MediaPlayerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F8EB5A23B818D700FE6E25 /* MediaPlayerInterface.swift */; };
 		09F8EB6123B8244F00FE6E25 /* MediaPlayerConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F8EB6023B8244F00FE6E25 /* MediaPlayerConfigurator.swift */; };
 		32C5CA2E5252C205A20DD583 /* Pods_Radio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3240E919A831BC90CF9DB85 /* Pods_Radio.framework */; };
+		3B453B3E273F2C66007F38B7 /* SleepRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B453B38273F211C007F38B7 /* SleepRepository.swift */; };
+		3B453B3F273F2C66007F38B7 /* SleepRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B453B38273F211C007F38B7 /* SleepRepository.swift */; };
+		3B7E0787270D8B1F00448BEF /* ToggleSleepTimerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E0786270D8B1F00448BEF /* ToggleSleepTimerUseCase.swift */; };
+		3B7E0788270D8B1F00448BEF /* ToggleSleepTimerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E0786270D8B1F00448BEF /* ToggleSleepTimerUseCase.swift */; };
 		FB01747424A3FC4200A5E64A /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01747324A3FC4200A5E64A /* ViewExtensions.swift */; };
 		FB01747624A40D8200A5E64A /* CanRequestSongRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01747524A40D8200A5E64A /* CanRequestSongRequest.swift */; };
 		FB01747824A40DAB00A5E64A /* CanRequestSongResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01747724A40DAB00A5E64A /* CanRequestSongResponseModel.swift */; };
@@ -74,7 +78,7 @@
 		FB64DBEA24BE46AE00F47D8B /* radio_domain.h in Headers */ = {isa = PBXBuildFile; fileRef = 097C1ECC2378719700A7A5AD /* radio_domain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB64DBEB24BE46AE00F47D8B /* RadioDJ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09560817237F4D24008206A1 /* RadioDJ.swift */; };
 		FB64DBEC24BE46AE00F47D8B /* GatewayError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941B4F42378768900994F67 /* GatewayError.swift */; };
-		FB64DBED24BE46AE00F47D8B /* AVGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941B4F02378744200994F67 /* AVGateway.swift */; };
+		FB64DBED24BE46AE00F47D8B /* MusicGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941B4F02378744200994F67 /* MusicGateway.swift */; };
 		FB64DBEE24BE46AE00F47D8B /* FetchRadioDataInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB69E8CF24A3C16E004921E4 /* FetchRadioDataInteractor.swift */; };
 		FB64DBEF24BE46AE00F47D8B /* SearchForTermInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DD268E23BCE0E400B70C8E /* SearchForTermInteractor.swift */; };
 		FB64DBF024BE46AE00F47D8B /* GetFavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD23243FD3AE00058FF8 /* GetFavoritesInteractor.swift */; };
@@ -106,7 +110,7 @@
 		FB64DC0C24BE46B300F47D8B /* radio_domain.h in Headers */ = {isa = PBXBuildFile; fileRef = 097C1ECC2378719700A7A5AD /* radio_domain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB64DC0D24BE46B300F47D8B /* RadioDJ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09560817237F4D24008206A1 /* RadioDJ.swift */; };
 		FB64DC0E24BE46B300F47D8B /* GatewayError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941B4F42378768900994F67 /* GatewayError.swift */; };
-		FB64DC0F24BE46B300F47D8B /* AVGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941B4F02378744200994F67 /* AVGateway.swift */; };
+		FB64DC0F24BE46B300F47D8B /* MusicGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941B4F02378744200994F67 /* MusicGateway.swift */; };
 		FB64DC1024BE46B300F47D8B /* FetchRadioDataInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB69E8CF24A3C16E004921E4 /* FetchRadioDataInteractor.swift */; };
 		FB64DC1124BE46B300F47D8B /* SearchForTermInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DD268E23BCE0E400B70C8E /* SearchForTermInteractor.swift */; };
 		FB64DC1224BE46B300F47D8B /* GetFavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD23243FD3AE00058FF8 /* GetFavoritesInteractor.swift */; };
@@ -190,8 +194,8 @@
 		FB64DCC124BE4CDB00F47D8B /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922E2C123A2FA2A00EB00C8 /* TrackViewModel.swift */; };
 		FB64DCC324BE4FFA00F47D8B /* RadioWatchConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB64DCC224BE4FFA00F47D8B /* RadioWatchConfigurator.swift */; };
 		FB64DCC624BE503D00F47D8B /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB64DCC524BE503D00F47D8B /* Configurator.swift */; };
-		FB64DCC924BE508300F47D8B /* AVGatewayImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941B4FA2378779400994F67 /* AVGatewayImp.swift */; };
-		FB64DCCA24BE508400F47D8B /* AVGatewayImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941B4FA2378779400994F67 /* AVGatewayImp.swift */; };
+		FB64DCC924BE508300F47D8B /* MusicRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941B4FA2378779400994F67 /* MusicRepository.swift */; };
+		FB64DCCA24BE508400F47D8B /* MusicRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941B4FA2378779400994F67 /* MusicRepository.swift */; };
 		FB64DCCD24BE50A400F47D8B /* SharedAppInterfaceConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB64DCCB24BE509000F47D8B /* SharedAppInterfaceConfigurator.swift */; };
 		FB64DCCE24BE50A500F47D8B /* SharedAppInterfaceConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB64DCCB24BE509000F47D8B /* SharedAppInterfaceConfigurator.swift */; };
 		FB64DCCF24BE513E00F47D8B /* AVClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0990B7AE2378F8E100C213B7 /* AVClient.swift */; };
@@ -678,10 +682,10 @@
 		093E6A6F23B7A1C200578C99 /* GetDJInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDJInteractor.swift; sourceTree = "<group>"; };
 		093E6A7223B7AED600578C99 /* GetCurrentStatusInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCurrentStatusInteractor.swift; sourceTree = "<group>"; };
 		0941B4ED237873E400994F67 /* PlayRadioInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRadioInteractor.swift; sourceTree = "<group>"; };
-		0941B4F02378744200994F67 /* AVGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVGateway.swift; sourceTree = "<group>"; };
+		0941B4F02378744200994F67 /* MusicGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicGateway.swift; sourceTree = "<group>"; };
 		0941B4F22378746D00994F67 /* StopRadioInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopRadioInteractor.swift; sourceTree = "<group>"; };
 		0941B4F42378768900994F67 /* GatewayError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayError.swift; sourceTree = "<group>"; };
-		0941B4FA2378779400994F67 /* AVGatewayImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVGatewayImp.swift; sourceTree = "<group>"; };
+		0941B4FA2378779400994F67 /* MusicRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRepository.swift; sourceTree = "<group>"; };
 		0941B4FE23787D4A00994F67 /* RadioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioView.swift; sourceTree = "<group>"; };
 		0941B50323787EC400994F67 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0941B5052378800C00994F67 /* RadioPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPresenter.swift; sourceTree = "<group>"; };
@@ -759,6 +763,8 @@
 		09FDBE73237E03C3001E34DE /* PlaybackInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackInfo.swift; sourceTree = "<group>"; };
 		14D24DE44949DEC71B706C79 /* Pods-Radio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Radio.debug.xcconfig"; path = "Target Support Files/Pods-Radio/Pods-Radio.debug.xcconfig"; sourceTree = "<group>"; };
 		178835497C07F780BF2919E1 /* Pods-Radio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Radio.release.xcconfig"; path = "Target Support Files/Pods-Radio/Pods-Radio.release.xcconfig"; sourceTree = "<group>"; };
+		3B453B38273F211C007F38B7 /* SleepRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepRepository.swift; sourceTree = "<group>"; };
+		3B7E0786270D8B1F00448BEF /* ToggleSleepTimerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleSleepTimerUseCase.swift; sourceTree = "<group>"; };
 		C3240E919A831BC90CF9DB85 /* Pods_Radio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Radio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB01747324A3FC4200A5E64A /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		FB01747524A40D8200A5E64A /* CanRequestSongRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanRequestSongRequest.swift; sourceTree = "<group>"; };
@@ -1151,6 +1157,7 @@
 				FB0F62FA244A0C3200532FE8 /* IsPlayingUseCase.swift */,
 				FB69E8CF24A3C16E004921E4 /* FetchRadioDataInteractor.swift */,
 				FB01747D24A4124900A5E64A /* CanRequestSongInteractor.swift */,
+				3B7E0786270D8B1F00448BEF /* ToggleSleepTimerUseCase.swift */,
 			);
 			path = "Use Cases";
 			sourceTree = "<group>";
@@ -1158,7 +1165,7 @@
 		0941B4EF2378742300994F67 /* Gateways */ = {
 			isa = PBXGroup;
 			children = (
-				0941B4F02378744200994F67 /* AVGateway.swift */,
+				0941B4F02378744200994F67 /* MusicGateway.swift */,
 				0956081B237F52BA008206A1 /* RadioGateway.swift */,
 			);
 			path = Gateways;
@@ -1519,12 +1526,12 @@
 			path = FakeNetwork;
 			sourceTree = "<group>";
 		};
-		09F8EB5723B8186000FE6E25 /* Gateway Implementations */ = {
+		09F8EB5723B8186000FE6E25 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
 				0956081E237F5413008206A1 /* RadioGatewayImp.swift */,
 			);
-			path = "Gateway Implementations";
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		09F8EB5823B8188900FE6E25 /* Modules */ = {
@@ -1663,8 +1670,8 @@
 			isa = PBXGroup;
 			children = (
 				FB64DCB724BE4C3400F47D8B /* Shared UI */,
-				FB64DCB624BE4C2200F47D8B /* Shared Modules */,
-				FBCABF1924A286DE00BCD18B /* Common Gateway Implementations */,
+				FB64DCB624BE4C2200F47D8B /* Shared Interfaces */,
+				FBCABF1924A286DE00BCD18B /* Shared Repositories */,
 				FB64DC8724BE4B7000F47D8B /* Radio_app.h */,
 				FB64DC8824BE4B7000F47D8B /* Info.plist */,
 				FB64DCCB24BE509000F47D8B /* SharedAppInterfaceConfigurator.swift */,
@@ -1681,12 +1688,12 @@
 			path = "Radio-appTests";
 			sourceTree = "<group>";
 		};
-		FB64DCB624BE4C2200F47D8B /* Shared Modules */ = {
+		FB64DCB624BE4C2200F47D8B /* Shared Interfaces */ = {
 			isa = PBXGroup;
 			children = (
 				0941B4F92378778B00994F67 /* AVFoundation */,
 			);
-			path = "Shared Modules";
+			path = "Shared Interfaces";
 			sourceTree = "<group>";
 		};
 		FB64DCB724BE4C3400F47D8B /* Shared UI */ = {
@@ -1985,7 +1992,7 @@
 			children = (
 				FB89368C24A7E5FE0014EAC3 /* Injection */,
 				099FFB7623947AD2005E1AD6 /* Mappers */,
-				09F8EB5723B8186000FE6E25 /* Gateway Implementations */,
+				09F8EB5723B8186000FE6E25 /* Repositories */,
 				09BD780D237E2BD2008950CD /* Network */,
 				FBCABEE724A2864800BCD18B /* Radio_data.h */,
 				FBCABEE824A2864800BCD18B /* Info.plist */,
@@ -2003,12 +2010,13 @@
 			path = "Radio-dataTests";
 			sourceTree = "<group>";
 		};
-		FBCABF1924A286DE00BCD18B /* Common Gateway Implementations */ = {
+		FBCABF1924A286DE00BCD18B /* Shared Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				0941B4FA2378779400994F67 /* AVGatewayImp.swift */,
+				0941B4FA2378779400994F67 /* MusicRepository.swift */,
+				3B453B38273F211C007F38B7 /* SleepRepository.swift */,
 			);
-			path = "Common Gateway Implementations";
+			path = "Shared Repositories";
 			sourceTree = "<group>";
 		};
 		FBCABF3724A2927E00BCD18B /* Radio-intent */ = {
@@ -2940,7 +2948,8 @@
 				FB64DC1824BE46B300F47D8B /* QueuedTrack.swift in Sources */,
 				FB64DC1F24BE46B300F47D8B /* GetDJInteractor.swift in Sources */,
 				FB89367F24A7E3D40014EAC3 /* InteractorConfigurator.swift in Sources */,
-				FB64DC0F24BE46B300F47D8B /* AVGateway.swift in Sources */,
+				FB64DC0F24BE46B300F47D8B /* MusicGateway.swift in Sources */,
+				3B7E0787270D8B1F00448BEF /* ToggleSleepTimerUseCase.swift in Sources */,
 				FB64DC1A24BE46B300F47D8B /* IsPlayingUseCase.swift in Sources */,
 				FB64DC1E24BE46B300F47D8B /* RequestSongInteractor.swift in Sources */,
 				FB64DC0E24BE46B300F47D8B /* GatewayError.swift in Sources */,
@@ -3002,7 +3011,8 @@
 				FB64DBF624BE46AE00F47D8B /* QueuedTrack.swift in Sources */,
 				FB64DBFD24BE46AE00F47D8B /* GetDJInteractor.swift in Sources */,
 				FB64DBE724BE469D00F47D8B /* InteractorConfigurator.swift in Sources */,
-				FB64DBED24BE46AE00F47D8B /* AVGateway.swift in Sources */,
+				FB64DBED24BE46AE00F47D8B /* MusicGateway.swift in Sources */,
+				3B7E0788270D8B1F00448BEF /* ToggleSleepTimerUseCase.swift in Sources */,
 				FB64DBF824BE46AE00F47D8B /* IsPlayingUseCase.swift in Sources */,
 				FB64DBFC24BE46AE00F47D8B /* RequestSongInteractor.swift in Sources */,
 				FB64DBEC24BE46AE00F47D8B /* GatewayError.swift in Sources */,
@@ -3066,12 +3076,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB64DCC124BE4CDB00F47D8B /* TrackViewModel.swift in Sources */,
+				3B453B3E273F2C66007F38B7 /* SleepRepository.swift in Sources */,
 				FB64DCD024BE513E00F47D8B /* AVClient.swift in Sources */,
 				FB64DCBF24BE4CDB00F47D8B /* CurrentTrackViewModel.swift in Sources */,
 				FB64DCC024BE4CDB00F47D8B /* DJViewModel.swift in Sources */,
 				FB64DCCD24BE50A400F47D8B /* SharedAppInterfaceConfigurator.swift in Sources */,
 				FB64DCB924BE4C4B00F47D8B /* ProgressBar.swift in Sources */,
-				FB64DCCA24BE508400F47D8B /* AVGatewayImp.swift in Sources */,
+				FB64DCCA24BE508400F47D8B /* MusicRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3094,7 +3105,8 @@
 				FB64DCBD24BE4CDB00F47D8B /* DJViewModel.swift in Sources */,
 				FB64DCCE24BE50A500F47D8B /* SharedAppInterfaceConfigurator.swift in Sources */,
 				FB64DCBA24BE4C4B00F47D8B /* ProgressBar.swift in Sources */,
-				FB64DCC924BE508300F47D8B /* AVGatewayImp.swift in Sources */,
+				3B453B3F273F2C66007F38B7 /* SleepRepository.swift in Sources */,
+				FB64DCC924BE508300F47D8B /* MusicRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

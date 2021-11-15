@@ -6,9 +6,9 @@ public protocol IsPlayingUseCase {
 }
 
 public class IsPlayingInteractor: IsPlayingUseCase {
-    var avGateway: AVGateway
+    var avGateway: MusicGateway
     
-    public init(avGateway: AVGateway) {
+    public init(avGateway: MusicGateway) {
         self.avGateway = avGateway
     }
 
