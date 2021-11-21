@@ -4,14 +4,14 @@ public struct SongList: View {
     var content: [TrackViewModel]
     var recycling = true
     var title: LocalizedStringKey
-    var tableColor: UIColor
-    var topBarColor: UIColor
+    var tableColor: Color
+    var topBarColor: Color
 
     
     public init(content: [TrackViewModel],
          title: LocalizedStringKey = "",
-         topBarColor: UIColor = .systemBackground,
-         tableColor: UIColor = .secondarySystemBackground,
+         topBarColor: Color = RadioColors.systemBackground,
+         tableColor: Color = RadioColors.secondarySystemBackground,
          recycling: Bool = true) {
         UITableView.appearance().tableFooterView = UIView()
 //        UITableView.appearance().backgroundColor = .clear
@@ -34,11 +34,11 @@ public struct SongList: View {
                     }
                     .padding(.leading, 10.0)
                     .frame(height: 100.0)
-                    .background(Color(topBarColor))
+                    .background(topBarColor)
                     
                     songList
                     .navigationBarTitle(title, displayMode: .inline)
-                        .background(Color(.systemBackground))
+                    .background(RadioColors.systemBackground)
                 }
                 
             }
@@ -56,7 +56,7 @@ public struct SongList: View {
                         ForEach(content){
                             TrackView(track: $0)
                         }
-                        .listRowBackground(Color(tableColor))
+                        .listRowBackground(self.tableColor)
                 }
             }
             else {

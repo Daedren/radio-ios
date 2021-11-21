@@ -34,7 +34,7 @@ struct RadioView<P: RadioPresenter>: View {
                     VStack {
                         self.djAndPlaybackView
                         if presenter.state.acceptingRequests {
-                            SongList(content: self.presenter.state.queue, tableColor: .systemBackground)
+                            SongList(content: self.presenter.state.queue, tableColor: RadioColors.systemBackground)
                         }
                         else if presenter.state.thread != "" {
                             WebView(application: UIApplication.shared,
@@ -48,8 +48,8 @@ struct RadioView<P: RadioPresenter>: View {
                                             VStack(spacing: 0.0) {
                                                 SongList(content: self.presenter.state.lastPlayed,
                                                          title: "Last Played",
-                                                         topBarColor: .secondarySystemBackground,
-                                                         tableColor: .tertiarySystemBackground)
+                                                         topBarColor: RadioColors.secondarySystemBackground,
+                                                         tableColor: RadioColors.tertiarySystemBackground)
                                             }
                         }
                     }
@@ -60,7 +60,7 @@ struct RadioView<P: RadioPresenter>: View {
                     self.djAndPlaybackView
 //                        .frame(width: 250.0)
                     if presenter.state.acceptingRequests {
-                        SongList(content: self.presenter.state.queue, tableColor: .systemBackground)
+                        SongList(content: self.presenter.state.queue, tableColor: RadioColors.systemBackground)
                     }
                     else if presenter.state.thread != "" {
                         WebView(application: UIApplication.shared,

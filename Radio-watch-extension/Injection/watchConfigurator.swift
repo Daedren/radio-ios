@@ -5,7 +5,7 @@ import Radio_data
 import Radio_cross
 import Radio_interfaces
 
-class watchConfigurator {
+class WatchConfigurator {
     init() {
         InjectSettings.shared.register(MusicGateway.self) {
             let client = AVClient(logger: InjectSettings.shared.resolve(LoggerWrapper.self)!)

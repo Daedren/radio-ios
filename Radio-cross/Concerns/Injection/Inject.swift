@@ -140,7 +140,7 @@ public extension Resolver {
 
 
 public class Container: Resolver {
-    public var registry = [String: Any?]()
+    public var registry = [String: (() -> Any)]()
     
     public init() {
         
@@ -155,10 +155,13 @@ public class Container: Resolver {
     }
     
     public func register<T>(_ type: T.Type, name: String?, value: @escaping () -> T) {
-        registry[key(type: type, name: name)] = value()
+        registry[key(type: type, name: name)] = value
     }
 
     public func resolve<T>(_ type: T.Type, name: String?) -> T? {
-        return registry[key(type: type, name: name)] as? T
+        if let value = registry[key(type: type, name: name)] {
+          return value() as? T
+        }
+        return nil
     }
 }

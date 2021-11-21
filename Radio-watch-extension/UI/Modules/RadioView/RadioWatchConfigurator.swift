@@ -10,6 +10,7 @@ class RadioWatchConfigurator: Configurator {
     }
 
     func configure() -> RadioWatchView<RadioWatchPresenterImp> {
+        self.inject()
         let view = RadioWatchView<RadioWatchPresenterImp>(
             presenter: InjectSettings.shared.resolve(RadioWatchPresenterImp.self)!
         )
@@ -34,4 +35,3 @@ class RadioWatchConfigurator: Configurator {
 
         }
     }
-}

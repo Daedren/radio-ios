@@ -7,8 +7,8 @@ struct LastPlayedView<P: LastPlayedPresenter>: View {
     var body: some View {
         VStack {
             SongList(content: self.presenter.lastPlayed, title: "Last Played",
-                     topBarColor: .systemBackground,
-                     tableColor: .secondarySystemBackground)
+                     topBarColor: RadioColors.systemBackground,
+                     tableColor: RadioColors.secondarySystemBackground)
         }
     }
 }
