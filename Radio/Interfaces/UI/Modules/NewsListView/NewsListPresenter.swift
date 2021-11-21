@@ -2,6 +2,7 @@ import Foundation
 import UIKit
 import Combine
 import Radio_domain
+import Radio_interfaces
 
 protocol NewsListPresenter: ObservableObject {
     var returnedValues: [NewsEntryViewModel] { get }

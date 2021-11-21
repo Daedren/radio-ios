@@ -1,5 +1,5 @@
 import Foundation
-import Radio_app
+import Radio_interfaces
 import Combine
 
 struct RadioWatchViewState: Equatable {

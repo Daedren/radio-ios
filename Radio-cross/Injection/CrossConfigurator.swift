@@ -1,13 +1,10 @@
 import Foundation
-import Swinject
 
-public class CrossConfigurator: Assembly {
-    public init() {}
-    public func assemble(container: Container) {
-        
-        container.register(LoggerWrapper.self) { _ in
-            return OSLogLogger(loggingLevel: .error)
+public class CrossConfigurator {
+    public init() {
+        InjectSettings.shared.register(LoggerWrapper.self) {
+            OSLogLogger(loggingLevel: .error)
         }
-
     }
 }
+

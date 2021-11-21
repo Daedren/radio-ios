@@ -16,7 +16,7 @@ extension AbstractLoggerLevel {
     }
 }
 
-public class OSLogLogger: LoggerWrapper {
+public class OSLogLogger: LoggerWrapper, Component {
     let level: AbstractLoggerLevel
     var loggers = [String:OSLog]()
     

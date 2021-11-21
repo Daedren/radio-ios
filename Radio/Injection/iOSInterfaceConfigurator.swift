@@ -1,25 +1,25 @@
 import Foundation
-import Swinject
+import Radio_cross
 import Radio_domain
 import Radio_data
 import Radio_cross
-import Radio_app
+import Radio_interfaces
 
-class iOSInterfaceConfigurator: Assembly {
-    func assemble(container: Container) {
+class iOSInterfaceConfigurator {
+    init() {
         
-        container.register(HTMLParser.self) { _ in
+        InjectSettings.shared.register(HTMLParser.self) {
             return DataHTMLParser()
         }
         
-        container.register(MusicGateway.self) { _ in
-            let client = AVClient(logger: container.resolve(LoggerWrapper.self)!)
-            return MusicRepository(logger: container.resolve(LoggerWrapper.self)!, client: client)
+        InjectSettings.shared.register(MusicGateway.self) {
+            let client = AVClient(logger: InjectSettings.shared.resolve(LoggerWrapper.self)!)
+            return MusicRepository(logger: InjectSettings.shared.resolve(LoggerWrapper.self)!, client: client)
         }
         
-//        container.register(AVGateway.self) { _ in
-//            let client = FSClient(logger: container.resolve(LoggerWrapper.self)!)
-//            return AVGatewayImp(logger: container.resolve(LoggerWrapper.self)!, client: client)
+//        InjectSettings.shared.register(AVGateway.self) {
+//            let client = FSClient(logger: InjectSettings.shared.resolve(LoggerWrapper.self)!)
+//            return AVGatewayImp(logger: InjectSettings.shared.resolve(LoggerWrapper.self)!, client: client)
 //        }
         
     }

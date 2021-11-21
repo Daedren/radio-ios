@@ -1,5 +1,6 @@
 import Foundation
 import Combine
+import Radio_interfaces
 
 class SearchPresenterPreviewer: SearchPresenter {
     @Published var state = SearchListState()

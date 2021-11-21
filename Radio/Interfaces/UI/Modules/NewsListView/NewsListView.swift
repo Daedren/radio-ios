@@ -1,4 +1,6 @@
 import SwiftUI
+import Radio_interfaces
+
 
 struct NewsListView<P: NewsListPresenter>: View {
     @ObservedObject var presenter: P

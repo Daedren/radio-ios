@@ -1,6 +1,6 @@
 import SwiftUI
 import Combine
-import Radio_app
+import Radio_interfaces
 
 enum RadioWatchViewAction: Equatable {
     case tappedPlayPause

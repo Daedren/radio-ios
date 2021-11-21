@@ -1,5 +1,6 @@
 import SwiftUI
 import Combine
+import Radio_interfaces
 
 struct SearchListProperties {
     var titleBar: String

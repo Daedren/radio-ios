@@ -1,5 +1,5 @@
 import Foundation
-import Swinject
+import Radio_cross
 import Radio_domain
 import SwiftUI
 
@@ -17,10 +17,10 @@ class SettingsConfigurator: Configurator {
         return view
     }
 
-    private func inject() -> Container {
-        return Container { container in
+    private func inject(){
+        
             
-            container.register(SettingsPresenterImp.self) { _ in
+            InjectSettings.shared.register(SettingsPresenterImp.self) {
 
                 let presenter = SettingsPresenterImp()
                 return presenter
@@ -28,4 +28,3 @@ class SettingsConfigurator: Configurator {
 
         }
     }
-}

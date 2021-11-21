@@ -1,5 +1,5 @@
 import Foundation
-import Swinject
+import Radio_cross
 import Radio_domain
 import SwiftUI
 
@@ -10,31 +10,29 @@ class RadioConfigurator: Configurator {
     }
 
     func configure() -> RadioView<RadioPresenterImp> {
+        self.inject()
         let view = RadioView<RadioPresenterImp>(
-            presenter: self.inject().resolve(RadioPresenterImp.self)!
+            presenter: InjectSettings.shared.resolve(RadioPresenterImp.self)!
         )
         return view
     }
 
-    private func inject() -> Container {
-        return Container { container in
-            
-            container.register(RadioPresenterImp.self) { _ in
+    private func inject(){
+            InjectSettings.shared.register(RadioPresenterImp.self) {
 
                 let presenter = RadioPresenterImp(
-                    play: self.assembler.resolver.resolve(PlayRadioUseCase.self)!,
-                    pause: self.assembler.resolver.resolve(StopRadioUseCase.self)!,
-                    currentTrack: self.assembler.resolver.resolve(GetCurrentTrackUseCase.self)!,
-                    isPlaying: self.assembler.resolver.resolve(IsPlayingUseCase.self)!,
-                    queue: self.assembler.resolver.resolve(GetSongQueueInteractor.self)!,
-                    lastPlayed: self.assembler.resolver.resolve(GetLastPlayedInteractor.self)!,
-                    dj: self.assembler.resolver.resolve(GetDJInteractor.self)!,
-                    status: self.assembler.resolver.resolve(GetCurrentStatusInteractor.self)!,
-                    getScales: self.assembler.resolver.resolve(GetFourierScalesUseCase.self)!
+                    play: InjectSettings.shared.resolve(PlayRadioUseCase.self)!,
+                    pause: InjectSettings.shared.resolve(StopRadioUseCase.self)!,
+                    currentTrack: InjectSettings.shared.resolve(GetCurrentTrackUseCase.self)!,
+                    isPlaying: InjectSettings.shared.resolve(IsPlayingUseCase.self)!,
+                    queue: InjectSettings.shared.resolve(GetSongQueueInteractor.self)!,
+                    lastPlayed: InjectSettings.shared.resolve(GetLastPlayedInteractor.self)!,
+                    dj: InjectSettings.shared.resolve(GetDJInteractor.self)!,
+                    status: InjectSettings.shared.resolve(GetCurrentStatusInteractor.self)!,
+                    getScales: InjectSettings.shared.resolve(GetFourierScalesUseCase.self)!
                 )
                 return presenter
             }
 
         }
     }
-}

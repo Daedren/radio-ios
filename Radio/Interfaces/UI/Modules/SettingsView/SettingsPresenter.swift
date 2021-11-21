@@ -2,6 +2,7 @@ import Foundation
 import UIKit
 import Combine
 import Radio_domain
+import Radio_interfaces
 
 protocol SettingsPresenter: ObservableObject {
     var state: SettingsPresenterState { get }

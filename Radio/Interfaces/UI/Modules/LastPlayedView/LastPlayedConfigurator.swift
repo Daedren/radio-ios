@@ -1,5 +1,5 @@
 import Foundation
-import Swinject
+import Radio_cross
 import Radio_domain
 import SwiftUI
 
@@ -8,25 +8,23 @@ class LastPlayedConfigurator: Configurator {
     func configureFake() -> LastPlayedView<LastPlayedPresenterPreviewer> {
         LastPlayedView(presenter: LastPlayedPresenterPreviewer())
     }
-
+    
     func configure() -> LastPlayedView<LastPlayedPresenterImp> {
+        self.inject()
         let view = LastPlayedView<LastPlayedPresenterImp>(
-            presenter: self.inject().resolve(LastPlayedPresenterImp.self)!
+            presenter: InjectSettings.shared.resolve(LastPlayedPresenterImp.self)!
         )
         return view
     }
-
-    private func inject() -> Container {
-        return Container { container in
+    
+    private func inject() {
+        InjectSettings.shared.register(LastPlayedPresenterImp.self) {
             
-            container.register(LastPlayedPresenterImp.self) { _ in
-
-                let presenter = LastPlayedPresenterImp(
-                    lastPlayed: self.assembler.resolver.resolve(GetLastPlayedInteractor.self)!
-                )
-                return presenter
-            }
-
+            let presenter = LastPlayedPresenterImp(
+                lastPlayed: InjectSettings.shared.resolve(GetLastPlayedInteractor.self)!
+            )
+            return presenter
         }
+        
     }
 }

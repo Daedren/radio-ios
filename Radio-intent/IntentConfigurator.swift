@@ -1,6 +1,6 @@
 //
 //import Foundation
-//import Swinject
+//import Radio_cross
 //
 //protocol Configurator {
 //
@@ -26,10 +26,10 @@
 //}
 //
 //
-//class IntentConfigurator: Assembly {
-//    func assemble(container: Container) {
+//class IntentConfigurator {
+//    init() {
 //
-//        container.register(RadioMapper.self) { _ in
+//        InjectSettings.shared.register(RadioMapper.self) {
 //            return RadioMapperImp()
 //        }
 //    }

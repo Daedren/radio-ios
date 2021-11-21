@@ -1,6 +1,7 @@
 import Foundation
 import Combine
 import Radio_domain
+import Radio_interfaces
 
 
 class FavoritesPresenterImp: SearchPresenter {

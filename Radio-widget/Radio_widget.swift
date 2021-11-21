@@ -3,7 +3,8 @@ import SwiftUI
 import Intents
 import Combine
 import Radio_domain
-import Swinject
+import Radio_data
+import Radio_cross
 
 struct WidgetViewState: Identifiable, Equatable {
     var id = UUID()
@@ -26,11 +27,11 @@ final class Provider: TimelineProvider {
             completion(SimpleEntry(date: Date(), tracks: []))
         } else {
             let configurator = IntentConfigurator()
-            guard let songQueue = configurator.assembler.resolver.resolve(GetSongQueueInteractor.self),
-                  let updateUseCase = configurator.assembler.resolver.resolve(FetchRadioDataUseCase.self),
-                  let currentTrackInteractor = configurator.assembler.resolver.resolve(GetCurrentTrackUseCase.self),
-                  let lastPlayedInteractor = configurator.assembler.resolver.resolve(GetLastPlayedInteractor.self),
-                  let djInteractor = configurator.assembler.resolver.resolve(GetDJInteractor.self)
+            guard let songQueue = InjectSettings.shared.resolve(GetSongQueueInteractor.self),
+                  let updateUseCase = InjectSettings.shared.resolve(FetchRadioDataUseCase.self),
+                  let currentTrackInteractor = InjectSettings.shared.resolve(GetCurrentTrackUseCase.self),
+                  let lastPlayedInteractor = InjectSettings.shared.resolve(GetLastPlayedInteractor.self),
+                  let djInteractor = InjectSettings.shared.resolve(GetDJInteractor.self)
             else {
                 completion(SimpleEntry(date: Date(), tracks: []))
                 return

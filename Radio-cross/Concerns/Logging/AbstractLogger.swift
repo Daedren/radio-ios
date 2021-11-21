@@ -19,7 +19,7 @@ public protocol AbstractLogger {
 }
 
 /// Main logger instance that actually executes the log.
-public protocol LoggerWrapper {
+public protocol LoggerWrapper: Component {
     func debug(message: String, context: String)
     func warning(message: String, context: String)
     func error(message: String, context: String)

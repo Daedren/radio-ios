@@ -1,5 +1,5 @@
 import Foundation
-import Swinject
+import Radio_cross
 import Radio_domain
 import SwiftUI
 
@@ -12,27 +12,27 @@ class MusicSearchConfigurator: Configurator {
     func configure() -> SearchView<MusicSearchPresenterImp> {
         let properties = SearchListProperties(titleBar: "Search")
         
+        self.inject()
         let view = SearchView<MusicSearchPresenterImp>(
-            presenter: self.inject().resolve(MusicSearchPresenterImp.self)!,
+            presenter: InjectSettings.shared.resolve(MusicSearchPresenterImp.self)!,
             properties: properties
         )
         return view
     }
 
-    private func inject() -> Container {
-        return Container { container in
+    private func inject(){
+        
             
-            container.register(MusicSearchPresenterImp.self) { _ in
+            InjectSettings.shared.register(MusicSearchPresenterImp.self) {
 
                 let presenter = MusicSearchPresenterImp(
-                    searchInteractor: self.assembler.resolver.resolve(SearchForTermInteractor.self)!,
-                    requestInteractor: self.assembler.resolver.resolve(RequestSongInteractor.self)!,
-                    statusInteractor: self.assembler.resolver.resolve(GetCurrentStatusInteractor.self)!,
-                    cooldownInteractor: self.assembler.resolver.resolve(CanRequestSongInteractor.self)!
+                    searchInteractor: InjectSettings.shared.resolve(SearchForTermInteractor.self)!,
+                    requestInteractor: InjectSettings.shared.resolve(RequestSongInteractor.self)!,
+                    statusInteractor: InjectSettings.shared.resolve(GetCurrentStatusInteractor.self)!,
+                    cooldownInteractor: InjectSettings.shared.resolve(CanRequestSongInteractor.self)!
                 )
                 return presenter
             }
 
         }
-    }
 }

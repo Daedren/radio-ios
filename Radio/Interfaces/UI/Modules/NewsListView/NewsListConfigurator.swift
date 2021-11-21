@@ -1,6 +1,7 @@
 import Foundation
-import Swinject
+import Radio_cross
 import Radio_domain
+import Radio_interfaces
 import SwiftUI
 
 struct NewsListProperties {
@@ -16,25 +17,25 @@ class NewsListConfigurator: Configurator {
 
     func configure() -> NewsListView<NewsListPresenterImp> {
         let properties = NewsListProperties(titleBar: "News")
+        self.inject()
         let view = NewsListView(
-            presenter: self.inject().resolve(NewsListPresenterImp.self)!,
+            presenter: InjectSettings.shared.resolve(NewsListPresenterImp.self)!,
             properties: properties
         )
         return view
     }
 
-    private func inject() -> Container {
-        return Container { container in
+    private func inject(){
+        
             
-            container.register(NewsListPresenterImp.self) { _ in
+            InjectSettings.shared.register(NewsListPresenterImp.self) {
 
                 let presenter = NewsListPresenterImp(
-                    getNewsInteractor: self.assembler.resolver.resolve(GetNewsListInteractor.self)!,
-                    htmlParser: self.assembler.resolver.resolve(HTMLParser.self)!
+                    getNewsInteractor: InjectSettings.shared.resolve(GetNewsListInteractor.self)!,
+                    htmlParser: InjectSettings.shared.resolve(HTMLParser.self)!
                 )
                 return presenter
             }
 
         }
     }
-}

@@ -2,6 +2,7 @@ import SwiftUI
 import UIKit
 import Combine
 import KingfisherSwiftUI
+import Radio_interfaces
 
 enum RadioViewAction: Equatable {
     case tappedPlayPause
@@ -36,7 +37,8 @@ struct RadioView<P: RadioPresenter>: View {
                             SongList(content: self.presenter.state.queue, tableColor: .systemBackground)
                         }
                         else if presenter.state.thread != "" {
-                            WebView(html: presenter.state.thread)
+                            WebView(application: UIApplication.shared,
+                                    html: presenter.state.thread)
                         }
                      Spacer()
                     }
@@ -61,7 +63,8 @@ struct RadioView<P: RadioPresenter>: View {
                         SongList(content: self.presenter.state.queue, tableColor: .systemBackground)
                     }
                     else if presenter.state.thread != "" {
-                        WebView(html: presenter.state.thread)
+                        WebView(application: UIApplication.shared,
+                                html: presenter.state.thread)
                     }
 //                    if let scales = self.presenter.state.scales {
 //                        BarChartView(viewModel: scales)

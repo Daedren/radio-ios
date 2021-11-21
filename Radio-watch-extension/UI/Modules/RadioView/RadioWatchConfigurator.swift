@@ -1,5 +1,5 @@
 import Foundation
-import Swinject
+import Radio_cross
 import Radio_domain
 import SwiftUI
 
@@ -11,23 +11,23 @@ class RadioWatchConfigurator: Configurator {
 
     func configure() -> RadioWatchView<RadioWatchPresenterImp> {
         let view = RadioWatchView<RadioWatchPresenterImp>(
-            presenter: self.inject().resolve(RadioWatchPresenterImp.self)!
+            presenter: InjectSettings.shared.resolve(RadioWatchPresenterImp.self)!
         )
         return view
     }
 
-    private func inject() -> Container {
-        return Container { container in
+    private func inject(){
+        
             
-            container.register(RadioWatchPresenterImp.self) { _ in
+            InjectSettings.shared.register(RadioWatchPresenterImp.self) {
 
                 let presenter = RadioWatchPresenterImp(
-                    play: self.assembler.resolver.resolve(PlayRadioUseCase.self)!,
-                    pause: self.assembler.resolver.resolve(StopRadioUseCase.self)!,
-                    currentTrack: self.assembler.resolver.resolve(GetCurrentTrackUseCase.self)!,
-                    isPlaying: self.assembler.resolver.resolve(IsPlayingUseCase.self)!,
-                    dj: self.assembler.resolver.resolve(GetDJInteractor.self)!,
-                    status: self.assembler.resolver.resolve(GetCurrentStatusInteractor.self)!
+                    play: InjectSettings.shared.resolve(PlayRadioUseCase.self)!,
+                    pause: InjectSettings.shared.resolve(StopRadioUseCase.self)!,
+                    currentTrack: InjectSettings.shared.resolve(GetCurrentTrackUseCase.self)!,
+                    isPlaying: InjectSettings.shared.resolve(IsPlayingUseCase.self)!,
+                    dj: InjectSettings.shared.resolve(GetDJInteractor.self)!,
+                    status: InjectSettings.shared.resolve(GetCurrentStatusInteractor.self)!
                 )
                 return presenter
             }

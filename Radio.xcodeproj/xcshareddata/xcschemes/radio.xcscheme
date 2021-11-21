@@ -26,7 +26,32 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "097C1EC92378719700A7A5AD"
+            BuildableName = "Radio_domain.framework"
+            BlueprintName = "Radio-domain-iOS"
+            ReferencedContainer = "container:Radio.xcodeproj">
+         </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "FB64DBDA24BE462600F47D8B"
+            BuildableName = "Radio_domain.framework"
+            BlueprintName = "Radio-domain-watchOS"
+            ReferencedContainer = "container:Radio.xcodeproj">
+         </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "097C1E9F2378716F00A7A5AD"
+            BuildableName = "Radio.app"
+            BlueprintName = "Radio"
+            ReferencedContainer = "container:Radio.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -75,6 +100,16 @@
                BlueprintIdentifier = "FB64DC8C24BE4B7000F47D8B"
                BuildableName = "Radio-appTests.xctest"
                BlueprintName = "Radio-appTests"
+               ReferencedContainer = "container:Radio.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3B453BB02742A13C007F38B7"
+               BuildableName = "Radio-interfacesTests.xctest"
+               BlueprintName = "Radio-interfacesTests"
                ReferencedContainer = "container:Radio.xcodeproj">
             </BuildableReference>
          </TestableReference>

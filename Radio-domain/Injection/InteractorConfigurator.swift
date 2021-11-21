@@ -1,108 +1,107 @@
 import Foundation
-import Swinject
+import Radio_cross
 
-public class InteractorConfigurator: Assembly {
-    public init() {}
-    
-    public func assemble(container: Container) {
-        container.register(SongDelayLogic.self) { _ in
+public class InteractorConfigurator {
+    public init() {
+        InjectSettings.shared.register(SongDelayLogic.self) {
             return SongDelayLogic()
         }
-        container.register(RequestLogic.self) { _ in
+        
+        InjectSettings.shared.register(RequestLogic.self) {
             return RequestLogic()
         }
         
-        container.register(PlayRadioUseCase.self) { _ in
+        InjectSettings.shared.register(PlayRadioUseCase.self) {
             return PlayRadioInteractor(
-                avGateway: container.resolve(MusicGateway.self)!
+                avGateway: InjectSettings.shared.resolve(MusicGateway.self)!
             )
         }
-        container.register(StopRadioUseCase.self) { _ in
+        InjectSettings.shared.register(StopRadioUseCase.self) {
             return StopRadioInteractor(
-                avGateway: container.resolve(MusicGateway.self)!
+                avGateway: InjectSettings.shared.resolve(MusicGateway.self)!
             )
         }
-        container.register(GetCurrentTrackUseCase.self) { _ in
+        InjectSettings.shared.register(GetCurrentTrackUseCase.self) {
             return GetCurrentTrackInteractor(
-                avGateway: container.resolve(MusicGateway.self),
-                radioGateway: container.resolve(RadioGateway.self)!
+                avGateway: InjectSettings.shared.resolve(MusicGateway.self),
+                radioGateway: InjectSettings.shared.resolve(RadioGateway.self)!
             )
         }
         
-        container.register(GetSongQueueInteractor.self) { _ in
+        InjectSettings.shared.register(GetSongQueueInteractor.self) {
             return GetSongQueueInteractor(
-                radio: container.resolve(RadioGateway.self)!
+                radio: InjectSettings.shared.resolve(RadioGateway.self)!
             )
         }
-        container.register(GetLastPlayedInteractor.self) { _ in
+        InjectSettings.shared.register(GetLastPlayedInteractor.self) {
             return GetLastPlayedInteractor(
-                radio: container.resolve(RadioGateway.self)!
+                radio: InjectSettings.shared.resolve(RadioGateway.self)!
             )
         }
         
-        container.register(IsPlayingUseCase.self) { _ in
+        InjectSettings.shared.register(IsPlayingUseCase.self) {
             return IsPlayingInteractor(
-                avGateway: container.resolve(MusicGateway.self)!
+                avGateway: InjectSettings.shared.resolve(MusicGateway.self)!
             )
         }
         
-        container.register(GetDJInteractor.self) { _ in
+        InjectSettings.shared.register(GetDJInteractor.self) {
             return GetDJInteractor(
-                radio: container.resolve(RadioGateway.self)!
+                radio: InjectSettings.shared.resolve(RadioGateway.self)!
             )
         }
-        container.register(GetCurrentStatusInteractor.self) { _ in
+        InjectSettings.shared.register(GetCurrentStatusInteractor.self) {
             return GetCurrentStatusInteractor(
-                radio: container.resolve(RadioGateway.self)!
+                radio: InjectSettings.shared.resolve(RadioGateway.self)!
             )
         }
-        container.register(GetPlaybackInfoInteractor.self) { _ in
+        InjectSettings.shared.register(GetPlaybackInfoInteractor.self) {
             return GetPlaybackInfoInteractor(
-                avGateway: container.resolve(MusicGateway.self)!
+                avGateway: InjectSettings.shared.resolve(MusicGateway.self)!
             )
         }
-        container.register(SearchForTermInteractor.self) { _ in
+        InjectSettings.shared.register(SearchForTermInteractor.self) {
             return SearchForTermInteractor(
-                radioGateway: container.resolve(RadioGateway.self)!
+                radioGateway: InjectSettings.shared.resolve(RadioGateway.self)!
             )
         }
         
-        container.register(RequestSongInteractor.self) { _ in
+        InjectSettings.shared.register(RequestSongInteractor.self) {
             return RequestSongInteractor(
-                radioGateway: container.resolve(RadioGateway.self)!,
-                requestValidation: container.resolve(RequestLogic.self)!
+                radioGateway: InjectSettings.shared.resolve(RadioGateway.self)!,
+                requestValidation: InjectSettings.shared.resolve(RequestLogic.self)!
             )
         }
         
-        container.register(GetFavoritesInteractor.self) { _ in
+        InjectSettings.shared.register(GetFavoritesInteractor.self) {
             return GetFavoritesInteractor(
-                radioGateway: container.resolve(RadioGateway.self)!,
-                songDelayCalc: container.resolve(SongDelayLogic.self)!
+                radioGateway: InjectSettings.shared.resolve(RadioGateway.self)!,
+                songDelayCalc: InjectSettings.shared.resolve(SongDelayLogic.self)!
             )
         }
         
-        container.register(GetNewsListInteractor.self) { _ in
+        InjectSettings.shared.register(GetNewsListInteractor.self) {
             return GetNewsListInteractor(
-                radioGateway: container.resolve(RadioGateway.self)!
+                radioGateway: InjectSettings.shared.resolve(RadioGateway.self)!
             )
         }
         
-        container.register(CanRequestSongInteractor.self) { _ in
+        InjectSettings.shared.register(CanRequestSongInteractor.self) {
             return CanRequestSongInteractor(
-                radioGateway: container.resolve(RadioGateway.self)!,
-                requestValidation: container.resolve(RequestLogic.self)!
+                radioGateway: InjectSettings.shared.resolve(RadioGateway.self)!,
+                requestValidation: InjectSettings.shared.resolve(RequestLogic.self)!
             )
         }
         
-        container.register(FetchRadioDataUseCase.self) { _ in
+        InjectSettings.shared.register(FetchRadioDataUseCase.self) {
             return FetchRadioDataInteractor(
-                radioGateway: container.resolve(RadioGateway.self)!
+                radioGateway: InjectSettings.shared.resolve(RadioGateway.self)!
             )
         }
         
-        container.register(GetFourierScalesUseCase.self) { _ in
+        InjectSettings.shared.register(GetFourierScalesUseCase.self) {
             return GetFourierScalesInteractor(
-                avGateway: container.resolve(MusicGateway.self)!
+                avGateway: InjectSettings.shared.resolve(MusicGateway.self)!
             )
         }
     }

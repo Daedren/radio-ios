@@ -1,5 +1,5 @@
 import Foundation
-import Swinject
+import Radio_cross
 import Radio_domain
 import SwiftUI
 
@@ -12,27 +12,27 @@ class FavoritesConfigurator: Configurator {
     func configure() -> SearchView<FavoritesPresenterImp> {
         let properties = SearchListProperties(titleBar: "Favorites")
         
+        self.inject()
         let view = SearchView<FavoritesPresenterImp>(
-            presenter: self.inject().resolve(FavoritesPresenterImp.self)!,
+            presenter: InjectSettings.shared.resolve(FavoritesPresenterImp.self)!,
             properties: properties
         )
         return view
     }
 
-    private func inject() -> Container {
-        return Container { container in
+    private func inject(){
+        
             
-            container.register(FavoritesPresenterImp.self) { _ in
+            InjectSettings.shared.register(FavoritesPresenterImp.self) {
 
                 let presenter = FavoritesPresenterImp(
-                    searchInteractor: self.assembler.resolver.resolve(GetFavoritesInteractor.self)!,
-                    requestInteractor: self.assembler.resolver.resolve(RequestSongInteractor.self)!,
-                    statusInteractor: self.assembler.resolver.resolve(GetCurrentStatusInteractor.self)!,
-                    cooldownInteractor: self.assembler.resolver.resolve(CanRequestSongInteractor.self)!
+                    searchInteractor: InjectSettings.shared.resolve(GetFavoritesInteractor.self)!,
+                    requestInteractor: InjectSettings.shared.resolve(RequestSongInteractor.self)!,
+                    statusInteractor: InjectSettings.shared.resolve(GetCurrentStatusInteractor.self)!,
+                    cooldownInteractor: InjectSettings.shared.resolve(CanRequestSongInteractor.self)!
                 )
                 return presenter
             }
 
         }
     }
-}

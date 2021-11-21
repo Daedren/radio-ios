@@ -1,5 +1,5 @@
 import SwiftUI
-import Radio_app
+import Radio_interfaces
 
 struct LastPlayedView<P: LastPlayedPresenter>: View {
     @ObservedObject var presenter: P
