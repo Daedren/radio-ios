@@ -28,7 +28,7 @@ public struct SongList: View {
                     }
                     .listRowBackground(self.tableColor)
                 }
-                .animation(.default)
+                .animation(.default, value: self.content)
             }
             else {
                 VStack {

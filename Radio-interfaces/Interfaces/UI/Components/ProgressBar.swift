@@ -33,7 +33,7 @@ public struct ProgressBar: View {
                         .frame(minWidth: 0, idealWidth:self.getProgressBarWidth(geometry: geometry),
                                maxWidth: self.getProgressBarWidth(geometry: geometry))
                         .cornerRadius(self.barHeight)
-                        .animation(.linear(duration: 1.0))
+                        .animation(.linear(duration: 1.0), value: self.value)
                 }
                 .frame(height: self.barHeight)
             }.frame(height: self.barHeight)

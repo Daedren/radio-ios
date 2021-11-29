@@ -70,7 +70,7 @@ struct SearchView<P: SearchPresenter>: View {
                         }
                         .buttonStyle(PlainButtonStyle())
                     }
-                }.animation(.default)
+                }.animation(.default, value: presenter.state.tracks)
                 .styledList()
                 .gesture(DragGesture().onChanged { _ in
                     UIApplication.shared.windows.forEach { $0.endEditing(false) }

@@ -34,7 +34,7 @@ public struct SongRequestButton: View {
         .background(Color.red)
         .clipShape(RoundedRectangle(cornerRadius: 30.0))
         .opacity(self.viewModel.state == .requestable ? 1 : 0.4)
-        .animation(Animation.default.speed(1))
+//        .animation(Animation.default.speed(1))
     }
 
 }

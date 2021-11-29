@@ -120,11 +120,11 @@ struct RadioView<P: RadioPresenter>: View {
                 .font(.subheadline)
                 .foregroundColor(Color(.secondaryLabel))
                 .multilineTextAlignment(.center)
-                .animation(.easeInOut(duration: 0.3))
+                .animation(.easeInOut(duration: 0.3), value: presenter.state.currentTrack)
             Text(presenter.state.currentTrack?.title ?? "")
                 .font(.title)
                 .multilineTextAlignment(.center)
-                .animation(.easeInOut(duration: 0.3))
+                .animation(.easeInOut(duration: 0.3), value: presenter.state.currentTrack)
         }
     }
 }
