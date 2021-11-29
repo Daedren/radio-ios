@@ -8,7 +8,7 @@ struct TrackView: View {
     var body: some View {
         HStack {
             Text("\(track.artist) - \(track.title)")
-                .foregroundColor(track.requested ? Color(.systemTeal) : Color(.label))
+                .foregroundColor(track.requested ? RadioColors.systemTeal : RadioColors.label)
             Spacer()
             if track.startsIn != "" {
                 Text("\(track.startsIn)")

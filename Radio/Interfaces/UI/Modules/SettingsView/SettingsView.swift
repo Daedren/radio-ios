@@ -10,7 +10,6 @@ struct SettingsView: View {
     let properties: SettingsProperties
     
     var body: some View {
-        NavigationView {
             List {
                 NavigationLink(destination: self.goToSiri()) {
                     Text("Siri")
@@ -18,7 +17,6 @@ struct SettingsView: View {
                 }
             }
             .navigationBarTitle(properties.titleBar)
-        }
     }
     
     init(properties: SettingsProperties) {

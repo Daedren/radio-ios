@@ -13,7 +13,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Create the SwiftUI view that provides the window contents.
-        let startView = MainTabsView(tabOne: RadioConfigurator().configure(),
+        let startView = MainTabsView(radioViewBig: RadioConfigurator().configureBig(),
+                                     radioViewSmall: RadioConfigurator().configureSmall(),
                                      tabTwo: MusicSearchConfigurator().configure(),
                                      lastPlayed: LastPlayedConfigurator().configure(),
                                      favorites: FavoritesConfigurator().configure(),

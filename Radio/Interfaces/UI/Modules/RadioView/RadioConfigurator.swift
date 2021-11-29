@@ -6,13 +6,23 @@ import SwiftUI
 class RadioConfigurator: Configurator {
     
     func configureFake() -> RadioView<RadioPresenterPreviewer> {
-        RadioView(presenter: RadioPresenterPreviewer())
+        RadioView(presenter: RadioPresenterPreviewer(), bigVersion: true)
     }
 
-    func configure() -> RadioView<RadioPresenterImp> {
+    func configureBig() -> RadioView<RadioPresenterImp> {
         self.inject()
         let view = RadioView<RadioPresenterImp>(
-            presenter: InjectSettings.shared.resolve(RadioPresenterImp.self)!
+            presenter: InjectSettings.shared.resolve(RadioPresenterImp.self)!,
+            bigVersion: true
+        )
+        return view
+    }
+    
+    func configureSmall() -> RadioView<RadioPresenterImp> {
+        self.inject()
+        let view = RadioView<RadioPresenterImp>(
+            presenter: InjectSettings.shared.resolve(RadioPresenterImp.self)!,
+            bigVersion: false
         )
         return view
     }

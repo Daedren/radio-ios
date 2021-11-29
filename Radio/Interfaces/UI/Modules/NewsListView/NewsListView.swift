@@ -12,14 +12,11 @@ struct NewsListView<P: NewsListPresenter>: View {
     }
     
     var body: some View {
-        NavigationView {
             List(presenter.returnedValues) {
                 NewsEntryView(viewModel: $0)
             }
 //            .styledList()
             .navigationBarTitle(properties.titleBar)
-        }
-        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

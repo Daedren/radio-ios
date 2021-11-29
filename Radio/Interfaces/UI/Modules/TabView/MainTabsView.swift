@@ -5,11 +5,8 @@ struct MainTabsView<A: View, B: View, C: View, D: View, E: View, F: View>: View 
     @Environment(\.verticalSizeClass) var verticalSizeClass: UserInterfaceSizeClass?
     @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
     
-    var largeWidthClass: Bool {
-        horizontalSizeClass == .regular || (horizontalSizeClass == .compact && verticalSizeClass == .compact)
-    }
-    
-    var tabOne: A
+    var radioViewBig: A
+    var radioViewSmall: A
     var tabTwo: B
     var lastPlayed: C
     var favorites: D
@@ -17,17 +14,20 @@ struct MainTabsView<A: View, B: View, C: View, D: View, E: View, F: View>: View 
     var settings: F
     
     var body: some View {
-        Group {
-            if largeWidthClass {
+        GeometryReader { geometry in
+            if geometry.size.width > geometry.size.height {
                 NavigationView {
-                    tabOne
+                    radioViewBig
                     TabView(selection: $selection){
-                        lastPlayed
-                            .tabItem {
-                                VStack {
-                                    Image(systemName: "backward.fill")
-                                    Text("Last Played")
-                                }
+                        NavigationView {
+                            lastPlayed
+                        }
+                        .navigationViewStyle(StackNavigationViewStyle())
+                        .tabItem {
+                            VStack {
+                                Image(systemName: "backward.fill")
+                                Text("Last Played")
+                            }
                         }
                         .tag(0)
                         self.standardTabs
@@ -36,14 +36,14 @@ struct MainTabsView<A: View, B: View, C: View, D: View, E: View, F: View>: View 
             }
             else {
                 TabView(selection: $selection){
-                    tabOne
+                    radioViewSmall
                         .tabItem {
                             VStack {
                                 Image(systemName: "hifispeaker.fill")
                                 Text("R/a/dio")
                             }
-                    }
-                    .tag(0)
+                        }
+                        .tag(0)
                     self.standardTabs
                 }
             }
@@ -52,39 +52,54 @@ struct MainTabsView<A: View, B: View, C: View, D: View, E: View, F: View>: View 
     
     var standardTabs: some View {
         Group {
-            tabTwo
-                .tabItem {
-                    VStack {
-                        Image(systemName: "envelope.fill")
-                        Text("Search")
-                    }
+            NavigationView {
+                tabTwo
+            }
+            .navigationViewStyle(StackNavigationViewStyle())
+            .tabItem {
+                VStack {
+                    Image(systemName: "envelope.fill")
+                    Text("Search")
+                }
             }
             .tag(1)
-            favorites
-                .font(.title)
-                .tabItem {
-                    VStack {
-                        Image(systemName: "heart.fill")
-                        Text("Favorites")
-                    }
+            
+            NavigationView {
+                favorites
+                    .font(.title)
+            }
+            .navigationViewStyle(StackNavigationViewStyle())
+            .tabItem {
+                VStack {
+                    Image(systemName: "heart.fill")
+                    Text("Favorites")
+                }
             }
             .tag(2)
-            newsList
-                .font(.title)
-                .tabItem {
-                    VStack {
-                        Image(systemName: "house.fill")
-                        Text("News")
-                    }
+            
+            NavigationView {
+                newsList
+                    .font(.title)
+            }
+            .navigationViewStyle(StackNavigationViewStyle())
+            .tabItem {
+                VStack {
+                    Image(systemName: "house.fill")
+                    Text("News")
+                }
             }
             .tag(3)
-            settings
-                .font(.title)
-                .tabItem {
-                    VStack {
-                        Image(systemName: "circle.grid.2x2.fill")
-                        Text("Settings")
-                    }
+            
+            NavigationView {
+                settings
+            }
+            .navigationViewStyle(StackNavigationViewStyle())
+            .font(.title)
+            .tabItem {
+                VStack {
+                    Image(systemName: "circle.grid.2x2.fill")
+                    Text("Settings")
+                }
             }
             .tag(4)
         }
@@ -93,7 +108,8 @@ struct MainTabsView<A: View, B: View, C: View, D: View, E: View, F: View>: View 
 
 struct TabView_Previews: PreviewProvider {
     static var previews: some View {
-        MainTabsView(tabOne: RadioConfigurator().configureFake(),
+        MainTabsView(radioViewBig: RadioConfigurator().configureFake(),
+                     radioViewSmall: RadioConfigurator().configureFake(),
                      tabTwo: Text("placeholder"),
                      lastPlayed: LastPlayedConfigurator().configureFake(),
                      favorites: FavoritesConfigurator().configure(),

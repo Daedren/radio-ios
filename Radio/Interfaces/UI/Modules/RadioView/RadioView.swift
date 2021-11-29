@@ -1,5 +1,4 @@
 import SwiftUI
-import UIKit
 import Combine
 import KingfisherSwiftUI
 import Radio_interfaces
@@ -13,85 +12,104 @@ struct RadioView<P: RadioPresenter>: View {
     @State private var bottomSheetShown = false
     @Environment(\.verticalSizeClass) var verticalSizeClass: UserInterfaceSizeClass?
     @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
-    
-    var largeWidthClass: Bool {
-        horizontalSizeClass == .regular || (horizontalSizeClass == .compact && verticalSizeClass == .compact)
-    }
+//    @EnvironmentObject var orientationInfo: DeviceOrientation
+    let bigVersion: Bool
     
     var actions = PassthroughSubject<RadioViewAction, Never>()
     
-    init(presenter: P) {
+    init(presenter: P, bigVersion: Bool) {
         self.presenter = presenter
+        self.bigVersion = bigVersion
         
         self.presenter.start(actions:
-            actions.eraseToAnyPublisher())
+                                actions.eraseToAnyPublisher())
     }
     
     var body: some View {
-        Group {
-            if !largeWidthClass {
-                ZStack(alignment: .top){
-                    VStack {
-                        self.djAndPlaybackView
-                        if presenter.state.acceptingRequests {
-                            SongList(content: self.presenter.state.queue, tableColor: RadioColors.systemBackground)
-                        }
-                        else if presenter.state.thread != "" {
-                            WebView(application: UIApplication.shared,
-                                    html: presenter.state.thread)
-                        }
-                     Spacer()
-                    }
-                    GeometryReader { geometry in
-                        BottomSheetView(isOpen: self.$bottomSheetShown,
-                                        maxHeight: geometry.size.height * 0.9){
-                                            VStack(spacing: 0.0) {
-                                                SongList(content: self.presenter.state.lastPlayed,
-                                                         title: "Last Played",
-                                                         topBarColor: RadioColors.secondarySystemBackground,
-                                                         tableColor: RadioColors.tertiarySystemBackground)
-                                            }
-                        }
-                    }
-                }
+        GeometryReader { geometry in
+            if !bigVersion {
+                smallScreensView
             }
             else {
-                VStack {
-                    self.djAndPlaybackView
-//                        .frame(width: 250.0)
-                    if presenter.state.acceptingRequests {
-                        SongList(content: self.presenter.state.queue, tableColor: RadioColors.systemBackground)
-                    }
-                    else if presenter.state.thread != "" {
-                        WebView(application: UIApplication.shared,
-                                html: presenter.state.thread)
-                    }
-//                    if let scales = self.presenter.state.scales {
-//                        BarChartView(viewModel: scales)
-//                    }
-//                    MTKViewWrapper(scales: presenter.scales)
-                }
+                bigScreensView
             }
         }
-//        .edgesIgnoringSafeArea(.vertical)
     }
+    
+    var smallScreensView: some View {
+        VStack {
+        Text("small")
+        self.djAndPlaybackView
+        TabView {
+            VStack {
+                if presenter.state.acceptingRequests {
+                    SongListiOS(content: self.presenter.state.queue,
+                                title: "Queue",
+                                topBarColor: Color(.systemGroupedBackground),
+                                tableColor: RadioColors.tertiarySystemBackground)
+                }
+                else if presenter.state.thread != "" {
+                    WebView(application: UIApplication.shared,
+                            html: presenter.state.thread)
+                }
+                else {
+                    Text("There is currently no thread up.")
+                }
+                Spacer()
+            }
+            VStack {
+                SongListiOS(content: self.presenter.state.lastPlayed,
+                         title: "Last Played",
+                         topBarColor: Color(.systemGroupedBackground),
+                         tableColor: RadioColors.tertiarySystemBackground)
+            }
+        }
+        .tabViewStyle(PageTabViewStyle())
+        }
+    }
+    
+    var bigScreensView: some View {
+        VStack {
+            Text("big")
+            self.djAndPlaybackView
+            //                        .frame(width: 250.0)
+            if presenter.state.acceptingRequests {
+                SongList(content: self.presenter.state.queue, tableColor: RadioColors.systemBackground)
+            }
+            else if presenter.state.thread != "" {
+                WebView(application: UIApplication.shared,
+                        html: presenter.state.thread)
+            }
+            //                    if let scales = self.presenter.state.scales {
+            //                        BarChartView(viewModel: scales)
+            //                    }
+            //                    MTKViewWrapper(scales: presenter.scales)
+        }
+    }
+    
+    private func tappedPlayPause() {
+        self.actions.send(.tappedPlayPause)
+    }
+
     
     var djAndPlaybackView: some View {
         VStack {
             ZStack(alignment: .bottomTrailing) {
                 HStack {
-                    //                    presenter.dj.map{ self.djView(dj: $0, action: presenter.tappedButton)}
-                    self.djView
+                    DJView(
+                        dj: presenter.state.dj,
+                        isPlaying: presenter.state.isPlaying,
+                        action: self.tappedPlayPause)
                     VStack {
                         presenter.state.dj.map{
                             Text($0.name)
-                            .font(.headline)
-                            .lineLimit(1)
-                            .frame(alignment: .center)
+                                .font(.headline)
+                                .lineLimit(1)
+                                .frame(alignment: .center)
                         }
                         presenter.state.listeners.map{
                             Text("Listeners: \($0)")
-                            .frame(alignment: .center)
+                                .frame(alignment: .center)
                         }
                         
                     }
@@ -109,47 +127,19 @@ struct RadioView<P: RadioPresenter>: View {
                 .animation(.easeInOut(duration: 0.3))
         }
     }
-    
-    var djView: some View {
-        VStack {
-            presenter.state.dj.map{ dj in
-                ZStack(alignment: .bottomTrailing){
-                    KFImage(dj.image)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .background(Color(.label))
-                        .frame(width: 150.0,
-                               alignment: .center)
-                        .clipShape(Circle())
-                    Button(action: {
-                        self.actions.send(.tappedPlayPause)
-                    }) {
-                        Image(systemName: presenter.state.isPlaying ? "stop.fill" : "play.fill")
-                            .resizable()
-                            .scaledToFit()
-                            .padding(10.0)
-                            .foregroundColor(Color(.label))
-                    }
-                    .frame(width: 40.0, height: 40.0)
-                    .background(Color.red)
-                    .clipShape(Circle())
-                    .overlay(Circle().stroke(Color(.systemBackground), lineWidth: 2.0))
-                }
-            }
-        }
-    }
 }
 
 struct RadioView_Previews: PreviewProvider {
     static var previews: some View {
         let nextPreview = RadioConfigurator().configureFake()
-            .environment(\.horizontalSizeClass, .regular)
-            .environment(\.verticalSizeClass, .compact)
-            .previewDevice(PreviewDevice(rawValue: "iPad Pro (11-inch)"))
-//             .environment(\.colorScheme, .dark)
-//            .previewLayout(.fixed(width: 700, height: 350))
-//            .previewLayout(.fixed(width: 1200, height: 500))
-            //            .environment(\.verticalSizeClass, .compact)
+//            .environment(\.horizontalSizeClass, .regular)
+//            .environment(\.verticalSizeClass, .compact)
+//            .previewDevice(PreviewDevice(rawValue: "iPad Pro (9.7-inch)"))
+            .previewDevice(PreviewDevice(rawValue: "iPhone 12"))
+        //             .environment(\.colorScheme, .dark)
+//                    .previewLayout(.fixed(width: 700, height: 350))
+//                    .previewLayout(.fixed(width: 1200, height: 500))
+        //            .environment(\.verticalSizeClass, .compact)
         return nextPreview
     }
 }

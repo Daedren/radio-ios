@@ -50,5 +50,13 @@ public class RadioColors {
         return Color(.tertiarySystemBackground)
         #endif
     }
+    
+    public static var systemTeal: Color {
+        #if os(watchOS)
+        return Color.teal
+        #else
+        return Color(.systemTeal)
+        #endif
+    }
 
 }

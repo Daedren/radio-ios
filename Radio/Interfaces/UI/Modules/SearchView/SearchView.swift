@@ -39,7 +39,7 @@ struct SearchView<P: SearchPresenter>: View {
     }
     
     var body: some View {
-        NavigationView {
+        Group {
             if !presenter.state.acceptingRequests {
                 Text("We're not currently accepting requests")
                     .font(.largeTitle)
@@ -70,15 +70,15 @@ struct SearchView<P: SearchPresenter>: View {
                         }
                         .buttonStyle(PlainButtonStyle())
                     }
-                }
+                }.animation(.default)
                 .styledList()
                 .gesture(DragGesture().onChanged { _ in
                     UIApplication.shared.windows.forEach { $0.endEditing(false) }
                 })
                 .environment(\.horizontalSizeClass, .regular)
-                .navigationBarTitle(properties.titleBar)
             }
         }
+        .navigationBarTitle(properties.titleBar)
         .navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
             self.actions.send(.viewDidAppear)

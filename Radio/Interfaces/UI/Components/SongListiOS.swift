@@ -1,6 +1,7 @@
 import SwiftUI
+import Radio_interfaces
 
-public struct SongList: View {
+public struct SongListiOS: View {
     var content: [TrackViewModel]
     var recycling = true
     var title: LocalizedStringKey
@@ -14,7 +15,7 @@ public struct SongList: View {
          tableColor: Color = RadioColors.secondarySystemBackground,
          recycling: Bool = true) {
         UITableView.appearance().tableFooterView = UIView()
-//        UITableView.appearance().backgroundColor = .clear
+        
         self.title = title
         self.content = content
         self.tableColor = tableColor
@@ -25,55 +26,35 @@ public struct SongList: View {
     public var body: some View {
         VStack {
             if title != "" {
-                VStack(spacing:0.0){
-                    HStack(spacing: 10.0){
+                VStack(spacing: 0.0) {
+                    HStack {
                         Text(title)
-                            .font(.largeTitle)
+                            .font(.title2)
                             .fontWeight(.bold)
                         Spacer()
                     }
                     .padding(.leading, 10.0)
-                    .frame(height: 100.0)
-                    .background(topBarColor)
+                    .padding(.top, 20.0)
                     
-                    songList
+                    SongList(content: content, tableColor: tableColor, recycling: recycling)
                     .navigationBarTitle(title, displayMode: .inline)
-                    .background(RadioColors.systemBackground)
                 }
+                .background(self.topBarColor)
                 
             }
             else {
-                songList
+                SongList(content: content, tableColor: tableColor, recycling: recycling)
             }
             
-        }
-    }
-    
-    var songList: some View {
-        Group {
-            if recycling {
-                List{
-                        ForEach(content){
-                            TrackView(track: $0)
-                        }
-                        .listRowBackground(self.tableColor)
-                }
-            }
-            else {
-                VStack {
-                    ForEach(content) { item in
-                        TrackView(track: item)
-                        Divider()
-                    }
-                }.padding(.vertical, 30)
-            }
         }
     }
 }
 
 public struct SongList_Previews: PreviewProvider {
     public static var previews: some View {
-        SongList(content: [TrackViewModel.stub()], title: "Queue", tableColor: .gray)
-        //            .environment(\.colorScheme, .dark)
+        SongListiOS(content: [TrackViewModel.stub()], title: "Queue",
+                    topBarColor: Color(.systemGroupedBackground),
+                    tableColor: .gray)
+//                    .environment(\.colorScheme, .dark)
     }
 }
