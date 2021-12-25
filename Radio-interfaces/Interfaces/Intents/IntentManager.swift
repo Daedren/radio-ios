@@ -28,13 +28,13 @@ class IntentManager {
     
     private func createIntents() -> [IntentModel: INIntent] {
         let intent = QueueIntent()
-        intent.suggestedInvocationPhrase = "Show the song queue"
+        intent.suggestedInvocationPhrase = "Show the R/a/dio queue"
         
         let siriSearch = INSearchForMediaIntent()
-        siriSearch.suggestedInvocationPhrase = "Search for"
+        siriSearch.suggestedInvocationPhrase = "Search R/a/dio"
         
         let shortcutSearch = SearchIntent()
-        shortcutSearch.suggestedInvocationPhrase = "Search for"
+        shortcutSearch.suggestedInvocationPhrase = "Search R/a/dio"
         
         return [.queue: intent,
                 .siriSearch: siriSearch,

@@ -26,10 +26,10 @@ class SearchIntentHandler: NSObject, SearchIntentHandling {
     }
     
     func resolveQuery(for intent: SearchIntent, with completion: @escaping (INStringResolutionResult) -> Void) {
-        if let query = intent.query {
+        if let query = intent.query, !query.isEmpty {
             completion(.success(with: query))
         } else {
-            completion(.confirmationRequired(with: ""))
+            completion(.needsValue())
         }
     }
     
