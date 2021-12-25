@@ -1804,6 +1804,13 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		3BDE78012777674000C69889 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
 		3BF9C78B275558A40063A4F7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -2227,6 +2234,7 @@
 		FBCABEF324A2864900BCD18B /* Radio-dataTests */ = {
 			isa = PBXGroup;
 			children = (
+				3BDE78012777674000C69889 /* Fixtures */,
 				09BD781E237E30CA008950CD /* Interfaces */,
 				FBCABEF424A2864900BCD18B /* Radio_dataTests.swift */,
 				FBCABEF624A2864900BCD18B /* Info.plist */,
@@ -3955,7 +3963,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Radio.app/Radio";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/R-a-dio.app/R-a-dio";
 			};
 			name = Debug;
 		};
@@ -3978,7 +3986,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Radio.app/Radio";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/R-a-dio.app/R-a-dio";
 			};
 			name = Release;
 		};
@@ -4068,7 +4076,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Radio.app/Radio";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/R-a-dio.app/R-a-dio";
 			};
 			name = Debug;
 		};
@@ -4089,7 +4097,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Radio.app/Radio";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/R-a-dio.app/R-a-dio";
 			};
 			name = Release;
 		};
@@ -4183,7 +4191,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Radio.app/Radio";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/R-a-dio.app/R-a-dio";
 			};
 			name = Debug;
 		};
@@ -4209,7 +4217,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Radio.app/Radio";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/R-a-dio.app/R-a-dio";
 			};
 			name = Release;
 		};
@@ -4844,7 +4852,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Radio.app/Radio";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/R-a-dio.app/R-a-dio";
 			};
 			name = Debug;
 		};
@@ -4866,7 +4874,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Radio.app/Radio";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/R-a-dio.app/R-a-dio";
 			};
 			name = Release;
 		};
