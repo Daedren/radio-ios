@@ -3067,7 +3067,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -eu\n\n# Ensure mocks are generated prior to running Compile Sources\nrm -f '/tmp/Mockingbird-CF202EC7-E295-4B99-9713-85EF539A948F'\n\nmockingbird generate \\\n  --targets 'Radio-domain-iOS' 'Radio-data-iOS' 'Radio-interfaces-iOS' \\\n  --outputs \"${SRCROOT}/MockingbirdMocks/RadioTests-Radio_domainMocks.generated.swift\" \"${SRCROOT}/MockingbirdMocks/RadioTests-Radio_dataMocks.generated.swift\" \"${SRCROOT}/MockingbirdMocks/RadioTests-Radio_interfacesMocks.generated.swift\" \\\n  --support \"${SRCROOT}/MockingbirdSupport\" \\\n  --only-protocols\n";
+			shellScript = "set -eu\n\n# Ensure mocks are generated prior to running Compile Sources\nrm -f '/tmp/Mockingbird-CF202EC7-E295-4B99-9713-85EF539A948F'\n\nwhich mockingbird 2>&1 >/dev/null\nif [ $? -ne 0 ]; then\n    DERIVED_DATA=$(dirname $(dirname $BUILD_DIR))\n    REPO_PATH=\"${DERIVED_DATA}/SourcePackages/checkouts/mockingbird\"\n    [[ -f \"${REPO_PATH}/mockingbird\" ]] || (cd \"${REPO_PATH}\" && make download)\nfi\n\n\nmockingbird generate \\\n  --targets 'Radio-domain-iOS' 'Radio-data-iOS' 'Radio-interfaces-iOS' \\\n  --outputs \"${SRCROOT}/MockingbirdMocks/RadioTests-Radio_domainMocks.generated.swift\" \"${SRCROOT}/MockingbirdMocks/RadioTests-Radio_dataMocks.generated.swift\" \"${SRCROOT}/MockingbirdMocks/RadioTests-Radio_interfacesMocks.generated.swift\" \\\n  --support \"${SRCROOT}/MockingbirdSupport\" \\\n  --only-protocols\n";
 		};
 		66BB15D8C3A246653537297B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
