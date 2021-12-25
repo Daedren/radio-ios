@@ -36,7 +36,7 @@
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>Show the upcoming song queue</string>
+					<string>Show the Radio queue</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>QZzXR6</string>
 					<key>INIntentParameterCombinationUpdatesLinked</key>
@@ -135,7 +135,7 @@
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>Search Ra/dio for ${query}</string>
+					<string>Search Radio for ${query}</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>gNFQqg</string>
 					<key>INIntentParameterCombinationUpdatesLinked</key>

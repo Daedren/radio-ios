@@ -2759,7 +2759,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1100;
-				ORGANIZATIONNAME = RKM;
+				ORGANIZATIONNAME = Raik;
 				TargetAttributes = {
 					097C1E9F2378716F00A7A5AD = {
 						CreatedOnToolsVersion = 11.0;

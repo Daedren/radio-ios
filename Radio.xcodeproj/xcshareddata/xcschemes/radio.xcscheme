@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "097C1E9F2378716F00A7A5AD"
-               BuildableName = "Radio.app"
+               BuildableName = "R-a-dio.app"
                BlueprintName = "Radio"
                ReferencedContainer = "container:Radio.xcodeproj">
             </BuildableReference>
@@ -47,7 +47,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "097C1E9F2378716F00A7A5AD"
-            BuildableName = "Radio.app"
+            BuildableName = "R-a-dio.app"
             BlueprintName = "Radio"
             ReferencedContainer = "container:Radio.xcodeproj">
          </BuildableReference>
@@ -130,7 +130,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "097C1E9F2378716F00A7A5AD"
-            BuildableName = "Radio.app"
+            BuildableName = "R-a-dio.app"
             BlueprintName = "Radio"
             ReferencedContainer = "container:Radio.xcodeproj">
          </BuildableReference>
@@ -147,7 +147,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "097C1E9F2378716F00A7A5AD"
-            BuildableName = "Radio.app"
+            BuildableName = "R-a-dio.app"
             BlueprintName = "Radio"
             ReferencedContainer = "container:Radio.xcodeproj">
          </BuildableReference>
