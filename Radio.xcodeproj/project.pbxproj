@@ -26,6 +26,7 @@
 		097C1EE02378719700A7A5AD /* Radio_domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 097C1ECA2378719700A7A5AD /* Radio_domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		098CAFA223BBC03900B6B80E /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CAFA123BBC03900B6B80E /* SearchView.swift */; };
 		098CAFA623BBC78A00B6B80E /* MusicSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CAFA523BBC78A00B6B80E /* MusicSearchPresenter.swift */; };
+		2C381B175CF818FE075BC20B /* RadioTests-Radio_domainMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78498E14584DBD5786584618 /* RadioTests-Radio_domainMocks.generated.swift */; };
 		3B453BAC2742A13B007F38B7 /* Radio_interfaces.docc in Sources */ = {isa = PBXBuildFile; fileRef = 3B453BAB2742A13B007F38B7 /* Radio_interfaces.docc */; };
 		3B453BB22742A13C007F38B7 /* Radio_interfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B453BA82742A13B007F38B7 /* Radio_interfaces.framework */; };
 		3B453BB92742A13C007F38B7 /* Radio_interfacesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B453BB82742A13C007F38B7 /* Radio_interfacesTests.swift */; };
@@ -108,6 +109,9 @@
 		3B453CB62743116F007F38B7 /* MediaPlayerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F8EB5A23B818D700FE6E25 /* MediaPlayerInterface.swift */; };
 		3B453CB72743116F007F38B7 /* ArtworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F8A10D23B83E5500D95643 /* ArtworkHandler.swift */; };
 		3B453CBC27431330007F38B7 /* MediaPlayerConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F8EB6023B8244F00FE6E25 /* MediaPlayerConfigurator.swift */; };
+		3B6FCE772759447B00E8DC91 /* MusicSearchPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FCE762759447B00E8DC91 /* MusicSearchPresenterTests.swift */; };
+		3B6FCE7A2759484E00E8DC91 /* Mockingbird in Frameworks */ = {isa = PBXBuildFile; productRef = 3B6FCE792759484E00E8DC91 /* Mockingbird */; };
+		3B6FCE7D27594D7B00E8DC91 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FCE7C27594D7B00E8DC91 /* TestExtensions.swift */; };
 		3B7E0787270D8B1F00448BEF /* ToggleSleepTimerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E0786270D8B1F00448BEF /* ToggleSleepTimerUseCase.swift */; };
 		3B7E0788270D8B1F00448BEF /* ToggleSleepTimerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E0786270D8B1F00448BEF /* ToggleSleepTimerUseCase.swift */; };
 		3B9063CB27481C2C0012C3D7 /* Inject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9063CA27481C2C0012C3D7 /* Inject.swift */; };
@@ -119,10 +123,14 @@
 		3B9063DB274A77240012C3D7 /* SongList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9063DA274A77240012C3D7 /* SongList.swift */; };
 		3B9063DC274A77240012C3D7 /* SongList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9063DA274A77240012C3D7 /* SongList.swift */; };
 		3B9063DE274A780B0012C3D7 /* SongListiOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CAF9E23BB8FF700B6B80E /* SongListiOS.swift */; };
+		3BC624C0275BBD0100E99D4E /* UseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC624BF275BBD0100E99D4E /* UseCases.swift */; };
 		3BF9C78D275558B50063A4F7 /* DeviceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF9C78C275558B50063A4F7 /* DeviceOrientation.swift */; };
 		3BF9C78E275558B50063A4F7 /* DeviceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF9C78C275558B50063A4F7 /* DeviceOrientation.swift */; };
 		3BF9C78F275559890063A4F7 /* TrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922E2BE23A2F8DC00EB00C8 /* TrackView.swift */; };
 		5358370C99A66161F8407816 /* Pods_Radio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E54BE145D343DDDA1C7FFB /* Pods_Radio.framework */; };
+		A37B0C8280F3D01FDEC844C9 /* RadioTests-Radio_interfacesMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE825F1256FA7F0F1F0E2EA /* RadioTests-Radio_interfacesMocks.generated.swift */; };
+		BBEBF6950B511BBF0881A541 /* RadioTests-Radio_dataMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0D17861F608126836A584A /* RadioTests-Radio_dataMocks.generated.swift */; };
+		C141C901BF282F28BCAA07E9 /* Pods_RadioTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B0FE086FA67A573DCF42E7 /* Pods_RadioTests.framework */; };
 		FB01747624A40D8200A5E64A /* CanRequestSongRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01747524A40D8200A5E64A /* CanRequestSongRequest.swift */; };
 		FB01747824A40DAB00A5E64A /* CanRequestSongResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01747724A40DAB00A5E64A /* CanRequestSongResponseModel.swift */; };
 		FB0C9A662457559900320562 /* MusicSearchConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0C9A652457559900320562 /* MusicSearchConfigurator.swift */; };
@@ -760,7 +768,7 @@
 		096E0B99237A089600024572 /* RemoteControlCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlCommand.swift; sourceTree = "<group>"; };
 		096E0B9B237A08A500024572 /* RemoteControlMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlMetadata.swift; sourceTree = "<group>"; };
 		096E0B9D237A08B500024572 /* RemoteControlError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlError.swift; sourceTree = "<group>"; };
-		097C1EA02378716F00A7A5AD /* Radio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Radio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		097C1EA02378716F00A7A5AD /* R-a-dio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "R-a-dio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		097C1EA32378716F00A7A5AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		097C1EA52378716F00A7A5AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		097C1EA72378716F00A7A5AD /* MainTabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabsView.swift; sourceTree = "<group>"; };
@@ -830,13 +838,22 @@
 		3B453CAC2742CC50007F38B7 /* TrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewModel.swift; sourceTree = "<group>"; };
 		3B453CAE2742CC62007F38B7 /* CurrentTrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTrackViewModel.swift; sourceTree = "<group>"; };
 		3B453CB02742CC69007F38B7 /* DJViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJViewModel.swift; sourceTree = "<group>"; };
+		3B6FCE762759447B00E8DC91 /* MusicSearchPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSearchPresenterTests.swift; sourceTree = "<group>"; };
+		3B6FCE7C27594D7B00E8DC91 /* TestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestExtensions.swift; sourceTree = "<group>"; };
 		3B7E0786270D8B1F00448BEF /* ToggleSleepTimerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleSleepTimerUseCase.swift; sourceTree = "<group>"; };
 		3B9063CA27481C2C0012C3D7 /* Inject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inject.swift; sourceTree = "<group>"; };
 		3B9063D0274A5EE40012C3D7 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		3B9063D3274A627B0012C3D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B9063DA274A77240012C3D7 /* SongList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongList.swift; sourceTree = "<group>"; };
+		3BC624BF275BBD0100E99D4E /* UseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCases.swift; sourceTree = "<group>"; };
 		3BF9C78C275558B50063A4F7 /* DeviceOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceOrientation.swift; sourceTree = "<group>"; };
+		3D0D17861F608126836A584A /* RadioTests-Radio_dataMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "RadioTests-Radio_dataMocks.generated.swift"; path = "MockingbirdMocks/RadioTests-Radio_dataMocks.generated.swift"; sourceTree = "<group>"; };
 		50E54BE145D343DDDA1C7FFB /* Pods_Radio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Radio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5221FED03902A176D544D347 /* Pods-RadioTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RadioTests.debug.xcconfig"; path = "Target Support Files/Pods-RadioTests/Pods-RadioTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5AE825F1256FA7F0F1F0E2EA /* RadioTests-Radio_interfacesMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "RadioTests-Radio_interfacesMocks.generated.swift"; path = "MockingbirdMocks/RadioTests-Radio_interfacesMocks.generated.swift"; sourceTree = "<group>"; };
+		78498E14584DBD5786584618 /* RadioTests-Radio_domainMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "RadioTests-Radio_domainMocks.generated.swift"; path = "MockingbirdMocks/RadioTests-Radio_domainMocks.generated.swift"; sourceTree = "<group>"; };
+		94B0FE086FA67A573DCF42E7 /* Pods_RadioTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RadioTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6488FF1FFB1F56A3C13B1D7 /* Pods-RadioTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RadioTests.release.xcconfig"; path = "Target Support Files/Pods-RadioTests/Pods-RadioTests.release.xcconfig"; sourceTree = "<group>"; };
 		FB01747324A3FC4200A5E64A /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		FB01747524A40D8200A5E64A /* CanRequestSongRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanRequestSongRequest.swift; sourceTree = "<group>"; };
 		FB01747724A40DAB00A5E64A /* CanRequestSongResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanRequestSongResponseModel.swift; sourceTree = "<group>"; };
@@ -993,6 +1010,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B6FCE7A2759484E00E8DC91 /* Mockingbird in Frameworks */,
+				C141C901BF282F28BCAA07E9 /* Pods_RadioTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1335,13 +1354,14 @@
 				097C1EA12378716F00A7A5AD /* Products */,
 				FB242EB5243E40D500115B49 /* Frameworks */,
 				AF200533378D4FF48A7656DD /* Pods */,
+				E241F9666443C0D5D000F191 /* Generated Mocks */,
 			);
 			sourceTree = "<group>";
 		};
 		097C1EA12378716F00A7A5AD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				097C1EA02378716F00A7A5AD /* Radio.app */,
+				097C1EA02378716F00A7A5AD /* R-a-dio.app */,
 				097C1EB62378717100A7A5AD /* RadioTests.xctest */,
 				097C1ECA2378719700A7A5AD /* Radio_domain.framework */,
 				097C1ED22378719700A7A5AD /* Radio-DomainTests.xctest */,
@@ -1390,6 +1410,9 @@
 		097C1EB92378717100A7A5AD /* RadioTests */ = {
 			isa = PBXGroup;
 			children = (
+				3B6FCE7E275952F200E8DC91 /* Facades */,
+				3B6FCE7B27594D6F00E8DC91 /* Helpers */,
+				3B6FCE742759445B00E8DC91 /* Interfaces */,
 				097C1EBA2378717100A7A5AD /* radioTests.swift */,
 				097C1EBC2378717100A7A5AD /* Info.plist */,
 			);
@@ -1724,6 +1747,38 @@
 			path = "View Models";
 			sourceTree = "<group>";
 		};
+		3B6FCE742759445B00E8DC91 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				3B6FCE752759446300E8DC91 /* UI */,
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
+		3B6FCE752759446300E8DC91 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3B6FCE762759447B00E8DC91 /* MusicSearchPresenterTests.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		3B6FCE7B27594D6F00E8DC91 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3B6FCE7C27594D7B00E8DC91 /* TestExtensions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3B6FCE7E275952F200E8DC91 /* Facades */ = {
+			isa = PBXGroup;
+			children = (
+				3BC624BF275BBD0100E99D4E /* UseCases.swift */,
+			);
+			path = Facades;
+			sourceTree = "<group>";
+		};
 		3B9063C927481C150012C3D7 /* Injection */ = {
 			isa = PBXGroup;
 			children = (
@@ -1762,8 +1817,20 @@
 			children = (
 				38746B3D244429A4D7D41947 /* Pods-Radio.debug.xcconfig */,
 				2D0EB42F28CB2FA00B698EA1 /* Pods-Radio.release.xcconfig */,
+				5221FED03902A176D544D347 /* Pods-RadioTests.debug.xcconfig */,
+				C6488FF1FFB1F56A3C13B1D7 /* Pods-RadioTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E241F9666443C0D5D000F191 /* Generated Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				78498E14584DBD5786584618 /* RadioTests-Radio_domainMocks.generated.swift */,
+				3D0D17861F608126836A584A /* RadioTests-Radio_dataMocks.generated.swift */,
+				5AE825F1256FA7F0F1F0E2EA /* RadioTests-Radio_interfacesMocks.generated.swift */,
+			);
+			name = "Generated Mocks";
 			sourceTree = "<group>";
 		};
 		FB01747024A3F44F00A5E64A /* Extensions */ = {
@@ -1846,6 +1913,7 @@
 				FBCABEB324A2724D00BCD18B /* SwiftUI.framework */,
 				FBCABF4024A2927E00BCD18B /* IntentsUI.framework */,
 				50E54BE145D343DDDA1C7FFB /* Pods_Radio.framework */,
+				94B0FE086FA67A573DCF42E7 /* Pods_RadioTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2312,16 +2380,20 @@
 			);
 			name = Radio;
 			productName = radio;
-			productReference = 097C1EA02378716F00A7A5AD /* Radio.app */;
+			productReference = 097C1EA02378716F00A7A5AD /* R-a-dio.app */;
 			productType = "com.apple.product-type.application";
 		};
 		097C1EB52378717100A7A5AD /* RadioTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 097C1EC22378717100A7A5AD /* Build configuration list for PBXNativeTarget "RadioTests" */;
 			buildPhases = (
+				198237A64ED54508D5DC93BA /* [CP] Check Pods Manifest.lock */,
+				D39B50E0A18D29F66E5D2E7F /* Clean Mockingbird Mocks */,
+				2FCA1C9951ECEBEE35508C35 /* Generate Mockingbird Mocks */,
 				097C1EB22378717100A7A5AD /* Sources */,
 				097C1EB32378717100A7A5AD /* Frameworks */,
 				097C1EB42378717100A7A5AD /* Resources */,
+				CAD6A7037A354B808BA231E5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2329,6 +2401,9 @@
 				097C1EB82378717100A7A5AD /* PBXTargetDependency */,
 			);
 			name = RadioTests;
+			packageProductDependencies = (
+				3B6FCE792759484E00E8DC91 /* Mockingbird */,
+			);
 			productName = radioTests;
 			productReference = 097C1EB62378717100A7A5AD /* RadioTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -2451,8 +2526,6 @@
 			dependencies = (
 			);
 			name = "Radio-cross-iOS";
-			packageProductDependencies = (
-			);
 			productName = "Radio-cross";
 			productReference = FB242EA2243E3C6100115B49 /* Radio_cross.framework */;
 			productType = "com.apple.product-type.framework";
@@ -2490,8 +2563,6 @@
 			dependencies = (
 			);
 			name = "Radio-cross-watchOS";
-			packageProductDependencies = (
-			);
 			productName = "Radio-cross-watchOS";
 			productReference = FB64DC3224BE475F00F47D8B /* Radio_cross.framework */;
 			productType = "com.apple.product-type.framework";
@@ -2768,7 +2839,7 @@
 			packageReferences = (
 				093E6A6823B7931A00578C99 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				FBCABF2F24A2884D00BCD18B /* XCRemoteSwiftPackageReference "SwiftSoup" */,
-				FB89368924A7E5A50014EAC3 /* XCRemoteSwiftPackageReference "Swinject" */,
+				3B6FCE782759484E00E8DC91 /* XCRemoteSwiftPackageReference "mockingbird" */,
 			);
 			productRefGroup = 097C1EA12378716F00A7A5AD /* Products */;
 			projectDirPath = "";
@@ -2952,6 +3023,46 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		198237A64ED54508D5DC93BA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RadioTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2FCA1C9951ECEBEE35508C35 /* Generate Mockingbird Mocks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"/tmp/Mockingbird-CF202EC7-E295-4B99-9713-85EF539A948F",
+			);
+			name = "Generate Mockingbird Mocks";
+			outputPaths = (
+				"$(SRCROOT)/MockingbirdMocks/RadioTests-Radio_domainMocks.generated.swift",
+				"$(SRCROOT)/MockingbirdMocks/RadioTests-Radio_dataMocks.generated.swift",
+				"$(SRCROOT)/MockingbirdMocks/RadioTests-Radio_interfacesMocks.generated.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -eu\n\n# Ensure mocks are generated prior to running Compile Sources\nrm -f '/tmp/Mockingbird-CF202EC7-E295-4B99-9713-85EF539A948F'\n\nmockingbird generate \\\n  --targets 'Radio-domain-iOS' 'Radio-data-iOS' 'Radio-interfaces-iOS' \\\n  --outputs \"${SRCROOT}/MockingbirdMocks/RadioTests-Radio_domainMocks.generated.swift\" \"${SRCROOT}/MockingbirdMocks/RadioTests-Radio_dataMocks.generated.swift\" \"${SRCROOT}/MockingbirdMocks/RadioTests-Radio_interfacesMocks.generated.swift\" \\\n  --support \"${SRCROOT}/MockingbirdSupport\" \\\n  --only-protocols\n";
+		};
 		66BB15D8C3A246653537297B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2982,14 +3093,54 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Radio/Pods-Radio-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Radio/Pods-Radio-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Radio/Pods-Radio-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		CAD6A7037A354B808BA231E5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RadioTests/Pods-RadioTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RadioTests/Pods-RadioTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RadioTests/Pods-RadioTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D39B50E0A18D29F66E5D2E7F /* Clean Mockingbird Mocks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Clean Mockingbird Mocks";
+			outputPaths = (
+				"/tmp/Mockingbird-CF202EC7-E295-4B99-9713-85EF539A948F",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo $RANDOM > '/tmp/Mockingbird-CF202EC7-E295-4B99-9713-85EF539A948F'\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -3045,7 +3196,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B6FCE772759447B00E8DC91 /* MusicSearchPresenterTests.swift in Sources */,
+				3BC624C0275BBD0100E99D4E /* UseCases.swift in Sources */,
+				3B6FCE7D27594D7B00E8DC91 /* TestExtensions.swift in Sources */,
 				097C1EBB2378717100A7A5AD /* radioTests.swift in Sources */,
+				2C381B175CF818FE075BC20B /* RadioTests-Radio_domainMocks.generated.swift in Sources */,
+				BBEBF6950B511BBF0881A541 /* RadioTests-Radio_dataMocks.generated.swift in Sources */,
+				A37B0C8280F3D01FDEC844C9 /* RadioTests-Radio_interfacesMocks.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3737,7 +3894,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.r-a-dio";
 				PRODUCT_MODULE_NAME = Radio;
-				PRODUCT_NAME = Radio;
+				PRODUCT_NAME = "R-a-dio";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = Radio/BridgingHeader.h;
 				SWIFT_VERSION = 5.0;
@@ -3769,7 +3926,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.r-a-dio";
 				PRODUCT_MODULE_NAME = Radio;
-				PRODUCT_NAME = Radio;
+				PRODUCT_NAME = "R-a-dio";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = Radio/BridgingHeader.h;
 				SWIFT_VERSION = 5.0;
@@ -3781,6 +3938,7 @@
 		};
 		097C1EC32378717100A7A5AD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5221FED03902A176D544D347 /* Pods-RadioTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -3803,6 +3961,7 @@
 		};
 		097C1EC42378717100A7A5AD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6488FF1FFB1F56A3C13B1D7 /* Pods-RadioTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -4959,12 +5118,12 @@
 				minimumVersion = 5.12.0;
 			};
 		};
-		FB89368924A7E5A50014EAC3 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+		3B6FCE782759484E00E8DC91 /* XCRemoteSwiftPackageReference "mockingbird" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Swinject/Swinject";
+			repositoryURL = "https://github.com/birdrides/mockingbird.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.7.1;
+				minimumVersion = 0.9.0;
 			};
 		};
 		FBCABF2F24A2884D00BCD18B /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
@@ -4987,6 +5146,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 093E6A6823B7931A00578C99 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = KingfisherSwiftUI;
+		};
+		3B6FCE792759484E00E8DC91 /* Mockingbird */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B6FCE782759484E00E8DC91 /* XCRemoteSwiftPackageReference "mockingbird" */;
+			productName = Mockingbird;
 		};
 		FB64DC7524BE4A9500F47D8B /* SwiftSoup */ = {
 			isa = XCSwiftPackageProductDependency;

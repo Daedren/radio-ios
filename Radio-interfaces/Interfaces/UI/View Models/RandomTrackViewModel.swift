@@ -3,19 +3,21 @@ import Radio_domain
 import Radio_data
 
 
-public struct RandomTrackViewModel: Equatable, RequestButtonViewModel {
-    public var state: SearchTrackState
+public struct RandomTrackViewModel: Equatable, ButtonViewModel {
+    public var state: ButtonViewModelStatus
     
-    public init(state: SearchTrackState) {
+    public init(state: ButtonViewModelStatus) {
         self.state = state
     }
     
-    public func buttonText(for state: SearchTrackState) -> String {
+    public func buttonText(for state: ButtonViewModelStatus) -> String {
         switch state {
-        case .requestable:
+        case .enabled:
             return "Random from results"
-        case .notRequestable:
+        case .disabled:
             return "Random from results"
+        default:
+            return ""
         }
     }
 

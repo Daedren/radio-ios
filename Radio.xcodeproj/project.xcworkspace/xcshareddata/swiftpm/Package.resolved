@@ -6,8 +6,17 @@
         "repositoryURL": "https://github.com/onevcat/Kingfisher",
         "state": {
           "branch": null,
-          "revision": "2f9d171f17869768f6dbec1d039b851e2503af35",
+          "revision": "ca02b7f57439afca10536fc7b75406e7ebd88d3b",
           "version": "5.12.0"
+        }
+      },
+      {
+        "package": "Mockingbird",
+        "repositoryURL": "https://github.com/birdrides/mockingbird.git",
+        "state": {
+          "branch": null,
+          "revision": "4069bb0cb0163b1f05b2bbb95f9396964d5a19ca",
+          "version": "0.18.1"
         }
       },
       {
@@ -15,17 +24,8 @@
         "repositoryURL": "https://github.com/scinfu/SwiftSoup",
         "state": {
           "branch": null,
-          "revision": "7f187fd8804e63dea89879c95d7c2f7703727d0f",
-          "version": "2.3.0"
-        }
-      },
-      {
-        "package": "Swinject",
-        "repositoryURL": "https://github.com/Swinject/Swinject",
-        "state": {
-          "branch": null,
-          "revision": "8a76d2c74bafbb455763487cc6a08e91bad1f78b",
-          "version": "2.7.1"
+          "revision": "02c63b7be50bda384f22c56c64d347231754a07e",
+          "version": "2.3.3"
         }
       }
     ]

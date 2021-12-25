@@ -50,7 +50,7 @@ public class InteractorConfigurator {
                 radio: InjectSettings.shared.resolve(RadioGateway.self)!
             )
         }
-        InjectSettings.shared.register(GetCurrentStatusInteractor.self) {
+        InjectSettings.shared.register(GetCurrentStatusUseCase.self) {
             return GetCurrentStatusInteractor(
                 radio: InjectSettings.shared.resolve(RadioGateway.self)!
             )
@@ -60,13 +60,13 @@ public class InteractorConfigurator {
                 avGateway: InjectSettings.shared.resolve(MusicGateway.self)!
             )
         }
-        InjectSettings.shared.register(SearchForTermInteractor.self) {
+        InjectSettings.shared.register(SearchForTermUseCase.self) {
             return SearchForTermInteractor(
                 radioGateway: InjectSettings.shared.resolve(RadioGateway.self)!
             )
         }
         
-        InjectSettings.shared.register(RequestSongInteractor.self) {
+        InjectSettings.shared.register(RequestSongUseCase.self) {
             return RequestSongInteractor(
                 radioGateway: InjectSettings.shared.resolve(RadioGateway.self)!,
                 requestValidation: InjectSettings.shared.resolve(RequestLogic.self)!
@@ -86,7 +86,7 @@ public class InteractorConfigurator {
             )
         }
         
-        InjectSettings.shared.register(CanRequestSongInteractor.self) {
+        InjectSettings.shared.register(CanRequestSongUseCase.self) {
             return CanRequestSongInteractor(
                 radioGateway: InjectSettings.shared.resolve(RadioGateway.self)!,
                 requestValidation: InjectSettings.shared.resolve(RequestLogic.self)!

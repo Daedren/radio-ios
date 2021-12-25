@@ -3,26 +3,14 @@ import Radio_domain
 import Radio_data
 
 
-public protocol RequestButtonViewModel {
-    var state: SearchTrackState { get set }
-    func buttonText(for state: SearchTrackState) -> String
-}
-
-
-public enum SearchTrackState {
-    case requestable
-    case notRequestable
-}
-
-
-public struct SearchedTrackViewModel: Identifiable, Equatable, RequestButtonViewModel {
+public struct SearchedTrackViewModel: Identifiable, Equatable, ButtonViewModel {
     public var id: Int
     var externalId: Int?
     var title: String
     var artist: String
     //    var lastPlayed: Date?
     var lastRequested: String?
-    public var state: SearchTrackState = .requestable
+    public var state: ButtonViewModelStatus = .enabled
     
     public var fullText: String {
         "\(artist) - \(title)"
@@ -33,7 +21,7 @@ public struct SearchedTrackViewModel: Identifiable, Equatable, RequestButtonView
         self.artist = entity.artist
         self.id = id
         if let requestable = entity.requestable {
-            self.state = requestable ? .requestable : .notRequestable
+            self.state = requestable ? .enabled : .disabled
         }
         self.externalId = entity.id
         
@@ -47,19 +35,21 @@ public struct SearchedTrackViewModel: Identifiable, Equatable, RequestButtonView
         self.externalId = entity.id
         self.id = id
         if let requestable = entity.requestable {
-            self.state = requestable ? .requestable : .notRequestable
+            self.state = requestable ? .enabled : .disabled
         }
         
         let offset = entity.lastRequested?.offsetFrom(date: Date())
         self.lastRequested = offset ?? ""
     }
     
-    public func buttonText(for state: SearchTrackState) -> String {
+    public func buttonText(for state: ButtonViewModelStatus) -> String {
         switch state {
-        case .requestable:
+        case .enabled:
             return "Request"
-        case .notRequestable:
+        case .disabled:
             return "Request"
+        default:
+            return ""
         }
     }
     

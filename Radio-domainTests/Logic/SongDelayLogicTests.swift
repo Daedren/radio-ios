@@ -2,12 +2,12 @@ import XCTest
 @testable import Radio_domain
 
 class SongDelayLogicTests: XCTestCase {
-
+    
     func testSongDelayLogic_oldSong_notInCD() throws {
         let sut = SongDelayLogic()
         let stub = FavoriteTrack(id: 3962,
-                                 title: "rahu goldenslaughterer",
-                                 artist: "O7th Expansion",
+                                 title: "title",
+                                 artist: "artist",
                                  lastPlayed: Date(timeIntervalSince1970: 1589262314),
                                  lastRequested: Date(timeIntervalSince1970: 1589260322),
                                  requestCount: 0)
@@ -19,11 +19,12 @@ class SongDelayLogicTests: XCTestCase {
     
     func testSongDelayLogic_justRequested_InCD() throws {
         let sut = SongDelayLogic()
+        
         let stub = FavoriteTrack(id: 3962,
-                                 title: "rahu goldenslaughterer",
-                                 artist: "O7th Expansion",
-                                 lastPlayed: Date(timeIntervalSince1970: 1589262314),
-                                 lastRequested: Date(timeIntervalSince1970: 1593117883),
+                                 title: "title",
+                                 artist: "artist",
+                                 lastPlayed: Date(timeIntervalSince1970: 1638232588),
+                                 lastRequested: Date(timeIntervalSince1970: 1640188446),
                                  requestCount: 2)
         
         let isInCD = sut.isSongUnderCooldown(track: stub)

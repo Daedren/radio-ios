@@ -13,7 +13,7 @@ public class MediaPlayerInterface {
     @Inject var playInteractor: PlayRadioUseCase
     @Inject var pauseInteractor: StopRadioUseCase
     @Inject var songNameInteractor: GetCurrentTrackUseCase
-    @Inject var statusInteractor: GetCurrentStatusInteractor
+    @Inject var statusInteractor: GetCurrentStatusUseCase
     @Inject var djInteractor: GetDJInteractor
     @Inject var playbackInteractor: GetPlaybackInfoInteractor
     

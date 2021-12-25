@@ -1,8 +1,11 @@
 import Foundation
 import Combine
 
+public protocol RequestSongUseCase {
+    func execute(_ input: Int) -> AnyPublisher<Bool,RequestSongUseCaseError>
+}
 
-public class RequestSongInteractor: Interactor {
+public class RequestSongInteractor: RequestSongUseCase, Interactor {
     public typealias Input = Int
     public typealias Output = AnyPublisher<Bool,RequestSongUseCaseError>
     

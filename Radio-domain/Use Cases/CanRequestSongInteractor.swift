@@ -2,10 +2,11 @@ import Foundation
 import Combine
 
 
-public class CanRequestSongInteractor: Interactor {
-    public typealias Input = Void
-    public typealias Output = AnyPublisher<RequestTimeModel,Never>
-    
+public protocol CanRequestSongUseCase {
+    func execute() -> AnyPublisher<RequestTimeModel,Never>
+}
+
+public class CanRequestSongInteractor: CanRequestSongUseCase {
     var radioGateway: RadioGateway?
     var requestValidation: RequestLogic?
     
@@ -15,7 +16,7 @@ public class CanRequestSongInteractor: Interactor {
         self.requestValidation = requestValidation
     }
     
-    public func execute(_ input: () = ()) -> AnyPublisher<RequestTimeModel,Never> {
+    public func execute() -> AnyPublisher<RequestTimeModel,Never> {
         // Might be better to have the logic return the date.
         guard let requestValidation = self.requestValidation else { fatalError("Missing DI!") }
 
