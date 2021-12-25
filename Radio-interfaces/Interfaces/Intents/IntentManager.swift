@@ -4,15 +4,15 @@ import IntentsUI
 
 enum IntentModel: Int {
    case queue
-    case siriSearch
+//    case siriSearch
     case shortcutSearch
     
     var title: String {
         switch self {
         case .queue:
             return "Queue"
-        case .siriSearch:
-            return "Siri search"
+//        case .siriSearch:
+//            return "Siri search"
         case .shortcutSearch:
             return "Shortcut search"
         }
@@ -30,14 +30,14 @@ class IntentManager {
         let intent = QueueIntent()
         intent.suggestedInvocationPhrase = "Show the R/a/dio queue"
         
-        let siriSearch = INSearchForMediaIntent()
-        siriSearch.suggestedInvocationPhrase = "Search R/a/dio"
+//        let siriSearch = INSearchForMediaIntent()
+//        siriSearch.suggestedInvocationPhrase = "Search R/a/dio"
         
         let shortcutSearch = SearchIntent()
         shortcutSearch.suggestedInvocationPhrase = "Search R/a/dio"
         
         return [.queue: intent,
-                .siriSearch: siriSearch,
+//                .siriSearch: siriSearch,
                 .shortcutSearch: shortcutSearch]
     }
     
@@ -69,12 +69,6 @@ class IntentManager {
         }
     }
     
-//    private func donateVoiceIntent(_ intent: INIntent) -> UIViewController {
-//        let shortcut = INShortcut(intent: intent)
-//        let viewC = INUIAddVoiceShortcutViewController(shortcut: shortcut)
-//        return viewC
-//    }
-    
     func getIntents() -> [IntentModel] {
         return Array(self.intents.keys)
     }
@@ -93,17 +87,4 @@ class IntentManager {
         }
         return nil
     }
-    //
-    //    func addQueueShortcut() {
-    //        let bundle = Bundle.main.bundleIdentifier
-    //        let activity = NSUserActivity(activityType: "\(bundle).siri.QueueIntent") // 1
-    //        activity.title = "Get R/a/dio Queue" // 2
-    //        activity.userInfo = ["speech" : "hi"] // 3
-    //        activity.isEligibleForSearch = true // 4
-    //        activity.isEligibleForPrediction = true // 5
-    //        activity.persistentIdentifier =  NSUserActivityPersistentIdentifier("\(bundle).siri.QueueIntent")
-    //        view.userActivity = activity // 7
-    //        activity.becomeCurrent() // 8
-    //    }
-    
 }
