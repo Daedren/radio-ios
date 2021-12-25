@@ -20,12 +20,28 @@ public struct WebView : UIViewRepresentable {
         uiView.isOpaque = false
         uiView.backgroundColor = .clear
         uiView.scrollView.backgroundColor = .clear
-        if let request = request {
-            uiView.load(request)
+        uiView.navigationDelegate = self.delegate
+        self.injectHTML(webview: uiView, url: self.html ?? "")
+        return uiView
+    }
+    
+    public func updateUIView(_ uiView: WKWebView, context: Context) {
+        self.injectHTML(webview: uiView, url: self.html ?? "")
+    }
+    
+    public func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+
+    public class Coordinator: NSObject, WKNavigationDelegate {
+        var webView: WebView
+        init(_ webView: WebView) {
+            self.webView = webView
         }
-        if let html = html {
-            uiView.navigationDelegate = self.delegate
-            uiView.loadHTMLString("""
+    }
+    
+    private func injectHTML(webview: WKWebView, url: String) {
+            webview.loadHTMLString("""
                 <!DOCTYPE html>
                 <html>
                 <head>
@@ -43,16 +59,10 @@ public struct WebView : UIViewRepresentable {
                 </style>
                 </head>
                 <body>
-                <a href="\(html)">Thread up!</a></h1></html>
+                <a href="\(url)">Thread up!</a></h1></html>
                 </body>
                 """
                                   , baseURL: nil)
-        }
-        return uiView
-    }
-    
-    public func updateUIView(_ uiView: WKWebView, context: Context) {
-        
     }
     
 }
