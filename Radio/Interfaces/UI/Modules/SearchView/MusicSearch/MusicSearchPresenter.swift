@@ -17,18 +17,18 @@ class MusicSearchPresenterImp: SearchPresenter {
     var requestDisposeBag = Set<AnyCancellable>()
     var searchEngine = PassthroughSubject<String, RadioError>()
     
-    var searchInteractor: SearchForTermInteractor?
-    var requestInteractor: RequestSongInteractor?
-    var statusInteractor: GetCurrentStatusInteractor?
-    var cooldownInteractor: CanRequestSongInteractor?
+    var searchInteractor: SearchForTermUseCase?
+    var requestInteractor: RequestSongUseCase?
+    var statusInteractor: GetCurrentStatusUseCase?
+    var cooldownInteractor: CanRequestSongUseCase?
     
     var searchedTracks = [SearchedTrack]()
     var searchedTerm = ""
     
-    init(searchInteractor: SearchForTermInteractor,
-         requestInteractor: RequestSongInteractor,
-         statusInteractor: GetCurrentStatusInteractor,
-         cooldownInteractor: CanRequestSongInteractor) {
+    init(searchInteractor: SearchForTermUseCase?,
+         requestInteractor: RequestSongUseCase?,
+         statusInteractor: GetCurrentStatusUseCase?,
+         cooldownInteractor: CanRequestSongUseCase?) {
         self.searchInteractor = searchInteractor
         self.requestInteractor = requestInteractor
         self.statusInteractor = statusInteractor
@@ -36,11 +36,10 @@ class MusicSearchPresenterImp: SearchPresenter {
         
         self.state = SearchListState.initial
     }
-
+    
     func start(actions: AnyPublisher<SearchListAction, Never>) {
         let actions = actions
             .flatMap(handleAction)
-        
         let outside = getStatus()
         
         actions.merge(with: outside)
@@ -52,7 +51,7 @@ class MusicSearchPresenterImp: SearchPresenter {
             .store(in: &searchDisposeBag)
     }
     
-    private func handleAction(_ action: SearchListAction) -> AnyPublisher<SearchListState.Mutation, Never> {
+    func handleAction(_ action: SearchListAction) -> AnyPublisher<SearchListState.Mutation, Never> {
         
         switch action {
         case .chooseRandom:
@@ -69,7 +68,7 @@ class MusicSearchPresenterImp: SearchPresenter {
         }
         
     }
-
+    
     func createViewModels(from requests: [SearchedTrack]) -> [SearchedTrackViewModel] {
         var viewModels = [SearchedTrackViewModel]()
         for i in 0..<requests.count {
@@ -104,11 +103,11 @@ class MusicSearchPresenterImp: SearchPresenter {
             .execute()
             .map { status in
                 return SearchListState.Mutation.acceptingRequests(status.acceptingRequests)
-        }
-        .catch{ err in
-            return Just(SearchListState.Mutation.error(err.localizedDescription))
-        }
-        .eraseToAnyPublisher()
+            }
+            .catch{ err in
+                return Just(SearchListState.Mutation.error(err.localizedDescription))
+            }
+            .eraseToAnyPublisher()
     }
     
     func search(text: String) -> AnyPublisher<SearchListState.Mutation, Never> {
@@ -121,52 +120,50 @@ class MusicSearchPresenterImp: SearchPresenter {
             .map{ [unowned self] newTracks -> SearchListState.Mutation in
                 let cellModels = self.createViewModels(from: newTracks)
                 return SearchListState.Mutation.searchedTracks(cellModels)
-        }
-        .catch{ err in
-            return Just(SearchListState.Mutation.error(err.localizedDescription))
-        }
-        .receive(on: DispatchQueue.global(qos: .default))
-        .eraseToAnyPublisher()
-    }
-    
-    func requestRandom() -> AnyPublisher<SearchListState.Mutation, Never> {
-        let index = Int.random(in: 0 ... self.searchedTracks.count-1)
-        let song = self.searchedTracks[index]
-        
-        return self.requestSong(track: song)
-            .prepend(.loading(index))
-        .eraseToAnyPublisher()
-    }
-    
-    func request(index: Int) -> AnyPublisher<SearchListState.Mutation, Never> {
-        let song = self.searchedTracks[index]
-        
-        return self.requestSong(track: song)
-            .prepend(.loading(index))
-        .eraseToAnyPublisher()
-    }
-    
-    func requestSong(track: SearchedTrack) -> AnyPublisher<SearchListState.Mutation, Never> {
-        guard let requestInteractor = self.requestInteractor else { fatalError("Missing DI") }
-        
-        if track.requestable ?? false {
-            return requestInteractor
-                .execute(track.id)
-                .flatMap{ result -> AnyPublisher<SearchListState.Mutation,RequestSongUseCaseError> in
-                    if result {
-                        // refresh search when done.
-                        return self.search(text: self.searchedTerm)
-                            .mapError{ _ -> RequestSongUseCaseError in return .genericError(.unknown) }
-                            .eraseToAnyPublisher()
-                    } else {
-                        return Empty().eraseToAnyPublisher()
-                    }
             }
             .catch{ err in
                 return Just(SearchListState.Mutation.error(err.localizedDescription))
             }
             .receive(on: DispatchQueue.global(qos: .default))
             .eraseToAnyPublisher()
+    }
+    
+    func requestRandom() -> AnyPublisher<SearchListState.Mutation, Never> {
+        let requestableTracks = self.searchedTracks.filter{ $0.requestable ?? false }
+        let index = Int.random(in: 0 ... requestableTracks.count-1)
+        let song = requestableTracks[index]
+        
+        return self.requestSong(index: index, track: song)
+            .prepend(.loading(index))
+            .eraseToAnyPublisher()
+    }
+    
+    func request(index: Int) -> AnyPublisher<SearchListState.Mutation, Never> {
+        let song = self.searchedTracks[index]
+        
+        return self.requestSong(index: index, track: song)
+            .prepend(.loading(index))
+            .eraseToAnyPublisher()
+    }
+    
+    func requestSong(index: Int, track: SearchedTrack) -> AnyPublisher<SearchListState.Mutation, Never> {
+        guard let requestInteractor = self.requestInteractor else { fatalError("Missing DI") }
+        
+        if track.requestable ?? false {
+            return requestInteractor
+                .execute(track.id)
+                .map{ result -> SearchListState.Mutation in
+                    if !result {
+                        return SearchListState.Mutation.songRequestable(index)
+                    } else {
+                        return SearchListState.Mutation.notRequestable(index)
+                    }
+                }
+                .catch { err in
+                    return Just(SearchListState.Mutation.error(err.localizedDescription))
+                }
+                .receive(on: DispatchQueue.global(qos: .default))
+                .eraseToAnyPublisher()
         } else {
             return Empty().eraseToAnyPublisher()
         }

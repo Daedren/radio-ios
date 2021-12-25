@@ -27,9 +27,9 @@ class FavoritesConfigurator: Configurator {
 
                 let presenter = FavoritesPresenterImp(
                     searchInteractor: InjectSettings.shared.resolve(GetFavoritesInteractor.self)!,
-                    requestInteractor: InjectSettings.shared.resolve(RequestSongInteractor.self)!,
-                    statusInteractor: InjectSettings.shared.resolve(GetCurrentStatusInteractor.self)!,
-                    cooldownInteractor: InjectSettings.shared.resolve(CanRequestSongInteractor.self)!
+                    requestInteractor: InjectSettings.shared.resolve(RequestSongUseCase.self)!,
+                    statusInteractor: InjectSettings.shared.resolve(GetCurrentStatusUseCase.self)!,
+                    cooldownInteractor: InjectSettings.shared.resolve(CanRequestSongUseCase.self)!
                 )
                 return presenter
             }

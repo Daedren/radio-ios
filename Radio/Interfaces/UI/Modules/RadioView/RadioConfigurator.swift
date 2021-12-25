@@ -6,7 +6,7 @@ import SwiftUI
 class RadioConfigurator: Configurator {
     
     func configureFake() -> RadioView<RadioPresenterPreviewer> {
-        RadioView(presenter: RadioPresenterPreviewer(), bigVersion: true)
+        RadioView(presenter: RadioPresenterPreviewer(), bigVersion: false)
     }
 
     func configureBig() -> RadioView<RadioPresenterImp> {
@@ -38,7 +38,7 @@ class RadioConfigurator: Configurator {
                     queue: InjectSettings.shared.resolve(GetSongQueueInteractor.self)!,
                     lastPlayed: InjectSettings.shared.resolve(GetLastPlayedInteractor.self)!,
                     dj: InjectSettings.shared.resolve(GetDJInteractor.self)!,
-                    status: InjectSettings.shared.resolve(GetCurrentStatusInteractor.self)!,
+                    status: InjectSettings.shared.resolve(GetCurrentStatusUseCase.self)!,
                     getScales: InjectSettings.shared.resolve(GetFourierScalesUseCase.self)!
                 )
                 return presenter

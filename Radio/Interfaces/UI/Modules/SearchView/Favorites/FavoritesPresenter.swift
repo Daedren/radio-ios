@@ -13,17 +13,17 @@ class FavoritesPresenterImp: SearchPresenter {
     var searchEngine = PassthroughSubject<String, RadioError>()
     
     var searchInteractor: GetFavoritesInteractor?
-    var requestInteractor: RequestSongInteractor?
-    var statusInteractor: GetCurrentStatusInteractor?
-    var cooldownInteractor: CanRequestSongInteractor?
+    var requestInteractor: RequestSongUseCase?
+    var statusInteractor: GetCurrentStatusUseCase?
+    var cooldownInteractor: CanRequestSongUseCase?
 
     
     var searchedTracks = [FavoriteTrack]()
     
     init(searchInteractor: GetFavoritesInteractor,
-         requestInteractor: RequestSongInteractor,
-         statusInteractor: GetCurrentStatusInteractor,
-         cooldownInteractor: CanRequestSongInteractor) {
+         requestInteractor: RequestSongUseCase,
+         statusInteractor: GetCurrentStatusUseCase,
+         cooldownInteractor: CanRequestSongUseCase) {
         self.searchInteractor = searchInteractor
         self.requestInteractor = requestInteractor
         self.statusInteractor = statusInteractor

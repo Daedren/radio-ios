@@ -37,7 +37,7 @@ class RadioPresenterImp: RadioPresenter {
     var songQueueInteractor: GetSongQueueInteractor
     var lastPlayedInteractor: GetLastPlayedInteractor
     var djInteractor: GetDJInteractor
-    var statusInteractor: GetCurrentStatusInteractor
+    var statusInteractor: GetCurrentStatusUseCase
     var getScales: GetFourierScalesUseCase
     
     var isPlaying = false
@@ -54,7 +54,7 @@ class RadioPresenterImp: RadioPresenter {
         queue: GetSongQueueInteractor,
         lastPlayed: GetLastPlayedInteractor,
         dj: GetDJInteractor,
-        status: GetCurrentStatusInteractor,
+        status: GetCurrentStatusUseCase,
         getScales: GetFourierScalesUseCase
     ) {
         self.playInteractor = play

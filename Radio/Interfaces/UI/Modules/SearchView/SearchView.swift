@@ -56,8 +56,7 @@ struct SearchView<P: SearchPresenter>: View {
                             if presenter.state.tracks.count > 1 {
                                 SongRequestButton(
                                     viewModel: presenter.state.randomTrack,
-                                    isLoading: self.presenter.state.loadingRandom,
-                                    action: { self.actions.send(.chooseRandom) }
+                                    action: { _ in self.actions.send(.chooseRandom) }
                                 )
                                 .buttonStyle(PlainButtonStyle())
                             }
@@ -92,8 +91,7 @@ struct SearchView<P: SearchPresenter>: View {
             Spacer()
             SongRequestButton(
                 viewModel: item,
-                isLoading: self.presenter.state.loadingTracks[index] ?? false,
-                action: { self.actions.send(.choose(index)) })
+                action: { _ in self.actions.send(.choose(index)) })
         }
     }
     

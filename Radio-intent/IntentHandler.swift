@@ -5,7 +5,7 @@ import Radio_domain
 class IntentHandler: INExtension {
   
   override func handler(for intent: INIntent) -> Any {
-//    let configurator = IntentConfigurator()
+    let configurator = IntentConfigurator()
     
     if intent is QueueIntent {
         let songQueue = InjectSettings.shared.resolve(GetSongQueueInteractor.self)!
@@ -14,7 +14,7 @@ class IntentHandler: INExtension {
     }
     
     if intent is SearchIntent || intent is INSearchForMediaIntent {
-        let songSearch = InjectSettings.shared.resolve(SearchForTermInteractor.self)!
+        let songSearch = InjectSettings.shared.resolve(SearchForTermUseCase.self)!
         let updateUseCase = InjectSettings.shared.resolve(FetchRadioDataUseCase.self)!
         return SearchIntentHandler(searchUseCase: songSearch, updateUseCase: updateUseCase)
     }

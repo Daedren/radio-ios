@@ -7,11 +7,11 @@ import Intents
 class SearchIntentHandler: NSObject, SearchIntentHandling {
     
     
-    let searchUseCase: SearchForTermInteractor
+    let searchUseCase: SearchForTermUseCase
     let updateUseCase: FetchRadioDataUseCase
     var queueDisposeBag = Set<AnyCancellable>()
     
-    internal init(searchUseCase: SearchForTermInteractor,
+    internal init(searchUseCase: SearchForTermUseCase,
                   updateUseCase: FetchRadioDataUseCase,
                   queueDisposeBag: Set<AnyCancellable> = Set<AnyCancellable>()) {
         self.searchUseCase = searchUseCase

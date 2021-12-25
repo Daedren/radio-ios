@@ -3,10 +3,13 @@ import Radio_cross
 import Radio_domain
 import Radio_data
 
-protocol Configurator {
-    
-}
+class IntentConfigurator {
+    init() {
+        InjectSettings.shared = Container()
+        CrossConfigurator()
+        MapperConfigurator()
+        DataGatewayConfigurator()
+        InteractorConfigurator()
+    }
 
-class IntentConfigurator: Configurator {
-    
 }

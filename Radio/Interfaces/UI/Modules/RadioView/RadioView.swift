@@ -12,7 +12,6 @@ struct RadioView<P: RadioPresenter>: View {
     @State private var bottomSheetShown = false
     @Environment(\.verticalSizeClass) var verticalSizeClass: UserInterfaceSizeClass?
     @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
-//    @EnvironmentObject var orientationInfo: DeviceOrientation
     let bigVersion: Bool
     
     var actions = PassthroughSubject<RadioViewAction, Never>()
@@ -38,7 +37,6 @@ struct RadioView<P: RadioPresenter>: View {
     
     var smallScreensView: some View {
         VStack {
-        Text("small")
         self.djAndPlaybackView
         TabView {
             VStack {
@@ -70,9 +68,7 @@ struct RadioView<P: RadioPresenter>: View {
     
     var bigScreensView: some View {
         VStack {
-            Text("big")
             self.djAndPlaybackView
-            //                        .frame(width: 250.0)
             if presenter.state.acceptingRequests {
                 SongList(content: self.presenter.state.queue, tableColor: RadioColors.systemBackground)
             }

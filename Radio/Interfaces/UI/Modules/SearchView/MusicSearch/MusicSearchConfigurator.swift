@@ -26,10 +26,10 @@ class MusicSearchConfigurator: Configurator {
             InjectSettings.shared.register(MusicSearchPresenterImp.self) {
 
                 let presenter = MusicSearchPresenterImp(
-                    searchInteractor: InjectSettings.shared.resolve(SearchForTermInteractor.self)!,
-                    requestInteractor: InjectSettings.shared.resolve(RequestSongInteractor.self)!,
-                    statusInteractor: InjectSettings.shared.resolve(GetCurrentStatusInteractor.self)!,
-                    cooldownInteractor: InjectSettings.shared.resolve(CanRequestSongInteractor.self)!
+                    searchInteractor: InjectSettings.shared.resolve(SearchForTermUseCase.self)!,
+                    requestInteractor: InjectSettings.shared.resolve(RequestSongUseCase.self)!,
+                    statusInteractor: InjectSettings.shared.resolve(GetCurrentStatusUseCase.self)!,
+                    cooldownInteractor: InjectSettings.shared.resolve(CanRequestSongUseCase.self)!
                 )
                 return presenter
             }

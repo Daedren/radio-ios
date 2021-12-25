@@ -8,8 +8,7 @@ class SearchPresenterPreviewer: SearchPresenter {
     init() {
         state.acceptingRequests = true
         state.tracks = [SearchedTrackViewModel.stub(), SearchedTrackViewModel.stub(), SearchedTrackViewModel.stub()]
-        state.loadingTracks = [2: true]
-        state.tracks[1].state = .notRequestable
+        state.tracks[1].state = .disabled
     }
     
     func start(actions: AnyPublisher<SearchListAction, Never>) {
@@ -22,22 +21,23 @@ protocol SearchPresenter: ObservableObject {
     func start(actions: AnyPublisher<SearchListAction, Never>)
 }
 
+
 struct SearchListState: Equatable {
     var tracks: [SearchedTrackViewModel] = []
-    var randomTrack = RandomTrackViewModel(state: .requestable)
+    var randomTrack = RandomTrackViewModel(state: .enabled)
     var acceptingRequests: Bool = false
     var error: String?
-    var loadingTracks = [Int: Bool]()
-    var loadingRandom = false
     var canRequest: Bool = false
     var canRequestAt: String?
     
     static var initial = SearchListState()
     
-    enum Mutation {
+    enum Mutation: Equatable {
         case searchedTracks([SearchedTrackViewModel])
         case acceptingRequests(Bool)
         case loading(Int)
+        case notRequestable(Int)
+        case songRequestable(Int)
         case loadingRandom
         //        case randomTrack(RandomTrackViewModel)
         case error(String)
@@ -54,30 +54,37 @@ struct SearchListState: Equatable {
             state.acceptingRequests = value
         case let .error(error):
             state.error = error
-        //            case let .randomTrack(model):
-        //                state.error = nil
-        //                state.randomTrack = model
-        case .loadingRandom:
-            state.loadingRandom = true
+            state.tracks
+                .indices
+                .filter{ state.tracks[$0].state == .loading }
+                .forEach{ state.tracks[$0].state = .enabled }
+            
+            if state.randomTrack.state == .loading {
+                state.randomTrack.state = .enabled
+            }
+            case .loadingRandom:
+            state.randomTrack.state = .loading
         case let .searchedTracks(models):
             state.error = nil
-            state.loadingTracks = [:]
-            state.loadingRandom = false
             state.tracks = models
         case let .loading(index):
-            state.loadingTracks[index] = true
+            state.tracks[index].state = .loading
+        case let .notRequestable(index):
+            state.tracks[index].state = .disabled
+        case let .songRequestable(index):
+            state.tracks[index].state = .enabled
         case let .canRequestAt(date):
             state.canRequestAt = date
             state.canRequest = false
-            state.randomTrack.state = .notRequestable
+            state.randomTrack.state = .disabled
         case .cannotRequest:
             state.canRequestAt = nil
             state.canRequest = false
-            state.randomTrack.state = .notRequestable
+            state.randomTrack.state = .disabled
         case .canRequest:
             state.canRequestAt = nil
             state.canRequest = true
-            state.randomTrack.state = .requestable
+            state.randomTrack.state = .enabled
         }
         
         return state
