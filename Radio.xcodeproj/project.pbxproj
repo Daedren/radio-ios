@@ -2782,7 +2782,6 @@
 					};
 					097C1ED12378719700A7A5AD = {
 						CreatedOnToolsVersion = 11.0;
-						TestTargetID = 097C1E9F2378716F00A7A5AD;
 					};
 					3B453BA72742A13B007F38B7 = {
 						CreatedOnToolsVersion = 13.0;
@@ -2828,7 +2827,6 @@
 					};
 					FBCABEEC24A2864900BCD18B = {
 						CreatedOnToolsVersion = 12.0;
-						TestTargetID = 097C1E9F2378716F00A7A5AD;
 					};
 					FBCABF3524A2927E00BCD18B = {
 						CreatedOnToolsVersion = 12.0;
@@ -4076,7 +4074,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/R-a-dio.app/R-a-dio";
 			};
 			name = Debug;
 		};
@@ -4097,7 +4094,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/R-a-dio.app/R-a-dio";
 			};
 			name = Release;
 		};
@@ -4852,7 +4848,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/R-a-dio.app/R-a-dio";
 			};
 			name = Debug;
 		};
@@ -4874,7 +4869,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/R-a-dio.app/R-a-dio";
 			};
 			name = Release;
 		};

@@ -5,30 +5,35 @@ class SongDelayLogicTests: XCTestCase {
     
     func testSongDelayLogic_oldSong_notInCD() throws {
         let sut = SongDelayLogic()
+
+        let lastPlayed = Calendar.current.date(byAdding: .day, value: -9, to: Date())
+        let lastReq = Calendar.current.date(byAdding: .day, value: -10, to: Date())
+        
         let stub = FavoriteTrack(id: 3962,
                                  title: "title",
                                  artist: "artist",
-                                 lastPlayed: Date(timeIntervalSince1970: 1589262314),
-                                 lastRequested: Date(timeIntervalSince1970: 1589260322),
-                                 requestCount: 0)
+                                 lastPlayed: lastPlayed,
+                                 lastRequested: lastReq,
+                                 requestCount: 2)
         
         let isInCD = sut.isSongUnderCooldown(track: stub)
-        
         XCTAssertFalse(isInCD)
     }
     
     func testSongDelayLogic_justRequested_InCD() throws {
         let sut = SongDelayLogic()
         
+        let lastPlayed = Calendar.current.date(byAdding: .day, value: -10, to: Date())
+        let lastReq = Calendar.current.date(byAdding: .day, value: -1, to: Date())
+        
         let stub = FavoriteTrack(id: 3962,
                                  title: "title",
                                  artist: "artist",
-                                 lastPlayed: Date(timeIntervalSince1970: 1638232588),
-                                 lastRequested: Date(timeIntervalSince1970: 1640188446),
+                                 lastPlayed: lastPlayed,
+                                 lastRequested: lastReq,
                                  requestCount: 2)
         
         let isInCD = sut.isSongUnderCooldown(track: stub)
-         
         XCTAssertTrue(isInCD)
     }
     
