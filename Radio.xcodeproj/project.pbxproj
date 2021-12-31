@@ -110,7 +110,6 @@
 		3B453CB72743116F007F38B7 /* ArtworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F8A10D23B83E5500D95643 /* ArtworkHandler.swift */; };
 		3B453CBC27431330007F38B7 /* MediaPlayerConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F8EB6023B8244F00FE6E25 /* MediaPlayerConfigurator.swift */; };
 		3B6FCE772759447B00E8DC91 /* MusicSearchPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FCE762759447B00E8DC91 /* MusicSearchPresenterTests.swift */; };
-		3B6FCE7A2759484E00E8DC91 /* Mockingbird in Frameworks */ = {isa = PBXBuildFile; productRef = 3B6FCE792759484E00E8DC91 /* Mockingbird */; };
 		3B6FCE7D27594D7B00E8DC91 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FCE7C27594D7B00E8DC91 /* TestExtensions.swift */; };
 		3B7E0787270D8B1F00448BEF /* ToggleSleepTimerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E0786270D8B1F00448BEF /* ToggleSleepTimerUseCase.swift */; };
 		3B7E0788270D8B1F00448BEF /* ToggleSleepTimerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E0786270D8B1F00448BEF /* ToggleSleepTimerUseCase.swift */; };
@@ -1010,7 +1009,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B6FCE7A2759484E00E8DC91 /* Mockingbird in Frameworks */,
 				C141C901BF282F28BCAA07E9 /* Pods_RadioTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2409,9 +2407,6 @@
 				097C1EB82378717100A7A5AD /* PBXTargetDependency */,
 			);
 			name = RadioTests;
-			packageProductDependencies = (
-				3B6FCE792759484E00E8DC91 /* Mockingbird */,
-			);
 			productName = radioTests;
 			productReference = 097C1EB62378717100A7A5AD /* RadioTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -2845,7 +2840,6 @@
 			packageReferences = (
 				093E6A6823B7931A00578C99 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				FBCABF2F24A2884D00BCD18B /* XCRemoteSwiftPackageReference "SwiftSoup" */,
-				3B6FCE782759484E00E8DC91 /* XCRemoteSwiftPackageReference "mockingbird" */,
 			);
 			productRefGroup = 097C1EA12378716F00A7A5AD /* Products */;
 			projectDirPath = "";
@@ -3067,7 +3061,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -eu\n\n# Ensure mocks are generated prior to running Compile Sources\nrm -f '/tmp/Mockingbird-CF202EC7-E295-4B99-9713-85EF539A948F'\n\nwhich mockingbird 2>&1 >/dev/null\nif [ $? -ne 0 ]; then\n    DERIVED_DATA=$(dirname $(dirname $BUILD_DIR))\n    REPO_PATH=\"${DERIVED_DATA}/SourcePackages/checkouts/mockingbird\"\n    [[ -f \"${REPO_PATH}/mockingbird\" ]] || (cd \"${REPO_PATH}\" && make download)\nfi\n\n\nmockingbird generate \\\n  --targets 'Radio-domain-iOS' 'Radio-data-iOS' 'Radio-interfaces-iOS' \\\n  --outputs \"${SRCROOT}/MockingbirdMocks/RadioTests-Radio_domainMocks.generated.swift\" \"${SRCROOT}/MockingbirdMocks/RadioTests-Radio_dataMocks.generated.swift\" \"${SRCROOT}/MockingbirdMocks/RadioTests-Radio_interfacesMocks.generated.swift\" \\\n  --support \"${SRCROOT}/MockingbirdSupport\" \\\n  --only-protocols\n";
+			shellScript = "set -eu\n\n# Ensure mocks are generated prior to running Compile Sources\nrm -f '/tmp/Mockingbird-CF202EC7-E295-4B99-9713-85EF539A948F'\n\nwhich Pods/MockingbirdFramework/mockingbird 2>&1 >/dev/null\nif [ $? -ne 0 ]; then\n    DERIVED_DATA=$(dirname $(dirname $BUILD_DIR))\n    REPO_PATH=\"${DERIVED_DATA}/SourcePackages/checkouts/mockingbird\"\n    [[ -f \"${REPO_PATH}/mockingbird\" ]] || (cd \"${REPO_PATH}\" && make download)\nfi\n\n\nPods/MockingbirdFramework/mockingbird generate \\\n  --targets 'Radio-domain-iOS' 'Radio-data-iOS' 'Radio-interfaces-iOS' \\\n  --outputs \"${SRCROOT}/MockingbirdMocks/RadioTests-Radio_domainMocks.generated.swift\" \"${SRCROOT}/MockingbirdMocks/RadioTests-Radio_dataMocks.generated.swift\" \"${SRCROOT}/MockingbirdMocks/RadioTests-Radio_interfacesMocks.generated.swift\" \\\n  --support \"${SRCROOT}/MockingbirdSupport\" \\\n  --only-protocols\n";
 		};
 		66BB15D8C3A246653537297B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3099,13 +3093,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Radio/Pods-Radio-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Radio/Pods-Radio-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3120,13 +3110,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-RadioTests/Pods-RadioTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-RadioTests/Pods-RadioTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -5120,14 +5106,6 @@
 				minimumVersion = 5.12.0;
 			};
 		};
-		3B6FCE782759484E00E8DC91 /* XCRemoteSwiftPackageReference "mockingbird" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/birdrides/mockingbird.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.9.0;
-			};
-		};
 		FBCABF2F24A2884D00BCD18B /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scinfu/SwiftSoup";
@@ -5148,11 +5126,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 093E6A6823B7931A00578C99 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = KingfisherSwiftUI;
-		};
-		3B6FCE792759484E00E8DC91 /* Mockingbird */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3B6FCE782759484E00E8DC91 /* XCRemoteSwiftPackageReference "mockingbird" */;
-			productName = Mockingbird;
 		};
 		FB64DC7524BE4A9500F47D8B /* SwiftSoup */ = {
 			isa = XCSwiftPackageProductDependency;

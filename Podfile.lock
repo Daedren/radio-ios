@@ -1,20 +1,24 @@
 PODS:
   - FreeStreamer (4.0.0):
     - Reachability (~> 3.0)
+  - MockingbirdFramework (0.18.1)
   - Reachability (3.2)
 
 DEPENDENCIES:
   - FreeStreamer
+  - MockingbirdFramework
 
 SPEC REPOS:
   trunk:
     - FreeStreamer
+    - MockingbirdFramework
     - Reachability
 
 SPEC CHECKSUMS:
   FreeStreamer: 7e9c976045701ac2f7e9c14c17245203c37bf2ea
+  MockingbirdFramework: f68dfb16f5b8bff2ebb6e8fefe565f8a1d573cc7
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
 
-PODFILE CHECKSUM: 0232ed4d5528f1bc1bbd1af6c092b2385841852a
+PODFILE CHECKSUM: 286364b46b244577c6e1067e10f738cc17c57aa7
 
 COCOAPODS: 1.11.2

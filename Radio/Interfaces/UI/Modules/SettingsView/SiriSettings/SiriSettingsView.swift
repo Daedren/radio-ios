@@ -35,18 +35,26 @@ struct SiriSettingsView<P: SiriSettingsPresenter>: View {
     let wireframe: SiriSettingsWireframe = SiriSettingsWireframe()
     
     var body: some View {
+        VStack {
             List {
-                ForEach(Array(self.presenter.state.options.enumerated()), id: \.offset) {
-                index, item in
-                    Button(action: {
-                        self.actions.send(.tappedOption(index))
-                    }) {
-                        ListOptionView(viewModel: item)
+                Section(footer:
+                        Text("Tap to add/remove a Siri Shortcut for the chosen action.")
+                        .fixedSize(horizontal: false, vertical: true)
+                            ) {
+                    ForEach(Array(self.presenter.state.options.enumerated()), id: \.offset) {
+                    index, item in
+                        Button(action: {
+                            self.actions.send(.tappedOption(index))
+                        }) {
+                            ListOptionView(viewModel: item)
+                        }
                     }
                 }
+
                 
             }
-            .navigationBarTitle(properties.titleBar)
+        }
+        .navigationBarTitle(properties.titleBar)
         .sheet(item: $presenter.leave, content: self.wireframe.destination)
     }
     
