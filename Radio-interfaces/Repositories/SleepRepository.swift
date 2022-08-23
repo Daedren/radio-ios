@@ -2,15 +2,13 @@ import Foundation
 import Radio_cross
 import Radio_domain
 
-class SleepRepository: LoggerWithContext {
-    public var loggerInstance: LoggerWrapper
+class SleepRepository: Logging {
     var audioInterface: AudioClientContract
     
     var scheduledTime: Date?
     
     
-    public init(logger: LoggerWrapper, audio: AudioClientContract) {
-        self.loggerInstance = logger
+    public init(audio: AudioClientContract) {
         self.audioInterface = audio
     }
     

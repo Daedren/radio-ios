@@ -4,9 +4,7 @@ import Radio_interfaces
 import FreeStreamer
 import Combine
 
-class FSClient: NSObject, LoggerWithContext {
-    var loggerInstance: LoggerWrapper
-    
+class FSClient: NSObject, Logging {
     var stream: FSAudioStream
     var url: URL?
     
@@ -17,9 +15,7 @@ class FSClient: NSObject, LoggerWithContext {
     var scale = PassthroughSubject<[Float],Never>()
     var analyzer = FSFrequencyDomainAnalyzer()
 
-    init(logger: LoggerWrapper) {
-        self.loggerInstance = logger
-
+    init() {
         let configuration = FSStreamConfiguration()
         stream = FSAudioStream(configuration: configuration)
         

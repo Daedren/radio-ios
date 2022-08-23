@@ -4,9 +4,7 @@ import UIKit
 import Radio_domain
 import Radio_cross
 
-public class RadioGatewayImp: RadioGateway, LoggerWithContext {
-    public var loggerInstance: LoggerWrapper
-    
+public class RadioGatewayImp: RadioGateway, Logging {
     var network: NetworkDispatcher
     var mapper: RadioMapper
     
@@ -25,11 +23,9 @@ public class RadioGatewayImp: RadioGateway, LoggerWithContext {
     var fetching = false
     
     public init(network: NetworkDispatcher,
-                radioMapper: RadioMapper,
-                logger: LoggerWrapper) {
+                radioMapper: RadioMapper) {
         self.network = network
         self.mapper = radioMapper
-        self.loggerInstance = logger
         
         #if os(iOS)
         NotificationCenter.default.addObserver(self, selector: #selector(stopLoop), name: UIApplication.willResignActiveNotification, object: nil)
@@ -66,7 +62,7 @@ public class RadioGatewayImp: RadioGateway, LoggerWithContext {
     }
     
     public func updateNow() {
-        self.loggerDebug(message: "Update Now called")
+        self.log(message: "Update Now called", logLevel: .debug)
         self.fetchFromAPI()
             .sink(receiveCompletion: { _ in },
                   receiveValue: {  _ in })
@@ -154,12 +150,12 @@ extension RadioGatewayImp {
     }
     
     @objc func stopLoop() {
-        self.loggerDebug(message: "Loop to be stopped")
+        self.log(message: "Loop to be stopped", logLevel: .debug)
         self.loopDisposeBag = Set<AnyCancellable>()
     }
     
     @objc func resumeLoop() {
-        self.loggerDebug(message: "Loop to be resumed")
+        self.log(message: "Loop to be resumed", logLevel: .debug)
         self.startRecurringFetch()
     }
     

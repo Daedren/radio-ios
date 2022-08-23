@@ -5,7 +5,6 @@ import Radio_data
 
 class IntentConfigurator {
     init() {
-        InjectSettings.shared = Container()
         CrossConfigurator()
         MapperConfigurator()
         DataGatewayConfigurator()

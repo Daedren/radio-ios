@@ -27,12 +27,15 @@
 		098CAFA223BBC03900B6B80E /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CAFA123BBC03900B6B80E /* SearchView.swift */; };
 		098CAFA623BBC78A00B6B80E /* MusicSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CAFA523BBC78A00B6B80E /* MusicSearchPresenter.swift */; };
 		2C381B175CF818FE075BC20B /* RadioTests-Radio_domainMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78498E14584DBD5786584618 /* RadioTests-Radio_domainMocks.generated.swift */; };
+		3B1AD95D27971A0200176879 /* MuteBackgroundTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA3A8FC277F87C20025A801 /* MuteBackgroundTask.swift */; };
+		3B1AD95E27971A0500176879 /* BackgroundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA3A8F8277F86110025A801 /* BackgroundManager.swift */; };
+		3B1AD95F27971A0800176879 /* SleepRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA3A9042782F7580025A801 /* SleepRepository.swift */; };
+		3B1AD96027971AD600176879 /* Radio_interfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B453BA82742A13B007F38B7 /* Radio_interfaces.framework */; };
+		3B1AD96127971AD600176879 /* Radio_interfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B453BA82742A13B007F38B7 /* Radio_interfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3B453BAC2742A13B007F38B7 /* Radio_interfaces.docc in Sources */ = {isa = PBXBuildFile; fileRef = 3B453BAB2742A13B007F38B7 /* Radio_interfaces.docc */; };
 		3B453BB22742A13C007F38B7 /* Radio_interfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B453BA82742A13B007F38B7 /* Radio_interfaces.framework */; };
 		3B453BB92742A13C007F38B7 /* Radio_interfacesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B453BB82742A13C007F38B7 /* Radio_interfacesTests.swift */; };
 		3B453BBA2742A13C007F38B7 /* Radio_interfaces.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B453BAA2742A13B007F38B7 /* Radio_interfaces.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3B453BBD2742A13C007F38B7 /* Radio_interfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B453BA82742A13B007F38B7 /* Radio_interfaces.framework */; };
-		3B453BBE2742A13C007F38B7 /* Radio_interfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B453BA82742A13B007F38B7 /* Radio_interfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3B453BDF2742A1D6007F38B7 /* Radio_interfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B453BCA2742A1D5007F38B7 /* Radio_interfaces.framework */; };
 		3B453BE02742A1D6007F38B7 /* Radio_interfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B453BCA2742A1D5007F38B7 /* Radio_interfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3B453BE72742A26C007F38B7 /* Radio_cross.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB242EA2243E3C6100115B49 /* Radio_cross.framework */; };
@@ -122,7 +125,10 @@
 		3B9063DB274A77240012C3D7 /* SongList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9063DA274A77240012C3D7 /* SongList.swift */; };
 		3B9063DC274A77240012C3D7 /* SongList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9063DA274A77240012C3D7 /* SongList.swift */; };
 		3B9063DE274A780B0012C3D7 /* SongListiOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CAF9E23BB8FF700B6B80E /* SongListiOS.swift */; };
+		3BA3A902277FBFE60025A801 /* SleepGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA3A901277FBFE60025A801 /* SleepGateway.swift */; };
+		3BA3A903277FBFE60025A801 /* SleepGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA3A901277FBFE60025A801 /* SleepGateway.swift */; };
 		3BC624C0275BBD0100E99D4E /* UseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC624BF275BBD0100E99D4E /* UseCases.swift */; };
+		3BEF91A328B53AE600B700C6 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF91A228B53AE500B700C6 /* TimerManager.swift */; };
 		3BF9C78D275558B50063A4F7 /* DeviceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF9C78C275558B50063A4F7 /* DeviceOrientation.swift */; };
 		3BF9C78E275558B50063A4F7 /* DeviceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF9C78C275558B50063A4F7 /* DeviceOrientation.swift */; };
 		3BF9C78F275559890063A4F7 /* TrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922E2BE23A2F8DC00EB00C8 /* TrackView.swift */; };
@@ -279,9 +285,6 @@
 		FB7D5D4D24F9B02800A7CB29 /* SettingsViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D5D4C24F9B02800A7CB29 /* SettingsViewState.swift */; };
 		FB7FA72B259EC23E00C47508 /* GetFourierScalesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7FA72A259EC23E00C47508 /* GetFourierScalesUseCase.swift */; };
 		FB7FA72C259EC23E00C47508 /* GetFourierScalesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7FA72A259EC23E00C47508 /* GetFourierScalesUseCase.swift */; };
-		FB7FA7CA259EC58300C47508 /* FSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7FA742259EC38C00C47508 /* FSClient.swift */; };
-		FB7FA8F1259ECB0400C47508 /* FSFrequencyPlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7FA73E259EC38C00C47508 /* FSFrequencyPlotView.m */; };
-		FB7FA951259ECC6400C47508 /* FSFrequencyDomainAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7FA740259EC38C00C47508 /* FSFrequencyDomainAnalyzer.m */; };
 		FB81FD20243FCF4B00058FF8 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD1F243FCF4B00058FF8 /* FavoritesPresenter.swift */; };
 		FB81FD27243FD57F00058FF8 /* FavoritesConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD26243FD57F00058FF8 /* FavoritesConfigurator.swift */; };
 		FB89367F24A7E3D40014EAC3 /* InteractorConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941B50F2378834F00994F67 /* InteractorConfigurator.swift */; };
@@ -396,6 +399,13 @@
 			remoteGlobalIDString = 097C1EC92378719700A7A5AD;
 			remoteInfo = "radio-domain";
 		};
+		3B1AD96227971AD600176879 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 097C1E982378716F00A7A5AD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B453BA72742A13B007F38B7;
+			remoteInfo = "Radio-interfaces-iOS";
+		};
 		3B453BB32742A13C007F38B7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 097C1E982378716F00A7A5AD /* Project object */;
@@ -409,13 +419,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 097C1E9F2378716F00A7A5AD;
 			remoteInfo = Radio;
-		};
-		3B453BBB2742A13C007F38B7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 097C1E982378716F00A7A5AD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3B453BA72742A13B007F38B7;
-			remoteInfo = "Radio-interfaces";
 		};
 		3B453BDD2742A1D6007F38B7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -643,7 +646,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3B453BBE2742A13C007F38B7 /* Radio_interfaces.framework in Embed Frameworks */,
+				3B1AD96127971AD600176879 /* Radio_interfaces.framework in Embed Frameworks */,
 				097C1EE02378719700A7A5AD /* Radio_domain.framework in Embed Frameworks */,
 				FB242EAA243E3C6100115B49 /* Radio_cross.framework in Embed Frameworks */,
 				FBCABEFB24A2864900BCD18B /* Radio_data.framework in Embed Frameworks */,
@@ -844,7 +847,12 @@
 		3B9063D0274A5EE40012C3D7 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		3B9063D3274A627B0012C3D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B9063DA274A77240012C3D7 /* SongList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongList.swift; sourceTree = "<group>"; };
+		3BA3A8F8277F86110025A801 /* BackgroundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundManager.swift; sourceTree = "<group>"; };
+		3BA3A8FC277F87C20025A801 /* MuteBackgroundTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuteBackgroundTask.swift; sourceTree = "<group>"; };
+		3BA3A901277FBFE60025A801 /* SleepGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepGateway.swift; sourceTree = "<group>"; };
+		3BA3A9042782F7580025A801 /* SleepRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepRepository.swift; sourceTree = "<group>"; };
 		3BC624BF275BBD0100E99D4E /* UseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCases.swift; sourceTree = "<group>"; };
+		3BEF91A228B53AE500B700C6 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		3BF9C78C275558B50063A4F7 /* DeviceOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceOrientation.swift; sourceTree = "<group>"; };
 		3D0D17861F608126836A584A /* RadioTests-Radio_dataMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "RadioTests-Radio_dataMocks.generated.swift"; path = "MockingbirdMocks/RadioTests-Radio_dataMocks.generated.swift"; sourceTree = "<group>"; };
 		50E54BE145D343DDDA1C7FFB /* Pods_Radio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Radio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -997,10 +1005,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B453BBD2742A13C007F38B7 /* Radio_interfaces.framework in Frameworks */,
 				FBCABEFA24A2864900BCD18B /* Radio_data.framework in Frameworks */,
 				097C1EDF2378719700A7A5AD /* Radio_domain.framework in Frameworks */,
 				FB242EA9243E3C6100115B49 /* Radio_cross.framework in Frameworks */,
+				3B1AD96027971AD600176879 /* Radio_interfaces.framework in Frameworks */,
 				5358370C99A66161F8407816 /* Pods_Radio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1226,6 +1234,7 @@
 			children = (
 				0941B4F02378744200994F67 /* MusicGateway.swift */,
 				0956081B237F52BA008206A1 /* RadioGateway.swift */,
+				3BA3A901277FBFE60025A801 /* SleepGateway.swift */,
 			);
 			path = Gateways;
 			sourceTree = "<group>";
@@ -1233,6 +1242,7 @@
 		0941B4F62378772400994F67 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
+				3BA3A8F7277F85F80025A801 /* ScheduledTasks */,
 				0941B4F72378773600994F67 /* UI */,
 			);
 			path = Interfaces;
@@ -1392,6 +1402,7 @@
 				0941B4F62378772400994F67 /* Interfaces */,
 				097C1EA52378716F00A7A5AD /* SceneDelegate.swift */,
 				097C1EA32378716F00A7A5AD /* AppDelegate.swift */,
+				3BA3A900277FBFC80025A801 /* Repositories */,
 				097C1EAB2378717000A7A5AD /* Preview Content */,
 			);
 			path = Radio;
@@ -1800,6 +1811,32 @@
 				098CAF9E23BB8FF700B6B80E /* SongListiOS.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		3BA3A8F7277F85F80025A801 /* ScheduledTasks */ = {
+			isa = PBXGroup;
+			children = (
+				3BA3A8FB277F87B20025A801 /* Tasks */,
+				3BA3A8F8277F86110025A801 /* BackgroundManager.swift */,
+				3BEF91A228B53AE500B700C6 /* TimerManager.swift */,
+			);
+			path = ScheduledTasks;
+			sourceTree = "<group>";
+		};
+		3BA3A8FB277F87B20025A801 /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				3BA3A8FC277F87C20025A801 /* MuteBackgroundTask.swift */,
+			);
+			path = Tasks;
+			sourceTree = "<group>";
+		};
+		3BA3A900277FBFC80025A801 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				3BA3A9042782F7580025A801 /* SleepRepository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		3BDE78012777674000C69889 /* Fixtures */ = {
@@ -2372,7 +2409,6 @@
 				097C1E9E2378716F00A7A5AD /* Resources */,
 				097C1EE42378719700A7A5AD /* Embed Frameworks */,
 				FBCABEC224A2724F00BCD18B /* Embed App Extensions */,
-				CAB85E82B080D7099D1EDC32 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2382,7 +2418,7 @@
 				FBCABEBF24A2724F00BCD18B /* PBXTargetDependency */,
 				FBCABEF924A2864900BCD18B /* PBXTargetDependency */,
 				FBCABF4E24A2927E00BCD18B /* PBXTargetDependency */,
-				3B453BBC2742A13C007F38B7 /* PBXTargetDependency */,
+				3B1AD96327971AD600176879 /* PBXTargetDependency */,
 			);
 			name = Radio;
 			productName = radio;
@@ -3085,23 +3121,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CAB85E82B080D7099D1EDC32 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Radio/Pods-Radio-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Radio/Pods-Radio-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Radio/Pods-Radio-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		CAD6A7037A354B808BA231E5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -3142,17 +3161,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB65C6BF24FAB79C0047A069 /* SiriSettingsViewState.swift in Sources */,
+				3B1AD95F27971A0800176879 /* SleepRepository.swift in Sources */,
 				FBEE69A524FE26C300D6898C /* IntentModels.swift in Sources */,
 				FB66321B244649DA005C2A7D /* NewsListView.swift in Sources */,
 				FB0C9A662457559900320562 /* MusicSearchConfigurator.swift in Sources */,
 				FBD0CAD1243F64470093BF71 /* LastPlayedConfigurator.swift in Sources */,
 				FBCABF7024A29FAF00BCD18B /* IntentManager.swift in Sources */,
+				3BEF91A328B53AE600B700C6 /* TimerManager.swift in Sources */,
 				FB81FD20243FCF4B00058FF8 /* FavoritesPresenter.swift in Sources */,
 				FBC8EC0024AFAD33008F91F6 /* QueueIntentManagerConfigurator.swift in Sources */,
 				097C1EA42378716F00A7A5AD /* AppDelegate.swift in Sources */,
 				FB11DF722497DE2E006F9BDA /* SearchViewState.swift in Sources */,
 				3B9063DE274A780B0012C3D7 /* SongListiOS.swift in Sources */,
-				FB7FA951259ECC6400C47508 /* FSFrequencyDomainAnalyzer.m in Sources */,
 				FB66321F24464A49005C2A7D /* NewsListConfigurator.swift in Sources */,
 				FB65C6C024FAB79C0047A069 /* SiriSettingsView.swift in Sources */,
 				098CAFA623BBC78A00B6B80E /* MusicSearchPresenter.swift in Sources */,
@@ -3160,15 +3180,14 @@
 				3B453CBC27431330007F38B7 /* MediaPlayerConfigurator.swift in Sources */,
 				097C1EA62378716F00A7A5AD /* SceneDelegate.swift in Sources */,
 				097C1EA82378716F00A7A5AD /* MainTabsView.swift in Sources */,
-				FB7FA8F1259ECB0400C47508 /* FSFrequencyPlotView.m in Sources */,
 				FB81FD27243FD57F00058FF8 /* FavoritesConfigurator.swift in Sources */,
 				FB7D5D4424F9A8DD00A7CB29 /* SettingsConfigurator.swift in Sources */,
 				0941B50C2378830400994F67 /* Configurator.swift in Sources */,
 				FB66321D24464A41005C2A7D /* NewsListPresenter.swift in Sources */,
 				FBC9140224992ECF0051DA21 /* RadioViewState.swift in Sources */,
-				FB7FA7CA259EC58300C47508 /* FSClient.swift in Sources */,
 				0941B5062378800C00994F67 /* RadioPresenter.swift in Sources */,
 				0941B512237883E800994F67 /* RadioConfigurator.swift in Sources */,
+				3B1AD95D27971A0200176879 /* MuteBackgroundTask.swift in Sources */,
 				FB65C6BE24FAB79C0047A069 /* SiriSettingsConfigurator.swift in Sources */,
 				0941B4FF23787D4A00994F67 /* RadioView.swift in Sources */,
 				FBCABF7124A2A1A500BCD18B /* Radio_intent.intentdefinition in Sources */,
@@ -3176,6 +3195,7 @@
 				098CAFA223BBC03900B6B80E /* SearchView.swift in Sources */,
 				FB65C6C124FAB79C0047A069 /* SiriSettingsPresenter.swift in Sources */,
 				FB3013202559FDE9004C442C /* SiriSettingsWireframe.swift in Sources */,
+				3B1AD95E27971A0500176879 /* BackgroundManager.swift in Sources */,
 				FBB6AAC924AA6337002A7608 /* SettingsView.swift in Sources */,
 				FBD0CACF243F643B0093BF71 /* LastPlayedView.swift in Sources */,
 				FBD0CACD243F64310093BF71 /* LastPlayedPresenter.swift in Sources */,
@@ -3208,6 +3228,7 @@
 				FB64DC1424BE46B300F47D8B /* Track.swift in Sources */,
 				FB64DC0A24BE46B300F47D8B /* PlayRadioInteractor.swift in Sources */,
 				FB64DC1324BE46B300F47D8B /* GetLastPlayedInteractor.swift in Sources */,
+				3BA3A902277FBFE60025A801 /* SleepGateway.swift in Sources */,
 				FB64DC2024BE46B300F47D8B /* RequestTimeModel.swift in Sources */,
 				FB64DC1024BE46B300F47D8B /* FetchRadioDataInteractor.swift in Sources */,
 				FB7FA72B259EC23E00C47508 /* GetFourierScalesUseCase.swift in Sources */,
@@ -3362,6 +3383,7 @@
 				FB64DBF224BE46AE00F47D8B /* Track.swift in Sources */,
 				FB64DBE824BE46AE00F47D8B /* PlayRadioInteractor.swift in Sources */,
 				FB64DBF124BE46AE00F47D8B /* GetLastPlayedInteractor.swift in Sources */,
+				3BA3A903277FBFE60025A801 /* SleepGateway.swift in Sources */,
 				FB64DBFE24BE46AE00F47D8B /* RequestTimeModel.swift in Sources */,
 				FB64DBEE24BE46AE00F47D8B /* FetchRadioDataInteractor.swift in Sources */,
 				FB7FA72C259EC23E00C47508 /* GetFourierScalesUseCase.swift in Sources */,
@@ -3557,6 +3579,11 @@
 			target = 097C1EC92378719700A7A5AD /* Radio-domain-iOS */;
 			targetProxy = 097C1EDD2378719700A7A5AD /* PBXContainerItemProxy */;
 		};
+		3B1AD96327971AD600176879 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3B453BA72742A13B007F38B7 /* Radio-interfaces-iOS */;
+			targetProxy = 3B1AD96227971AD600176879 /* PBXContainerItemProxy */;
+		};
 		3B453BB42742A13C007F38B7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3B453BA72742A13B007F38B7 /* Radio-interfaces-iOS */;
@@ -3566,11 +3593,6 @@
 			isa = PBXTargetDependency;
 			target = 097C1E9F2378716F00A7A5AD /* Radio */;
 			targetProxy = 3B453BB52742A13C007F38B7 /* PBXContainerItemProxy */;
-		};
-		3B453BBC2742A13C007F38B7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3B453BA72742A13B007F38B7 /* Radio-interfaces-iOS */;
-			targetProxy = 3B453BBB2742A13C007F38B7 /* PBXContainerItemProxy */;
 		};
 		3B453BDE2742A1D6007F38B7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3875,7 +3897,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Radio/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -3884,7 +3906,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.r-a-dio";
+				PRODUCT_BUNDLE_IDENTIFIER = cc.raik.radio;
 				PRODUCT_MODULE_NAME = Radio;
 				PRODUCT_NAME = "R-a-dio";
 				SUPPORTS_MACCATALYST = YES;
@@ -3907,7 +3929,7 @@
 				DEAD_CODE_STRIPPING = NO;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Radio/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -3916,7 +3938,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.r-a-dio";
+				PRODUCT_BUNDLE_IDENTIFIER = cc.raik.radio;
 				PRODUCT_MODULE_NAME = Radio;
 				PRODUCT_NAME = "R-a-dio";
 				SUPPORTS_MACCATALYST = YES;
@@ -3935,7 +3957,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				INFOPLIST_FILE = RadioTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -3958,7 +3980,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				INFOPLIST_FILE = RadioTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -3983,7 +4005,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -4018,7 +4040,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -4048,7 +4070,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				INFOPLIST_FILE = "Radio-domainTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -4068,7 +4090,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				INFOPLIST_FILE = "Radio-domainTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -4088,14 +4110,15 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Radio-interfaces/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -4105,15 +4128,14 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.Radio-interfaces-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio-interfaces-iOS";
 				PRODUCT_NAME = Radio_interfaces;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
@@ -4122,14 +4144,15 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Radio-interfaces/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -4139,15 +4162,14 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.Radio-interfaces-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio-interfaces-iOS";
 				PRODUCT_NAME = Radio_interfaces;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -4159,7 +4181,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -4185,7 +4207,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -4212,11 +4234,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Radio-interfaces/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -4225,7 +4246,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.Radio-interfaces-watchOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio-interfaces-watchOS";
 				PRODUCT_NAME = Radio_interfaces;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -4247,11 +4268,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Radio-interfaces/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -4260,7 +4280,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.Radio-interfaces-watchOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio-interfaces-watchOS";
 				PRODUCT_NAME = Radio_interfaces;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -4282,7 +4302,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -4295,7 +4315,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.Radio-cross-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio-cross-iOS";
 				PRODUCT_NAME = Radio_cross;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -4317,7 +4337,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -4330,7 +4350,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.Radio-cross-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio-cross-iOS";
 				PRODUCT_NAME = Radio_cross;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -4351,7 +4371,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -4383,7 +4403,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -4415,7 +4435,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -4426,7 +4446,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.Radio-cross-watchOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio-cross-watchOS";
 				PRODUCT_NAME = Radio_cross;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -4447,7 +4467,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -4458,7 +4478,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.Radio-cross-watchOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio-cross-watchOS";
 				PRODUCT_NAME = Radio_cross;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -4479,7 +4499,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -4490,7 +4510,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.Radio-data-watchOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio-data-watchOS";
 				PRODUCT_NAME = Radio_data;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -4511,7 +4531,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -4522,7 +4542,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.Radio-data-watchOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio-data-watchOS";
 				PRODUCT_NAME = Radio_data;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -4539,7 +4559,7 @@
 			buildSettings = {
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				INFOPLIST_FILE = RadioUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4559,7 +4579,7 @@
 			buildSettings = {
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				INFOPLIST_FILE = RadioUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4581,7 +4601,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Radio-watch-extension/Preview Content\"";
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Radio-watch-extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -4589,7 +4609,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.Radio-watch.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio-watch.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -4606,7 +4626,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Radio-watch-extension/Preview Content\"";
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Radio-watch-extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -4614,7 +4634,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.Radio-watch.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio-watch.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -4635,7 +4655,7 @@
 				DEVELOPMENT_TEAM = N34AH7UQAR;
 				IBSC_MODULE = Radio_watch_WatchKit_Extension;
 				INFOPLIST_FILE = "Radio-watch-app/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.Radio-watch.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio-watch.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -4656,7 +4676,7 @@
 				DEVELOPMENT_TEAM = N34AH7UQAR;
 				IBSC_MODULE = Radio_watch_WatchKit_Extension;
 				INFOPLIST_FILE = "Radio-watch-app/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.Radio-watch.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio-watch.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -4673,9 +4693,9 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.Radio-watch";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio-watch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -4688,9 +4708,9 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.Radio-watch";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio-watch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -4705,7 +4725,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Radio-widgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				INFOPLIST_FILE = "Radio-widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -4713,7 +4733,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.r-a-dio.Radio-widget";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio.Radio-widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = YES;
@@ -4731,7 +4751,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Radio-widgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				INFOPLIST_FILE = "Radio-widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -4739,7 +4759,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.r-a-dio.Radio-widget";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio.Radio-widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = YES;
@@ -4753,11 +4773,10 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -4770,7 +4789,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.Radio-data-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio-data-iOS";
 				PRODUCT_NAME = Radio_data;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -4787,11 +4806,10 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -4804,7 +4822,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.Radio-data-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio-data-iOS";
 				PRODUCT_NAME = Radio_data;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -4822,7 +4840,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				INFOPLIST_FILE = "Radio-dataTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -4843,7 +4861,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				INFOPLIST_FILE = "Radio-dataTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -4865,7 +4883,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Radio-intent/Radio-intent.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				INFOPLIST_FILE = "Radio-intent/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -4874,7 +4892,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.r-a-dio.Radio-intent";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio.Radio-intent";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = YES;
@@ -4892,7 +4910,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Radio-intent/Radio-intent.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
-				DEVELOPMENT_TEAM = N34AH7UQAR;
+				DEVELOPMENT_TEAM = D5C75HG392;
 				INFOPLIST_FILE = "Radio-intent/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -4901,7 +4919,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.r-a-dio.Radio-intent";
+				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio.Radio-intent";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = YES;

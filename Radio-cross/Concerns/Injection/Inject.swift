@@ -111,7 +111,7 @@ public struct Inject<Value> {
 }
 
 public struct InjectSettings {
-    public static var shared: Resolver = EmptyResolver()
+    public static var shared: Resolver = Container()
 }
 
 public protocol Resolver {
@@ -141,6 +141,7 @@ public extension Resolver {
 
 public class Container: Resolver {
     public var registry = [String: (() -> Any)]()
+    public var singleton = [String: Any]()
     
     public init() {
         
@@ -159,8 +160,12 @@ public class Container: Resolver {
     }
 
     public func resolve<T>(_ type: T.Type, name: String?) -> T? {
-        if let value = registry[key(type: type, name: name)] {
-          return value() as? T
+        if let value = singleton[key(type: type, name: name)] {
+            return value as? T
+        } else if let value = registry[key(type: type, name: name)] {
+          let resolved = value()
+          singleton[key(type: type, name: name)] = resolved
+          return resolved as? T
         }
         return nil
     }

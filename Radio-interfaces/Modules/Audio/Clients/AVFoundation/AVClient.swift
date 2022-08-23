@@ -22,8 +22,7 @@ extension AudioClientContract {
     }
 }
 
-public class AVClient: NSObject, AudioClientContract, LoggerWithContext {
-    public var loggerInstance: LoggerWrapper
+public class AVClient: NSObject, AudioClientContract, Logging {
     
     
     var manager: AVQueuePlayer
@@ -34,10 +33,7 @@ public class AVClient: NSObject, AudioClientContract, LoggerWithContext {
 
     var timeObserverToken: Any?
 
-    public init(
-        logger: LoggerWrapper
-    ) {
-        self.loggerInstance = logger
+    public override init() {
         self.manager = AVQueuePlayer()
         super.init()
         
@@ -119,18 +115,18 @@ public class AVClient: NSObject, AudioClientContract, LoggerWithContext {
     }
     
     @objc func itemFailedToPlayToEndTime(_ notification: Notification) {
-        self.loggerInfo(message: "\(notification.debugDescription)")
+        self.log(message: "\(notification.debugDescription)", logLevel: .info)
     }
     @objc func itemPlaybackStalled(_ notification: Notification) {
-        self.loggerInfo(message: "\(notification.debugDescription)")
+        self.log(message: "\(notification.debugDescription)", logLevel: .info)
     }
     @objc func itemNewErrorLogEntry(_ notification: Notification) {
-        self.loggerInfo(message: "\(notification.debugDescription)")
+        self.log(message: "\(notification.debugDescription)", logLevel: .info)
     }
     
     private func updatePlaybackInfo(with time: CMTime) {
         if let currentItem = manager.currentItem {
-            self.loggerInfo(message: "\(currentItem.canStepForward) \(currentItem.forwardPlaybackEndTime) \(currentItem.seekableTimeRanges)")
+            self.log(message: "\(currentItem.canStepForward) \(currentItem.forwardPlaybackEndTime) \(currentItem.seekableTimeRanges)", logLevel: .info)
         }
         self.position.send(Float(time.seconds))
     }

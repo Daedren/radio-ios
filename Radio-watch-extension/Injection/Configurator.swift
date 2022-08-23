@@ -6,7 +6,6 @@ import Radio_interfaces
 
 class Configurator {
     init() {
-        InjectSettings.shared = Container()
         WatchConfigurator()
         CrossConfigurator()
         MapperConfigurator()

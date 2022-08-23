@@ -6,7 +6,7 @@ public class DataGatewayConfigurator {
     public init() {
         
         InjectSettings.shared.register(NetworkClient.self) {
-            return URLSessionClient(logger: InjectSettings.shared.resolve(LoggerWrapper.self)!)
+            return URLSessionClient()
         }
         InjectSettings.shared.register(RadioRequestHandler.self) {
             return RadioRequestHandler(baseSchemeAndAuthority: URL(string: "https://r-a-d.io/")!)
@@ -27,8 +27,7 @@ public class DataGatewayConfigurator {
         InjectSettings.shared.register(RadioGateway.self) {
             return RadioGatewayImp(
                 network: InjectSettings.shared.resolve(NetworkDispatcher.self, name: "real")!,
-                radioMapper: InjectSettings.shared.resolve(RadioMapper.self)!,
-                logger: InjectSettings.shared.resolve(LoggerWrapper.self)!
+                radioMapper: InjectSettings.shared.resolve(RadioMapper.self)!
             )
         }
         

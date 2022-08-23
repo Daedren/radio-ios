@@ -1,7 +1,6 @@
 import Foundation
 
-/// App logger level set in an environment variable or similar.
-public enum AbstractLoggerLevel: String {
+public enum LoggingLevel: String {
     case debug = "Debug"
     case warning = "Warning"
     case error = "Error"
@@ -9,86 +8,34 @@ public enum AbstractLoggerLevel: String {
     case verbose = "Verbose"
 }
 
-/// Logger instance to be used in the individual modules
-public protocol AbstractLogger {
-    func loggerDebug(message: String)
-    func loggerWarning(message: String)
-    func loggerError(message: String)
-    func loggerInfo(message: String)
-    func loggerVerbose(message: String)
+/// Actual interfaces that do the logging
+public protocol LoggerClientInterface {
+    func log(message: String, context: String, logLevel: LoggingLevel, function: String, line: Int)
 }
 
-/// Main logger instance that actually executes the log.
-public protocol LoggerWrapper: Component {
-    func debug(message: String, context: String)
-    func warning(message: String, context: String)
-    func error(message: String, context: String)
-    func info(message: String, context: String)
-    func verbose(message: String, context: String)
-}
-
-public class LoggerAggregator: LoggerWrapper {
-    let loggers: [LoggerWrapper]
+// Logger abstraction, so that we can log to various places.
+// Receives logging clients as parameter
+public class Logger: Logging {
+    let loggers: [LoggerClientInterface]
     
-    public init(loggers: [LoggerWrapper]) {
+    public init(_ loggers: [LoggerClientInterface]) {
         self.loggers = loggers
     }
     
-    public func debug(message: String, context: String) {
-        loggers.forEach { log in
-            log.debug(message: message, context: context)
+    public func log(message: String, context: String, logLevel: LoggingLevel, function: String, line: Int) {
+        let filename = context.components(separatedBy: "/").last ?? ""
+        loggers.forEach { logger in
+            logger.log(message: message, context: filename, logLevel: logLevel, function: function, line: line)
         }
     }
-    
-    public func warning(message: String, context: String) {
-        loggers.forEach { log in
-            log.warning(message: message, context: context)
-        }
-    }
-    
-    public func error(message: String, context: String) {
-        loggers.forEach { log in
-            log.error(message: message, context: context)
-        }
-    }
-    
-    public func info(message: String, context: String) {
-        loggers.forEach { log in
-            log.info(message: message, context: context)
-        }
-    }
-    
-    public func verbose(message: String, context: String) {
-        loggers.forEach { log in
-            log.verbose(message: message, context: context)
-        }
-    }
-        
 }
 
-public protocol LoggerWithContext: AbstractLogger {
-    var context: String { get }
-    var loggerInstance: LoggerWrapper { get set }
+public protocol Logging {
+    func log(message: String, context: String, logLevel: LoggingLevel, function: String, line: Int)
 }
 
-extension LoggerWithContext {
-    public var context: String {
-        return String(describing: type(of: self))
-    }
-    
-    public func loggerDebug(message: String) {
-        loggerInstance.debug(message: message, context: self.context)
-    }
-    public func loggerWarning(message: String) {
-        loggerInstance.warning(message: message, context: self.context)
-    }
-    public func loggerInfo(message: String) {
-        loggerInstance.info(message: message, context: self.context)
-    }
-    public func loggerError(message: String) {
-        loggerInstance.error(message: message, context: self.context)
-    }
-    public func loggerVerbose(message: String) {
-        loggerInstance.verbose(message: message, context: self.context)
+public extension Logging {
+    func log(message: String, context: String = #file, logLevel: LoggingLevel = .debug, function: String = #function, line: Int = #line) {
+        InjectSettings.shared.resolve(Logging.self)?.log(message: message, context: context, logLevel: logLevel, function: function, line: line)
     }
 }

@@ -1,8 +1,8 @@
 import Foundation
 import os.log
 
-extension AbstractLoggerLevel {
-    func getBeaverLogLevel() -> OSLogType {
+private extension LoggingLevel {
+    func getOSLogLevel() -> OSLogType {
         switch self {
         case .debug:
             return .debug
@@ -16,37 +16,20 @@ extension AbstractLoggerLevel {
     }
 }
 
-public class OSLogLogger: LoggerWrapper, Component {
-    let level: AbstractLoggerLevel
+public class OSLogLogger: LoggerClientInterface {
+    let level: LoggingLevel
     var loggers = [String:OSLog]()
     
-    public init(loggingLevel: AbstractLoggerLevel) {
+    public init(loggingLevel: LoggingLevel) {
         self.level = loggingLevel
     }
     
-    public func debug(message: String, context: String) {
+    public func log(message: String, context: String, logLevel: LoggingLevel, function: String, line: Int) {
         let logger = self.getLogger(category: context)
-        os_log("%{PUBLIC}@", log: logger, type: .debug, message)
-    }
-    
-    public func warning(message: String, context: String) {
-        let logger = self.getLogger(category: context)
-        os_log("%{PUBLIC}@", log: logger, type: .default, message)
-    }
-    
-    public func error(message: String, context: String) {
-        let logger = self.getLogger(category: context)
-        os_log("%{PUBLIC}@", log: logger, type: .error, message)
-    }
-    
-    public func info(message: String, context: String) {
-        let logger = self.getLogger(category: context)
-        os_log("%{PUBLIC}@", log: logger, type: .info, message)
-    }
-    
-    public func verbose(message: String, context: String) {
-        let logger = self.getLogger(category: context)
-        os_log("%{PUBLIC}@", log: logger, type: .debug, message)
+        let location = "<\(function)@L\(line)>"
+        let messageWithInfo = "\(location) \(message)"
+
+        os_log("%{PUBLIC}@", log: logger, type: logLevel.getOSLogLevel(), messageWithInfo)
     }
     
     func getLogger(category: String) -> OSLog {

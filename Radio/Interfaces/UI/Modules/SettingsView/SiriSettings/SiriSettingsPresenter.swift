@@ -16,7 +16,7 @@ protocol SiriSettingsPresenter: ObservableObject {
 class SiriSettingsPresenterPreviewer: SiriSettingsPresenter {
     @Published var state = SiriSettingsPresenterState()
     @Published var leave: WireframeDestination?
-
+    
     
     func start(actions: AnyPublisher<SiriSettingsViewAction, Never>) {
         

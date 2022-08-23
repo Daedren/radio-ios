@@ -1,14 +1,17 @@
 import UIKit
 import Radio_interfaces
+import Radio_cross
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var playerInterface: MediaPlayerInterface?
+//    var backgroundInterface: BackgroundManagerImpl?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         self.playerInterface = MediaPlayerConfigurator().configure()
+//        self.backgroundInterface = InjectSettings.shared.resolve(BackgroundManagerImpl.self)
         return true
     }
 

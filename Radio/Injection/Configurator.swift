@@ -7,7 +7,6 @@ import Radio_interfaces
 
 class Configurator {
     init() {
-        InjectSettings.shared = Container()
         CrossConfigurator()
         iOSInterfaceConfigurator()
         MapperConfigurator()

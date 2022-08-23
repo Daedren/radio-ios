@@ -30,26 +30,29 @@ class QueueIntentHandler: NSObject, QueueIntentHandling {
     
     queueUseCase
         .execute()
-        .filter{ !$0.isEmpty }
+        .print("Memes")
         .first()
-        .handleEvents(receiveSubscription: { _ in
-//            completion(QueueIntentResponse(code: .inProgress, userActivity: nil))
-        })
-        .first()
-        .sink(receiveCompletion: { _ in
-            
-        }, receiveValue: { tracks in
-            let intentTracks = tracks.map{ track -> IntentTrack in
-                let startTime = track.startTime?.offsetFrom(date: Date())
-                let startText = startTime != nil ? " (in \(startTime ?? ""))" : ""
-                let intTrack = IntentTrack(identifier: track.title, display: "\(track.artist) - \(track.title)\(startText)")
-                intTrack.artist = track.artist
-                intTrack.title = track.title
-                intTrack.time = startTime
-                return intTrack
+        .sink(receiveCompletion: { result in
+            switch result {
+            case .failure(_):
+                completion(.init(code: .failure, userActivity: nil))
+            default:
+                break
             }
+        }, receiveValue: { [unowned self] tracks in
+            let intentTracks = tracks.map(self.mapTrackToIntentVersion(_:))
             completion(QueueIntentResponse.success(tracks: intentTracks))
         })
         .store(in: &queueDisposeBag)
   }
+    
+    func mapTrackToIntentVersion(_ track: QueuedTrack) -> IntentTrack {
+        let startTime = track.startTime?.offsetFrom(date: Date())
+        let startText = startTime != nil ? " (in \(startTime ?? ""))" : ""
+        let intTrack = IntentTrack(identifier: track.title, display: "\(track.artist) - \(track.title)\(startText)")
+        intTrack.artist = track.artist
+        intTrack.title = track.title
+        intTrack.time = startTime
+        return intTrack
+    }
 }

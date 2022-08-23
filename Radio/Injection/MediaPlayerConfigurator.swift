@@ -18,8 +18,7 @@ class MediaPlayerConfigurator: Configurator {
     private func inject(){
         InjectSettings.shared.register(RemoteControlClient.self) {
             return RemoteControlClient(registeredCommands: self.iOSCommands,
-                                       disabledCommands: [],
-                                       logger: InjectSettings.shared.resolve(LoggerWrapper.self)!)
+                                       disabledCommands: [])
         }
     }
     

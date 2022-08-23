@@ -13,7 +13,7 @@ public class MusicRepository: MusicGateway {
     
     var categoryOptions: AVAudioSession.CategoryOptions
     
-    public init(logger: LoggerWrapper, client: AudioClientContract) {
+    public init(client: AudioClientContract) {
         self.audioClient = client
         
         #if os(iOS)

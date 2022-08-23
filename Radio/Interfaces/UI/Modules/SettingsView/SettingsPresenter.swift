@@ -39,6 +39,11 @@ class SettingsPresenterImp: SettingsPresenter {
     @Published var state = SettingsPresenterState()
     
     var disposeBag = Set<AnyCancellable>()
+    var toggleSleep: ToggleSleepTimerUseCase
+    
+    init(sleepUseCase: ToggleSleepTimerUseCase) {
+        self.toggleSleep = sleepUseCase
+    }
     
     func start(actions: AnyPublisher<SettingsViewAction, Never>) {
         actions
@@ -56,6 +61,10 @@ class SettingsPresenterImp: SettingsPresenter {
         switch action {
         case let .tappedOption(index):
             return self.goToOption(at: index)
+        case let .setSleepTimer(newDate):
+            return self.setSleepTimer(for: newDate)
+        case let .toggleSleepTimer(switchValue):
+            return self.toggleSleepTimer(switchValue)
         }
     }
     
@@ -74,5 +83,17 @@ class SettingsPresenterImp: SettingsPresenter {
         
         return Empty<SettingsPresenterState.Mutation, Never>()
             .eraseToAnyPublisher()
+    }
+    
+    func setSleepTimer(for date: Date) -> AnyPublisher<SettingsPresenterState.Mutation, Never> {
+        self.toggleSleep.execute(at: date)
+        return Just(SettingsPresenterState.Mutation.sleepTimer(date)).eraseToAnyPublisher()
+    }
+    
+    func toggleSleepTimer(_ value: Bool ) -> AnyPublisher<SettingsPresenterState.Mutation, Never> {
+        if !value {
+            self.toggleSleep.execute(at: nil)
+        }
+        return Just(SettingsPresenterState.Mutation.toggleSleepTimer).eraseToAnyPublisher()
     }
 }

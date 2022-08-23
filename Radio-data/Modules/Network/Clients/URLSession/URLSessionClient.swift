@@ -2,17 +2,13 @@ import Foundation
 import Combine
 import Radio_cross
 
-public class URLSessionClient: NetworkClient, LoggerWithContext {
-    public var loggerInstance: LoggerWrapper
-    
+public class URLSessionClient: NetworkClient, Logging {
     private var session = URLSession(configuration: .default)
     
-    public init(configuration: URLSessionConfiguration? = nil,
-                logger: LoggerWrapper) {
+    public init(configuration: URLSessionConfiguration? = nil) {
         if let configuration = configuration {
             self.session = URLSession(configuration: configuration)
         }
-        self.loggerInstance = logger
     }
     
     public func performRequest(request: URLRequest) -> Future<(URLResponse?, Data?), APIError> {
@@ -36,7 +32,7 @@ extension URLSessionClient {
                         event(.success(result))
                     }
                 } catch {
-                    self?.loggerError(message: error.localizedDescription)
+                    self?.log(message: error.localizedDescription, logLevel: .error)
                     event(.failure(APIError.otherError))
                 }
             }
@@ -53,7 +49,7 @@ extension URLSessionClient {
                         event(.success(result))
                     }
                 } catch {
-                    self?.loggerError(message: error.localizedDescription)
+                    self?.log(message: error.localizedDescription, logLevel: .error)
                     event(.failure(APIError.otherError))
                 }
             }
@@ -62,9 +58,9 @@ extension URLSessionClient {
     }
     
     private func requestHandler(data: Data?, response: URLResponse?, error: Error?) throws -> (URLResponse?, Data?) {
-        self.loggerVerbose(message: "\(String(describing: response))")
-        self.loggerVerbose(message: "\(String(describing: String(data: data ?? Data(), encoding: .utf8)))")
-        self.loggerVerbose(message: "\(String(describing: error))")
+        self.log(message: "\(String(describing: response))", logLevel: .verbose)
+        self.log(message: "\(String(describing: String(data: data ?? Data(), encoding: .utf8)))", logLevel: .verbose)
+        self.log(message: "\(String(describing: error))", logLevel: .verbose)
         
         if let error = error {
             let errorCode = error as NSError
