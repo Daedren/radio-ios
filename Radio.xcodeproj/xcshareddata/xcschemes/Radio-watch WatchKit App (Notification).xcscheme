@@ -56,8 +56,10 @@
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "8"
       notificationPayloadFile = "Radio-watch-extension/PushNotificationPayload.apns">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.Carousel"
+         RemotePath = "/Radio-watch-app">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FB8936A024A7F3AD0014EAC3"
@@ -65,7 +67,7 @@
             BlueprintName = "Radio-watch-app"
             ReferencedContainer = "container:Radio.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -75,8 +77,10 @@
       debugDocumentVersioning = "YES"
       launchAutomaticallySubstyle = "8"
       notificationPayloadFile = "Radio-watch-extension/PushNotificationPayload.apns">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.Carousel"
+         RemotePath = "/Radio-watch-app">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FB8936A024A7F3AD0014EAC3"
@@ -84,7 +88,16 @@
             BlueprintName = "Radio-watch-app"
             ReferencedContainer = "container:Radio.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "FB8936A024A7F3AD0014EAC3"
+            BuildableName = "Radio-watch-app.app"
+            BlueprintName = "Radio-watch-app"
+            ReferencedContainer = "container:Radio.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

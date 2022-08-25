@@ -276,11 +276,8 @@
 		FB66321D24464A41005C2A7D /* NewsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66321C24464A41005C2A7D /* NewsListPresenter.swift */; };
 		FB66321F24464A49005C2A7D /* NewsListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66321E24464A49005C2A7D /* NewsListConfigurator.swift */; };
 		FB69E8D124A3C41E004921E4 /* Radio_cross.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB242EA2243E3C6100115B49 /* Radio_cross.framework */; };
-		FB69E8D224A3C41E004921E4 /* Radio_cross.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FB242EA2243E3C6100115B49 /* Radio_cross.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FB69E8D524A3C41E004921E4 /* Radio_data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBCABEE524A2864800BCD18B /* Radio_data.framework */; };
-		FB69E8D624A3C41E004921E4 /* Radio_data.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FBCABEE524A2864800BCD18B /* Radio_data.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FB69E8D924A3C41E004921E4 /* Radio_domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 097C1ECA2378719700A7A5AD /* Radio_domain.framework */; };
-		FB69E8DA24A3C41E004921E4 /* Radio_domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 097C1ECA2378719700A7A5AD /* Radio_domain.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FB69E8E124A3CFFB004921E4 /* AppIntentVocabulary.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB69E8E024A3CFFB004921E4 /* AppIntentVocabulary.plist */; };
 		FB69E8E224A3D1DB004921E4 /* AppIntentVocabulary.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB69E8E024A3CFFB004921E4 /* AppIntentVocabulary.plist */; };
 		FB69E8EA24A3D2DB004921E4 /* RadioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB69E8E924A3D2DB004921E4 /* RadioUITests.swift */; };
@@ -354,11 +351,8 @@
 		FBCABF5724A292CC00BCD18B /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCABEC924A27B5B00BCD18B /* IntentHandler.swift */; };
 		FBCABF5824A2930800BCD18B /* QueueIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCABECB24A27B8500BCD18B /* QueueIntentHandler.swift */; };
 		FBCABF6624A2932200BCD18B /* Radio_cross.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB242EA2243E3C6100115B49 /* Radio_cross.framework */; };
-		FBCABF6724A2932200BCD18B /* Radio_cross.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FB242EA2243E3C6100115B49 /* Radio_cross.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FBCABF6824A2932200BCD18B /* Radio_data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBCABEE524A2864800BCD18B /* Radio_data.framework */; };
-		FBCABF6924A2932200BCD18B /* Radio_data.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FBCABEE524A2864800BCD18B /* Radio_data.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FBCABF6A24A2932200BCD18B /* Radio_domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 097C1ECA2378719700A7A5AD /* Radio_domain.framework */; };
-		FBCABF6B24A2932200BCD18B /* Radio_domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 097C1ECA2378719700A7A5AD /* Radio_domain.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FBCABF6D24A2935F00BCD18B /* Radio_intent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = FBCABEB824A2724D00BCD18B /* Radio_intent.intentdefinition */; };
 		FBCABF7024A29FAF00BCD18B /* IntentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCABF6F24A29FAF00BCD18B /* IntentManager.swift */; };
 		FBCABF7124A2A1A500BCD18B /* Radio_intent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = FBCABEB824A2724D00BCD18B /* Radio_intent.intentdefinition */; };
@@ -676,19 +670,6 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FB69E8DD24A3C41F004921E4 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				FB69E8D624A3C41E004921E4 /* Radio_data.framework in Embed Frameworks */,
-				FB69E8D224A3C41E004921E4 /* Radio_cross.framework in Embed Frameworks */,
-				FB69E8DA24A3C41E004921E4 /* Radio_domain.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		FB8936C424A7F3AF0014EAC3 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -721,19 +702,6 @@
 				FBCABF4F24A2927E00BCD18B /* Radio-intent.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FBCABF6C24A2932200BCD18B /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				FBCABF6924A2932200BCD18B /* Radio_data.framework in Embed Frameworks */,
-				FBCABF6724A2932200BCD18B /* Radio_cross.framework in Embed Frameworks */,
-				FBCABF6B24A2932200BCD18B /* Radio_domain.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -2739,7 +2707,6 @@
 				FBCABEAC24A2724D00BCD18B /* Sources */,
 				FBCABEAD24A2724D00BCD18B /* Frameworks */,
 				FBCABEAE24A2724D00BCD18B /* Resources */,
-				FB69E8DD24A3C41F004921E4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2802,7 +2769,6 @@
 				FBCABF3224A2927E00BCD18B /* Sources */,
 				FBCABF3324A2927E00BCD18B /* Frameworks */,
 				FBCABF3424A2927E00BCD18B /* Resources */,
-				FBCABF6C24A2932200BCD18B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
