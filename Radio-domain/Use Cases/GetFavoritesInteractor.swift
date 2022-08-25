@@ -7,11 +7,14 @@ public class GetFavoritesInteractor: Interactor {
 
     var radioGateway: RadioGateway?
     var songDelayCalc: SongDelayLogic?
+    var persistence: PersistenceGateway?
     
     public init(radioGateway: RadioGateway? = nil,
+                persistence: PersistenceGateway? = nil,
                 songDelayCalc: SongDelayLogic? = nil) {
         self.radioGateway = radioGateway
         self.songDelayCalc = songDelayCalc
+        self.persistence = persistence
     }
     
     public func execute(_ input: Input) -> Output {
@@ -26,6 +29,13 @@ public class GetFavoritesInteractor: Interactor {
                 }
                 return mutableTracks
             }
+            .handleEvents(receiveOutput: { [weak self] favorites in
+                if !favorites.isEmpty {
+                    Task { [weak self] in
+                      await self?.persistence?.setFavoriteDefault(name: input)
+                    }
+                }
+            })
             .eraseToAnyPublisher()
     }
     

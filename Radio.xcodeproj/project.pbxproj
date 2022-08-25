@@ -32,6 +32,17 @@
 		3B1AD95F27971A0800176879 /* SleepRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA3A9042782F7580025A801 /* SleepRepository.swift */; };
 		3B1AD96027971AD600176879 /* Radio_interfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B453BA82742A13B007F38B7 /* Radio_interfaces.framework */; };
 		3B1AD96127971AD600176879 /* Radio_interfaces.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B453BA82742A13B007F38B7 /* Radio_interfaces.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3B2929FD28B63A8100B3A80C /* RandomFaveIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2929FC28B63A8100B3A80C /* RandomFaveIntentHandler.swift */; };
+		3B2929FF28B645C400B3A80C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3B2929FE28B645C400B3A80C /* Kingfisher */; };
+		3B292A0128B645CF00B3A80C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3B292A0028B645CF00B3A80C /* Kingfisher */; };
+		3B292A0328B659FC00B3A80C /* PlayProxyIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B292A0228B659FC00B3A80C /* PlayProxyIntentHandler.swift */; };
+		3B292A0628B664EC00B3A80C /* PlayIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B292A0528B664EC00B3A80C /* PlayIntentHandler.swift */; };
+		3B292A0A28B6807E00B3A80C /* GetLastFavoriteUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B292A0928B6807E00B3A80C /* GetLastFavoriteUserUseCase.swift */; };
+		3B292A0B28B6807E00B3A80C /* GetLastFavoriteUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B292A0928B6807E00B3A80C /* GetLastFavoriteUserUseCase.swift */; };
+		3B292A0C28B6808600B3A80C /* PersistenceGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B292A0728B6803B00B3A80C /* PersistenceGateway.swift */; };
+		3B292A0D28B6808600B3A80C /* PersistenceGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B292A0728B6803B00B3A80C /* PersistenceGateway.swift */; };
+		3B292A1128B6821100B3A80C /* PersistenceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B292A0E28B681FB00B3A80C /* PersistenceRepository.swift */; };
+		3B292A1228B6821200B3A80C /* PersistenceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B292A0E28B681FB00B3A80C /* PersistenceRepository.swift */; };
 		3B453BAC2742A13B007F38B7 /* Radio_interfaces.docc in Sources */ = {isa = PBXBuildFile; fileRef = 3B453BAB2742A13B007F38B7 /* Radio_interfaces.docc */; };
 		3B453BB22742A13C007F38B7 /* Radio_interfaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B453BA82742A13B007F38B7 /* Radio_interfaces.framework */; };
 		3B453BB92742A13C007F38B7 /* Radio_interfacesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B453BB82742A13C007F38B7 /* Radio_interfacesTests.swift */; };
@@ -85,8 +96,6 @@
 		3B453C4A2742B035007F38B7 /* AddShortcutWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEE69A624FE2B9800D6898C /* AddShortcutWrapper.swift */; };
 		3B453C4D2742B03F007F38B7 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6745202448E78C0044ED68 /* HTMLParser.swift */; };
 		3B453C4E2742B03F007F38B7 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6745202448E78C0044ED68 /* HTMLParser.swift */; };
-		3B453C502742BA52007F38B7 /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3B453C4F2742BA52007F38B7 /* KingfisherSwiftUI */; };
-		3B453C522742BA58007F38B7 /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3B453C512742BA58007F38B7 /* KingfisherSwiftUI */; };
 		3B453C532742C0DB007F38B7 /* Radio_domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB64DBDB24BE462600F47D8B /* Radio_domain.framework */; };
 		3B453C582742C0E4007F38B7 /* Radio_data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBCABEE524A2864800BCD18B /* Radio_data.framework */; };
 		3B453C9C2742CBB5007F38B7 /* ListOptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D5D4824F9A9A800A7CB29 /* ListOptionViewModel.swift */; };
@@ -272,7 +281,6 @@
 		FB69E8D624A3C41E004921E4 /* Radio_data.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FBCABEE524A2864800BCD18B /* Radio_data.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FB69E8D924A3C41E004921E4 /* Radio_domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 097C1ECA2378719700A7A5AD /* Radio_domain.framework */; };
 		FB69E8DA24A3C41E004921E4 /* Radio_domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 097C1ECA2378719700A7A5AD /* Radio_domain.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		FB69E8DF24A3CDE8004921E4 /* IntentConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB69E8DE24A3CDE8004921E4 /* IntentConfigurator.swift */; };
 		FB69E8E124A3CFFB004921E4 /* AppIntentVocabulary.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB69E8E024A3CFFB004921E4 /* AppIntentVocabulary.plist */; };
 		FB69E8E224A3D1DB004921E4 /* AppIntentVocabulary.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB69E8E024A3CFFB004921E4 /* AppIntentVocabulary.plist */; };
 		FB69E8EA24A3D2DB004921E4 /* RadioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB69E8E924A3D2DB004921E4 /* RadioUITests.swift */; };
@@ -829,6 +837,12 @@
 		09FDBE73237E03C3001E34DE /* PlaybackInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackInfo.swift; sourceTree = "<group>"; };
 		2D0EB42F28CB2FA00B698EA1 /* Pods-Radio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Radio.release.xcconfig"; path = "Target Support Files/Pods-Radio/Pods-Radio.release.xcconfig"; sourceTree = "<group>"; };
 		38746B3D244429A4D7D41947 /* Pods-Radio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Radio.debug.xcconfig"; path = "Target Support Files/Pods-Radio/Pods-Radio.debug.xcconfig"; sourceTree = "<group>"; };
+		3B2929FC28B63A8100B3A80C /* RandomFaveIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomFaveIntentHandler.swift; sourceTree = "<group>"; };
+		3B292A0228B659FC00B3A80C /* PlayProxyIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayProxyIntentHandler.swift; sourceTree = "<group>"; };
+		3B292A0528B664EC00B3A80C /* PlayIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayIntentHandler.swift; sourceTree = "<group>"; };
+		3B292A0728B6803B00B3A80C /* PersistenceGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceGateway.swift; sourceTree = "<group>"; };
+		3B292A0928B6807E00B3A80C /* GetLastFavoriteUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLastFavoriteUserUseCase.swift; sourceTree = "<group>"; };
+		3B292A0E28B681FB00B3A80C /* PersistenceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceRepository.swift; sourceTree = "<group>"; };
 		3B453B38273F211C007F38B7 /* SleepRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepRepository.swift; sourceTree = "<group>"; };
 		3B453BA82742A13B007F38B7 /* Radio_interfaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Radio_interfaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B453BAA2742A13B007F38B7 /* Radio_interfaces.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Radio_interfaces.h; sourceTree = "<group>"; };
@@ -906,7 +920,6 @@
 		FB6745202448E78C0044ED68 /* HTMLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
 		FB6745262448F9810044ED68 /* AppAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAttributedString.swift; sourceTree = "<group>"; };
 		FB69E8CF24A3C16E004921E4 /* FetchRadioDataInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRadioDataInteractor.swift; sourceTree = "<group>"; };
-		FB69E8DE24A3CDE8004921E4 /* IntentConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentConfigurator.swift; sourceTree = "<group>"; };
 		FB69E8E024A3CFFB004921E4 /* AppIntentVocabulary.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AppIntentVocabulary.plist; sourceTree = "<group>"; };
 		FB69E8E724A3D2DB004921E4 /* RadioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RadioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB69E8E924A3D2DB004921E4 /* RadioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioUITests.swift; sourceTree = "<group>"; };
@@ -1041,8 +1054,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B2929FF28B645C400B3A80C /* Kingfisher in Frameworks */,
 				3B453C582742C0E4007F38B7 /* Radio_data.framework in Frameworks */,
-				3B453C502742BA52007F38B7 /* KingfisherSwiftUI in Frameworks */,
 				3B453BEC2742A27A007F38B7 /* Radio_domain.framework in Frameworks */,
 				3B453BE72742A26C007F38B7 /* Radio_cross.framework in Frameworks */,
 			);
@@ -1060,8 +1073,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B292A0128B645CF00B3A80C /* Kingfisher in Frameworks */,
 				3B453C532742C0DB007F38B7 /* Radio_domain.framework in Frameworks */,
-				3B453C522742BA58007F38B7 /* KingfisherSwiftUI in Frameworks */,
 				3B453BF62742A286007F38B7 /* Radio_data.framework in Frameworks */,
 				3B453BF12742A281007F38B7 /* Radio_cross.framework in Frameworks */,
 			);
@@ -1225,6 +1238,7 @@
 				FB69E8CF24A3C16E004921E4 /* FetchRadioDataInteractor.swift */,
 				FB01747D24A4124900A5E64A /* CanRequestSongInteractor.swift */,
 				3B7E0786270D8B1F00448BEF /* ToggleSleepTimerUseCase.swift */,
+				3B292A0928B6807E00B3A80C /* GetLastFavoriteUserUseCase.swift */,
 			);
 			path = "Use Cases";
 			sourceTree = "<group>";
@@ -1235,6 +1249,7 @@
 				0941B4F02378744200994F67 /* MusicGateway.swift */,
 				0956081B237F52BA008206A1 /* RadioGateway.swift */,
 				3BA3A901277FBFE60025A801 /* SleepGateway.swift */,
+				3B292A0728B6803B00B3A80C /* PersistenceGateway.swift */,
 			);
 			path = Gateways;
 			sourceTree = "<group>";
@@ -1242,6 +1257,7 @@
 		0941B4F62378772400994F67 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
+				3B292A0428B664C000B3A80C /* AppIntents */,
 				3BA3A8F7277F85F80025A801 /* ScheduledTasks */,
 				0941B4F72378773600994F67 /* UI */,
 			);
@@ -1615,6 +1631,14 @@
 			path = MediaPlayer;
 			sourceTree = "<group>";
 		};
+		3B292A0428B664C000B3A80C /* AppIntents */ = {
+			isa = PBXGroup;
+			children = (
+				3B292A0528B664EC00B3A80C /* PlayIntentHandler.swift */,
+			);
+			path = AppIntents;
+			sourceTree = "<group>";
+		};
 		3B453B4127427D96007F38B7 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -1724,6 +1748,7 @@
 			isa = PBXGroup;
 			children = (
 				0956081E237F5413008206A1 /* RadioGatewayImp.swift */,
+				3B292A0E28B681FB00B3A80C /* PersistenceRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -2242,6 +2267,8 @@
 			children = (
 				FBCABECB24A27B8500BCD18B /* QueueIntentHandler.swift */,
 				FBC8EC0224AFAF63008F91F6 /* SearchIntentHandler.swift */,
+				3B2929FC28B63A8100B3A80C /* RandomFaveIntentHandler.swift */,
+				3B292A0228B659FC00B3A80C /* PlayProxyIntentHandler.swift */,
 			);
 			path = "Intent Handlers";
 			sourceTree = "<group>";
@@ -2286,7 +2313,6 @@
 				FBCABEC824A27B5000BCD18B /* Intent Handlers */,
 				FBCABF5024A2927E00BCD18B /* Radio-intent.entitlements */,
 				FBCABF3A24A2927E00BCD18B /* Info.plist */,
-				FB69E8DE24A3CDE8004921E4 /* IntentConfigurator.swift */,
 				FB69E8E024A3CFFB004921E4 /* AppIntentVocabulary.plist */,
 			);
 			path = "Radio-intent";
@@ -2502,7 +2528,7 @@
 			);
 			name = "Radio-interfaces-iOS";
 			packageProductDependencies = (
-				3B453C4F2742BA52007F38B7 /* KingfisherSwiftUI */,
+				3B2929FE28B645C400B3A80C /* Kingfisher */,
 			);
 			productName = "Radio-interfaces";
 			productReference = 3B453BA82742A13B007F38B7 /* Radio_interfaces.framework */;
@@ -2545,7 +2571,7 @@
 			);
 			name = "Radio-interfaces-watchOS";
 			packageProductDependencies = (
-				3B453C512742BA58007F38B7 /* KingfisherSwiftUI */,
+				3B292A0028B645CF00B3A80C /* Kingfisher */,
 			);
 			productName = "Radio-interfaces-watchOS";
 			productReference = 3B453BCA2742A1D5007F38B7 /* Radio_interfaces.framework */;
@@ -3174,6 +3200,7 @@
 				FB11DF722497DE2E006F9BDA /* SearchViewState.swift in Sources */,
 				3B9063DE274A780B0012C3D7 /* SongListiOS.swift in Sources */,
 				FB66321F24464A49005C2A7D /* NewsListConfigurator.swift in Sources */,
+				3B292A0628B664EC00B3A80C /* PlayIntentHandler.swift in Sources */,
 				FB65C6C024FAB79C0047A069 /* SiriSettingsView.swift in Sources */,
 				098CAFA623BBC78A00B6B80E /* MusicSearchPresenter.swift in Sources */,
 				09560821237F5596008206A1 /* iOSInterfaceConfigurator.swift in Sources */,
@@ -3228,6 +3255,7 @@
 				FB64DC1424BE46B300F47D8B /* Track.swift in Sources */,
 				FB64DC0A24BE46B300F47D8B /* PlayRadioInteractor.swift in Sources */,
 				FB64DC1324BE46B300F47D8B /* GetLastPlayedInteractor.swift in Sources */,
+				3B292A0A28B6807E00B3A80C /* GetLastFavoriteUserUseCase.swift in Sources */,
 				3BA3A902277FBFE60025A801 /* SleepGateway.swift in Sources */,
 				FB64DC2024BE46B300F47D8B /* RequestTimeModel.swift in Sources */,
 				FB64DC1024BE46B300F47D8B /* FetchRadioDataInteractor.swift in Sources */,
@@ -3256,6 +3284,7 @@
 				FB64DC2924BE46B300F47D8B /* GetNewsListInteractor.swift in Sources */,
 				FB64DC1524BE46B300F47D8B /* CanRequestSongInteractor.swift in Sources */,
 				FB64DC1C24BE46B300F47D8B /* StopRadioInteractor.swift in Sources */,
+				3B292A0D28B6808600B3A80C /* PersistenceGateway.swift in Sources */,
 				FB64DC0B24BE46B300F47D8B /* RadioGateway.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3383,6 +3412,7 @@
 				FB64DBF224BE46AE00F47D8B /* Track.swift in Sources */,
 				FB64DBE824BE46AE00F47D8B /* PlayRadioInteractor.swift in Sources */,
 				FB64DBF124BE46AE00F47D8B /* GetLastPlayedInteractor.swift in Sources */,
+				3B292A0B28B6807E00B3A80C /* GetLastFavoriteUserUseCase.swift in Sources */,
 				3BA3A903277FBFE60025A801 /* SleepGateway.swift in Sources */,
 				FB64DBFE24BE46AE00F47D8B /* RequestTimeModel.swift in Sources */,
 				FB64DBEE24BE46AE00F47D8B /* FetchRadioDataInteractor.swift in Sources */,
@@ -3411,6 +3441,7 @@
 				FB64DC0724BE46AE00F47D8B /* GetNewsListInteractor.swift in Sources */,
 				FB64DBF324BE46AE00F47D8B /* CanRequestSongInteractor.swift in Sources */,
 				FB64DBFA24BE46AE00F47D8B /* StopRadioInteractor.swift in Sources */,
+				3B292A0C28B6808600B3A80C /* PersistenceGateway.swift in Sources */,
 				FB64DBE924BE46AE00F47D8B /* RadioGateway.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3449,6 +3480,7 @@
 				FB64DC6224BE4A3A00F47D8B /* SearchResponseModel.swift in Sources */,
 				FB64DC5C24BE4A3A00F47D8B /* GetFavoritesRequest.swift in Sources */,
 				FB64DC7324BE4A3A00F47D8B /* RadioMainAPIResponseModel.swift in Sources */,
+				3B292A1128B6821100B3A80C /* PersistenceRepository.swift in Sources */,
 				FB64DC6C24BE4A3A00F47D8B /* GetNewsRequest.swift in Sources */,
 				FB64DC6724BE4A3A00F47D8B /* SongRequestResponseModel.swift in Sources */,
 				FB64DC5F24BE4A3A00F47D8B /* GetTokenRequest.swift in Sources */,
@@ -3522,6 +3554,7 @@
 				FBCABF0A24A2869200BCD18B /* GetTokenRequest.swift in Sources */,
 				FBCABF0724A2869200BCD18B /* RadioGatewayImp.swift in Sources */,
 				FBCABF0D24A2869200BCD18B /* GetNewsResponseModel.swift in Sources */,
+				3B292A1228B6821200B3A80C /* PersistenceRepository.swift in Sources */,
 				FBCABF2E24A287EA00BCD18B /* ResponseHandler.swift in Sources */,
 				FBCABF0C24A2869200BCD18B /* SearchResponseModel.swift in Sources */,
 				FBCABF1324A2869200BCD18B /* SongRequestRequest.swift in Sources */,
@@ -3547,11 +3580,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB69E8DF24A3CDE8004921E4 /* IntentConfigurator.swift in Sources */,
+				3B292A0328B659FC00B3A80C /* PlayProxyIntentHandler.swift in Sources */,
 				FBCABF6D24A2935F00BCD18B /* Radio_intent.intentdefinition in Sources */,
 				FBCABF5824A2930800BCD18B /* QueueIntentHandler.swift in Sources */,
 				FBC8EC0324AFAF63008F91F6 /* SearchIntentHandler.swift in Sources */,
 				FB89369824A7E7330014EAC3 /* Configurator.swift in Sources */,
+				3B2929FD28B63A8100B3A80C /* RandomFaveIntentHandler.swift in Sources */,
 				FBCABF5724A292CC00BCD18B /* IntentHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4892,7 +4926,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio.Radio-intent";
+				PRODUCT_BUNDLE_IDENTIFIER = cc.raik.radio.intent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = YES;
@@ -4919,7 +4953,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio.Radio-intent";
+				PRODUCT_BUNDLE_IDENTIFIER = cc.raik.radio.intent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = YES;
@@ -5121,7 +5155,7 @@
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.12.0;
+				minimumVersion = 7.3.2;
 			};
 		};
 		FBCABF2F24A2884D00BCD18B /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
@@ -5135,15 +5169,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3B453C4F2742BA52007F38B7 /* KingfisherSwiftUI */ = {
+		3B2929FE28B645C400B3A80C /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 093E6A6823B7931A00578C99 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = KingfisherSwiftUI;
+			productName = Kingfisher;
 		};
-		3B453C512742BA58007F38B7 /* KingfisherSwiftUI */ = {
+		3B292A0028B645CF00B3A80C /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 093E6A6823B7931A00578C99 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = KingfisherSwiftUI;
+			productName = Kingfisher;
 		};
 		FB64DC7524BE4A9500F47D8B /* SwiftSoup */ = {
 			isa = XCSwiftPackageProductDependency;

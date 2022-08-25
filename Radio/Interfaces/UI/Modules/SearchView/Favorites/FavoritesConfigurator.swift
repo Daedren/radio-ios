@@ -29,7 +29,8 @@ class FavoritesConfigurator: Configurator {
                     searchInteractor: InjectSettings.shared.resolve(GetFavoritesInteractor.self)!,
                     requestInteractor: InjectSettings.shared.resolve(RequestSongUseCase.self)!,
                     statusInteractor: InjectSettings.shared.resolve(GetCurrentStatusUseCase.self)!,
-                    cooldownInteractor: InjectSettings.shared.resolve(CanRequestSongUseCase.self)!
+                    cooldownInteractor: InjectSettings.shared.resolve(CanRequestSongUseCase.self)!,
+                    lastUsername: InjectSettings.shared.resolve(GetLastFavoriteUserUseCase.self)!
                 )
                 return presenter
             }

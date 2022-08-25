@@ -31,5 +31,9 @@ public class DataGatewayConfigurator {
             )
         }
         
+        InjectSettings.shared.register(PersistenceGateway.self) {
+            return PersistenceRepository()
+        }
+        
     }
 }

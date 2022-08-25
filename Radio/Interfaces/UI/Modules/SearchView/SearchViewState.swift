@@ -29,6 +29,8 @@ struct SearchListState: Equatable {
     var error: String?
     var canRequest: Bool = false
     var canRequestAt: String?
+    var loadingGeneral: Bool = true
+    var searchTerm: String = ""
     
     static var initial = SearchListState()
     
@@ -44,10 +46,12 @@ struct SearchListState: Equatable {
         case canRequestAt(String)
         case canRequest
         case cannotRequest
+        case searchTermChanged(String)
     }
     
     static func reduce(state: SearchListState, mutation: Mutation) -> SearchListState {
         var state = state
+        
         
         switch mutation {
         case let .acceptingRequests(value):
@@ -69,6 +73,7 @@ struct SearchListState: Equatable {
             state.tracks = models
         case let .loading(index):
             state.tracks[index].state = .loading
+            state.loadingGeneral = true
         case let .notRequestable(index):
             state.tracks[index].state = .disabled
         case let .songRequestable(index):
@@ -81,10 +86,14 @@ struct SearchListState: Equatable {
             state.canRequestAt = nil
             state.canRequest = false
             state.randomTrack.state = .disabled
+            state.loadingGeneral = false
         case .canRequest:
             state.canRequestAt = nil
             state.canRequest = true
             state.randomTrack.state = .enabled
+            state.loadingGeneral = false
+        case let .searchTermChanged(value):
+            state.searchTerm = value
         }
         
         return state

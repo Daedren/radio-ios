@@ -1,6 +1,6 @@
 import Foundation
 import SwiftUI
-import KingfisherSwiftUI
+import Kingfisher
 import Radio_domain
 
 public struct DJView: View {

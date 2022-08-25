@@ -1,18 +1,30 @@
 import UIKit
+import Intents
 import Radio_interfaces
 import Radio_cross
+import Radio_domain
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var playerInterface: MediaPlayerInterface?
-//    var backgroundInterface: BackgroundManagerImpl?
+    var mainInjection: Configurator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         self.playerInterface = MediaPlayerConfigurator().configure()
-//        self.backgroundInterface = InjectSettings.shared.resolve(BackgroundManagerImpl.self)
         return true
+    }
+    
+    func application(_ application: UIApplication, handlerFor intent: INIntent) -> Any? {
+        if mainInjection == nil {
+            self.mainInjection = Configurator()
+        }
+        switch intent {
+            case is INPlayMediaIntent:
+                return PlayIntentHandler(playUseCase: InjectSettings.shared.resolve(PlayRadioUseCase.self)!)
+            default:
+                return nil
+        }
     }
 
     // MARK: UISceneSession Lifecycle

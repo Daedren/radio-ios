@@ -1,6 +1,7 @@
 import Foundation
 import Radio_domain
 import Radio_interfaces
+import Radio_cross
 import Combine
 import SwiftUI
 
@@ -9,7 +10,7 @@ import SwiftUI
 //    @Published var returnedValues: [SearchedTrackViewModel] = []
 //}
 
-class MusicSearchPresenterImp: SearchPresenter {
+class MusicSearchPresenterImp: SearchPresenter, Logging {
     
     @Published var state: SearchListState
     
@@ -43,6 +44,9 @@ class MusicSearchPresenterImp: SearchPresenter {
         let outside = getStatus()
         
         actions.merge(with: outside)
+            .handleEvents(receiveOutput: { [weak self] newVal in
+                self?.log(message: "\(newVal)", logLevel: .verbose)
+            })
             .scan(SearchListState.initial, SearchListState.reduce(state:mutation:))
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { newState in
@@ -58,6 +62,7 @@ class MusicSearchPresenterImp: SearchPresenter {
             return self.requestRandom()
         case let .choose(indexPath):
             return self.request(index: indexPath)
+                .debounce(for: 1, scheduler: RunLoop.current)
                 .append(self.getRequestStatus())
                 .eraseToAnyPublisher()
         case let .search(searchedText):

@@ -9,11 +9,11 @@
 	<key>INIntentDefinitionNamespace</key>
 	<string>88xZPY</string>
 	<key>INIntentDefinitionSystemVersion</key>
-	<string>20G80</string>
+	<string>21F79</string>
 	<key>INIntentDefinitionToolsBuildVersion</key>
-	<string>13A233</string>
+	<string>13F100</string>
 	<key>INIntentDefinitionToolsVersion</key>
-	<string>13.0</string>
+	<string>13.4.1</string>
 	<key>INIntents</key>
 	<array>
 		<dict>
@@ -21,13 +21,13 @@
 			<string>information</string>
 			<key>INIntentConfigurable</key>
 			<true/>
+			<key>INIntentDefaultImageName</key>
+			<string>radio_lady</string>
 			<key>INIntentDescription</key>
 			<string>The upcoming songs on R/a/dio</string>
 			<key>INIntentDescriptionID</key>
 			<string>tVvJ9c</string>
 			<key>INIntentEligibleForWidgets</key>
-			<true/>
-			<key>INIntentIneligibleForSuggestions</key>
 			<true/>
 			<key>INIntentManagedParameterCombinations</key>
 			<dict>
@@ -36,7 +36,7 @@
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>Show the Radio queue</string>
+					<string>Show the R/a/dio queue</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>QZzXR6</string>
 					<key>INIntentParameterCombinationUpdatesLinked</key>
@@ -45,6 +45,24 @@
 			</dict>
 			<key>INIntentName</key>
 			<string>Queue</string>
+			<key>INIntentParameterCombinations</key>
+			<dict>
+				<key></key>
+				<dict>
+					<key>INIntentParameterCombinationIsPrimary</key>
+					<true/>
+					<key>INIntentParameterCombinationSubtitle</key>
+					<string>List of upcoming songs</string>
+					<key>INIntentParameterCombinationSubtitleID</key>
+					<string>2o98sY</string>
+					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
+					<true/>
+					<key>INIntentParameterCombinationTitle</key>
+					<string>Show the R/a/dio queue</string>
+					<key>INIntentParameterCombinationTitleID</key>
+					<string>xImz6p</string>
+				</dict>
+			</dict>
 			<key>INIntentResponse</key>
 			<dict>
 				<key>INIntentResponseCodes</key>
@@ -270,6 +288,106 @@
 			<string>Custom</string>
 			<key>INIntentVerb</key>
 			<string>Search</string>
+		</dict>
+		<dict>
+			<key>INIntentCategory</key>
+			<string>request</string>
+			<key>INIntentConfigurable</key>
+			<true/>
+			<key>INIntentDescription</key>
+			<string>Requests a random favorite song</string>
+			<key>INIntentDescriptionID</key>
+			<string>Vz3F3g</string>
+			<key>INIntentEligibleForWidgets</key>
+			<true/>
+			<key>INIntentManagedParameterCombinations</key>
+			<dict>
+				<key></key>
+				<dict>
+					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
+					<true/>
+					<key>INIntentParameterCombinationTitle</key>
+					<string>Request favorite song</string>
+					<key>INIntentParameterCombinationTitleID</key>
+					<string>0uj0uH</string>
+					<key>INIntentParameterCombinationUpdatesLinked</key>
+					<true/>
+				</dict>
+			</dict>
+			<key>INIntentName</key>
+			<string>RandomFave</string>
+			<key>INIntentParameterCombinations</key>
+			<dict>
+				<key></key>
+				<dict>
+					<key>INIntentParameterCombinationIsPrimary</key>
+					<true/>
+					<key>INIntentParameterCombinationSubtitle</key>
+					<string>Enqueue a song to play in R/a/dio</string>
+					<key>INIntentParameterCombinationSubtitleID</key>
+					<string>VStsoq</string>
+					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
+					<true/>
+					<key>INIntentParameterCombinationTitle</key>
+					<string>Request favorite song</string>
+					<key>INIntentParameterCombinationTitleID</key>
+					<string>TPD9uL</string>
+				</dict>
+			</dict>
+			<key>INIntentResponse</key>
+			<dict>
+				<key>INIntentResponseCodes</key>
+				<array>
+					<dict>
+						<key>INIntentResponseCodeConciseFormatString</key>
+						<string>Song requested</string>
+						<key>INIntentResponseCodeConciseFormatStringID</key>
+						<string>01gm4r</string>
+						<key>INIntentResponseCodeFormatString</key>
+						<string>Song requested</string>
+						<key>INIntentResponseCodeFormatStringID</key>
+						<string>S00sGf</string>
+						<key>INIntentResponseCodeName</key>
+						<string>success</string>
+						<key>INIntentResponseCodeSuccess</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>INIntentResponseCodeConciseFormatString</key>
+						<string>Song could not be requested</string>
+						<key>INIntentResponseCodeConciseFormatStringID</key>
+						<string>40HyL0</string>
+						<key>INIntentResponseCodeFormatString</key>
+						<string>Song could not be requested</string>
+						<key>INIntentResponseCodeFormatStringID</key>
+						<string>ZUonls</string>
+						<key>INIntentResponseCodeName</key>
+						<string>failure</string>
+					</dict>
+					<dict>
+						<key>INIntentResponseCodeConciseFormatString</key>
+						<string>Could not request song. Currently on cooldown</string>
+						<key>INIntentResponseCodeConciseFormatStringID</key>
+						<string>F8N3xa</string>
+						<key>INIntentResponseCodeFormatString</key>
+						<string>Could not request song. Currently on cooldown</string>
+						<key>INIntentResponseCodeFormatStringID</key>
+						<string>OanhAh</string>
+						<key>INIntentResponseCodeName</key>
+						<string>cooldownFailure</string>
+					</dict>
+				</array>
+				<key>INIntentResponseLastParameterTag</key>
+				<integer>2</integer>
+			</dict>
+			<key>INIntentTitle</key>
+			<string>Request random favorite</string>
+			<key>INIntentTitleID</key>
+			<string>3yWT5C</string>
+			<key>INIntentType</key>
+			<string>Custom</string>
+			<key>INIntentVerb</key>
+			<string>Request</string>
 		</dict>
 	</array>
 	<key>INTypes</key>

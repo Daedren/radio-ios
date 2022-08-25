@@ -2,9 +2,10 @@ import Foundation
 import Combine
 import Radio_domain
 import Radio_interfaces
+import Radio_cross
 
 
-class FavoritesPresenterImp: SearchPresenter {
+class FavoritesPresenterImp: SearchPresenter, Logging {
 
     @Published var state: SearchListState
     
@@ -16,6 +17,7 @@ class FavoritesPresenterImp: SearchPresenter {
     var requestInteractor: RequestSongUseCase?
     var statusInteractor: GetCurrentStatusUseCase?
     var cooldownInteractor: CanRequestSongUseCase?
+    var lastUsernameInteractor: GetLastFavoriteUserUseCase?
 
     
     var searchedTracks = [FavoriteTrack]()
@@ -23,17 +25,15 @@ class FavoritesPresenterImp: SearchPresenter {
     init(searchInteractor: GetFavoritesInteractor,
          requestInteractor: RequestSongUseCase,
          statusInteractor: GetCurrentStatusUseCase,
-         cooldownInteractor: CanRequestSongUseCase) {
+         cooldownInteractor: CanRequestSongUseCase,
+         lastUsername: GetLastFavoriteUserUseCase) {
         self.searchInteractor = searchInteractor
         self.requestInteractor = requestInteractor
         self.statusInteractor = statusInteractor
         self.cooldownInteractor = cooldownInteractor
+        self.lastUsernameInteractor = lastUsername
         
         self.state = SearchListState.initial
-    }
-    
-    func send(_ action: SearchListAction) {
-        
     }
     
     func start(actions: AnyPublisher<SearchListAction, Never>) {
@@ -41,12 +41,16 @@ class FavoritesPresenterImp: SearchPresenter {
             .flatMap(handleAction)
         
         let outside = getStatus()
+        let username = getLastFavoriteUsername()
         
-        actions.merge(with: outside)
+        actions.merge(with: outside, username)
+            .handleEvents(receiveOutput: { [weak self] newVal in
+                self?.log(message: "\(newVal)", logLevel: .verbose)
+            })
             .scan(SearchListState.initial, SearchListState.reduce(state:mutation:))
             .receive(on: DispatchQueue.main)
-            .sink(receiveValue: { newState in
-                self.state = newState
+            .sink(receiveValue: { [weak self] newState in
+                self?.state = newState
             })
             .store(in: &searchDisposeBag)
     }
@@ -60,6 +64,8 @@ class FavoritesPresenterImp: SearchPresenter {
             return self.request(track: self.searchedTracks[indexPath])
         case let .search(searchedText):
             return self.search(text: searchedText)
+                .prepend(SearchListState.Mutation.searchTermChanged(searchedText))
+                .eraseToAnyPublisher()
         case .viewDidAppear:
             return self.getRequestStatus()
         }
@@ -75,7 +81,28 @@ class FavoritesPresenterImp: SearchPresenter {
         return viewModels
     }
     
-    // MARK: ACTIONS
+    // MARK: CALLS TO DOMAIN
+    
+    func getLastFavoriteUsername() -> AnyPublisher<SearchListState.Mutation, Never> {
+        guard let lastUsernameInteractor = self.lastUsernameInteractor else { fatalError() }
+        
+        return lastUsernameInteractor
+            .execute()
+//            .handleEvents(receiveOutput: { [weak self] lastUsername in
+//            })
+            .flatMap{ [unowned self] lastUsername -> AnyPublisher<SearchListState.Mutation, Never> in
+                var mutation = Just(SearchListState.Mutation.searchTermChanged(lastUsername))
+                    .eraseToAnyPublisher()
+                 do nk
+                if !lastUsername.isEmpty {
+                    mutation = mutation.append(self.search(text: lastUsername).eraseToAnyPublisher())
+                }
+                return mutation.eraseToAnyPublisher()
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    
     
     func getRequestStatus() -> AnyPublisher<SearchListState.Mutation, Never> {
         guard let cooldownInteractor = self.cooldownInteractor else { fatalError() }
@@ -107,9 +134,12 @@ class FavoritesPresenterImp: SearchPresenter {
             }
             .eraseToAnyPublisher()
     }
+    
+    // MARK: ACTIONS
 
     func search(text: String) -> AnyPublisher<SearchListState.Mutation, Never> {
         guard let searchInteractor = self.searchInteractor else { return Just<SearchListState.Mutation>(.error("")).eraseToAnyPublisher() }
+        
         return searchInteractor
             .execute(text)
             .handleEvents(receiveOutput: { [weak self] newTracks in

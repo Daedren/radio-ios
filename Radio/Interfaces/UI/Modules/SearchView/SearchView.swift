@@ -46,11 +46,14 @@ struct SearchView<P: SearchPresenter>: View {
             }
             VStack() {
                 SearchWrapper(placeholder: "Insert term to search",
-                              textDidChange: self.searchedText)
+                              textDidChange: self.searchedText,
+                              text: $presenter.state.searchTerm
+                )
                 List{
                     Section(footer: Text("You can request once every 30 minutes.\nSong cooldown is variable.")){
                         VStack {
                             requestTimeText()
+                                .animation(.easeInOut(duration: 0.3), value: presenter.state)
                                 .font(.headline)
                             Spacer()
                             if presenter.state.tracks.count > 1 {
@@ -96,6 +99,9 @@ struct SearchView<P: SearchPresenter>: View {
     }
     
     func requestTimeText() -> Text {
+        if presenter.state.loadingGeneral {
+            return Text("")
+        }
         if presenter.state.canRequest {
             return Text("You can now request.")
         } else if let date = presenter.state.canRequestAt{

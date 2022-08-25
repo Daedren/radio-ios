@@ -8,10 +8,15 @@ public struct SearchWrapper: UIViewRepresentable {
     let searchBar = UISearchBar()
     let placeholder: String?
     let textDidChange: PassthroughSubject<String, Never>
+    @Binding var text: String
     
-    public init(placeholder: String?, textDidChange: PassthroughSubject<String, Never>) {
+    public init(placeholder: String?,
+                textDidChange: PassthroughSubject<String, Never>,
+                text: Binding<String>
+    ) {
         self.placeholder = placeholder
         self.textDidChange = textDidChange
+        self._text = text
     }
     
     public func makeCoordinator() -> Coordinator {
@@ -25,7 +30,7 @@ public struct SearchWrapper: UIViewRepresentable {
     }
 
     public func updateUIView(_ uiView: UISearchBar, context: UIViewRepresentableContext<SearchWrapper>) {
-
+        uiView.text = text
     }
 
     public class Coordinator: NSObject, UISearchBarDelegate {

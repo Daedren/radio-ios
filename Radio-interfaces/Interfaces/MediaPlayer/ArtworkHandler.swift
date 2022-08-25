@@ -2,7 +2,6 @@ import Foundation
 import Combine
 import Kingfisher
 import SwiftUI
-import KingfisherSwiftUI
 import MediaPlayer
 
 class ArtworkHandler {

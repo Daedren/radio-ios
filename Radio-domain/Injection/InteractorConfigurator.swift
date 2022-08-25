@@ -76,6 +76,7 @@ public class InteractorConfigurator {
         InjectSettings.shared.register(GetFavoritesInteractor.self) {
             return GetFavoritesInteractor(
                 radioGateway: InjectSettings.shared.resolve(RadioGateway.self)!,
+                persistence: InjectSettings.shared.resolve(PersistenceGateway.self)!,
                 songDelayCalc: InjectSettings.shared.resolve(SongDelayLogic.self)!
             )
         }
@@ -102,6 +103,12 @@ public class InteractorConfigurator {
         InjectSettings.shared.register(GetFourierScalesUseCase.self) {
             return GetFourierScalesInteractor(
                 avGateway: InjectSettings.shared.resolve(MusicGateway.self)!
+            )
+        }
+        
+        InjectSettings.shared.register(GetLastFavoriteUserUseCase.self) {
+            return GetLastFavoriteUserInteractor(
+                persistence: InjectSettings.shared.resolve(PersistenceGateway.self)!
             )
         }
     }
