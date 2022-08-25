@@ -88,14 +88,15 @@ class FavoritesPresenterImp: SearchPresenter, Logging {
         
         return lastUsernameInteractor
             .execute()
-//            .handleEvents(receiveOutput: { [weak self] lastUsername in
-//            })
             .flatMap{ [unowned self] lastUsername -> AnyPublisher<SearchListState.Mutation, Never> in
+                // Change the textfield
                 var mutation = Just(SearchListState.Mutation.searchTermChanged(lastUsername))
                     .eraseToAnyPublisher()
-                 do nk
+                
+                // Perform the search if needed
                 if !lastUsername.isEmpty {
-                    mutation = mutation.append(self.search(text: lastUsername).eraseToAnyPublisher())
+                    mutation = mutation.append(self.search(text: lastUsername))
+                        .eraseToAnyPublisher()
                 }
                 return mutation.eraseToAnyPublisher()
             }

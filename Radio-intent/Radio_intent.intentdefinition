@@ -376,6 +376,18 @@
 						<key>INIntentResponseCodeName</key>
 						<string>cooldownFailure</string>
 					</dict>
+					<dict>
+						<key>INIntentResponseCodeConciseFormatString</key>
+						<string>You must first perform a search in the app for your username's favorites</string>
+						<key>INIntentResponseCodeConciseFormatStringID</key>
+						<string>bg46Md</string>
+						<key>INIntentResponseCodeFormatString</key>
+						<string>You must first perform a search in the app for your username's favorites</string>
+						<key>INIntentResponseCodeFormatStringID</key>
+						<string>YMDjRR</string>
+						<key>INIntentResponseCodeName</key>
+						<string>noUsernameFailure</string>
+					</dict>
 				</array>
 				<key>INIntentResponseLastParameterTag</key>
 				<integer>2</integer>
