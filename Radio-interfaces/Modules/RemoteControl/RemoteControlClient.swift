@@ -3,7 +3,7 @@ import MediaPlayer
 import Combine
 import Radio_cross
 
-public class RemoteControlClient: RemoteControl, Logging {
+public class RemoteControlClient: RemoteControlProtocol, Logging {
 
     var defaultRegisteredCommands: [RemoteControlCommand]
     var defaultDisabledCommands: [RemoteControlCommand]

@@ -40,12 +40,15 @@ class MusicSearchPresenterImp: SearchPresenter, Logging {
     
     func start(actions: AnyPublisher<SearchListAction, Never>) {
         let actions = actions
+            .handleEvents(receiveOutput: { [weak self] output in
+                self?.log(message: "action: "+String(describing: output))
+            })
             .flatMap(handleAction)
         let outside = getStatus()
         
         actions.merge(with: outside)
             .handleEvents(receiveOutput: { [weak self] newVal in
-                self?.log(message: "\(newVal)", logLevel: .verbose)
+                self?.log(message: "mutation: \(newVal)", logLevel: .verbose)
             })
             .scan(SearchListState.initial, SearchListState.reduce(state:mutation:))
             .receive(on: DispatchQueue.main)
@@ -62,12 +65,19 @@ class MusicSearchPresenterImp: SearchPresenter, Logging {
             return self.requestRandom()
         case let .choose(indexPath):
             return self.request(index: indexPath)
-                .debounce(for: 1, scheduler: RunLoop.current)
-                .append(self.getRequestStatus())
+                .flatMap { [weak self] req -> AnyPublisher<SearchListState.Mutation, Never> in
+                    guard let `self` = self else { return Empty<SearchListState.Mutation, Never>().eraseToAnyPublisher() }
+                    return Just(req)
+                        .append(self.getRequestStatus())
+                        .eraseToAnyPublisher()
+                }
+//                .append(self.getRequestStatus())
                 .eraseToAnyPublisher()
         case let .search(searchedText):
             self.searchedTerm = searchedText
             return self.search(text: searchedText)
+                .prepend(Just(SearchListState.Mutation.searchTermChanged(searchedText)))
+                .eraseToAnyPublisher()
         case .viewDidAppear:
             return self.getRequestStatus()
         }

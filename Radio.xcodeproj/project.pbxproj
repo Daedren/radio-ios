@@ -57,16 +57,14 @@
 		3B453C002742A7B7007F38B7 /* AVClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0990B7AE2378F8E100C213B7 /* AVClient.swift */; };
 		3B453C022742A824007F38B7 /* RemoteControlError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E0B9D237A08B500024572 /* RemoteControlError.swift */; };
 		3B453C032742A824007F38B7 /* AppleLicense in Resources */ = {isa = PBXBuildFile; fileRef = 09BD7808237E206D008950CD /* AppleLicense */; };
-		3B453C042742A824007F38B7 /* RemoteControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E0B97237A07F300024572 /* RemoteControl.swift */; };
+		3B453C042742A824007F38B7 /* RemoteControlProtocol+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E0B97237A07F300024572 /* RemoteControlProtocol+Helpers.swift */; };
 		3B453C052742A824007F38B7 /* RemoteControlClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD780B237E2527008950CD /* RemoteControlClient.swift */; };
-		3B453C062742A824007F38B7 /* RemoteControlMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E0B9B237A08A500024572 /* RemoteControlMetadata.swift */; };
-		3B453C072742A824007F38B7 /* RemoteControlCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E0B99237A089600024572 /* RemoteControlCommand.swift */; };
+		3B453C062742A824007F38B7 /* RemoteControlDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E0B9B237A08A500024572 /* RemoteControlDomain.swift */; };
 		3B453C082742A824007F38B7 /* RemoteControlError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E0B9D237A08B500024572 /* RemoteControlError.swift */; };
 		3B453C092742A824007F38B7 /* AppleLicense in Resources */ = {isa = PBXBuildFile; fileRef = 09BD7808237E206D008950CD /* AppleLicense */; };
-		3B453C0A2742A824007F38B7 /* RemoteControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E0B97237A07F300024572 /* RemoteControl.swift */; };
+		3B453C0A2742A824007F38B7 /* RemoteControlProtocol+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E0B97237A07F300024572 /* RemoteControlProtocol+Helpers.swift */; };
 		3B453C0B2742A824007F38B7 /* RemoteControlClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD780B237E2527008950CD /* RemoteControlClient.swift */; };
-		3B453C0C2742A824007F38B7 /* RemoteControlMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E0B9B237A08A500024572 /* RemoteControlMetadata.swift */; };
-		3B453C0D2742A824007F38B7 /* RemoteControlCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E0B99237A089600024572 /* RemoteControlCommand.swift */; };
+		3B453C0C2742A824007F38B7 /* RemoteControlDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E0B9B237A08A500024572 /* RemoteControlDomain.swift */; };
 		3B453C0E2742AF4E007F38B7 /* SleepRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B453B38273F211C007F38B7 /* SleepRepository.swift */; };
 		3B453C0F2742AF4E007F38B7 /* MusicRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941B4FA2378779400994F67 /* MusicRepository.swift */; };
 		3B453C102742AF4F007F38B7 /* SleepRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B453B38273F211C007F38B7 /* SleepRepository.swift */; };
@@ -742,9 +740,8 @@
 		0956081E237F5413008206A1 /* RadioGatewayImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioGatewayImp.swift; sourceTree = "<group>"; };
 		09560820237F5596008206A1 /* iOSInterfaceConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSInterfaceConfigurator.swift; sourceTree = "<group>"; };
 		096DF2E4237A19740094AFB0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		096E0B97237A07F300024572 /* RemoteControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControl.swift; sourceTree = "<group>"; };
-		096E0B99237A089600024572 /* RemoteControlCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlCommand.swift; sourceTree = "<group>"; };
-		096E0B9B237A08A500024572 /* RemoteControlMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlMetadata.swift; sourceTree = "<group>"; };
+		096E0B97237A07F300024572 /* RemoteControlProtocol+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RemoteControlProtocol+Helpers.swift"; sourceTree = "<group>"; };
+		096E0B9B237A08A500024572 /* RemoteControlDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlDomain.swift; sourceTree = "<group>"; };
 		096E0B9D237A08B500024572 /* RemoteControlError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlError.swift; sourceTree = "<group>"; };
 		097C1EA02378716F00A7A5AD /* R-a-dio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "R-a-dio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		097C1EA32378716F00A7A5AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -1314,9 +1311,8 @@
 		096E0B9F237A08F800024572 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				096E0B97237A07F300024572 /* RemoteControl.swift */,
-				096E0B99237A089600024572 /* RemoteControlCommand.swift */,
-				096E0B9B237A08A500024572 /* RemoteControlMetadata.swift */,
+				096E0B97237A07F300024572 /* RemoteControlProtocol+Helpers.swift */,
+				096E0B9B237A08A500024572 /* RemoteControlDomain.swift */,
 				096E0B9D237A08B500024572 /* RemoteControlError.swift */,
 				09BD7808237E206D008950CD /* AppleLicense */,
 			);
@@ -3089,7 +3085,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -eu\n\n# Ensure mocks are generated prior to running Compile Sources\nrm -f '/tmp/Mockingbird-CF202EC7-E295-4B99-9713-85EF539A948F'\n\nwhich Pods/MockingbirdFramework/mockingbird 2>&1 >/dev/null\nif [ $? -ne 0 ]; then\n    DERIVED_DATA=$(dirname $(dirname $BUILD_DIR))\n    REPO_PATH=\"${DERIVED_DATA}/SourcePackages/checkouts/mockingbird\"\n    [[ -f \"${REPO_PATH}/mockingbird\" ]] || (cd \"${REPO_PATH}\" && make download)\nfi\n\n\nPods/MockingbirdFramework/mockingbird generate \\\n  --targets 'Radio-domain-iOS' 'Radio-data-iOS' 'Radio-interfaces-iOS' \\\n  --outputs \"${SRCROOT}/MockingbirdMocks/RadioTests-Radio_domainMocks.generated.swift\" \"${SRCROOT}/MockingbirdMocks/RadioTests-Radio_dataMocks.generated.swift\" \"${SRCROOT}/MockingbirdMocks/RadioTests-Radio_interfacesMocks.generated.swift\" \\\n  --support \"${SRCROOT}/MockingbirdSupport\" \\\n  --only-protocols\n";
+			shellScript = "set -eu\n\n# Ensure mocks are generated prior to running Compile Sources\nrm -f '/tmp/Mockingbird-CF202EC7-E295-4B99-9713-85EF539A948F'\n\nwhich Pods/MockingbirdFramework/mockingbird 2>&1 >/dev/null\nif [ $? -ne 0 ]; then\n    DERIVED_DATA=$(dirname $(dirname $BUILD_DIR))\n    REPO_PATH=\"${DERIVED_DATA}/SourcePackages/checkouts/mockingbird\"\n    [[ -f \"${REPO_PATH}/mockingbird\" ]] || (cd \"${REPO_PATH}\" && make download)\nfi\n\n\nPods/MockingbirdFramework/mockingbird generate \\\n  --targets 'Radio-domain-iOS' 'Radio-data-iOS' 'Radio-interfaces-iOS' \\\n  --outputs \"${SRCROOT}/MockingbirdMocks/RadioTests-Radio_domainMocks.generated.swift\" \"${SRCROOT}/MockingbirdMocks/RadioTests-Radio_dataMocks.generated.swift\" \"${SRCROOT}/MockingbirdMocks/RadioTests-Radio_interfacesMocks.generated.swift\" \\\n  --only-protocols\n";
 		};
 		66BB15D8C3A246653537297B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3271,8 +3267,7 @@
 			files = (
 				3B453C272742B023007F38B7 /* ViewExtensions.swift in Sources */,
 				3B9063D1274A5EE40012C3D7 /* Colors.swift in Sources */,
-				3B453C0A2742A824007F38B7 /* RemoteControl.swift in Sources */,
-				3B453C0D2742A824007F38B7 /* RemoteControlCommand.swift in Sources */,
+				3B453C0A2742A824007F38B7 /* RemoteControlProtocol+Helpers.swift in Sources */,
 				3B453CAA2742CBB6007F38B7 /* SearchedTrackViewModel.swift in Sources */,
 				3B453C462742B035007F38B7 /* WebViewWrapper.swift in Sources */,
 				3B453C3E2742B02F007F38B7 /* BottomSheetView.swift in Sources */,
@@ -3296,7 +3291,7 @@
 				3B453C082742A824007F38B7 /* RemoteControlError.swift in Sources */,
 				3B453C0B2742A824007F38B7 /* RemoteControlClient.swift in Sources */,
 				3B453C3D2742B02F007F38B7 /* BarChartView.swift in Sources */,
-				3B453C0C2742A824007F38B7 /* RemoteControlMetadata.swift in Sources */,
+				3B453C0C2742A824007F38B7 /* RemoteControlDomain.swift in Sources */,
 				3B453C472742B035007F38B7 /* NavigationWrapper.swift in Sources */,
 				3B453CB62743116F007F38B7 /* MediaPlayerInterface.swift in Sources */,
 				3B453C372742B02F007F38B7 /* ListOptionView.swift in Sources */,
@@ -3326,7 +3321,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B453CA22742CBB6007F38B7 /* SearchedTrackViewModel.swift in Sources */,
-				3B453C072742A824007F38B7 /* RemoteControlCommand.swift in Sources */,
 				3B453CA02742CBB5007F38B7 /* ListOptionSwitchViewModel.swift in Sources */,
 				3B453CB32743116E007F38B7 /* MediaPlayerInterface.swift in Sources */,
 				3B453C0E2742AF4E007F38B7 /* SleepRepository.swift in Sources */,
@@ -3343,12 +3337,12 @@
 				3B453C9D2742CBB5007F38B7 /* RandomTrackViewModel.swift in Sources */,
 				3B453C262742B01E007F38B7 /* MarqueeText.swift in Sources */,
 				3B453C312742B02F007F38B7 /* BarChartView.swift in Sources */,
-				3B453C062742A824007F38B7 /* RemoteControlMetadata.swift in Sources */,
+				3B453C062742A824007F38B7 /* RemoteControlDomain.swift in Sources */,
 				3B453C4D2742B03F007F38B7 /* HTMLParser.swift in Sources */,
 				3B453CB42743116E007F38B7 /* ArtworkHandler.swift in Sources */,
 				3B453C2B2742B02F007F38B7 /* ListOptionView.swift in Sources */,
 				3BF9C78F275559890063A4F7 /* TrackView.swift in Sources */,
-				3B453C042742A824007F38B7 /* RemoteControl.swift in Sources */,
+				3B453C042742A824007F38B7 /* RemoteControlProtocol+Helpers.swift in Sources */,
 				3BF9C78E275558B50063A4F7 /* DeviceOrientation.swift in Sources */,
 				3B453C9C2742CBB5007F38B7 /* ListOptionViewModel.swift in Sources */,
 				3B453C2D2742B02F007F38B7 /* ProgressBar.swift in Sources */,

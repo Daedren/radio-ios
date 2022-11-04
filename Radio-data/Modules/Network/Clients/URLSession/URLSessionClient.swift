@@ -59,7 +59,7 @@ extension URLSessionClient {
     
     private func requestHandler(data: Data?, response: URLResponse?, error: Error?) throws -> (URLResponse?, Data?) {
         self.log(message: "\(String(describing: response))", logLevel: .verbose)
-        self.log(message: "\(String(describing: String(data: data ?? Data(), encoding: .utf8)))", logLevel: .verbose)
+//        self.log(message: "\(String(describing: String(data: data ?? Data(), encoding: .utf8)))", logLevel: .verbose)
         self.log(message: "\(String(describing: error))", logLevel: .verbose)
         
         if let error = error {

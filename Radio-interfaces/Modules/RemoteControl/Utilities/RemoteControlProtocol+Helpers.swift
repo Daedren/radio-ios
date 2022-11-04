@@ -1,15 +1,7 @@
 import Foundation
 import MediaPlayer
 
-protocol RemoteControl: AnyObject {
-    
-    var defaultRegisteredCommands: [RemoteControlCommand] { get }
-    var defaultDisabledCommands: [RemoteControlCommand] { get }
-
-}
-
-
-extension RemoteControl {
+extension RemoteControlProtocol {
     
     // Install handlers for registered commands, and disable commands as necessary.
     
