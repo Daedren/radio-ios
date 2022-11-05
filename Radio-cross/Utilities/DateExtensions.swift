@@ -30,9 +30,9 @@ extension Date {
         return ""
     }
     
-    public func dateToView() -> String {
+    public func timeToView() -> String {
         let formatter = DateFormatter()
-        formatter.dateStyle = .short
+        formatter.dateStyle = .none
         formatter.timeStyle = .short
         return formatter.string(from: self)
     }

@@ -113,7 +113,7 @@ class FavoritesPresenterImp: SearchPresenter, Logging {
                 if result.canRequest {
                     return .canRequest
                 } else if let date = result.timeUntilCanRequest {
-                    let formattedDate = date.dateToView()
+                    let formattedDate = date.timeToView()
                     return .canRequestAt(formattedDate)
                 } else {
                     return .cannotRequest

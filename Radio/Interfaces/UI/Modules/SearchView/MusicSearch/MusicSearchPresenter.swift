@@ -102,7 +102,7 @@ class MusicSearchPresenterImp: SearchPresenter, Logging {
                 if result.canRequest {
                     return .canRequest
                 } else if let date = result.timeUntilCanRequest {
-                    let formattedDate = date.offsetFrom(date: Date())
+                    let formattedDate = date.timeToView()
                     return .canRequestAt(formattedDate)
                 } else {
                     return .cannotRequest
