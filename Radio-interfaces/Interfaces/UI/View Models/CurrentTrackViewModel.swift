@@ -52,8 +52,9 @@ public class CurrentTrackViewModel: TrackViewModel {
                 self.startTag = String(format: "%01d:%02d", minute, second)
             }
 
-            if !tags.isEmpty && tags.allSatisfy({ !$0.isEmpty }) {
-                self.tags = tags.joined(separator: ", ")
+            self.tags = tags.joined(separator: ", ")
+            if self.tags?.isEmpty ?? true {
+                self.tags = "No tags"
             }
         }
     }

@@ -121,20 +121,18 @@ struct RadioView<P: RadioPresenter>: View {
                 .font(.subheadline)
                 .foregroundColor(Color(.secondaryLabel))
                 .multilineTextAlignment(.center)
-                .animation(.easeInOut(duration: 0.3), value: presenter.state.currentTrack)
             Text(presenter.state.currentTrack?.title ?? "")
                 .font(.title)
                 .multilineTextAlignment(.center)
                 .onTapGesture(perform: self.tappedTitle)
-                .animation(.easeInOut(duration: 0.3), value: presenter.state.currentTrack)
             if presenter.state.showTags {
-                Text(presenter.state.currentTrack?.tags ?? "No tags")
+                Text(presenter.state.currentTrack?.tags ?? "")
                     .font(.caption2)
                     .foregroundColor(Color(.secondaryLabel))
                     .multilineTextAlignment(.center)
-                    .animation(.easeInOut(duration: 0.3), value: presenter.state.currentTrack)
             }
         }
+        .animation(.easeInOut(duration: 0.3))
     }
 }
 
