@@ -10,11 +10,12 @@ public class CurrentTrackViewModel: TrackViewModel {
     public var percentage: Double?
     public var startTag: String?
     public var endTag: String?
+    public var tags: String = ""
     
     override public init(base: QueuedTrack) {
         super.init(base: base)
         self.trackBackup = base
-        self.setCurrentTrackVars(current: base.currentTime,start: base.startTime,end: base.endTime)
+        self.setCurrentTrackVars(current: base.currentTime, start: base.startTime, end: base.endTime, tags: base.tags)
     }
     
     override func equalTo(rhs: TrackViewModel) -> Bool {
@@ -30,7 +31,7 @@ public class CurrentTrackViewModel: TrackViewModel {
 //            lhs.currentDate == rhs.currentDate
 //    }
     
-    private func setCurrentTrackVars(current: Date?, start: Date?, end: Date?) {
+    private func setCurrentTrackVars(current: Date?, start: Date?, end: Date?, tags: [String] = []) {
         if let currentTime = current, let startTime = start, let endTime = end {
             self.currentDate = current
             self.startDate = start
@@ -50,6 +51,8 @@ public class CurrentTrackViewModel: TrackViewModel {
             if let minute = currDiff.minute, let second = currDiff.second {
                 self.startTag = String(format: "%01d:%02d", minute, second)
             }
+
+            self.tags = tags.joined(separator: ", ")
         }
     }
     
@@ -65,7 +68,8 @@ public class CurrentTrackViewModel: TrackViewModel {
                                 startTime: Date.init(timeIntervalSince1970: 1577622501),
                                 endTime: Date.init(timeIntervalSince1970: 1577622752),
                                 currentTime: Date.init(timeIntervalSince1970: 1577622606),
-                                requested: false)
+                                requested: false,
+                                tags: ["nana wills it", "Symphogear"])
         return CurrentTrackViewModel(base: track)
     }
 }

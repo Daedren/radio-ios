@@ -1,10 +1,9 @@
 import Foundation
 
-public struct SearchedTrack: Track, Hashable {
+public struct SearchedTrack: RequestableTrack, Hashable {
+    public var id: Int?
     public var title: String
     public var artist: String
-    public var id: Int
-    
     public var lastPlayed: Date?
     public var lastRequested: Date?
     public var requestable: Bool?

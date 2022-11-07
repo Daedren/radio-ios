@@ -16,7 +16,7 @@ public struct SearchedTrackViewModel: Identifiable, Equatable, ButtonViewModel {
         "\(artist) - \(title)"
     }
     
-    public init(from entity: SearchedTrack, with id: Int) {
+    public init(from entity: RequestableTrack, with id: Int) {
         self.title = entity.title
         self.artist = entity.artist
         self.id = id
@@ -24,19 +24,6 @@ public struct SearchedTrackViewModel: Identifiable, Equatable, ButtonViewModel {
             self.state = requestable ? .enabled : .disabled
         }
         self.externalId = entity.id
-        
-        let offset = entity.lastRequested?.offsetFrom(date: Date())
-        self.lastRequested = offset ?? ""
-    }
-    
-    public init(from entity: FavoriteTrack, with id: Int) {
-        self.title = entity.title
-        self.artist = entity.artist
-        self.externalId = entity.id
-        self.id = id
-        if let requestable = entity.requestable {
-            self.state = requestable ? .enabled : .disabled
-        }
         
         let offset = entity.lastRequested?.offsetFrom(date: Date())
         self.lastRequested = offset ?? ""

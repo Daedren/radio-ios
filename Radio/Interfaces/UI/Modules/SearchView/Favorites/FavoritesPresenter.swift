@@ -5,38 +5,24 @@ import Radio_interfaces
 import Radio_cross
 
 
-class FavoritesPresenterImp: SearchPresenter, Logging {
+class FavoritesPresenterImp: SearchPresenterImp {
 
-    @Published var state: SearchListState
-    
-    var searchDisposeBag = Set<AnyCancellable>()
-    var requestDisposeBag = Set<AnyCancellable>()
-    var searchEngine = PassthroughSubject<String, RadioError>()
-    
     var searchInteractor: GetFavoritesInteractor?
-    var requestInteractor: RequestSongUseCase?
-    var statusInteractor: GetCurrentStatusUseCase?
-    var cooldownInteractor: CanRequestSongUseCase?
     var lastUsernameInteractor: GetLastFavoriteUserUseCase?
 
-    
-    var searchedTracks = [FavoriteTrack]()
-    
     init(searchInteractor: GetFavoritesInteractor,
          requestInteractor: RequestSongUseCase,
          statusInteractor: GetCurrentStatusUseCase,
          cooldownInteractor: CanRequestSongUseCase,
          lastUsername: GetLastFavoriteUserUseCase) {
         self.searchInteractor = searchInteractor
-        self.requestInteractor = requestInteractor
-        self.statusInteractor = statusInteractor
-        self.cooldownInteractor = cooldownInteractor
         self.lastUsernameInteractor = lastUsername
-        
-        self.state = SearchListState.initial
+        super.init(requestInteractor: requestInteractor,
+                   statusInteractor: statusInteractor,
+                   cooldownInteractor: cooldownInteractor)
     }
     
-    func start(actions: AnyPublisher<SearchListAction, Never>) {
+    override func start(actions: AnyPublisher<SearchListAction, Never>) {
         let actions = actions
             .flatMap(handleAction)
         
@@ -54,33 +40,7 @@ class FavoritesPresenterImp: SearchPresenter, Logging {
             })
             .store(in: &searchDisposeBag)
     }
-    
-    private func handleAction(_ action: SearchListAction) -> AnyPublisher<SearchListState.Mutation, Never> {
-        
-        switch action {
-        case .chooseRandom:
-            return self.requestRandom()
-        case let .choose(indexPath):
-            return self.request(track: self.searchedTracks[indexPath])
-        case let .search(searchedText):
-            return self.search(text: searchedText)
-                .prepend(SearchListState.Mutation.searchTermChanged(searchedText))
-                .eraseToAnyPublisher()
-        case .viewDidAppear:
-            return self.getRequestStatus()
-        }
-        
-    }
-    
-    
-    func createViewModels(from requests: [FavoriteTrack]) -> [SearchedTrackViewModel] {
-        var viewModels = [SearchedTrackViewModel]()
-        for i in 0..<requests.count {
-            viewModels.append(SearchedTrackViewModel(from: requests[i], with: i))
-        }
-        return viewModels
-    }
-    
+
     // MARK: CALLS TO DOMAIN
     
     func getLastFavoriteUsername() -> AnyPublisher<SearchListState.Mutation, Never> {
@@ -103,42 +63,9 @@ class FavoritesPresenterImp: SearchPresenter, Logging {
             .eraseToAnyPublisher()
     }
     
-    
-    
-    func getRequestStatus() -> AnyPublisher<SearchListState.Mutation, Never> {
-        guard let cooldownInteractor = self.cooldownInteractor else { fatalError() }
-        return cooldownInteractor
-            .execute()
-            .map{ result -> SearchListState.Mutation in
-                if result.canRequest {
-                    return .canRequest
-                } else if let date = result.timeUntilCanRequest {
-                    let formattedDate = date.timeToView()
-                    return .canRequestAt(formattedDate)
-                } else {
-                    return .cannotRequest
-                }
-                
-            }
-            .eraseToAnyPublisher()
-    }
-    
-    func getStatus() -> AnyPublisher<SearchListState.Mutation, Never> {
-        guard let statusInteractor = self.statusInteractor else { fatalError() }
-        return statusInteractor
-            .execute()
-            .map { status in
-                return SearchListState.Mutation.acceptingRequests(status.acceptingRequests)
-            }
-            .catch{ err in
-                return Just(SearchListState.Mutation.error(err.localizedDescription))
-            }
-            .eraseToAnyPublisher()
-    }
-    
     // MARK: ACTIONS
 
-    func search(text: String) -> AnyPublisher<SearchListState.Mutation, Never> {
+    override func search(text: String) -> AnyPublisher<SearchListState.Mutation, Never> {
         guard let searchInteractor = self.searchInteractor else { return Just<SearchListState.Mutation>(.error("")).eraseToAnyPublisher() }
         
         return searchInteractor
@@ -155,13 +82,4 @@ class FavoritesPresenterImp: SearchPresenter, Logging {
         }
         .eraseToAnyPublisher()
     }
-    
-    func requestRandom() -> AnyPublisher<SearchListState.Mutation, Never> {
-        return Empty().eraseToAnyPublisher()
-    }
-    
-    func request(track: FavoriteTrack) -> AnyPublisher<SearchListState.Mutation, Never> {
-        return Empty().eraseToAnyPublisher()
-    }
-    
 }
