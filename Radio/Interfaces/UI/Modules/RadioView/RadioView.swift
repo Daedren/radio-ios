@@ -4,6 +4,7 @@ import Radio_interfaces
 
 enum RadioViewAction: Equatable {
     case tappedPlayPause
+    case tappedTitle
 }
 
 struct RadioView<P: RadioPresenter>: View {
@@ -21,6 +22,7 @@ struct RadioView<P: RadioPresenter>: View {
         
         self.presenter.start(actions:
                                 actions.eraseToAnyPublisher())
+        print("starting \(bigVersion)")
     }
     
     var body: some View {
@@ -86,6 +88,10 @@ struct RadioView<P: RadioPresenter>: View {
         self.actions.send(.tappedPlayPause)
     }
 
+    private func tappedTitle() {
+        self.actions.send(.tappedTitle)
+    }
+
     
     var djAndPlaybackView: some View {
         VStack {
@@ -119,7 +125,15 @@ struct RadioView<P: RadioPresenter>: View {
             Text(presenter.state.currentTrack?.title ?? "")
                 .font(.title)
                 .multilineTextAlignment(.center)
+                .onTapGesture(perform: self.tappedTitle)
                 .animation(.easeInOut(duration: 0.3), value: presenter.state.currentTrack)
+            if presenter.state.showTags {
+                Text(presenter.state.currentTrack?.tags ?? "No tags")
+                    .font(.caption2)
+                    .foregroundColor(Color(.secondaryLabel))
+                    .multilineTextAlignment(.center)
+                    .animation(.easeInOut(duration: 0.3), value: presenter.state.currentTrack)
+            }
         }
     }
 }
@@ -131,7 +145,7 @@ struct RadioView_Previews: PreviewProvider {
 //            .environment(\.verticalSizeClass, .compact)
 //            .previewDevice(PreviewDevice(rawValue: "iPad Pro (9.7-inch)"))
             .previewDevice(PreviewDevice(rawValue: "iPhone 12"))
-        //             .environment(\.colorScheme, .dark)
+                     .environment(\.colorScheme, .dark)
 //                    .previewLayout(.fixed(width: 700, height: 350))
 //                    .previewLayout(.fixed(width: 1200, height: 500))
         //            .environment(\.verticalSizeClass, .compact)

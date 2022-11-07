@@ -13,6 +13,7 @@ struct RadioViewState: Equatable {
     var acceptingRequests: Bool = true
     var isPlaying: Bool = false
     var scales: BarChartViewModel?
+    var showTags: Bool = false
     
     static var initial = RadioViewState()
     
@@ -25,6 +26,7 @@ struct RadioViewState: Equatable {
         case isPlaying(Bool)
         case error(String)
         case scales(BarChartViewModel)
+        case toggleTags
     }
     
     static func reduce(state: RadioViewState, mutation: Mutation) -> RadioViewState {
@@ -48,6 +50,8 @@ struct RadioViewState: Equatable {
             state.isPlaying = value
         case let .scales(value):
             state.scales = value
+        case .toggleTags:
+            state.showTags = !state.showTags
         case .error(_):
             break
         }
@@ -64,6 +68,7 @@ struct RadioViewState: Equatable {
             lhs.thread == rhs.thread &&
             lhs.acceptingRequests == rhs.acceptingRequests &&
             lhs.isPlaying == rhs.isPlaying &&
-            lhs.scales == rhs.scales
+            lhs.scales == rhs.scales &&
+            lhs.showTags == rhs.showTags
     }
 }

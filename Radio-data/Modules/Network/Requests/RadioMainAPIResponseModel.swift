@@ -19,12 +19,13 @@ struct RadioMainAPIResponseBody: Decodable {
     let djname: String
     let dj: DJ
     let queue, lp: [LastPlayed]
+    let tags: [String]
 
     enum CodingKeys: String, CodingKey {
         case np, listeners, bitrate, isafkstream, isstreamdesk, current
         case startTime = "start_time"
         case endTime = "end_time"
-        case lastset, trackid, thread, requesting, djname, dj, queue, lp
+        case lastset, trackid, thread, requesting, djname, dj, queue, lp, tags
     }
 }
 

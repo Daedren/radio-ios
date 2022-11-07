@@ -74,7 +74,9 @@ public struct RadioMapperImp: RadioMapper {
                                      startTime: Date(timeIntervalSince1970: TimeInterval(main.startTime)),
                                      endTime: Date(timeIntervalSince1970: TimeInterval(main.endTime)),
                                      currentTime: Date(timeIntervalSince1970: TimeInterval(main.current)),
-                                     requested: false)
+                                     requested: false,
+                                     tags: main.tags
+            )
             return entity
         }
         throw RadioError.apiContentMismatch

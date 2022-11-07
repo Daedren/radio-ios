@@ -2,6 +2,7 @@ import Foundation
 import Combine
 import Radio_domain
 import Radio_interfaces
+import Radio_cross
 import UIKit
 
 protocol RadioPresenter: ObservableObject {
@@ -41,6 +42,19 @@ class RadioPresenterImp: RadioPresenter {
     var getScales: GetFourierScalesUseCase
     
     var isPlaying = false
+    lazy var allListeners: AnyPublisher<RadioViewState.Mutation, Never> = {
+        Publishers.Merge7(
+            self.startSongQueueListener(),
+            self.startLastPlayedListener(),
+            self.startDJListener(),
+            self.startStatusListener(),
+            self.startCurrentTrackListener(),
+            self.startIsPlayingListener(),
+            self.startScalesListener()
+        )
+        .eraseToAnyPublisher()
+    }()
+    var actions = PassthroughSubject<RadioViewState.Mutation, Never>()
     private var disposeBag = Set<AnyCancellable>()
     private var appDisposeBag = Set<AnyCancellable>()
     
@@ -66,7 +80,7 @@ class RadioPresenterImp: RadioPresenter {
         self.statusInteractor = status
         self.isPlayingInteractor = isPlaying
         self.getScales = getScales
-        
+
         
         //        NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)
         //            .sink(receiveValue: { [weak self] _ in
@@ -82,38 +96,33 @@ class RadioPresenterImp: RadioPresenter {
     }
     
     func start(actions: AnyPublisher<RadioViewAction, Never>) {
-        let listeners = self.startListeners()
-        
-        let actions = actions
+        if disposeBag.isEmpty {
+            self.actions
+                .merge(with: self.allListeners)
+                .scan(self.state, RadioViewState.reduce(state:mutation:))
+                .receive(on: DispatchQueue.main)
+                .sink(receiveValue: { newState in
+                    self.state = newState
+                })
+                .store(in: &disposeBag)
+        }
+
+        actions
             .flatMap(handleAction)
-        
-        actions.merge(with: listeners)
-            .scan(RadioViewState.initial, RadioViewState.reduce(state:mutation:))
-            .receive(on: DispatchQueue.main)
-            .sink(receiveValue: { newState in
-                self.state = newState
+            .sink(receiveValue: { [weak self] newMutation in
+                self?.actions.send(newMutation)
             })
             .store(in: &disposeBag)
+
     }
     
     private func handleAction(_ action: RadioViewAction) -> AnyPublisher<RadioViewState.Mutation, Never> {
         switch action {
         case .tappedPlayPause:
             return self.togglePlay()
+        case .tappedTitle:
+            return Just(RadioViewState.Mutation.toggleTags).eraseToAnyPublisher()
         }
-    }
-    
-    func startListeners() -> AnyPublisher<RadioViewState.Mutation, Never> {
-        Publishers.Merge7(
-            self.startSongQueueListener(),
-            self.startLastPlayedListener(),
-            self.startDJListener(),
-            self.startStatusListener(),
-            self.startCurrentTrackListener(),
-            self.startIsPlayingListener(),
-            self.startScalesListener()
-        )
-        .eraseToAnyPublisher()
     }
     
     func togglePlay() -> AnyPublisher<RadioViewState.Mutation, Never> {

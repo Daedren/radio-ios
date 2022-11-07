@@ -10,7 +10,7 @@ public class CurrentTrackViewModel: TrackViewModel {
     public var percentage: Double?
     public var startTag: String?
     public var endTag: String?
-    public var tags: String = ""
+    public var tags: String?
     
     override public init(base: QueuedTrack) {
         super.init(base: base)
@@ -52,7 +52,9 @@ public class CurrentTrackViewModel: TrackViewModel {
                 self.startTag = String(format: "%01d:%02d", minute, second)
             }
 
-            self.tags = tags.joined(separator: ", ")
+            if !tags.isEmpty && tags.allSatisfy({ !$0.isEmpty }) {
+                self.tags = tags.joined(separator: ", ")
+            }
         }
     }
     
