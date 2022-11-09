@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		090F879129194EC800EF2349 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F879029194EC800EF2349 /* SearchPresenter.swift */; };
+		090F879329196D3200EF2349 /* RequestableTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F879229196D3200EF2349 /* RequestableTrack.swift */; };
+		090F879429196D3200EF2349 /* RequestableTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F879229196D3200EF2349 /* RequestableTrack.swift */; };
 		0941B4FF23787D4A00994F67 /* RadioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941B4FE23787D4A00994F67 /* RadioView.swift */; };
 		0941B50223787EC400994F67 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0941B50423787EC400994F67 /* Localizable.strings */; };
 		0941B5062378800C00994F67 /* RadioPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941B5052378800C00994F67 /* RadioPresenter.swift */; };
@@ -709,6 +712,8 @@
 		0906958323A300E800CF0398 /* RequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestHandler.swift; sourceTree = "<group>"; };
 		0906958423A300E800CF0398 /* ResponseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseHandler.swift; sourceTree = "<group>"; };
 		0906958823A304BE00CF0398 /* URLSessionClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionClient.swift; sourceTree = "<group>"; };
+		090F879029194EC800EF2349 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		090F879229196D3200EF2349 /* RequestableTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestableTrack.swift; sourceTree = "<group>"; };
 		0922E2B323A2EB4600EB00C8 /* GetSongQueueInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSongQueueInteractor.swift; sourceTree = "<group>"; };
 		0922E2BE23A2F8DC00EB00C8 /* TrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackView.swift; sourceTree = "<group>"; };
 		0922E2C123A2FA2A00EB00C8 /* TrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewModel.swift; sourceTree = "<group>"; };
@@ -1291,6 +1296,7 @@
 		09560814237F4C9E008206A1 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				090F879229196D3200EF2349 /* RequestableTrack.swift */,
 				09560815237F4CB7008206A1 /* Track.swift */,
 				09560817237F4D24008206A1 /* RadioDJ.swift */,
 				09560819237F4F01008206A1 /* RadioStatus.swift */,
@@ -1448,6 +1454,7 @@
 			children = (
 				FB11DF712497DE2E006F9BDA /* SearchViewState.swift */,
 				098CAFA123BBC03900B6B80E /* SearchView.swift */,
+				090F879029194EC800EF2349 /* SearchPresenter.swift */,
 				FB0C9A62245753EC00320562 /* Favorites */,
 				FB0C9A61245753E400320562 /* MusicSearch */,
 			);
@@ -3176,6 +3183,7 @@
 				FBC9140224992ECF0051DA21 /* RadioViewState.swift in Sources */,
 				0941B5062378800C00994F67 /* RadioPresenter.swift in Sources */,
 				0941B512237883E800994F67 /* RadioConfigurator.swift in Sources */,
+				090F879129194EC800EF2349 /* SearchPresenter.swift in Sources */,
 				3B1AD95D27971A0200176879 /* MuteBackgroundTask.swift in Sources */,
 				FB65C6BE24FAB79C0047A069 /* SiriSettingsConfigurator.swift in Sources */,
 				0941B4FF23787D4A00994F67 /* RadioView.swift in Sources */,
@@ -3236,6 +3244,7 @@
 				FB64DC0F24BE46B300F47D8B /* MusicGateway.swift in Sources */,
 				3B7E0787270D8B1F00448BEF /* ToggleSleepTimerUseCase.swift in Sources */,
 				FB64DC1A24BE46B300F47D8B /* IsPlayingUseCase.swift in Sources */,
+				090F879329196D3200EF2349 /* RequestableTrack.swift in Sources */,
 				FB64DC1E24BE46B300F47D8B /* RequestSongInteractor.swift in Sources */,
 				FB64DC0E24BE46B300F47D8B /* GatewayError.swift in Sources */,
 				FB64DC2824BE46B300F47D8B /* SearchedTrack.swift in Sources */,
@@ -3391,6 +3400,7 @@
 				FB64DBED24BE46AE00F47D8B /* MusicGateway.swift in Sources */,
 				3B7E0788270D8B1F00448BEF /* ToggleSleepTimerUseCase.swift in Sources */,
 				FB64DBF824BE46AE00F47D8B /* IsPlayingUseCase.swift in Sources */,
+				090F879429196D3200EF2349 /* RequestableTrack.swift in Sources */,
 				FB64DBFC24BE46AE00F47D8B /* RequestSongInteractor.swift in Sources */,
 				FB64DBEC24BE46AE00F47D8B /* GatewayError.swift in Sources */,
 				FB64DC0624BE46AE00F47D8B /* SearchedTrack.swift in Sources */,
@@ -3887,6 +3897,7 @@
 				CODE_SIGN_ENTITLEMENTS = Radio/Radio.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
@@ -3920,6 +3931,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Radio/Radio.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = NO;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "";

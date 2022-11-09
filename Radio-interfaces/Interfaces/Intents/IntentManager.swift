@@ -6,6 +6,7 @@ enum IntentModel: Int {
    case queue
 //    case siriSearch
     case shortcutSearch
+    case randomFave
     
     var title: String {
         switch self {
@@ -15,6 +16,8 @@ enum IntentModel: Int {
 //            return "Siri search"
         case .shortcutSearch:
             return "Shortcut search"
+        case .randomFave:
+            return "Request random favorite"
         }
     }
 }
@@ -28,17 +31,22 @@ class IntentManager {
     
     private func createIntents() -> [IntentModel: INIntent] {
         let intent = QueueIntent()
-        intent.suggestedInvocationPhrase = "Show the R/a/dio queue"
+        intent.suggestedInvocationPhrase = "Show the Radio queue"
         
 //        let siriSearch = INSearchForMediaIntent()
 //        siriSearch.suggestedInvocationPhrase = "Search R/a/dio"
         
         let shortcutSearch = SearchIntent()
-        shortcutSearch.suggestedInvocationPhrase = "Search R/a/dio"
-        
+        shortcutSearch.suggestedInvocationPhrase = "Search Radio"
+
+        let raf = RandomFaveIntent()
+        raf.suggestedInvocationPhrase = "Request a favorite"
+
         return [.queue: intent,
 //                .siriSearch: siriSearch,
-                .shortcutSearch: shortcutSearch]
+                .shortcutSearch: shortcutSearch,
+                .randomFave: raf
+        ]
     }
     
     private func requestPerms(onSuccess: @escaping ()->Void) {

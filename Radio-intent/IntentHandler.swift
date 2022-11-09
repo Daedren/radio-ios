@@ -18,7 +18,17 @@ class IntentHandler: INExtension {
         let updateUseCase = InjectSettings.shared.resolve(FetchRadioDataUseCase.self)!
         return SearchIntentHandler(searchUseCase: songSearch, updateUseCase: updateUseCase)
     }
-    
+
+      if intent is RandomFaveIntent {
+        let songSearch = InjectSettings.shared.resolve(GetFavoritesInteractor.self)!
+        let getUsername = InjectSettings.shared.resolve(GetLastFavoriteUserUseCase.self)!
+        let request = InjectSettings.shared.resolve(RequestSongUseCase.self)!
+        return RandomFaveIntentHandler(
+        getUsernameUseCase: getUsername,
+        requestUseCase: request,
+        searchUseCase: songSearch)
+    }
+
     fatalError("Unhandled intent type: \(intent)")
     
   }

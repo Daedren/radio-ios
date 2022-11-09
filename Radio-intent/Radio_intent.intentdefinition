@@ -9,7 +9,7 @@
 	<key>INIntentDefinitionNamespace</key>
 	<string>88xZPY</string>
 	<key>INIntentDefinitionSystemVersion</key>
-	<string>21F79</string>
+	<string>21E230</string>
 	<key>INIntentDefinitionToolsBuildVersion</key>
 	<string>13F100</string>
 	<key>INIntentDefinitionToolsVersion</key>
@@ -340,11 +340,11 @@
 				<array>
 					<dict>
 						<key>INIntentResponseCodeConciseFormatString</key>
-						<string>Song requested</string>
+						<string>I've requested ${track}</string>
 						<key>INIntentResponseCodeConciseFormatStringID</key>
 						<string>01gm4r</string>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>Song requested</string>
+						<string>Requested ${track}</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>S00sGf</string>
 						<key>INIntentResponseCodeName</key>
@@ -390,7 +390,26 @@
 					</dict>
 				</array>
 				<key>INIntentResponseLastParameterTag</key>
-				<integer>2</integer>
+				<integer>3</integer>
+				<key>INIntentResponseOutput</key>
+				<string>track</string>
+				<key>INIntentResponseParameters</key>
+				<array>
+					<dict>
+						<key>INIntentResponseParameterDisplayName</key>
+						<string>Track</string>
+						<key>INIntentResponseParameterDisplayNameID</key>
+						<string>04BxYF</string>
+						<key>INIntentResponseParameterDisplayPriority</key>
+						<integer>1</integer>
+						<key>INIntentResponseParameterName</key>
+						<string>track</string>
+						<key>INIntentResponseParameterTag</key>
+						<integer>3</integer>
+						<key>INIntentResponseParameterType</key>
+						<string>String</string>
+					</dict>
+				</array>
 			</dict>
 			<key>INIntentTitle</key>
 			<string>Request random favorite</string>
