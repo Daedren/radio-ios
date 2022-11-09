@@ -7,15 +7,18 @@ enum UserDefaultsKeys: String {
 }
 
 class PersistenceRepository: PersistenceGateway {
+    let standardDefaults = UserDefaults.standard
+    let groupDefaults = UserDefaults(suiteName: "group.cc.raik.radio")
+
+
     func setFavoriteDefault(name: String) async {
-        UserDefaults.standard.set(name, forKey: UserDefaultsKeys.LastFavoriteUsername.rawValue)
+        groupDefaults?.set(name, forKey: UserDefaultsKeys.LastFavoriteUsername.rawValue)
     }
     
     func getFavoriteDefault() -> Future<String, Never> {
-        return Future.init { event in
-            
+        return Future.init { [weak self] event in
             event(.success(
-                UserDefaults.standard.string(forKey: UserDefaultsKeys.LastFavoriteUsername.rawValue) ?? "")
+                self?.groupDefaults?.string(forKey: UserDefaultsKeys.LastFavoriteUsername.rawValue) ?? "")
             )
         }
     }
