@@ -101,7 +101,6 @@ class RandomFaveIntentHandler: NSObject, RandomFaveIntentHandling {
         return searchUseCase!
             .execute(query)
             .first()
-            .first()
             .compactMap{ favorites in
                 favorites
                     .filter{ ($0.requestable ?? false) && ($0.id != nil) }
