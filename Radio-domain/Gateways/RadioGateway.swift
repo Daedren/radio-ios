@@ -18,5 +18,6 @@ public protocol RadioGateway {
 
 public enum RadioError: Error {
     case apiContentMismatch
+    case errorWithReason(String)
     case unknown
 }

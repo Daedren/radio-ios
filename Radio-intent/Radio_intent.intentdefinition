@@ -388,6 +388,18 @@
 						<key>INIntentResponseCodeName</key>
 						<string>noUsernameFailure</string>
 					</dict>
+					<dict>
+						<key>INIntentResponseCodeConciseFormatString</key>
+						<string>We're currently not accepting requests.</string>
+						<key>INIntentResponseCodeConciseFormatStringID</key>
+						<string>QxudtD</string>
+						<key>INIntentResponseCodeFormatString</key>
+						<string>We're currently not accepting requests.</string>
+						<key>INIntentResponseCodeFormatStringID</key>
+						<string>50fm8d</string>
+						<key>INIntentResponseCodeName</key>
+						<string>notAcceptingRequests</string>
+					</dict>
 				</array>
 				<key>INIntentResponseLastParameterTag</key>
 				<integer>3</integer>

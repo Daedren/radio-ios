@@ -80,16 +80,22 @@ public class RadioGatewayImp: RadioGateway, Logging {
     
     public func request(songId: Int) -> AnyPublisher<Bool, RadioError> {
         return network.execute(request: GetTokenRequest())
-            .flatMap{ [unowned self] token in
-                self.network.execute(request: SongRequestRequest(id: songId, csrfToken: token))
-        }
-        .map{ response -> Bool in
-            return (response.success != nil)
-        }
-        .mapError{ err in
-            return RadioError.apiContentMismatch
-        }
-        .eraseToAnyPublisher()
+            .flatMap { [unowned self] token in
+                    self.network.execute(request: SongRequestRequest(id: songId, csrfToken: token))
+            }
+            .mapError{ err in
+                return RadioError.apiContentMismatch
+            }
+            .flatMap { response -> AnyPublisher<Bool, RadioError> in
+                if let err = response.error, !err.isEmpty {
+                    return Fail(error: RadioError.errorWithReason(err))
+                    .eraseToAnyPublisher()
+                }
+                return Just(response.success != nil)
+                    .setFailureType(to: RadioError.self)
+                    .eraseToAnyPublisher()
+            }
+            .eraseToAnyPublisher()
     }
     
     public func getFavorites(for username: String) -> AnyPublisher<[FavoriteTrack], RadioError> {

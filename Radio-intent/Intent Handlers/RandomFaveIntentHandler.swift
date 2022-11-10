@@ -65,6 +65,8 @@ class RandomFaveIntentHandler: NSObject, RandomFaveIntentHandling {
                         switch err {
                         case .cannotRequestUnknownTime, .cannotRequestDueToTime:
                             return RandomFaveIntentResponseCode.cooldownFailure
+                        case .notAcceptingRequests:
+                            return RandomFaveIntentResponseCode.notAcceptingRequests
                         default:
                             return RandomFaveIntentResponseCode.failure
 
