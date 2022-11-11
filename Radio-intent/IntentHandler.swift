@@ -15,15 +15,16 @@ class IntentHandler: INExtension {
     
     if intent is SearchIntent || intent is INSearchForMediaIntent {
         let songSearch = InjectSettings.shared.resolve(SearchForTermUseCase.self)!
-        let updateUseCase = InjectSettings.shared.resolve(FetchRadioDataUseCase.self)!
-        return SearchIntentHandler(searchUseCase: songSearch, updateUseCase: updateUseCase)
+        return SearchIntentHandler(searchUseCase: songSearch)
     }
 
       if intent is RandomFaveIntent {
+        let updateUseCase = InjectSettings.shared.resolve(FetchRadioDataUseCase.self)!
         let songSearch = InjectSettings.shared.resolve(GetFavoritesInteractor.self)!
         let getUsername = InjectSettings.shared.resolve(GetLastFavoriteUserUseCase.self)!
         let request = InjectSettings.shared.resolve(RequestSongUseCase.self)!
         return RandomFaveIntentHandler(
+        updateUseCase: updateUseCase,
         getUsernameUseCase: getUsername,
         requestUseCase: request,
         searchUseCase: songSearch)

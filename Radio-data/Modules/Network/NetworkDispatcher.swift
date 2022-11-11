@@ -25,7 +25,7 @@ public enum APIError: Error {
     case requestTimedOut
     case noInternet
     case invalidCertificate
-    case jsonParsingError
+    case jsonParsingError(Error?)
     case mockNotFound
     case unsuccessfulResponse
     case otherError

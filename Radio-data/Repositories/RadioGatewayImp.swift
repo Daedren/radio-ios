@@ -12,9 +12,9 @@ public class RadioGatewayImp: RadioGateway, Logging {
     
     var allTracks =  [Int : QueuedTrack]()
     
-    var status = PassthroughSubject<RadioStatus,RadioError>()
+    var status = CurrentValueSubject<RadioStatus?,RadioError>(nil)
     var currentTrack = PassthroughSubject<QueuedTrack,RadioError>()
-    var queue = PassthroughSubject<[QueuedTrack],RadioError>()
+    var queue = CurrentValueSubject<[QueuedTrack]?,RadioError>(nil)
     var lastPlayed = PassthroughSubject<[QueuedTrack],RadioError>()
     var currentDJ = PassthroughSubject<RadioDJ,RadioError>()
     
@@ -31,7 +31,14 @@ public class RadioGatewayImp: RadioGateway, Logging {
         NotificationCenter.default.addObserver(self, selector: #selector(stopLoop), name: UIApplication.willResignActiveNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(resumeLoop), name: UIApplication.didBecomeActiveNotification, object: nil)
         #endif
-        
+
+//        if Bundle.main.bundlePath.hasSuffix(".appex") {
+//            self.updateNow()
+//        }
+//        #endif
+//
+//        self.log(message: "Running as \(Bundle.main.bundlePath)")
+
         #if os(watchOS)
         self.startRecurringFetch()
         #endif
@@ -42,11 +49,15 @@ public class RadioGatewayImp: RadioGateway, Logging {
     }
     
     public func getCurrentStatus() -> AnyPublisher<RadioStatus, RadioError> {
-        return status.eraseToAnyPublisher()
+        return status
+            .compactMap{ $0 }
+            .eraseToAnyPublisher()
     }
     
     public func getSongQueue() -> AnyPublisher<[QueuedTrack], RadioError> {
-        return queue.eraseToAnyPublisher()
+        return queue
+            .compactMap{ $0 }
+            .eraseToAnyPublisher()
     }
     
     public func getLastPlayed() -> AnyPublisher<[QueuedTrack], RadioError> {
@@ -61,12 +72,11 @@ public class RadioGatewayImp: RadioGateway, Logging {
         return self.allTracks[identifier.hashValue]
     }
     
-    public func updateNow() {
+    public func updateNow() -> AnyPublisher<Void, RadioError> {
         self.log(message: "Update Now called", logLevel: .debug)
-        self.fetchFromAPI()
-            .sink(receiveCompletion: { _ in },
-                  receiveValue: {  _ in })
-            .store(in: &apiDisposeBag)
+        return self.fetchFromAPI()
+            .map { _ in return () }
+            .eraseToAnyPublisher()
     }
     
     public func searchFor(term: String) -> AnyPublisher<[SearchedTrack], RadioError> {

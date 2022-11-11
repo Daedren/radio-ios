@@ -8,14 +8,11 @@ class SearchIntentHandler: NSObject, SearchIntentHandling {
     
     
     let searchUseCase: SearchForTermUseCase
-    let updateUseCase: FetchRadioDataUseCase
     var queueDisposeBag = Set<AnyCancellable>()
     
     internal init(searchUseCase: SearchForTermUseCase,
-                  updateUseCase: FetchRadioDataUseCase,
                   queueDisposeBag: Set<AnyCancellable> = Set<AnyCancellable>()) {
         self.searchUseCase = searchUseCase
-        self.updateUseCase = updateUseCase
         self.queueDisposeBag = queueDisposeBag
     }
     
@@ -35,8 +32,6 @@ class SearchIntentHandler: NSObject, SearchIntentHandling {
     
     
     func handle(intent: SearchIntent, completion: @escaping (SearchIntentResponse) -> Void) {
-        updateUseCase.execute(())
-        
         if let query = intent.query {
             fetchResultForQuery(query: query)
                 .sink(receiveCompletion: { event in
@@ -80,7 +75,7 @@ class SearchIntentHandler: NSObject, SearchIntentHandling {
 
 extension SearchIntentHandler: INSearchForMediaIntentHandling {
     func handle(intent: INSearchForMediaIntent, completion: @escaping (INSearchForMediaIntentResponse) -> Void) {
-        updateUseCase.execute(())
+//        updateUseCase.execute(())
         
         guard let mediaItems = intent.mediaItems, !mediaItems.isEmpty else {
             completion(.init(code: .failure, userActivity: nil))

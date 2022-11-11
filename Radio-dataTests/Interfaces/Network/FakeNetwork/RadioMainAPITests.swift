@@ -29,7 +29,7 @@ class RadioMainAPITests: XCTestCase {
         result.sink(receiveCompletion: { completion in
             switch completion {
             case .failure(let error):
-                XCTFail("The request errored out: \(error.localizedDescription)")
+                XCTFail("The request errored out: \(error)")
                 break
             default:
                 break

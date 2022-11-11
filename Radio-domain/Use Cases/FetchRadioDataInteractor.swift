@@ -2,12 +2,12 @@ import Foundation
 import Combine
 
 public protocol FetchRadioDataUseCase {
-    func execute(_: ())
+    func execute(_: ()) -> AnyPublisher<Void, RadioError>
 }
 
 public class FetchRadioDataInteractor: Interactor, FetchRadioDataUseCase {
     public typealias Input = Void
-    public typealias Output = Void
+    public typealias Output = AnyPublisher<Void, RadioError>
 
     var radio: RadioGateway?
     
@@ -15,7 +15,7 @@ public class FetchRadioDataInteractor: Interactor, FetchRadioDataUseCase {
         self.radio = radioGateway
     }
     
-    public func execute(_: () = ()) {
+    public func execute(_: () = ()) -> AnyPublisher<Void, RadioError> {
         self.radio!.updateNow()
     }
     

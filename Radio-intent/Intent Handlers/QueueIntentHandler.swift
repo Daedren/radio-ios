@@ -19,32 +19,31 @@ class QueueIntentHandler: NSObject, QueueIntentHandling {
     }
     
     
-  func confirm(intent: QueueIntent, completion: @escaping (QueueIntentResponse) -> Void) {
-    
-    completion(QueueIntentResponse(code: .ready, userActivity: nil))
+    func confirm(intent: QueueIntent, completion: @escaping (QueueIntentResponse) -> Void) {
 
-  }
-  
-  func handle(intent: QueueIntent, completion: @escaping (QueueIntentResponse) -> Void) {
-    updateUseCase.execute(())
-    
-    queueUseCase
-        .execute()
-        .print("Memes")
-        .first()
-        .sink(receiveCompletion: { result in
-            switch result {
-            case .failure(_):
-                completion(.init(code: .failure, userActivity: nil))
-            default:
-                break
-            }
-        }, receiveValue: { [unowned self] tracks in
-            let intentTracks = tracks.map(self.mapTrackToIntentVersion(_:))
-            completion(QueueIntentResponse.success(tracks: intentTracks))
-        })
-        .store(in: &queueDisposeBag)
-  }
+        completion(QueueIntentResponse(code: .ready, userActivity: nil))
+
+    }
+
+    func handle(intent: QueueIntent, completion: @escaping (QueueIntentResponse) -> Void) {
+
+        updateUseCase.execute(())
+            .flatMap{ self.queueUseCase.execute() }
+            .print("Memes")
+            .first()
+            .sink(receiveCompletion: { result in
+                switch result {
+                case .failure(_):
+                    completion(.init(code: .failure, userActivity: nil))
+                default:
+                    break
+                }
+            }, receiveValue: { [unowned self] tracks in
+                let intentTracks = tracks.map(self.mapTrackToIntentVersion(_:))
+                completion(QueueIntentResponse.success(tracks: intentTracks))
+            })
+            .store(in: &queueDisposeBag)
+    }
     
     func mapTrackToIntentVersion(_ track: QueuedTrack) -> IntentTrack {
         let startTime = track.startTime?.offsetFrom(date: Date())

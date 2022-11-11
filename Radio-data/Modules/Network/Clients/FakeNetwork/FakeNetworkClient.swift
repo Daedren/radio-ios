@@ -23,7 +23,7 @@ public class FakeNetworkClient: NetworkDispatcher {
                     event(.success(modelData!))
                 } catch {
                     print(error)
-                    event(.failure(APIError.jsonParsingError))
+                    event(.failure(APIError.jsonParsingError(error)))
                 }
             } else {
                 print(fileLocation)

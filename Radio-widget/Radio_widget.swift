@@ -37,9 +37,12 @@ final class Provider: TimelineProvider {
                 return
             }
             
+
+            let main =
             updateUseCase.execute(())
-                
-            let main = songQueue.execute()
+                .flatMap {
+                    songQueue.execute()
+                }
                 .catch{_ in return Just([QueuedTrack]())}
                 .eraseToAnyPublisher()
                 

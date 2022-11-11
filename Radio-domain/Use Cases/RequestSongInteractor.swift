@@ -74,7 +74,7 @@ public class RequestSongInteractor: RequestSongUseCase, Interactor {
                         .setFailureType(to: RequestSongUseCaseError.self)
                         .eraseToAnyPublisher()
                 } else {
-                    return Fail(outputType: Bool.self, failure: RequestSongUseCaseError.notAcceptingRequests)
+                    return Fail(outputType: Bool.self, failure: RequestSongUseCaseError.cannotRequestUnknownTime)
                         .eraseToAnyPublisher()
                 }
             }

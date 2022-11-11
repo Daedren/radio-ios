@@ -63,7 +63,6 @@ class SearchPresenterImp: SearchPresenter, Logging {
                         .append(self.getRequestStatus())
                         .eraseToAnyPublisher()
                 }
-            //                .append(self.getRequestStatus())
                 .eraseToAnyPublisher()
         case let .search(searchedText):
             self.searchedTerm = searchedText

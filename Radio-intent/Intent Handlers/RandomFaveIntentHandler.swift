@@ -13,14 +13,17 @@ class RandomFaveIntentHandler: NSObject, RandomFaveIntentHandling {
     let getUsernameUseCase: GetLastFavoriteUserUseCase?
     let requestUseCase: RequestSongUseCase?
     var searchUseCase: GetFavoritesInteractor?
-    
+    var updateUseCase: FetchRadioDataUseCase?
+
     var disposeBag = Set<AnyCancellable>()
     
     internal init(
+        updateUseCase: FetchRadioDataUseCase? = nil,
         getUsernameUseCase: GetLastFavoriteUserUseCase? = nil,
         requestUseCase: RequestSongUseCase? = nil,
         searchUseCase: GetFavoritesInteractor? = nil
     ) {
+        self.updateUseCase = updateUseCase
         self.getUsernameUseCase = getUsernameUseCase
         self.requestUseCase = requestUseCase
         self.searchUseCase = searchUseCase
@@ -36,12 +39,16 @@ class RandomFaveIntentHandler: NSObject, RandomFaveIntentHandling {
     }
     
     func handle(intent: RandomFaveIntent, completion: @escaping (RandomFaveIntentResponse) -> Void) {
-        guard let getUsernameUseCase = getUsernameUseCase, searchUseCase != nil else {
+        guard let getUsernameUseCase = getUsernameUseCase,
+              let updateUseCase = updateUseCase,
+              searchUseCase != nil else {
             completion(RandomFaveIntentResponse(code: .failure, userActivity: nil))
             return
         }
 
-        getUsernameUseCase.execute()
+        updateUseCase.execute(())
+            .mapError{ _ in RandomFaveIntentResponseCode.failure }
+            .flatMap { getUsernameUseCase.execute() }
             .flatMap{ username -> AnyPublisher<String, RandomFaveIntentResponseCode> in
                 if username.isEmpty {
                     return Fail(outputType: String.self, failure: .noUsernameFailure)
