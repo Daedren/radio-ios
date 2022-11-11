@@ -93,10 +93,13 @@ public class GetCurrentTrackInteractor: GetCurrentTrackUseCase {
         }
         .removeDuplicates(by: { $0.hashValue == $1.hashValue })
 //        .catch{ err in return Empty<QueuedTrack,Never>() }
-        .sink(receiveValue: { _ in
+        .flatMap { _ in
             self.radioGateway.updateNow()
+                .replaceError(with: ())
+        }
+        .sink(receiveValue: { _ in
         })
-            .store(in: &endSongDisposeBag)
+        .store(in: &endSongDisposeBag)
     }
     
 }

@@ -81,7 +81,6 @@
 		3B453C302742B02F007F38B7 /* ListOptionSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D5D4E24F9B20900A7CB29 /* ListOptionSwitchView.swift */; };
 		3B453C312742B02F007F38B7 /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE37CCF262DC5120048C69C /* BarChartView.swift */; };
 		3B453C352742B02F007F38B7 /* SongRequestButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0C9A67245760A100320562 /* SongRequestButton.swift */; };
-		3B453C362742B02F007F38B7 /* ActivityIndicatorWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81FD15243F9B0800058FF8 /* ActivityIndicatorWrapper.swift */; };
 		3B453C372742B02F007F38B7 /* ListOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D5D4A24F9AE5C00A7CB29 /* ListOptionView.swift */; };
 		3B453C382742B02F007F38B7 /* TrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922E2BE23A2F8DC00EB00C8 /* TrackView.swift */; };
 		3B453C392742B02F007F38B7 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F8A11523B854AE00D95643 /* ProgressBar.swift */; };
@@ -890,7 +889,6 @@
 		FB7FA743259EC38C00C47508 /* FSFrequencyDomainAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSFrequencyDomainAnalyzer.h; sourceTree = "<group>"; };
 		FB7FA76E259EC4DE00C47508 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		FB81FD11243F775E00058FF8 /* SongRequestResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRequestResponseModel.swift; sourceTree = "<group>"; };
-		FB81FD15243F9B0800058FF8 /* ActivityIndicatorWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorWrapper.swift; sourceTree = "<group>"; };
 		FB81FD17243FC7C300058FF8 /* GetFavoritesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFavoritesRequest.swift; sourceTree = "<group>"; };
 		FB81FD19243FC88500058FF8 /* GetFavoritesResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFavoritesResponseModel.swift; sourceTree = "<group>"; };
 		FB81FD1B243FC9BE00058FF8 /* FavoriteTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTrack.swift; sourceTree = "<group>"; };
@@ -1974,7 +1972,6 @@
 				09F8A11323B853FC00D95643 /* SeekBarView.swift */,
 				098CAF9C23BB8BF800B6B80E /* BottomSheetView.swift */,
 				FB0C9A67245760A100320562 /* SongRequestButton.swift */,
-				FB81FD15243F9B0800058FF8 /* ActivityIndicatorWrapper.swift */,
 				FB66322424464BD4005C2A7D /* NewsEntryView.swift */,
 				FB7D5D4A24F9AE5C00A7CB29 /* ListOptionView.swift */,
 				FB7D5D4E24F9B20900A7CB29 /* ListOptionSwitchView.swift */,
@@ -3263,7 +3260,6 @@
 				3B453C4E2742B03F007F38B7 /* HTMLParser.swift in Sources */,
 				3B453CAB2742CBB6007F38B7 /* NewsEntryViewModel.swift in Sources */,
 				3B453C232742B01D007F38B7 /* AppAttributedString.swift in Sources */,
-				3B453C362742B02F007F38B7 /* ActivityIndicatorWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

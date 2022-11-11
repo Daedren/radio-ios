@@ -31,7 +31,7 @@ public struct SongRequestButton: View {
             self.action(self.viewModel)
         }) {
             if self.status == .loading {
-                ActivityIndicatorWrapper(style: .medium)
+                ProgressView()
                     .padding([.leading,. trailing], nil)
             } else {
                 Text(self.viewModel.buttonText(for: self.viewModel.state))
