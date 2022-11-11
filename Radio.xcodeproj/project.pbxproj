@@ -16,6 +16,7 @@
 		0941B50C2378830400994F67 /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941B50B2378830400994F67 /* Configurator.swift */; };
 		0941B512237883E800994F67 /* RadioConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941B511237883E800994F67 /* RadioConfigurator.swift */; };
 		09560821237F5596008206A1 /* iOSInterfaceConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09560820237F5596008206A1 /* iOSInterfaceConfigurator.swift */; };
+		0977C994291EBCA600158413 /* SongRequestButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0C9A67245760A100320562 /* SongRequestButton.swift */; };
 		097C1EA42378716F00A7A5AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097C1EA32378716F00A7A5AD /* AppDelegate.swift */; };
 		097C1EA62378716F00A7A5AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097C1EA52378716F00A7A5AD /* SceneDelegate.swift */; };
 		097C1EA82378716F00A7A5AD /* MainTabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097C1EA72378716F00A7A5AD /* MainTabsView.swift */; };
@@ -301,7 +302,6 @@
 		FB89369B24A7E8480014EAC3 /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB89369924A7E8410014EAC3 /* Configurator.swift */; };
 		FB8936A224A7F3AD0014EAC3 /* Radio-watch-app.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FB8936A124A7F3AD0014EAC3 /* Radio-watch-app.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FB8936A724A7F3AF0014EAC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB8936A624A7F3AF0014EAC3 /* Assets.xcassets */; };
-		FB8936AE24A7F3AF0014EAC3 /* Radio-watch-extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FB8936AD24A7F3AF0014EAC3 /* Radio-watch-extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FB8936B324A7F3AF0014EAC3 /* RadioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8936B224A7F3AF0014EAC3 /* RadioApp.swift */; };
 		FB8936B524A7F3AF0014EAC3 /* RadioWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8936B424A7F3AF0014EAC3 /* RadioWatchView.swift */; };
 		FB8936B724A7F3AF0014EAC3 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8936B624A7F3AF0014EAC3 /* NotificationController.swift */; };
@@ -318,7 +318,7 @@
 		FBCABEB724A2724D00BCD18B /* Radio_widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCABEB624A2724D00BCD18B /* Radio_widget.swift */; };
 		FBCABEBA24A2724F00BCD18B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBCABEB924A2724F00BCD18B /* Assets.xcassets */; };
 		FBCABEBC24A2724F00BCD18B /* Radio_intent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = FBCABEB824A2724D00BCD18B /* Radio_intent.intentdefinition */; };
-		FBCABEC024A2724F00BCD18B /* Radio-widgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FBCABEB024A2724D00BCD18B /* Radio-widgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FBCABEC024A2724F00BCD18B /* Radio-widgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FBCABEB024A2724D00BCD18B /* Radio-widgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FBCABEEE24A2864900BCD18B /* Radio_data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBCABEE524A2864800BCD18B /* Radio_data.framework */; };
 		FBCABEF524A2864900BCD18B /* Radio_dataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCABEF424A2864900BCD18B /* Radio_dataTests.swift */; };
 		FBCABEF724A2864900BCD18B /* Radio_data.h in Headers */ = {isa = PBXBuildFile; fileRef = FBCABEE724A2864800BCD18B /* Radio_data.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -348,7 +348,7 @@
 		FBCABF2D24A287EA00BCD18B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0906958223A300E800CF0398 /* NetworkManager.swift */; };
 		FBCABF2E24A287EA00BCD18B /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0906958423A300E800CF0398 /* ResponseHandler.swift */; };
 		FBCABF3124A2884D00BCD18B /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = FBCABF3024A2884D00BCD18B /* SwiftSoup */; };
-		FBCABF4F24A2927E00BCD18B /* Radio-intent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FBCABF3624A2927E00BCD18B /* Radio-intent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FBCABF4F24A2927E00BCD18B /* Radio-intent.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FBCABF3624A2927E00BCD18B /* Radio-intent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FBCABF5724A292CC00BCD18B /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCABEC924A27B5B00BCD18B /* IntentHandler.swift */; };
 		FBCABF5824A2930800BCD18B /* QueueIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCABECB24A27B8500BCD18B /* QueueIntentHandler.swift */; };
 		FBCABF6624A2932200BCD18B /* Radio_cross.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB242EA2243E3C6100115B49 /* Radio_cross.framework */; };
@@ -374,6 +374,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0977C995291EC1AB00158413 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 097C1E982378716F00A7A5AD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB64DBDA24BE462600F47D8B;
+			remoteInfo = "Radio-domain-watchOS";
+		};
+		0977C997291EC1AB00158413 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 097C1E982378716F00A7A5AD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB64DC3124BE475F00F47D8B;
+			remoteInfo = "Radio-cross-watchOS";
+		};
+		0977C999291EC1AB00158413 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 097C1E982378716F00A7A5AD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB64DC4A24BE49DE00F47D8B;
+			remoteInfo = "Radio-data-watchOS";
+		};
+		0977C99B291EC1AB00158413 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 097C1E982378716F00A7A5AD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B453BC92742A1D5007F38B7;
+			remoteInfo = "Radio-interfaces-watchOS";
+		};
 		097C1EB72378717100A7A5AD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 097C1E982378716F00A7A5AD /* Project object */;
@@ -422,13 +450,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 097C1E9F2378716F00A7A5AD;
 			remoteInfo = Radio;
-		};
-		3B453BDD2742A1D6007F38B7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 097C1E982378716F00A7A5AD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3B453BC92742A1D5007F38B7;
-			remoteInfo = "Radio-interfaces-watchOS";
 		};
 		3B453BE92742A26C007F38B7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -479,33 +500,12 @@
 			remoteGlobalIDString = FB242EA1243E3C6100115B49;
 			remoteInfo = "Radio-cross";
 		};
-		FB64DBE024BE462700F47D8B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 097C1E982378716F00A7A5AD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FB64DBDA24BE462600F47D8B;
-			remoteInfo = "Radio-domainWatch";
-		};
-		FB64DC3724BE475F00F47D8B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 097C1E982378716F00A7A5AD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FB64DC3124BE475F00F47D8B;
-			remoteInfo = "Radio-cross-watchOS";
-		};
 		FB64DC4224BE479400F47D8B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 097C1E982378716F00A7A5AD /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = FB64DC3124BE475F00F47D8B;
 			remoteInfo = "Radio-cross-watchOS";
-		};
-		FB64DC5024BE49DE00F47D8B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 097C1E982378716F00A7A5AD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FB64DC4A24BE49DE00F47D8B;
-			remoteInfo = "Radio-data-watchOS";
 		};
 		FB64DC7924BE4A9500F47D8B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -520,13 +520,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = FB64DBDA24BE462600F47D8B;
 			remoteInfo = "Radio-domain-watchOS";
-		};
-		FB64DCB424BE4BEA00F47D8B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 097C1E982378716F00A7A5AD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FB64DCA624BE4B7F00F47D8B;
-			remoteInfo = "Radio-app-watchOS";
 		};
 		FB69E8D324A3C41E004921E4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -562,13 +555,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = FB8936A024A7F3AD0014EAC3;
 			remoteInfo = "Radio-watch WatchKit App";
-		};
-		FB8936AF24A7F3AF0014EAC3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 097C1E982378716F00A7A5AD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FB8936AC24A7F3AF0014EAC3;
-			remoteInfo = "Radio-watch WatchKit Extension";
 		};
 		FBCABEBE24A2724F00BCD18B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -671,17 +657,6 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FB8936C424A7F3AF0014EAC3 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				FB8936AE24A7F3AF0014EAC3 /* Radio-watch-extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		FB8936C824A7F3AF0014EAC3 /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -693,16 +668,16 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FBCABEC224A2724F00BCD18B /* Embed App Extensions */ = {
+		FBCABEC224A2724F00BCD18B /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				FBCABEC024A2724F00BCD18B /* Radio-widgetExtension.appex in Embed App Extensions */,
-				FBCABF4F24A2927E00BCD18B /* Radio-intent.appex in Embed App Extensions */,
+				FBCABEC024A2724F00BCD18B /* Radio-widgetExtension.appex in Embed Foundation Extensions */,
+				FBCABF4F24A2927E00BCD18B /* Radio-intent.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -748,6 +723,9 @@
 		096E0B97237A07F300024572 /* RemoteControlProtocol+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RemoteControlProtocol+Helpers.swift"; sourceTree = "<group>"; };
 		096E0B9B237A08A500024572 /* RemoteControlDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlDomain.swift; sourceTree = "<group>"; };
 		096E0B9D237A08B500024572 /* RemoteControlError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlError.swift; sourceTree = "<group>"; };
+		0977C99E291EC37000158413 /* debug-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "debug-iOS.xcconfig"; sourceTree = "<group>"; };
+		0977C99F291EC37000158413 /* release-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "release-iOS.xcconfig"; sourceTree = "<group>"; };
+		0977C9A0291EC37000158413 /* Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
 		097C1EA02378716F00A7A5AD /* R-a-dio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "R-a-dio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		097C1EA32378716F00A7A5AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		097C1EA52378716F00A7A5AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -925,7 +903,6 @@
 		FB8936A124A7F3AD0014EAC3 /* Radio-watch-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Radio-watch-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB8936A624A7F3AF0014EAC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB8936A824A7F3AF0014EAC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FB8936AD24A7F3AF0014EAC3 /* Radio-watch-extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Radio-watch-extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB8936B224A7F3AF0014EAC3 /* RadioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioApp.swift; sourceTree = "<group>"; };
 		FB8936B424A7F3AF0014EAC3 /* RadioWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioWatchView.swift; sourceTree = "<group>"; };
 		FB8936B624A7F3AF0014EAC3 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
@@ -981,6 +958,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB64DBE224BE462700F47D8B /* Radio_domain.framework in Frameworks */,
+				FB64DC3924BE475F00F47D8B /* Radio_cross.framework in Frameworks */,
+				3B453BDF2742A1D6007F38B7 /* Radio_interfaces.framework in Frameworks */,
+				FB64DC5224BE49DE00F47D8B /* Radio_data.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1093,17 +1074,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FB8936AA24A7F3AF0014EAC3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3B453BDF2742A1D6007F38B7 /* Radio_interfaces.framework in Frameworks */,
-				FB64DBE224BE462700F47D8B /* Radio_domain.framework in Frameworks */,
-				FB64DC5224BE49DE00F47D8B /* Radio_data.framework in Frameworks */,
-				FB64DC3924BE475F00F47D8B /* Radio_cross.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1325,9 +1295,20 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		0977C99D291EC37000158413 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				0977C99E291EC37000158413 /* debug-iOS.xcconfig */,
+				0977C99F291EC37000158413 /* release-iOS.xcconfig */,
+				0977C9A0291EC37000158413 /* Base.xcconfig */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
 		097C1E972378716F00A7A5AD = {
 			isa = PBXGroup;
 			children = (
+				0977C99D291EC37000158413 /* Configurations */,
 				FBCABEC124A2724F00BCD18B /* Radio-widgetExtension.entitlements */,
 				096DF2E4237A19740094AFB0 /* README.md */,
 				097C1EA22378716F00A7A5AD /* Radio */,
@@ -1367,7 +1348,6 @@
 				FB69E8E724A3D2DB004921E4 /* RadioUITests.xctest */,
 				FB89369E24A7F3AC0014EAC3 /* Radio-watch.app */,
 				FB8936A124A7F3AD0014EAC3 /* Radio-watch-app.app */,
-				FB8936AD24A7F3AF0014EAC3 /* Radio-watch-extension.appex */,
 				FB64DBDB24BE462600F47D8B /* Radio_domain.framework */,
 				FB64DC3224BE475F00F47D8B /* Radio_cross.framework */,
 				FB64DC4B24BE49DE00F47D8B /* Radio_data.framework */,
@@ -2405,7 +2385,7 @@
 				097C1E9D2378716F00A7A5AD /* Frameworks */,
 				097C1E9E2378716F00A7A5AD /* Resources */,
 				097C1EE42378719700A7A5AD /* Embed Frameworks */,
-				FBCABEC224A2724F00BCD18B /* Embed App Extensions */,
+				FBCABEC224A2724F00BCD18B /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -2667,41 +2647,22 @@
 			buildConfigurationList = FB8936C524A7F3AF0014EAC3 /* Build configuration list for PBXNativeTarget "Radio-watch-app" */;
 			buildPhases = (
 				FB89369F24A7F3AD0014EAC3 /* Resources */,
-				FB8936C424A7F3AF0014EAC3 /* Embed App Extensions */,
 				044DD2D0F302993FBB049160 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FB8936B024A7F3AF0014EAC3 /* PBXTargetDependency */,
-			);
-			name = "Radio-watch-app";
-			productName = "Radio-watch WatchKit App";
-			productReference = FB8936A124A7F3AD0014EAC3 /* Radio-watch-app.app */;
-			productType = "com.apple.product-type.application.watchapp2";
-		};
-		FB8936AC24A7F3AF0014EAC3 /* Radio-watch-extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FB8936C124A7F3AF0014EAC3 /* Build configuration list for PBXNativeTarget "Radio-watch-extension" */;
-			buildPhases = (
 				FB8936A924A7F3AF0014EAC3 /* Sources */,
-				FB8936AA24A7F3AF0014EAC3 /* Frameworks */,
-				FB8936AB24A7F3AF0014EAC3 /* Resources */,
 				FB64DBD524BE45D100F47D8B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FB64DBE124BE462700F47D8B /* PBXTargetDependency */,
-				FB64DC3824BE475F00F47D8B /* PBXTargetDependency */,
-				FB64DC5124BE49DE00F47D8B /* PBXTargetDependency */,
-				FB64DCB524BE4BEA00F47D8B /* PBXTargetDependency */,
-				3B453BDE2742A1D6007F38B7 /* PBXTargetDependency */,
+				0977C996291EC1AB00158413 /* PBXTargetDependency */,
+				0977C998291EC1AB00158413 /* PBXTargetDependency */,
+				0977C99A291EC1AB00158413 /* PBXTargetDependency */,
+				0977C99C291EC1AB00158413 /* PBXTargetDependency */,
 			);
-			name = "Radio-watch-extension";
-			productName = "Radio-watch WatchKit Extension";
-			productReference = FB8936AD24A7F3AF0014EAC3 /* Radio-watch-extension.appex */;
-			productType = "com.apple.product-type.watchkit2-extension";
+			name = "Radio-watch-app";
+			productName = "Radio-watch WatchKit App";
+			productReference = FB8936A124A7F3AD0014EAC3 /* Radio-watch-app.app */;
+			productType = "com.apple.product-type.application";
 		};
 		FBCABEAF24A2724D00BCD18B /* Radio-widgetExtension */ = {
 			isa = PBXNativeTarget;
@@ -2792,7 +2753,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1300;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1410;
 				ORGANIZATIONNAME = Raik;
 				TargetAttributes = {
 					097C1E9F2378716F00A7A5AD = {
@@ -2842,9 +2803,6 @@
 					FB8936A024A7F3AD0014EAC3 = {
 						CreatedOnToolsVersion = 12.0;
 					};
-					FB8936AC24A7F3AF0014EAC3 = {
-						CreatedOnToolsVersion = 12.0;
-					};
 					FBCABEAF24A2724D00BCD18B = {
 						CreatedOnToolsVersion = 12.0;
 					};
@@ -2891,7 +2849,6 @@
 				FB69E8E624A3D2DB004921E4 /* RadioUITests */,
 				FB89369D24A7F3AC0014EAC3 /* Radio-watch */,
 				FB8936A024A7F3AD0014EAC3 /* Radio-watch-app */,
-				FB8936AC24A7F3AF0014EAC3 /* Radio-watch-extension */,
 				3B453BA72742A13B007F38B7 /* Radio-interfaces-iOS */,
 				3B453BC92742A1D5007F38B7 /* Radio-interfaces-watchOS */,
 				3B453BB02742A13C007F38B7 /* Radio-interfacesTests */,
@@ -3006,16 +2963,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB8936A724A7F3AF0014EAC3 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FB8936AB24A7F3AF0014EAC3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 				FB8936BE24A7F3AF0014EAC3 /* Preview Assets.xcassets in Resources */,
 				FB8936BB24A7F3AF0014EAC3 /* Assets.xcassets in Resources */,
+				FB8936A724A7F3AF0014EAC3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3340,6 +3290,7 @@
 				3B453C0F2742AF4E007F38B7 /* MusicRepository.swift in Sources */,
 				3B453CA12742CBB6007F38B7 /* DJViewModel.swift in Sources */,
 				3B453C9E2742CBB5007F38B7 /* TrackViewModel.swift in Sources */,
+				0977C994291EBCA600158413 /* SongRequestButton.swift in Sources */,
 				3B453C9F2742CBB5007F38B7 /* CurrentTrackViewModel.swift in Sources */,
 				3B453C002742A7B7007F38B7 /* AVClient.swift in Sources */,
 				3B453C052742A824007F38B7 /* RemoteControlClient.swift in Sources */,
@@ -3563,6 +3514,26 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0977C996291EC1AB00158413 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB64DBDA24BE462600F47D8B /* Radio-domain-watchOS */;
+			targetProxy = 0977C995291EC1AB00158413 /* PBXContainerItemProxy */;
+		};
+		0977C998291EC1AB00158413 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB64DC3124BE475F00F47D8B /* Radio-cross-watchOS */;
+			targetProxy = 0977C997291EC1AB00158413 /* PBXContainerItemProxy */;
+		};
+		0977C99A291EC1AB00158413 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB64DC4A24BE49DE00F47D8B /* Radio-data-watchOS */;
+			targetProxy = 0977C999291EC1AB00158413 /* PBXContainerItemProxy */;
+		};
+		0977C99C291EC1AB00158413 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3B453BC92742A1D5007F38B7 /* Radio-interfaces-watchOS */;
+			targetProxy = 0977C99B291EC1AB00158413 /* PBXContainerItemProxy */;
+		};
 		097C1EB82378717100A7A5AD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 097C1E9F2378716F00A7A5AD /* Radio */;
@@ -3597,11 +3568,6 @@
 			isa = PBXTargetDependency;
 			target = 097C1E9F2378716F00A7A5AD /* Radio */;
 			targetProxy = 3B453BB52742A13C007F38B7 /* PBXContainerItemProxy */;
-		};
-		3B453BDE2742A1D6007F38B7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3B453BC92742A1D5007F38B7 /* Radio-interfaces-watchOS */;
-			targetProxy = 3B453BDD2742A1D6007F38B7 /* PBXContainerItemProxy */;
 		};
 		3B453BEA2742A26C007F38B7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3638,25 +3604,10 @@
 			target = FB242EA1243E3C6100115B49 /* Radio-cross-iOS */;
 			targetProxy = FB242EA7243E3C6100115B49 /* PBXContainerItemProxy */;
 		};
-		FB64DBE124BE462700F47D8B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FB64DBDA24BE462600F47D8B /* Radio-domain-watchOS */;
-			targetProxy = FB64DBE024BE462700F47D8B /* PBXContainerItemProxy */;
-		};
-		FB64DC3824BE475F00F47D8B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FB64DC3124BE475F00F47D8B /* Radio-cross-watchOS */;
-			targetProxy = FB64DC3724BE475F00F47D8B /* PBXContainerItemProxy */;
-		};
 		FB64DC4324BE479400F47D8B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FB64DC3124BE475F00F47D8B /* Radio-cross-watchOS */;
 			targetProxy = FB64DC4224BE479400F47D8B /* PBXContainerItemProxy */;
-		};
-		FB64DC5124BE49DE00F47D8B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FB64DC4A24BE49DE00F47D8B /* Radio-data-watchOS */;
-			targetProxy = FB64DC5024BE49DE00F47D8B /* PBXContainerItemProxy */;
 		};
 		FB64DC7A24BE4A9500F47D8B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3667,10 +3618,6 @@
 			isa = PBXTargetDependency;
 			target = FB64DBDA24BE462600F47D8B /* Radio-domain-watchOS */;
 			targetProxy = FB64DC7D24BE4A9500F47D8B /* PBXContainerItemProxy */;
-		};
-		FB64DCB524BE4BEA00F47D8B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			targetProxy = FB64DCB424BE4BEA00F47D8B /* PBXContainerItemProxy */;
 		};
 		FB69E8D424A3C41E004921E4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3696,11 +3643,6 @@
 			isa = PBXTargetDependency;
 			target = FB8936A024A7F3AD0014EAC3 /* Radio-watch-app */;
 			targetProxy = FB8936A324A7F3AD0014EAC3 /* PBXContainerItemProxy */;
-		};
-		FB8936B024A7F3AF0014EAC3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FB8936AC24A7F3AF0014EAC3 /* Radio-watch-extension */;
-			targetProxy = FB8936AF24A7F3AF0014EAC3 /* PBXContainerItemProxy */;
 		};
 		FBCABEBF24A2724F00BCD18B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3800,6 +3742,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -3860,6 +3803,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -3898,7 +3842,6 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEAD_CODE_STRIPPING = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
@@ -3932,7 +3875,6 @@
 				CODE_SIGN_ENTITLEMENTS = Radio/Radio.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEAD_CODE_STRIPPING = NO;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = D5C75HG392;
@@ -4007,7 +3949,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -4042,7 +3984,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -4116,8 +4058,7 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -4150,8 +4091,7 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -4304,7 +4244,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -4339,7 +4279,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -4373,7 +4313,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -4405,7 +4345,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -4437,7 +4377,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -4469,7 +4409,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -4501,7 +4441,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -4533,7 +4473,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -4600,67 +4540,21 @@
 			};
 			name = Release;
 		};
-		FB8936C224A7F3AF0014EAC3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Radio-watch-extension/Preview Content\"";
-				DEVELOPMENT_TEAM = D5C75HG392;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Radio-watch-extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio-watch.watchkitapp.watchkitextension";
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
-			};
-			name = Debug;
-		};
-		FB8936C324A7F3AF0014EAC3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Radio-watch-extension/Preview Content\"";
-				DEVELOPMENT_TEAM = D5C75HG392;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Radio-watch-extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio-watch.watchkitapp.watchkitextension";
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
-			};
-			name = Release;
-		};
 		FB8936C624A7F3AF0014EAC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N34AH7UQAR;
-				IBSC_MODULE = Radio_watch_WatchKit_Extension;
 				INFOPLIST_FILE = "Radio-watch-app/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio-watch.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -4676,12 +4570,16 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N34AH7UQAR;
-				IBSC_MODULE = Radio_watch_WatchKit_Extension;
 				INFOPLIST_FILE = "Radio-watch-app/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "cc.raik.radio-watch.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -5052,15 +4950,6 @@
 			buildConfigurations = (
 				FB69E8EF24A3D2DB004921E4 /* Debug */,
 				FB69E8F024A3D2DB004921E4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FB8936C124A7F3AF0014EAC3 /* Build configuration list for PBXNativeTarget "Radio-watch-extension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FB8936C224A7F3AF0014EAC3 /* Debug */,
-				FB8936C324A7F3AF0014EAC3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

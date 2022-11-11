@@ -8,8 +8,8 @@ import Radio_interfaces
 class WatchConfigurator {
     init() {
         InjectSettings.shared.register(MusicGateway.self) {
-            let client = AVClient(logger: InjectSettings.shared.resolve(LoggerWrapper.self)!)
-            return MusicRepository(logger: InjectSettings.shared.resolve(LoggerWrapper.self)!, client: client)
+            let client = AVClient()
+            return MusicRepository(client: client)
         }
         
     }

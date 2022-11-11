@@ -28,7 +28,7 @@ class RadioWatchConfigurator: Configurator {
                     currentTrack: InjectSettings.shared.resolve(GetCurrentTrackUseCase.self)!,
                     isPlaying: InjectSettings.shared.resolve(IsPlayingUseCase.self)!,
                     dj: InjectSettings.shared.resolve(GetDJInteractor.self)!,
-                    status: InjectSettings.shared.resolve(GetCurrentStatusInteractor.self)!
+                    status: InjectSettings.shared.resolve(GetCurrentStatusUseCase.self)!
                 )
                 return presenter
             }

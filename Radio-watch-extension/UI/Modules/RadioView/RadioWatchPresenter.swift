@@ -31,7 +31,7 @@ class RadioWatchPresenterImp: RadioWatchPresenter {
     var isPlayingInteractor: IsPlayingUseCase
     var currentTrackInteractor: GetCurrentTrackUseCase
     var djInteractor: GetDJInteractor
-    var statusInteractor: GetCurrentStatusInteractor
+    var statusInteractor: GetCurrentStatusUseCase
     
     var isPlaying = false
     private var disposeBag = Set<AnyCancellable>()
@@ -45,7 +45,7 @@ class RadioWatchPresenterImp: RadioWatchPresenter {
         currentTrack: GetCurrentTrackUseCase,
         isPlaying: IsPlayingUseCase,
         dj: GetDJInteractor,
-        status: GetCurrentStatusInteractor
+        status: GetCurrentStatusUseCase
     ) {
         self.playInteractor = play
         self.pauseInteractor = pause
