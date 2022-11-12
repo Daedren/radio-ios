@@ -11,6 +11,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var mainInjection: Configurator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        if mainInjection == nil {
+            self.mainInjection = Configurator()
+        }
         self.playerInterface = MediaPlayerConfigurator().configure()
         return true
     }

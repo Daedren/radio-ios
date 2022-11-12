@@ -727,6 +727,7 @@
 		0977C99F291EC37000158413 /* release-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "release-iOS.xcconfig"; sourceTree = "<group>"; };
 		0977C9A0291EC37000158413 /* Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
 		0977C9A1291EC45F00158413 /* WatchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDelegate.swift; sourceTree = "<group>"; };
+		0977C9A6291F23B200158413 /* BugfenderLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BugfenderLogger.swift; sourceTree = "<group>"; };
 		097C1EA02378716F00A7A5AD /* R-a-dio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "R-a-dio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		097C1EA32378716F00A7A5AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		097C1EA52378716F00A7A5AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -1920,6 +1921,7 @@
 			isa = PBXGroup;
 			children = (
 				FB242EB3243E3CFD00115B49 /* OSLogLogger.swift */,
+				0977C9A6291F23B200158413 /* BugfenderLogger.swift */,
 			);
 			path = Loggers;
 			sourceTree = "<group>";
@@ -2542,6 +2544,8 @@
 			dependencies = (
 			);
 			name = "Radio-cross-iOS";
+			packageProductDependencies = (
+			);
 			productName = "Radio-cross";
 			productReference = FB242EA2243E3C6100115B49 /* Radio_cross.framework */;
 			productType = "com.apple.product-type.framework";
@@ -4675,7 +4679,7 @@
 		FBCABEFD24A2864900BCD18B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -4708,7 +4712,7 @@
 		FBCABEFE24A2864900BCD18B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
