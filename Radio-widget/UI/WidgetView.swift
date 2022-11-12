@@ -18,7 +18,7 @@ struct Radio_widgetEntryView : View {
         switch family {
         case .systemSmall: smallFamilyView(entry.tracks.first)
         case .systemMedium: mediumFamilyView(entry.tracks.first)
-        case .systemLarge: mediumFamilyView(entry.tracks.first)
+//        case .systemLarge: mediumFamilyView(entry.tracks.first)
         default: smallFamilyView(entry.tracks.first)
         }
     }
@@ -30,12 +30,6 @@ struct Radio_widgetEntryView : View {
                     .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.height/1.3,
                            alignment: .leading)
                     .padding()
-                //                Image("radio_lady")
-                //                    .resizable()
-                //                    .position(x: geometry.size.width-30, y: /*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
-                //                    .frame(width: 20, height: 20, alignment: .trailing)
-                //                    .opacity(0.5)
-                //                    .padding()
             }
             Group {
                 Text(state?.currentTrack?.artist ?? "")
@@ -43,7 +37,7 @@ struct Radio_widgetEntryView : View {
                     .foregroundColor(.gray)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 Text(state?.currentTrack?.title ?? "")
-                    .font(.caption2)
+                    .font(.caption)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding([.leading, .trailing])
@@ -90,7 +84,7 @@ struct WidgetView_Previews: PreviewProvider {
             .previewContext(WidgetPreviewContext(family: .systemSmall))
         Radio_widgetEntryView(entry: entry)
             .previewContext(WidgetPreviewContext(family: .systemMedium))
-        Radio_widgetEntryView(entry: entry)
-            .previewContext(WidgetPreviewContext(family: .systemLarge))
+//        Radio_widgetEntryView(entry: entry)
+//            .previewContext(WidgetPreviewContext(family: .systemLarge))
     }
 }

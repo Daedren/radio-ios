@@ -143,7 +143,6 @@ struct RadioView_Previews: PreviewProvider {
 //            .environment(\.verticalSizeClass, .compact)
 //            .previewDevice(PreviewDevice(rawValue: "iPad Pro (9.7-inch)"))
             .previewDevice(PreviewDevice(rawValue: "iPhone 12"))
-                     .environment(\.colorScheme, .dark)
 //                    .previewLayout(.fixed(width: 700, height: 350))
 //                    .previewLayout(.fixed(width: 1200, height: 500))
         //            .environment(\.verticalSizeClass, .compact)

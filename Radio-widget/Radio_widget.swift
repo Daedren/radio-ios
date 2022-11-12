@@ -102,7 +102,8 @@ struct Radio_widget: Widget {
                             content: { entry in
                                 Radio_widgetEntryView(entry: entry)
                             })
-            .configurationDisplayName("My Widget")
-            .description("This is an example widget.")
+            .configurationDisplayName("Status")
+            .description("Shows current status")
+            .supportedFamilies([.systemSmall, .systemMedium])
     }
 }

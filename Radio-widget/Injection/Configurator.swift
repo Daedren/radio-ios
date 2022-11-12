@@ -4,10 +4,11 @@ import Radio_domain
 import Radio_data
 
 class IntentConfigurator {
-    
-}
-
-protocol Configurator {
-    
+    init() {
+        CrossConfigurator()
+        MapperConfigurator()
+        DataGatewayConfigurator()
+        InteractorConfigurator()
+    }
 }
 
