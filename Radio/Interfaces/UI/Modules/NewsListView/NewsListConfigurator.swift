@@ -8,7 +8,7 @@ struct NewsListProperties {
     var titleBar: String
 }
 
-class NewsListConfigurator: Configurator {
+class NewsListConfigurator {
     
     func configureFake() -> NewsListView<NewsListPresenterPreviewer> {
         NewsListView(presenter: NewsListPresenterPreviewer(),

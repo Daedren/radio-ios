@@ -4,7 +4,7 @@ import Radio_domain
 import SwiftUI
 
 
-class QueueIntentManagerConfigurator: Configurator {
+class QueueIntentManagerConfigurator {
 
     func configure() -> QueueIntentManager {
         let manager = QueueIntentManager(

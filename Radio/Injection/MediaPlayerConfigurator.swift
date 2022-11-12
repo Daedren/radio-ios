@@ -4,7 +4,7 @@ import Radio_domain
 import Radio_cross
 import Radio_interfaces
 
-class MediaPlayerConfigurator: Configurator {
+class MediaPlayerConfigurator {
     let iOSCommands: [RemoteControlCommand] = [.togglePausePlay,
                                                .play,
                                                .pause

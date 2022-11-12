@@ -3,13 +3,17 @@ import Radio_cross
 import Radio_domain
 import SwiftUI
 
-class RadioWatchConfigurator: Configurator {
+class RadioWatchConfigurator {
+    var mainInjector: Configurator?
     
     func configureFake() -> RadioWatchView<RadioWatchPresenterPreviewer> {
         RadioWatchView(presenter: RadioWatchPresenterPreviewer())
     }
 
     func configure() -> RadioWatchView<RadioWatchPresenterImp> {
+        if mainInjector == nil {
+            self.mainInjector = Configurator()
+        }
         self.inject()
         let view = RadioWatchView<RadioWatchPresenterImp>(
             presenter: InjectSettings.shared.resolve(RadioWatchPresenterImp.self)!

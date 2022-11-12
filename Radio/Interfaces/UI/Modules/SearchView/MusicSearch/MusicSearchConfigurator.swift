@@ -3,7 +3,7 @@ import Radio_cross
 import Radio_domain
 import SwiftUI
 
-class MusicSearchConfigurator: Configurator {
+class MusicSearchConfigurator {
     
 //    func configureFake() -> SearchView<SearchPresenterPreviewer> {
 //        SearchView(presenter: SearchPresenterPreviewer())

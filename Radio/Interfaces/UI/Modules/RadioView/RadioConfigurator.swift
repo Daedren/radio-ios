@@ -3,7 +3,7 @@ import Radio_cross
 import Radio_domain
 import SwiftUI
 
-class RadioConfigurator: Configurator {
+class RadioConfigurator {
     
     func configureFake() -> RadioView<RadioPresenterPreviewer> {
         RadioView(presenter: RadioPresenterPreviewer(), bigVersion: false)

@@ -3,7 +3,7 @@ import Radio_cross
 import Radio_domain
 import SwiftUI
 
-class FavoritesConfigurator: Configurator {
+class FavoritesConfigurator {
     
 //    func configureFake() -> FavoritesView<FavoritesPresenterPreviewer> {
 //        FavoritesView(presenter: FavoritesPresenterPreviewer())

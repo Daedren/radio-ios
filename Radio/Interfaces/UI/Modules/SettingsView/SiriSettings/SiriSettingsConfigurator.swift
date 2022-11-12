@@ -7,7 +7,7 @@ struct SiriSettingsProperties {
     var titleBar: String
 }
 
-class SiriSettingsConfigurator: Configurator {
+class SiriSettingsConfigurator {
     
     func configureFake() -> SiriSettingsView<SiriSettingsPresenterPreviewer> {
         SiriSettingsView(presenter: SiriSettingsPresenterPreviewer(),

@@ -1,5 +1,5 @@
 import Foundation
-import os.log
+import OSLog
 
 private extension LoggingLevel {
     func getOSLogLevel() -> OSLogType {

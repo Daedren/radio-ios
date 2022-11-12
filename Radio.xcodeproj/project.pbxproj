@@ -17,6 +17,7 @@
 		0941B512237883E800994F67 /* RadioConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0941B511237883E800994F67 /* RadioConfigurator.swift */; };
 		09560821237F5596008206A1 /* iOSInterfaceConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09560820237F5596008206A1 /* iOSInterfaceConfigurator.swift */; };
 		0977C994291EBCA600158413 /* SongRequestButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0C9A67245760A100320562 /* SongRequestButton.swift */; };
+		0977C9A2291EC45F00158413 /* WatchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0977C9A1291EC45F00158413 /* WatchDelegate.swift */; };
 		097C1EA42378716F00A7A5AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097C1EA32378716F00A7A5AD /* AppDelegate.swift */; };
 		097C1EA62378716F00A7A5AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097C1EA52378716F00A7A5AD /* SceneDelegate.swift */; };
 		097C1EA82378716F00A7A5AD /* MainTabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097C1EA72378716F00A7A5AD /* MainTabsView.swift */; };
@@ -725,6 +726,7 @@
 		0977C99E291EC37000158413 /* debug-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "debug-iOS.xcconfig"; sourceTree = "<group>"; };
 		0977C99F291EC37000158413 /* release-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "release-iOS.xcconfig"; sourceTree = "<group>"; };
 		0977C9A0291EC37000158413 /* Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
+		0977C9A1291EC45F00158413 /* WatchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDelegate.swift; sourceTree = "<group>"; };
 		097C1EA02378716F00A7A5AD /* R-a-dio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "R-a-dio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		097C1EA32378716F00A7A5AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		097C1EA52378716F00A7A5AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -2148,6 +2150,7 @@
 				FB8936BF24A7F3AF0014EAC3 /* Info.plist */,
 				FB8936C024A7F3AF0014EAC3 /* PushNotificationPayload.apns */,
 				FB8936BC24A7F3AF0014EAC3 /* Preview Content */,
+				0977C9A1291EC45F00158413 /* WatchDelegate.swift */,
 			);
 			path = "Radio-watch-extension";
 			sourceTree = "<group>";
@@ -3427,6 +3430,7 @@
 				FB64DCC624BE503D00F47D8B /* Configurator.swift in Sources */,
 				FB8936B724A7F3AF0014EAC3 /* NotificationController.swift in Sources */,
 				FB49CADD24A808E400AE88F1 /* SongListWatchView.swift in Sources */,
+				0977C9A2291EC45F00158413 /* WatchDelegate.swift in Sources */,
 				FB8936B524A7F3AF0014EAC3 /* RadioWatchView.swift in Sources */,
 				FB8936B324A7F3AF0014EAC3 /* RadioApp.swift in Sources */,
 				FB64DBC824BE454900F47D8B /* RadioWatchViewState.swift in Sources */,

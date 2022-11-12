@@ -3,7 +3,7 @@ import Radio_cross
 import Radio_domain
 import SwiftUI
 
-class LastPlayedConfigurator: Configurator {
+class LastPlayedConfigurator {
     
     func configureFake() -> LastPlayedView<LastPlayedPresenterPreviewer> {
         LastPlayedView(presenter: LastPlayedPresenterPreviewer())

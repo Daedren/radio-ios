@@ -7,7 +7,7 @@ struct SettingsProperties {
     var titleBar: String
 }
 
-class SettingsConfigurator: Configurator {
+class SettingsConfigurator {
 
     func configure() -> SettingsView<SettingsPresenterImp> {
         self.inject()
