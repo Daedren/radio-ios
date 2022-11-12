@@ -728,6 +728,7 @@
 		0977C9A0291EC37000158413 /* Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
 		0977C9A1291EC45F00158413 /* WatchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDelegate.swift; sourceTree = "<group>"; };
 		0977C9A6291F23B200158413 /* BugfenderLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BugfenderLogger.swift; sourceTree = "<group>"; };
+		0977C9AA291FF49900158413 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		097C1EA02378716F00A7A5AD /* R-a-dio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "R-a-dio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		097C1EA32378716F00A7A5AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		097C1EA52378716F00A7A5AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -1302,6 +1303,7 @@
 				0977C99E291EC37000158413 /* debug-iOS.xcconfig */,
 				0977C99F291EC37000158413 /* release-iOS.xcconfig */,
 				0977C9A0291EC37000158413 /* Base.xcconfig */,
+				0977C9AA291FF49900158413 /* Secrets.xcconfig */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -4245,6 +4247,7 @@
 		};
 		FB242EAB243E3C6100115B49 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0977C9A0291EC37000158413 /* Base.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -4280,6 +4283,7 @@
 		};
 		FB242EAC243E3C6100115B49 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0977C9A0291EC37000158413 /* Base.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;

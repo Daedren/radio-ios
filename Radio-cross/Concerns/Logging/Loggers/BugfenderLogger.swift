@@ -4,12 +4,15 @@ import BugfenderSDK
 public class BugfenderLogger: LoggerClientInterface {
     let level: LoggingLevel
     var loggers = [String: String]()
+    var key = (Bundle.main.infoDictionary?["R_BUGFENDER_KEY"] as? String)
 
     public init(loggingLevel: LoggingLevel) {
         self.level = loggingLevel
-        Bugfender.activateLogger("")
+        if let key = self.key {
+            Bugfender.activateLogger(key)
+        }
         //Bugfender.enableCrashReporting()
-        //Bugfender.enableUIEventLogging()  // optional, log user interactions automatically
+        //Bugfender.enableUIEventLogging()
     }
 
     public func log(message: String, context: String, logLevel: LoggingLevel, function: String, line: Int) {

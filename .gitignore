@@ -92,3 +92,4 @@ iOSInjectionProject/
 MockingbirdSupport/
 MockingbirdMocks/
 */MockingbirdCache/
+Configurations/Secrets.xcconfig
