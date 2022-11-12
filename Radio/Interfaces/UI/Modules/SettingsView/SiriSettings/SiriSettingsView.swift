@@ -39,7 +39,7 @@ struct SiriSettingsView<P: SiriSettingsPresenter>: View {
             List {
                 Section(footer:
                         Text("Tap to add/remove a Siri Shortcut for the chosen action.")
-                        .fixedSize(horizontal: false, vertical: true)
+                    .font(.footnote)
                             ) {
                     ForEach(Array(self.presenter.state.options.enumerated()), id: \.offset) {
                     index, item in

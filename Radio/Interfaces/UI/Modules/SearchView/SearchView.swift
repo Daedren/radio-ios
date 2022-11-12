@@ -50,7 +50,9 @@ struct SearchView<P: SearchPresenter>: View {
                               text: $presenter.state.searchTerm
                 )
                 List{
-                    Section(footer: Text("You can request once every 30 minutes.\nSong cooldown is variable.")){
+                    Section(footer: Text("You can request once every 30 minutes.\nSong cooldown is variable.")
+                        .font(.footnote)
+                    ){
                         VStack {
                             requestTimeText()
                                 .animation(.easeInOut(duration: 0.3), value: presenter.state)
@@ -66,7 +68,9 @@ struct SearchView<P: SearchPresenter>: View {
                         }
                         .frame(maxWidth: .infinity)
                     }
-                    Section(header: Text("Results")) {
+                    Section(header: Text("Results")
+                        .font(.footnote)
+                    ) {
                         ForEach(Array(self.presenter.state.tracks.enumerated()), id: \.offset) { index, item in
                             self.buttonFor(index: index, item: item)
                         }
@@ -120,7 +124,6 @@ struct SearchView_Previews: PreviewProvider {
                 presenter: SearchPresenterPreviewer(),
                 properties:
                     SearchListProperties(titleBar: "Search"))
-                          .environment(\.colorScheme, .dark)
         }
     }
 }
