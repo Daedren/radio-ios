@@ -66,6 +66,7 @@ struct SearchView<P: SearchPresenter>: View {
                                 .buttonStyle(PlainButtonStyle())
                             }
                         }
+                        .padding([.top, .bottom], 10)
                         .frame(maxWidth: .infinity)
                     }
                     Section(header: Text("Results")

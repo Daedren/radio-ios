@@ -7,6 +7,8 @@ class SearchPresenterPreviewer: SearchPresenter {
     
     init() {
         state.acceptingRequests = true
+        state.canRequest = false
+        state.loadingGeneral = false
         state.tracks = [SearchedTrackViewModel.stub(), SearchedTrackViewModel.stub(), SearchedTrackViewModel.stub()]
         state.tracks[1].state = .disabled
     }
