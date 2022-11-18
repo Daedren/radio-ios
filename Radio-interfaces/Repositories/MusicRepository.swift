@@ -12,7 +12,8 @@ public class MusicRepository: MusicGateway {
     var classDisposeBag = Set<AnyCancellable>()
     
     var categoryOptions: AVAudioSession.CategoryOptions
-    
+    var radioUrl: URL = URL(string: "https://stream.r-a-d.io/main.mp3")! // Move this to a use case.
+
     public init(client: AudioClientContract) {
         self.audioClient = client
         
@@ -23,6 +24,8 @@ public class MusicRepository: MusicGateway {
         #if os(watchOS)
             self.categoryOptions = [.allowBluetoothA2DP]
         #endif
+
+        _ = self.enqueue(url: radioUrl)
     }
     
     public func play() {

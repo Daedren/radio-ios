@@ -40,6 +40,7 @@ public class AVClient: NSObject, AudioClientContract, Logging {
         NotificationCenter.default.addObserver(self, selector: #selector(itemFailedToPlayToEndTime(_:)), name: .AVPlayerItemFailedToPlayToEndTime, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(itemNewErrorLogEntry(_:)), name: .AVPlayerItemNewErrorLogEntry, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(itemPlaybackStalled(_:)), name: .AVPlayerItemPlaybackStalled, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleRouteChange), name: AVAudioSession.routeChangeNotification, object: AVAudioSession.sharedInstance())
         self.kvoObserver = self.manager.observe(\.rate, options: .new) { [weak self] (manager, change) in
             guard let nextRate = change.newValue else { return }
             self?.publisherRate.send(nextRate)
@@ -49,6 +50,8 @@ public class AVClient: NSObject, AudioClientContract, Logging {
     deinit {
         kvoObserver?.invalidate()
     }
+
+    // MARK: Public methods
     
     public func play() {
         if let item = self.manager.currentItem,
@@ -113,17 +116,7 @@ public class AVClient: NSObject, AudioClientContract, Logging {
         metadataOutput.setDelegate(self, queue: DispatchQueue.global(qos: .default))
         return metadataOutput
     }
-    
-    @objc func itemFailedToPlayToEndTime(_ notification: Notification) {
-        self.log(message: "\(notification.debugDescription)", logLevel: .info)
-    }
-    @objc func itemPlaybackStalled(_ notification: Notification) {
-        self.log(message: "\(notification.debugDescription)", logLevel: .info)
-    }
-    @objc func itemNewErrorLogEntry(_ notification: Notification) {
-        self.log(message: "\(notification.debugDescription)", logLevel: .info)
-    }
-    
+
     private func updatePlaybackInfo(with time: CMTime) {
         if let currentItem = manager.currentItem {
             self.log(message: "\(currentItem.canStepForward) \(currentItem.forwardPlaybackEndTime) \(currentItem.seekableTimeRanges)", logLevel: .info)
@@ -143,6 +136,40 @@ public class AVClient: NSObject, AudioClientContract, Logging {
         return self.publisherRate.eraseToAnyPublisher()
     }
 
+    // MARK: Notification handlers
+
+    @objc func itemFailedToPlayToEndTime(_ notification: Notification) {
+        self.log(message: "\(notification.debugDescription)", logLevel: .info)
+    }
+    @objc func itemPlaybackStalled(_ notification: Notification) {
+        self.log(message: "\(notification.debugDescription)", logLevel: .info)
+    }
+    @objc func itemNewErrorLogEntry(_ notification: Notification) {
+        self.log(message: "\(notification.debugDescription)", logLevel: .info)
+    }
+    @objc func handleRouteChange(_ notification: Notification) {
+        self.log(message: "\(notification.debugDescription)", logLevel: .info)
+        guard let userInfo = notification.userInfo,
+            let reasonValue = userInfo[AVAudioSessionRouteChangeReasonKey] as? UInt,
+                let reason = AVAudioSession.RouteChangeReason(rawValue:reasonValue) else {
+                return
+        }
+        switch reason {
+        case .newDeviceAvailable:
+            let session = AVAudioSession.sharedInstance()
+            let portsWeCareFor: [AVAudioSession.Port] = [.headphones, .bluetoothA2DP]
+            let newPorts = session.currentRoute.outputs.map{ $0.portType }
+            self.log(message: String(describing: session.currentRoute.outputs), logLevel: .info)
+            if self.manager.rate == 0.0 && newPorts.contains(where: portsWeCareFor.contains) {
+                self.play()
+            }
+        case .oldDeviceUnavailable:
+            // AVPlayer auto handles these cases.
+            break
+        default:
+            break
+        }
+    }
 }
 
 extension AVClient: AVPlayerItemMetadataOutputPushDelegate {
