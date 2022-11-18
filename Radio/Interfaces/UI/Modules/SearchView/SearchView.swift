@@ -104,6 +104,9 @@ struct SearchView<P: SearchPresenter>: View {
     }
     
     func requestTimeText() -> Text {
+        if let err = presenter.state.error {
+            return Text(err.description)
+        }
         if presenter.state.loadingGeneral {
             return Text("")
         }

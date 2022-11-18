@@ -41,6 +41,7 @@ public class RequestSongInteractor: RequestSongUseCase, Interactor {
 
         return radioGateway
             .getCurrentStatus()
+            .first()
             .mapError{ RequestSongUseCaseError.genericError($0) }
             .flatMap{ status -> AnyPublisher<Bool, RequestSongUseCaseError> in
                 if status.acceptingRequests {

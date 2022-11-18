@@ -19,6 +19,11 @@ class SearchPresenterImp: SearchPresenter, Logging {
 
     var searchedTerm = ""
     var searchedTracks = [RequestableTrack]()
+    var extraActionPublishers: [AnyPublisher<SearchListState.Mutation, Never>] {
+        get {
+            return []
+        }
+    }
 
     init(requestInteractor: RequestSongUseCase?,
          statusInteractor: GetCurrentStatusUseCase?,
@@ -36,7 +41,7 @@ class SearchPresenterImp: SearchPresenter, Logging {
                 self?.log(message: "action: "+String(describing: output))
             })
             .flatMap(handleAction)
-        let outside = getStatus()
+        let outside = Publishers.MergeMany(extraActionPublishers)
 
         actions.merge(with: outside)
             .handleEvents(receiveOutput: { [weak self] newVal in
@@ -152,6 +157,9 @@ class SearchPresenterImp: SearchPresenter, Logging {
                     } else {
                         return SearchListState.Mutation.notRequestable(index)
                     }
+                }
+                .flatMap { _ in
+                    self.getRequestStatus()
                 }
                 .catch { err in
                     return Just(SearchListState.Mutation.error(err.localizedDescription))

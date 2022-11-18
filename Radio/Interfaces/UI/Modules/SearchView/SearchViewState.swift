@@ -4,7 +4,8 @@ import Radio_interfaces
 
 class SearchPresenterPreviewer: SearchPresenter {
     @Published var state = SearchListState()
-    
+    var extraActionPublishers = [AnyPublisher<SearchListState.Mutation, Never>]()
+
     init() {
         state.acceptingRequests = true
         state.canRequest = false
@@ -20,6 +21,7 @@ class SearchPresenterPreviewer: SearchPresenter {
 
 protocol SearchPresenter: ObservableObject {
     var state: SearchListState { get set }
+    var extraActionPublishers: [AnyPublisher<SearchListState.Mutation, Never>] { get }
     func start(actions: AnyPublisher<SearchListAction, Never>)
 }
 
@@ -68,6 +70,7 @@ struct SearchListState: Equatable {
             if state.randomTrack.state == .loading {
                 state.randomTrack.state = .enabled
             }
+            state.loadingGeneral = false
             case .loadingRandom:
             state.randomTrack.state = .loading
         case let .searchedTracks(models):
@@ -75,16 +78,19 @@ struct SearchListState: Equatable {
             state.tracks = models
         case let .loading(index):
             state.tracks[index].state = .loading
+            state.randomTrack.state = .loading
             state.loadingGeneral = true
         case let .notRequestable(index):
             state.tracks[index].state = .disabled
+            state.loadingGeneral = false
         case let .songRequestable(index):
             state.tracks[index].state = .enabled
+            state.loadingGeneral = false
         case let .canRequestAt(date):
             state.canRequestAt = date
             state.canRequest = false
-            state.loadingGeneral = false
             state.randomTrack.state = .disabled
+            state.loadingGeneral = false
         case .cannotRequest:
             state.canRequestAt = nil
             state.canRequest = false

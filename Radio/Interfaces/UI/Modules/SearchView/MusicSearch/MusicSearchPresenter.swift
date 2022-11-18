@@ -8,6 +8,11 @@ import SwiftUI
 class MusicSearchPresenterImp: SearchPresenterImp {
     
     var searchInteractor: SearchForTermUseCase?
+    override var extraActionPublishers: [AnyPublisher<SearchListState.Mutation, Never>] {
+        get {
+            return [getStatus()]
+        }
+    }
 
     init(searchInteractor: SearchForTermUseCase?,
          requestInteractor: RequestSongUseCase?,

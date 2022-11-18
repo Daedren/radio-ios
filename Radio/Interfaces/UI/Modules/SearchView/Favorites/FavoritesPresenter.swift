@@ -9,6 +9,12 @@ class FavoritesPresenterImp: SearchPresenterImp {
 
     var searchInteractor: GetFavoritesInteractor?
     var lastUsernameInteractor: GetLastFavoriteUserUseCase?
+    override var extraActionPublishers: [AnyPublisher<SearchListState.Mutation, Never>] {
+        get {
+            return [getLastFavoriteUsername(), getStatus()]
+        }
+    }
+
 
     init(searchInteractor: GetFavoritesInteractor,
          requestInteractor: RequestSongUseCase,
@@ -22,25 +28,6 @@ class FavoritesPresenterImp: SearchPresenterImp {
                    cooldownInteractor: cooldownInteractor)
     }
     
-    override func start(actions: AnyPublisher<SearchListAction, Never>) {
-        let actions = actions
-            .flatMap(handleAction)
-        
-        let outside = getStatus()
-        let username = getLastFavoriteUsername()
-        
-        actions.merge(with: outside, username)
-            .handleEvents(receiveOutput: { [weak self] newVal in
-                self?.log(message: "\(newVal)", logLevel: .verbose)
-            })
-            .scan(SearchListState.initial, SearchListState.reduce(state:mutation:))
-            .receive(on: DispatchQueue.main)
-            .sink(receiveValue: { [weak self] newState in
-                self?.state = newState
-            })
-            .store(in: &searchDisposeBag)
-    }
-
     // MARK: CALLS TO DOMAIN
     
     func getLastFavoriteUsername() -> AnyPublisher<SearchListState.Mutation, Never> {

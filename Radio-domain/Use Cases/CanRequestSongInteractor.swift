@@ -34,16 +34,6 @@ public class CanRequestSongInteractor: CanRequestSongUseCase {
                 .eraseToAnyPublisher()
         }
     }
-    
-    private func requestSong(songId: Int) -> AnyPublisher<Bool, CanRequestSongUseCaseError> {
-        self.radioGateway!
-            .request(songId: songId)
-            .mapError{
-                return CanRequestSongUseCaseError.genericError($0)
-            }
-            .eraseToAnyPublisher()
-    }
-    
 }
 
 public enum CanRequestSongUseCaseError: Error {
