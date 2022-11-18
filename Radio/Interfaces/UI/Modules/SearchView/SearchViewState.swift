@@ -83,6 +83,7 @@ struct SearchListState: Equatable {
         case let .canRequestAt(date):
             state.canRequestAt = date
             state.canRequest = false
+            state.loadingGeneral = false
             state.randomTrack.state = .disabled
         case .cannotRequest:
             state.canRequestAt = nil
