@@ -1,11 +1,12 @@
 import Foundation
+import Radio_cross
 import Combine
 
 public protocol GetCurrentTrackUseCase {
     func execute(with disposeBag: Set<AnyCancellable>) -> AnyPublisher<QueuedTrack,Never>
 }
 
-public class GetCurrentTrackInteractor: GetCurrentTrackUseCase {
+public class GetCurrentTrackInteractor: GetCurrentTrackUseCase, Logging {
     var avGateway: MusicGateway?
     var radioGateway: RadioGateway
 
@@ -23,31 +24,42 @@ public class GetCurrentTrackInteractor: GetCurrentTrackUseCase {
             .getCurrentTrack()
             .map{ track -> QueuedTrack? in
                 return track
-
-            .catch({err in
-                return Just<QueuedTrack?>(nil)
+            }
+            .handleEvents(receiveOutput: { output in
+                self.log(message: "api: "+String(describing: output))
+            }, receiveCompletion: { completion in
+                self.log(message: "api: "+String(describing: completion))
+            }, receiveCancel: {
+                self.log(message: "api: cancelled")
             })
-                .prepend(Just<QueuedTrack?>(nil))
-                .eraseToAnyPublisher()
+            .`catch` { err in return Just<QueuedTrack?>(nil) }
+            .prepend(Just<QueuedTrack?>(nil))
+            .eraseToAnyPublisher()
 
-                    let icyName = self.avGateway?.getSongName()
-                    //            .removeDuplicates()
-                .prepend(Just<String>(""))
-                    //            .compactMap{ $0 }
-                    .eraseToAnyPublisher()
+        let icyName = self.avGateway?.getSongName()
+            .prepend(Just<String>(""))
+            .handleEvents(receiveOutput: { output in
+                self.log(message: "icy: "+String(describing: output))
+//                self.songOverHandler()
+            }, receiveCompletion: { completion in
+                self.log(message: "icy: "+String(describing: completion))
+            }, receiveCancel: {
+                self.log(message: "icy: cancelled")
+            })
+            .eraseToAnyPublisher()
 
-                    let timer = Timer.publish(every: 1.0,
-                                              tolerance: 5.0,
-                                              on: .current,
-                                              in: .common)
-                .autoconnect()
-                .eraseToAnyPublisher()
+        let timer = Timer.publish(every: 1.0,
+                                  tolerance: 5.0,
+                                  on: .current,
+                                  in: .common)
+            .autoconnect()
+            .eraseToAnyPublisher()
 
-                    let mergedObs = apiTrack
-                .combineLatest(icyName ?? Just<String>("").eraseToAnyPublisher())
-                .flatMap{ [unowned self] (arg) -> AnyPublisher<QueuedTrack,Never> in
+        let mergedObs = apiTrack
+            .combineLatest(icyName ?? Just<String>("").eraseToAnyPublisher())
+            .flatMap{ [unowned self] (arg) -> AnyPublisher<QueuedTrack,Never> in
                 let (api, icy) = arg
-                
+
                 var model: QueuedTrack? = api
                 if self.avGateway?.isPlaying() ?? false {
                     self.changeTrackName(to: icy, track: &model)
@@ -70,9 +82,6 @@ public class GetCurrentTrackInteractor: GetCurrentTrackUseCase {
             }
             .eraseToAnyPublisher()
         
-        self.songOverHandler(obs: mergedObsWithTimer)
-        
-        
         return mergedObsWithTimer
     }
 
@@ -88,27 +97,13 @@ public class GetCurrentTrackInteractor: GetCurrentTrackUseCase {
             track?.artist = ""
         }
     }
-    
-    private func songOverHandler(obs: AnyPublisher<QueuedTrack, Never>) {
-        obs
-            .compactMap{ return $0 }
-            .filter{
-                if let endTime = $0.endTime,
-                   let currentTime = $0.currentTime,
-                   endTime > currentTime {
-                    return true
-                }
-                return false
-            }
-            .removeDuplicates(by: { $0.hashValue == $1.hashValue })
-        //        .catch{ err in return Empty<QueuedTrack,Never>() }
-            .flatMap { _ in
-                self.radioGateway.updateNow()
-                    .replaceError(with: ())
-            }
+
+    private func songOverHandler() {
+        self.radioGateway.updateNow()
+            .replaceError(with: ())
             .sink(receiveValue: { _ in
             })
             .store(in: &endSongDisposeBag)
     }
-    
+
 }
