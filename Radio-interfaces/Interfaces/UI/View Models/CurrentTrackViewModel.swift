@@ -44,7 +44,7 @@ public class CurrentTrackViewModel: TrackViewModel {
             let currDiff = NSCalendar.current.dateComponents(dayHourMinuteSecond, from: startTime, to: currentTime);
             let endDiff = NSCalendar.current.dateComponents(dayHourMinuteSecond, from: startTime, to: endTime);
             
-            self.percentage = current / end
+            self.percentage = min(current / end, 1.0)
             if let minute = endDiff.minute, let second = endDiff.second {
                 self.endTag = String(format: "%01d:%02d", minute, second)
             }
